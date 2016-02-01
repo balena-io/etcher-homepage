@@ -1,0 +1,22 @@
+{
+  "name": "etcher-homepage",
+  "description": "static homepage",
+  "main": "index.js",
+  "authors": [
+    "gaudi <craig@resin.io>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/craig-mulligan/sass-bootstrap",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass": "bootstrap-sass-official#~3.3.6"
+  }
+}

@@ -1,0 +1,71 @@
+{
+	"pageTitle": "Etcher by resin.io",
+	"jumbotron": {
+		"description": "A fast simple way to burn OS images to SD cards"
+	},
+	"callout": {
+    "title": "Start burning your images the easy way",
+    "button": "Download Etcher for OSX"
+  },
+	"description": "a fast simple way to burn OS images to SD cards",
+  "topNav":[
+    {
+      "title": "Repository",
+      "link": "#"
+    }
+  ],
+  "bottomNav":[
+    {
+      "title": "Repository",
+      "link": "#"
+    },
+    {
+      "title": "Terms",
+      "link": "#"
+    },
+    {
+      "title": "Privacy",
+      "link": "#"
+    },
+    {
+      "title": "About Us",
+      "link": "#"
+    },
+    {
+      "title": "Blog",
+      "link": "#"
+    }
+  ],
+	"features": [
+		{
+			"title": "Open Source",
+			"img": "open_source_icon",
+			"description": "Fast simple way to burn images to SD cards"
+		},
+		{
+			"title": "Cross Platform",
+			"img": "screen_icon",
+			"description": "Fast simple way to burn images to SD cards"
+		},
+		{
+			"title": "Simple Interface",
+			"img": "simple_icon",
+			"description": "Fast simple way to burn images to SD cards"
+		},
+		{
+			"title": "Burn to the correct drives",
+			"img": "SD_icon",
+			"description": "Fast simple way to burn images to SD cards"
+		},
+		{
+			"title": "Hosted on github",
+			"img": "github_server_icon",
+			"description": "Fast simple way to burn images to SD cards"
+		},
+		{
+			"title": "Easy to use",
+			"img": "simple_icon",
+			"description": "Fast simple way to burn images to SD cards"
+		}
+	]
+}
