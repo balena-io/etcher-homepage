@@ -32,6 +32,10 @@ body {
     font-family: "Helvetica Neue";
   }
 }
+
+.navbar-collapse {
+  text-align: center;
+}
 // nav
 
 // title
@@ -82,10 +86,10 @@ body {
   width: 70%;
   margin: 0 auto;
   height: 400px;
-  @include breakpoint(small) {
-    height: 200px;
-    margin-top: -200px;
-  }
+  // @include breakpoint(small) {
+  //   height: 200px;
+  //   margin-top: -200px;
+  // }
 }
 
 .product {
@@ -93,9 +97,9 @@ body {
   background-size: cover;
   width: 100%;
   height: 400px;
-  @include breakpoint(small) {
-    height: 200px;
-  }
+  // @include breakpoint(small) {
+  //   height: 200px;
+  // }
 }
 
 // Footer

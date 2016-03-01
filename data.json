@@ -3,9 +3,13 @@
 	"jumbotron": {
 		"description": "A fast simple way to  OS images to SD cards"
 	},
+	"button":{
+		"text": "Download Etcher for {{ os }}",
+		"shortText": "Download Etcher for {{ os }}",
+		"link": "https://S3-link-{{ os }}-latest"
+	},
 	"callout": {
-    "title": "Start burning your images the easy way",
-    "button": "Download Etcher for OSX"
+    "title": "Start burning your images the easy way"
   },
 	"description": "a fast simple way to burn OS images to SD cards",
   "topNav":[

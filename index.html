@@ -17,7 +17,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body>
+  <body id="app">
 
     <nav class="navbar navbar-default">
       <div class="container">
@@ -35,7 +35,7 @@
             
               <li><a href="#">Repository</a></li>
             
-            <button class="btn btn-primary" href="#">Download for OSX</button>
+            <button class="btn btn-primary" href="https://S3-link-{{ os }}-latest">Download Etcher for {{ os }}</button>
           </ul>
         </div>
       </div>
@@ -48,7 +48,7 @@
         <div class="jumbotron">
           <h1 class="title">Etcher <span class="sub-title">by <span>resin.io</span></span></h1>
           <h2>A fast simple way to  OS images to SD cards</h2>
-          <p><a class="btn btn-success btn-lg" href="#" role="button">Download Ether for OSX</a></p>
+          <p><a class="btn btn-success btn-lg" href="https://S3-link-{{ os }}-latest" role="button">Download Etcher for {{ os }}</a></p>
         </div>
 
         <!-- Features -->
@@ -110,14 +110,13 @@
       <div class="product">
         <div class="screen-shot"></div>
       </div>
-
     </section> <!-- /content -->
 
     <footer>
       <div class="container">
         <div class="call-out">
           <h2>Start burning your images the easy way</h2>
-          <a class="btn btn-primary btn-lg">Download Etcher for OSX</a>
+          <a href="https://S3-link-{{ os }}-latest" class="btn btn-primary btn-lg">Download Etcher for {{ os }}</a>
         </div>
         <hr>
         <div class="navbar">
@@ -143,6 +142,8 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="bower_components/bootstrap-sass/javascripts/bootstrap.min.js"></script>
+    <script src="bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js"></script>
+    <script src="bower_components/vue/dist/vue.min.js"></script>
+    <script src="static/js/main.js"></script>
   </body>
 </html>
