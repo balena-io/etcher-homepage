@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="static/images/etcher.ico"/>
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>{{ pageTitle }}</title>
 
@@ -28,14 +29,14 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-          <a class="navbar-brand title" href="#">Etcher <span class="sub-title">by <span>resin.io</span></span></a>
+          <div class="navbar-brand title">Etcher <span class="sub-title">by <a target="_blank" href="https://resin.io">resin.io</a></span></div>
         </div>
         <div class="collapse navbar-collapse" id="menu">
           <ul class="nav navbar-nav navbar-right">
             {% for item in topNav %}
               <li><a href="{{ item.link }}">{{ item.title }}</a></li>
             {% endfor %}
-            <button class="btn btn-primary" href="{{ button.link }}">{{ button.shortText }}</button>
+            <a class="btn btn-primary" href="{{ button.link }}" target="_blank">{{ button.shortText }}</a>
           </ul>
         </div>
       </div>
@@ -46,7 +47,7 @@
       <div class="container">
         <!-- Jumbo -->
         <div class="jumbotron">
-          <h1 class="title">Etcher <span class="sub-title">by <span>resin.io</span></span></h1>
+          <h1 class="title">Etcher <span class="sub-title">by <a>resin.io</a></span></h1>
           <h2>{{ jumbotron.description }}</h2>
           <p><a class="btn btn-success btn-lg" href="{{ button.link }}" role="button">{{ button.text }}</a></p>
         </div>

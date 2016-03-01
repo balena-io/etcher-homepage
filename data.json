@@ -15,13 +15,13 @@
   "topNav":[
     {
       "title": "Repository",
-      "link": "#"
+      "link": "https://github.com/resin-io/etcher"
     }
   ],
   "bottomNav":[
     {
       "title": "Repository",
-      "link": "#"
+      "link": "https://github.com/resin-io/etcher"
     },
     {
       "title": "Terms",
@@ -33,43 +33,43 @@
     },
     {
       "title": "About Us",
-      "link": "#"
+      "link": "https://resin.io"
     },
     {
       "title": "Blog",
-      "link": "#"
+      "link": "https://resin.io/blog"
     }
   ],
 	"features": [
 		{
 			"title": "Open Source",
 			"img": "open_source_icon",
-			"description": "Fast simple way to burn images to SD cards"
+			"description": "Open for you to play with, poke, prod and extend to make it your own"
 		},
 		{
 			"title": "Cross Platform",
 			"img": "screen_icon",
-			"description": "Fast simple way to burn images to SD cards"
+			"description": "Works for everyone, no more complicated install instructions."
 		},
 		{
-			"title": "Simple Interface",
-			"img": "simple_icon",
-			"description": "Fast simple way to burn images to SD cards"
+			"title": "Card Validation",
+			"img": "SD_icon",
+			"description": "Save time by checking if cards are currupted before you burn"
 		},
 		{
 			"title": "Burn to the correct drives",
 			"img": "SD_icon",
-			"description": "Fast simple way to burn images to SD cards"
+			"description": "Makes drive selection obvious avoid whiping your entire harddrive"
 		},
 		{
 			"title": "Hosted on github",
 			"img": "github_server_icon",
-			"description": "Fast simple way to burn images to SD cards"
+			"description": "Simple to contribute = Easy to improve"
 		},
 		{
-			"title": "Easy to use",
+			"title": "Beautifully Simple",
 			"img": "simple_icon",
-			"description": "Fast simple way to burn images to SD cards"
+			"description": "Did we mention it's pretty pretty?"
 		}
 	]
 }
