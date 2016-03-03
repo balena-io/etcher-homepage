@@ -71,6 +71,7 @@ body {
 }
 
 .features {
+  position: relative;
   margin: $margin*3 0;
   .feature {
     text-align: center;
@@ -85,26 +86,33 @@ body {
   }
 }
 
-.screen-shot {
-  @include background-image-retina('../images/step1', 'png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: bottom center;
-  width: 70%;
+// element to trigger screen-shot slide in.
+#trigger {
+  position: absolute;
+  bottom: 100px;
+}
+
+#screen-shot {
   margin: 0 auto;
-  height: 400px;
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 0;
-  @include transition(.4s);
+  bottom: -500px;
+  height: 500px;
+  z-index: 1;
+  @include transition(1s);
+  @include breakpoint(small) {
+    height: 400px;
+  }
 }
 
 .product {
   @include background-image-retina('../images/pattern', 'png');
   background-size: cover;
   width: 100%;
-  height: 400px;
+  height: 500px;
+  position: relative;
+  z-index: 0;
   @include breakpoint(small) {
     height: 200px;
   }
@@ -113,6 +121,9 @@ body {
 // Footer
 footer {
   color: $colorGrey;
+  background: #fff;
+  position: static;
+  z-index: 2;
    a {
     color: $colorGrey;
   }

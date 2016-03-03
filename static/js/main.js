@@ -11,42 +11,46 @@ new Vue({
   }
 })
 
-window.addEventListener('mousewheel', function(e){
-    scrollDirection = e.wheelDelta < 0 ? true : false;
-});
+// define images
+	var images = [
+		"static/images/step1.png",
+		"static/images/step2.png",
+		"static/images/step3.png",
+		"static/images/complete.png"
+	];
+  console.log(window.TweenMax)
+	// TweenMax can tween any property of any object. We use this object to cycle through the array
+	var obj = {curImg: 0};
 
-var count = 0
-var nPixels = 20
-var $elem = $('.screen-shot')
-$(window).on('scroll', function() {
+	// create tween
+	var tween = TweenMax.to(obj, 0.5,
+		{
+			curImg: images.length - 1,	// animate propery curImg to number of images
+			roundProps: "curImg",				// only integers so it can be used as an array index
+			repeat: 0,									// repeat 3 times
+			immediateRender: true,			// load first image automatically
+			ease: Linear.easeNone,			// show every image the same ammount of time
+			onUpdate: function () {
+			  $("#screen-shot").attr("src", images[obj.curImg]); // set the image source
+			}
+		}
+	);
 
-  var docViewTop = $(this).scrollTop();
-  var docViewBottom = docViewTop + $(this).height();
-  
-  if (isScrolledIntoView($elem, docViewTop, docViewBottom)) {
-    images = ['step1.png', 'step2.png', 'step3.png', 'step3.png', 'complete.png']
-    if (window.pageYOffset % nPixels === 0) {
-      if (scrollDirection && count < images.length) {
-        replaceImg($elem, images[count]);
-        count++;
-        console.log(count)
-      } else if(!scrollDirection && count > 0){
-        count--;
-        replaceImg($elem, images[count]);
-        console.log(count)
-      }
-    }
-  }
-});
+	// init controller
+	var controller = new ScrollMagic.Controller();
+	var controller2 = new ScrollMagic.Controller();
+	// build scene
+	var scene = new ScrollMagic.Scene({triggerElement: "#screen-shot", duration: 400})
+					.setTween(tween)
+					// .addIndicators() // add indicators (requires plugin)
+					.addTo(controller)
+          .on('enter', function () {
+              $("#screen-shot").css("bottom", 0);
+          });
 
-function replaceImg(element, newImage){
-  console.log(newImage);
-  var styleProps = $elem.css("background-image", "url(static/images/" + newImage + ")");
-}
-
-function isScrolledIntoView($elem, docViewTop, docViewBottom) {
-    var elemTop = $elem.offset().top;
-    var elemBottom = elemTop + $elem.height();
-
-    return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
-}
+  var scene2 = new ScrollMagic.Scene({triggerElement: "#trigger", duration: 100})
+					// .addIndicators() // add indicators (requires plugin)
+					.addTo(controller)
+          .on('enter', function () {
+              $("#screen-shot").css("bottom", 0);
+          });

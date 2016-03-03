@@ -33,9 +33,9 @@
         </div>
         <div class="collapse navbar-collapse" id="menu">
           <ul class="nav navbar-nav navbar-right">
-            
+
               <li><a href="https://github.com/resin-io/etcher">Repository</a></li>
-            
+
             <a class="btn btn-primary" href="https://S3-link-{{ os }}-latest" target="_blank">Download Etcher for {{ os }}</a>
           </ul>
         </div>
@@ -55,7 +55,7 @@
         <!-- Features -->
         <div class="features">
           <div class="row">
-            
+
             <div class="col-md-4 feature">
               <div class="image-container">
                 <img src="static/images/icons/open_source_icon.png" srcset="static/images/icons/open_source_icon@2x.png 2x">
@@ -63,7 +63,7 @@
               <h2>Open Source</h2>
               <p>Open for you to play with, poke, prod and extend to make it your own</p>
             </div>
-            
+
             <div class="col-md-4 feature">
               <div class="image-container">
                 <img src="static/images/icons/screen_icon.png" srcset="static/images/icons/screen_icon@2x.png 2x">
@@ -71,7 +71,7 @@
               <h2>Cross Platform</h2>
               <p>Works for everyone, no more complicated install instructions.</p>
             </div>
-            
+
             <div class="col-md-4 feature">
               <div class="image-container">
                 <img src="static/images/icons/SD_icon.png" srcset="static/images/icons/SD_icon@2x.png 2x">
@@ -79,7 +79,7 @@
               <h2>Card Validation</h2>
               <p>Save time by checking if cards are currupted before you burn</p>
             </div>
-            
+            <div id="trigger"></div>
             <div class="col-md-4 feature">
               <div class="image-container">
                 <img src="static/images/icons/SD_icon.png" srcset="static/images/icons/SD_icon@2x.png 2x">
@@ -87,7 +87,7 @@
               <h2>Burn to the correct drives</h2>
               <p>Makes drive selection obvious avoid whiping your entire harddrive</p>
             </div>
-            
+
             <div class="col-md-4 feature">
               <div class="image-container">
                 <img src="static/images/icons/github_server_icon.png" srcset="static/images/icons/github_server_icon@2x.png 2x">
@@ -95,7 +95,7 @@
               <h2>Hosted on github</h2>
               <p>Simple to contribute = Easy to improve</p>
             </div>
-            
+
             <div class="col-md-4 feature">
               <div class="image-container">
                 <img src="static/images/icons/simple_icon.png" srcset="static/images/icons/simple_icon@2x.png 2x">
@@ -103,14 +103,13 @@
               <h2>Beautifully Simple</h2>
               <p>Did we mention it&#39;s pretty pretty?</p>
             </div>
-            
           </div>
         </div> <!-- features -->
       </div>  <!-- /container -->
       <!-- product -->
-      <div class="product">
-        <div class="screen-shot"></div>
-      </div>
+      <div class="product"></div>
+      <img id="screen-shot" src="/static/images/step1.png"></div>
+
     </section> <!-- /content -->
 
     <footer>
@@ -122,17 +121,17 @@
         <hr>
         <div class="navbar">
           <ul class="nav navbar-nav navbar-left">
-            
+
               <li><a href="https://github.com/resin-io/etcher">Repository</a></li>
-            
+
               <li><a href="#">Terms</a></li>
-            
+
               <li><a href="#">Privacy</a></li>
-            
+
               <li><a href="https://resin.io">About Us</a></li>
-            
+
               <li><a href="https://resin.io/blog">Blog</a></li>
-            
+
           </ul>
         </div>
         <div class="well">
@@ -145,6 +144,10 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js"></script>
     <script src="bower_components/vue/dist/vue.min.js"></script>
+    <script src="bower_components/scrollmagic/scrollmagic/minified/ScrollMagic.min.js"></script>
+    <script src="bower_components/gsap/src/minified/TweenMax.min.js"></script>
+    <script src="bower_components/scrollmagic/scrollmagic/minified/plugins/animation.gsap.min.js"></script>
+    <script src="bower_components/scrollmagic/scrollmagic/minified/plugins/debug.addIndicators.min.js"></script>
     <script src="static/js/main.js"></script>
   </body>
 </html>
