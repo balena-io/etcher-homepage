@@ -86,7 +86,7 @@ body {
 }
 
 .screen-shot {
-  @include background-image-retina('../images/product_img', 'png');
+  @include background-image-retina('../images/step1', 'png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: bottom center;
@@ -97,6 +97,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
+  @include transition(.4s);
 }
 
 .product {

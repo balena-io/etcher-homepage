@@ -23,6 +23,15 @@
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
 }
 
+@mixin transition($duration) {
+    -webkit-transition: $duration;
+    -moz-transition: $duration;
+    -ms-transition: $duration;
+    -o-transition: $duration;
+    transition: $duration;
+}
+
+
 /// Mixin to manage responsive breakpoints
 /// @author Hugo Giraudel
 /// @param {String} $breakpoint - Breakpoint name
