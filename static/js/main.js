@@ -42,14 +42,12 @@ new Vue({
 	// build scene
 	var scene = new ScrollMagic.Scene({triggerElement: "#screen-shot", duration: 400})
 					.setTween(tween)
-					// .addIndicators() // add indicators (requires plugin)
+					.addIndicators() // add indicators (requires plugin)
 					.addTo(controller)
-          .on('enter', function () {
-              $("#screen-shot").css("bottom", 0);
-          });
+          // .setPin("#screen-shot")
 
   var scene2 = new ScrollMagic.Scene({triggerElement: "#trigger", duration: 100})
-					// .addIndicators() // add indicators (requires plugin)
+					.addIndicators() // add indicators (requires plugin)
 					.addTo(controller)
           .on('enter', function () {
               $("#screen-shot").css("bottom", 0);

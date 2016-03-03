@@ -89,7 +89,7 @@ body {
 // element to trigger screen-shot slide in.
 #trigger {
   position: absolute;
-  bottom: 100px;
+  top: 50%;
 }
 
 #screen-shot {
@@ -101,8 +101,9 @@ body {
   height: 500px;
   z-index: 1;
   @include transition(1s);
-  @include breakpoint(small) {
-    height: 400px;
+  @include breakpoint(medium) {
+    height: auto;
+    width: 80%
   }
 }
 

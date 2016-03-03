@@ -38,6 +38,10 @@
     {
       "title": "Blog",
       "link": "https://resin.io/blog"
+    },
+		{
+      "title": "Downloads",
+      "link": "https://downloads.resin.io"
     }
   ],
 	"features": [
@@ -57,9 +61,9 @@
 			"description": "Save time by checking if cards are currupted before you burn"
 		},
 		{
-			"title": "Burn to the correct drives",
+			"title": "Hard Drive Friendly",
 			"img": "SD_icon",
-			"description": "Makes drive selection obvious avoid whiping your entire harddrive"
+			"description": "Makes drive selection obvious avoid wiping your entire harddrive"
 		},
 		{
 			"title": "Hosted on github",
