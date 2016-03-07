@@ -16,7 +16,7 @@ body {
   margin-bottom: 0;
 
   .btn {
-    margin-top: 10px;
+    margin-top: -5px;
   }
   .title {
     margin: 0;
@@ -30,7 +30,9 @@ body {
     font-size: 15px;
     font-weight: bold;
     display: inline-block;
+    float: none;
   }
+
 }
 
 .navbar-brand.title .sub-title a {
@@ -39,7 +41,14 @@ body {
 
 .navbar-collapse {
   text-align: center;
+  @include breakpoint(small) {
+    li {
+      display: block;
+    }
+  }
 }
+
+
 // nav
 .meta {
   color: #fff;
