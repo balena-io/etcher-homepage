@@ -8,7 +8,7 @@ $margin: 20px;
 @import "custom-bootstrap";
 
 body {
-  font-family: "Helvetica";
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 // nav
@@ -29,7 +29,6 @@ body {
   li {
     font-size: 15px;
     font-weight: bold;
-    font-family: "Helvetica Neue";
   }
 }
 
@@ -41,7 +40,14 @@ body {
   text-align: center;
 }
 // nav
-
+.meta {
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  &:hover {
+    color: #fff;
+  }
+}
 // title
 .title {
   font-weight: 800;
@@ -68,6 +74,9 @@ body {
 .jumbotron {
   background: none;
   text-align: center;
+  .btn {
+    text-transform: uppercase;
+  }
 }
 
 .features {
