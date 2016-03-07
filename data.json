@@ -7,8 +7,8 @@
 		"text": "Download Etcher for {{ os }}",
 		"shortText": "Download Etcher for {{ os }}",
 		"shout": "Dowload now",
-		"link": "https://S3-link-{{ os }}-latest",
-		"archiveLink": "https://downloads.resin.io"
+		"link": "https://secret-oasis-40174.herokuapp.com/api/latest/etcher/{{ os }}",
+		"archiveLink": "https://secret-oasis-40174.herokuapp.com/"
 	},
 	"callout": {
     "title": "Start burning your images the easy way"
