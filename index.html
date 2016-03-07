@@ -36,7 +36,7 @@
             
               <li><a href="https://github.com/resin-io/etcher">Repository</a></li>
             
-            <a class="btn btn-primary" href="https://S3-link-{{ os }}-latest" target="_blank">Download Etcher for {{ os }}</a>
+            <a v-cloak class="btn btn-primary" href="https://S3-link-{{ os }}-latest" target="_blank">Download Etcher for {{ os }}</a>
           </ul>
         </div>
       </div>
@@ -49,7 +49,8 @@
         <div class="jumbotron">
           <h1 class="title">Etcher <span class="sub-title">by <a>resin.io</a></span></h1>
           <h2>A fast simple way to  OS images to SD cards</h2>
-          <p><a class="btn btn-success btn-lg" href="https://S3-link-{{ os }}-latest" role="button">Download Etcher for {{ os }}</a></p>
+          <p><a v-cloak class="btn btn-success btn-lg" href="https://S3-link-{{ os }}-latest" role="button">Dowload now</a></p>
+          <p><a class="meta" v-cloak>View all versions</a></p>
         </div>
 
         <!-- Features -->
@@ -119,7 +120,7 @@
       <div class="container">
         <div class="call-out">
           <h2>Start burning your images the easy way</h2>
-          <a href="https://S3-link-{{ os }}-latest" class="btn btn-primary btn-lg">Download Etcher for {{ os }}</a>
+          <a v-cloak href="https://S3-link-{{ os }}-latest" class="btn btn-primary btn-lg">Download Etcher for {{ os }}</a>
         </div>
         <hr>
         <div class="navbar">

@@ -36,7 +36,7 @@
             {% for item in topNav %}
               <li><a href="{{ item.link }}">{{ item.title }}</a></li>
             {% endfor %}
-            <a class="btn btn-primary" href="{{ button.link }}" target="_blank">{{ button.shortText }}</a>
+            <a v-cloak class="btn btn-primary" href="{{ button.link }}" target="_blank">{{ button.shortText }}</a>
           </ul>
         </div>
       </div>
@@ -49,7 +49,8 @@
         <div class="jumbotron">
           <h1 class="title">Etcher <span class="sub-title">by <a>resin.io</a></span></h1>
           <h2>{{ jumbotron.description }}</h2>
-          <p><a class="btn btn-success btn-lg" href="{{ button.link }}" role="button">{{ button.text }}</a></p>
+          <p><a v-cloak class="btn btn-success btn-lg" href="{{ button.link }}" role="button">{{ button.shout }}</a></p>
+          <p><a class="meta" v-cloak>View all versions</a></p>
         </div>
 
         <!-- Features -->
@@ -79,7 +80,7 @@
       <div class="container">
         <div class="call-out">
           <h2>{{ callout.title }}</h2>
-          <a href="{{ button.link }}" class="btn btn-primary btn-lg">{{ button.text }}</a>
+          <a v-cloak href="{{ button.link }}" class="btn btn-primary btn-lg">{{ button.text }}</a>
         </div>
         <hr>
         <div class="navbar">
