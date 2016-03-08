@@ -29,7 +29,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-          <div class="navbar-brand title">Etcher <span class="sub-title">by <a target="_blank" href="https://resin.io">resin.io</a></span></div>
+        <a class="navbar-brand" href="/"><img src="static/images/{{ logo.dark }}.png" srcset="static/images/{{ logo.dark }}@2x.png 2x"/></a>
         </div>
         <div class="collapse navbar-collapse" id="menu">
           <ul class="nav navbar-nav navbar-right">
@@ -47,7 +47,7 @@
       <div class="container">
         <!-- Jumbo -->
         <div class="jumbotron">
-          <h1 class="title">Etcher <span class="sub-title">by <a>resin.io</a></span></h1>
+          <h1><img class="logo" src="static/images/{{ logo.light }}.png" srcset="static/images/{{ logo.light }}@2x.png 2x"/></h1>
           <h2>{{ jumbotron.description }}</h2>
           <p><a v-cloak class="btn btn-success btn-lg" href="{{ button.link }}" role="button">{{ button.shout }}</a></p>
           <p><a href="{{ button.archiveLink }}" class="meta" v-cloak>View all versions</a></p>
@@ -105,5 +105,16 @@
     <script src="bower_components/scrollmagic/scrollmagic/minified/plugins/animation.gsap.min.js"></script>
     <script src="bower_components/scrollmagic/scrollmagic/minified/plugins/debug.addIndicators.min.js"></script>
     <script src="static/js/main.js"></script>
+    <!-- goSquared -->
+    <script>
+      !function(g,s,q,r,d){r=g[r]=g[r]||function(){(r.q=r.q||[]).push(
+      arguments)};d=s.createElement(q);q=s.getElementsByTagName(q)[0];
+      d.src='//d1l6p2sc9645hc.cloudfront.net/tracker.js';q.parentNode.
+      insertBefore(d,q)}(window,document,'script','_gs');
+
+      _gs('GSN-954701-N');
+    </script>
+    <!-- onclick="_gs('event', 'Clicked like button')" -->
+    <!-- goSquared -->
   </body>
 </html>

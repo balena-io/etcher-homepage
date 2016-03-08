@@ -1,13 +1,18 @@
 {
 	"pageTitle": "Etcher by resin.io",
 	"jumbotron": {
-		"description": "A fast simple way to  OS images to SD cards"
+		"description": "A fast simple way to  OS images to SD cards",
+		"logo": "etcher-logo"
+	},
+	"logo": {
+		"light": "etcher-light",
+		"dark": "etcher-dark"
 	},
 	"button":{
 		"text": "Download Etcher for {{ os }}",
 		"shortText": "Download Etcher for {{ os }}",
 		"shout": "Dowload now",
-		"link": "https://secret-oasis-40174.herokuapp.com/api/latest/etcher/{{ os }}",
+		"link": "https://secret-oasis-40174.herokuapp.com/api/latest/etcher/{{ osSlug }}",
 		"archiveLink": "https://secret-oasis-40174.herokuapp.com/"
 	},
 	"callout": {

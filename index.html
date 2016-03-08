@@ -29,14 +29,14 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-          <div class="navbar-brand title">Etcher <span class="sub-title">by <a target="_blank" href="https://resin.io">resin.io</a></span></div>
+        <a class="navbar-brand" href="/"><img src="static/images/etcher-dark.png" srcset="static/images/etcher-dark@2x.png 2x"/></a>
         </div>
         <div class="collapse navbar-collapse" id="menu">
           <ul class="nav navbar-nav navbar-right">
             
               <li><a href="https://github.com/resin-io/etcher">Repository</a></li>
             
-            <a v-cloak class="btn btn-primary" href="https://secret-oasis-40174.herokuapp.com/api/latest/etcher/{{ os }}" target="_blank">Download Etcher for {{ os }}</a>
+            <a v-cloak class="btn btn-primary" href="https://secret-oasis-40174.herokuapp.com/api/latest/etcher/{{ osSlug }}" target="_blank">Download Etcher for {{ os }}</a>
           </ul>
         </div>
       </div>
@@ -47,9 +47,9 @@
       <div class="container">
         <!-- Jumbo -->
         <div class="jumbotron">
-          <h1 class="title">Etcher <span class="sub-title">by <a>resin.io</a></span></h1>
+          <h1><img class="logo" src="static/images/etcher-light.png" srcset="static/images/etcher-light@2x.png 2x"/></h1>
           <h2>A fast simple way to  OS images to SD cards</h2>
-          <p><a v-cloak class="btn btn-success btn-lg" href="https://secret-oasis-40174.herokuapp.com/api/latest/etcher/{{ os }}" role="button">Dowload now</a></p>
+          <p><a v-cloak class="btn btn-success btn-lg" href="https://secret-oasis-40174.herokuapp.com/api/latest/etcher/{{ osSlug }}" role="button">Dowload now</a></p>
           <p><a href="https://secret-oasis-40174.herokuapp.com/" class="meta" v-cloak>View all versions</a></p>
         </div>
 
@@ -120,7 +120,7 @@
       <div class="container">
         <div class="call-out">
           <h2>Start burning your images the easy way</h2>
-          <a v-cloak href="https://secret-oasis-40174.herokuapp.com/api/latest/etcher/{{ os }}" class="btn btn-primary btn-lg">Download Etcher for {{ os }}</a>
+          <a v-cloak href="https://secret-oasis-40174.herokuapp.com/api/latest/etcher/{{ osSlug }}" class="btn btn-primary btn-lg">Download Etcher for {{ os }}</a>
         </div>
         <hr>
         <div class="navbar">
@@ -155,5 +155,16 @@
     <script src="bower_components/scrollmagic/scrollmagic/minified/plugins/animation.gsap.min.js"></script>
     <script src="bower_components/scrollmagic/scrollmagic/minified/plugins/debug.addIndicators.min.js"></script>
     <script src="static/js/main.js"></script>
+    <!-- goSquared -->
+    <script>
+      !function(g,s,q,r,d){r=g[r]=g[r]||function(){(r.q=r.q||[]).push(
+      arguments)};d=s.createElement(q);q=s.getElementsByTagName(q)[0];
+      d.src='//d1l6p2sc9645hc.cloudfront.net/tracker.js';q.parentNode.
+      insertBefore(d,q)}(window,document,'script','_gs');
+
+      _gs('GSN-954701-N');
+    </script>
+    <!-- onclick="_gs('event', 'Clicked like button')" -->
+    <!-- goSquared -->
   </body>
 </html>

@@ -58,6 +58,9 @@ body {
     color: #fff;
   }
 }
+.navbar-brand > img {
+  max-width: 115px;
+}
 // title
 .title {
   font-weight: 800;
@@ -86,6 +89,9 @@ body {
   text-align: center;
   .btn {
     text-transform: uppercase;
+  }
+  .logo {
+    margin-top: 20px;
   }
 }
 
