@@ -44,6 +44,7 @@ $(function() {
     try {
       var event_attrs = $(this).data('track-attrs');
       event_attrs.trackedElement = $(this).data('track-id');
+      event_attrs.detectedOS = app.osSlug;
     }
     catch(err) {
       console.log(err);
