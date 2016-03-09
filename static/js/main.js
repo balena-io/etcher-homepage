@@ -35,7 +35,7 @@ $( ".downloads-trigger" ).click(function() {
 
 // mixpanel
 $(function() {
-  mixpanel.track('[etcher] page viewed', {
+  mixpanel.track('[etcher website] page viewed', {
     'page name' : document.title,
     'url' : window.location.pathname
   });
