@@ -29,18 +29,11 @@ bucket.getLatestVersion(function(version){
 });
 
 // Show downloads
-
 $( ".downloads-trigger" ).click(function() {
-  $( "#downloads" ).slideToggle( "slow", function() {
-    mixpanel.track('[etcher website] downloads viewed', {
-      'page name' : document.title,
-      'url' : window.location.pathname
-    });
-  });
+  $( "#downloads" ).slideToggle( "slow")
 });
 
 // mixpanel
-
 $(function() {
   mixpanel.track('[etcher] page viewed', {
     'page name' : document.title,

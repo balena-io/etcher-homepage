@@ -59,7 +59,7 @@
             {% for item in topNav %}
               <li><a v-cloak data-track-id="nav button" data-track="[etcher website] link click {{ item.link }}" href="{{ item.link }}">{{ item.title }}</a></li>
             {% endfor %}
-            <a v-cloak class="btn btn-primary" data-track-id="nav button" data-track="{{ button.eventName }}" data-track-attrs="&#123;&#123; dynamicLink | json &#125;&#125;" href="{{ button.link }}" target="_blank">{{ button.shortText }}</a>
+            <a href="{{ button.link }}" v-cloak class="btn btn-primary" data-track-id="nav button" data-track="{{ button.eventName }}" data-track-attrs="&#123;&#123; dynamicLink | json &#125;&#125;">{{ button.shortText }}</a>
           </ul>
         </div>
       </div>
@@ -72,7 +72,7 @@
         <div class="jumbotron">
           <h1><img class="logo" src="static/images/{{ logo.light }}.png" srcset="static/images/{{ logo.light }}@2x.png 2x"/></h1>
           <h2>{{ jumbotron.description }}</h2>
-          <p><a v-cloak class="btn btn-success btn-lg" data-track-id="jumbotron button" data-track="{{ button.eventName }}" data-track-attrs="&#123;&#123; dynamicLink | json &#125;&#125;" href="{{ button.link }}" role="button">{{ button.shout }}</a></p>
+          <p><a href="{{ button.link }}" v-cloak class="btn btn-success btn-lg" data-track-id="jumbotron button" data-track="{{ button.eventName }}" data-track-attrs="&#123;&#123; dynamicLink | json &#125;&#125;" role="button">{{ button.shout }}</a></p>
           <p><a class="meta downloads-trigger" v-cloak>View all Downloads</a></p>
           <ul id="downloads">
             <p class="version">Current version: &#123;&#123; version &#125;&#125;</p>
