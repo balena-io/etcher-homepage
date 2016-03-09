@@ -12,8 +12,8 @@
 		"text": "Download Etcher for {{ os }}",
 		"shortText": "Download Etcher for {{ os }}",
 		"shout": "Dowload now",
-		"link": "https://secret-oasis-40174.herokuapp.com/api/latest/etcher/{{ osSlug }}",
-		"archiveLink": "https://secret-oasis-40174.herokuapp.com/"
+		"link": "{{ dynamicLink.link }}",
+		"eventName": "[etcher website] download"
 	},
 	"callout": {
     "title": "Start burning your images the easy way"

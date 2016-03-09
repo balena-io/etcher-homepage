@@ -5,8 +5,9 @@ var browserSync = require('browser-sync').create();
 var data = require('gulp-data');
 var swig = require('gulp-swig');
 var rename = require('gulp-rename');
-var savefile = require('gulp-savefile')
-
+var savefile = require('gulp-savefile');
+var uglify = require("gulp-uglify");
+var concat = require('gulp-concat');
 var swigOpts = {
   defaults: { cache: false }
 
@@ -21,6 +22,14 @@ gulp.task('styles', function() {
         .pipe(sass().on('error', sass.logError))
         .pipe(minifycss())
         .pipe(gulp.dest('static/styles'))
+});
+
+// task
+gulp.task('js', function () {
+    gulp.src('static/js/lib/*.js') // path to your files
+    .pipe(concat('etcher.min.js'))
+    .pipe(uglify())
+    .pipe(gulp.dest('static/js'));
 });
 
 // Static server

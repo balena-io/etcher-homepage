@@ -18,14 +18,6 @@ body {
   .btn {
     vertical-align: inherit;
   }
-  .title {
-    margin: 0;
-    font-size: 24px;
-    color: $colorBlack;
-    .sub-title {
-      font-size: 15px;
-    }
-  }
   li {
     font-size: 15px;
     font-weight: bold;
@@ -61,21 +53,6 @@ body {
 .navbar-brand > img {
   max-width: 115px;
 }
-// title
-.title {
-  font-weight: 800;
-  .sub-title {
-    font-size: 18px;
-    font-weight: 100;
-    a {
-      cursor: pointer;
-      text-decoration: none;
-      color: #fff;
-      font-size: 18px;
-      font-weight: 800;
-    }
-  }
-}
 
 // content
 .content {
@@ -92,12 +69,38 @@ body {
   }
   .logo {
     margin-top: 20px;
+    max-width: 100%;
+  }
+}
+
+#downloads {
+  display: none;
+  list-style: none;
+  padding: 0;
+  .version {
+    font-size: 10;
+  }
+  a {
+    color: #fff;
+    &:focus, :active, :hover {
+      color: #fff;
+    }
+  }
+}
+
+.downloads-trigger {
+  a {
+    color: #fff;
+    &:focus {
+      color: #fff;
+    }
   }
 }
 
 .features {
   position: relative;
   margin: $margin*3 0;
+
   .feature {
     text-align: center;
     margin-bottom: $margin;
