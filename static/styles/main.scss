@@ -25,6 +25,14 @@ body {
     float: none;
   }
 
+  iframe {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+.navbar-brand > img {
+  max-width: 115px;
 }
 
 .navbar-brand.title .sub-title a {
@@ -39,20 +47,8 @@ body {
     }
   }
 }
-
-
 // nav
-.meta {
-  color: #fff;
-  font-size: 14px;
-  cursor: pointer;
-  &:hover {
-    color: #fff;
-  }
-}
-.navbar-brand > img {
-  max-width: 115px;
-}
+
 
 // content
 .content {
@@ -61,6 +57,7 @@ body {
   position: relative;
   color: #fff;
 }
+
 .jumbotron {
   background: none;
   text-align: center;
@@ -71,16 +68,14 @@ body {
     margin-top: 20px;
     max-width: 100%;
   }
-}
-
-.jumbotron .dropdown-menu {
-  min-width: 206px;
-}
-
-.jumbotron .version {
-  margin-top: 20px;
-  font-size: 14px;
-  font-style: italic;
+  .dropdown-menu {
+    min-width: 206px;
+  }
+  .version {
+    margin-top: 20px;
+    font-size: 14px;
+    font-style: italic;
+  }
 }
 
 .features {
@@ -98,12 +93,6 @@ body {
       margin: 0 auto;
     }
   }
-}
-
-// element to trigger screen-shot slide in.
-#trigger {
-  position: absolute;
-  top: 50%;
 }
 
 #screen-shot {
@@ -164,5 +153,4 @@ footer {
     font-family: "Helvetica";
   }
 }
-
 // Footer

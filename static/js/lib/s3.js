@@ -23,11 +23,11 @@ s3.prototype.getDynamicLink = function(files, osSlug, backup, callback){
   switch (osSlug) {
     case "macos":
         buttonText = "Download for OSX"
-        callback(findLink(files, this.productName + ".dmg", buttonText));
+        callback(findLink(files, this.productName + "-darwin", buttonText));
         break;
     case "windows":
         buttonText = "Download for Windows"
-        callback(findLink(files, this.productName + ".exe", buttonText));
+        callback(findLink(files, this.productName + "-win32", buttonText));
         break;
     case "linux":
         buttonText = "Download for Linux"
@@ -69,8 +69,9 @@ getData = function($this, callback){
 parseXML = function(xml, $this) {
   var files = $.map(xml.find('Contents'), function(item) {
     item = $(item);
+    console.log()
     return {
-      name: item.find('Key').text().substring($this.productName.length + 7),
+      name: item.find('Key').text().split("/")[2],
       link: $this.url + "/" + item.find('Key').text(),
       lastModified: item.find('LastModified').text(),
       size: bytesToHumanReadable(item.find('Size').text()),
@@ -95,7 +96,7 @@ parseXML = function(xml, $this) {
 
 function getVersions(versions, prefix, callback) {
     callback($.map(versions, function(v) {
-      return v.key.substring(prefix.length + 1, v.key.length - 1)
+      return v.key.split('/')[1]
     }))
 }
 
