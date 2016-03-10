@@ -1,7 +1,7 @@
 {
 	"pageTitle": "Etcher by resin.io",
 	"jumbotron": {
-		"description": "A fast simple way to  OS images to SD cards",
+		"description": "A fast simple way to burn OS images to SD cards",
 		"logo": "etcher-logo"
 	},
 	"logo": {
@@ -18,7 +18,6 @@
 	"callout": {
     "title": "Start burning your images the easy way"
   },
-	"description": "a fast simple way to burn OS images to SD cards",
   "topNav":[
     {
       "title": "Repository",

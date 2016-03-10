@@ -73,28 +73,14 @@ body {
   }
 }
 
-#downloads {
-  display: none;
-  list-style: none;
-  padding: 0;
-  .version {
-    font-size: 10;
-  }
-  a {
-    color: #fff;
-    &:focus, :active, :hover {
-      color: #fff;
-    }
-  }
+.jumbotron .dropdown-menu {
+  min-width: 206px;
 }
 
-.downloads-trigger {
-  a {
-    color: #fff;
-    &:focus {
-      color: #fff;
-    }
-  }
+.jumbotron .version {
+  margin-top: 20px;
+  font-size: 14px;
+  font-style: italic;
 }
 
 .features {

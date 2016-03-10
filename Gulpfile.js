@@ -45,7 +45,11 @@ gulp.task('browser-sync', function() {
 gulp.task('render', function() {
     return gulp.src('./template.html')
       .pipe(data(getJsonData))
-      .pipe(swig())
+      .pipe(swig({
+          defaults: {
+              varControls: [ "<=", "=>" ]
+          }
+      }))
       .pipe(rename('./index.html'))
       .pipe(savefile());
 });

@@ -19,35 +19,34 @@ s3.prototype.getFiles = function(version, callback){
   });
 }
 
-s3.prototype.getDynamicLink = function(files, osSlug, callback){
+s3.prototype.getDynamicLink = function(files, osSlug, githubLink, callback){
+  console.log(files)
   switch (osSlug) {
-    case "osx":
+    case "macos":
         callback(findLink(files, this.productName + ".dmg"));
         break;
     case "windows":
         callback(findLink(files, this.productName + ".exe"));
         break;
-    case "windows64":
-        callback(findLink(files, this.productName + "-x64.exe"));
-        break;
     case "linux":
-        callback(findLink(files, this.productName + "-ia32.tar.gz"));
-        break;
-    case "linux64":
-        callback(findLink(files, this.productName + "-x64.tar.gz"));
+        callback(findLink(files, this.productName + "-linux"));
         break;
     default:
-        callback(findLink(files, this.productName + ".exe"));
+        callback(githubLink);
   }
 }
 
-var findLink = function(files, ext) {
+var findLink = function(files, key) {
+    var matchedFiles = []
     for (var i = 0, len = files.length; i < len; i++) {
-        if (files[i].link.toLowerCase().indexOf(ext) != -1) {
-          return files[i]; // Return as soon as the object is found
+        if (files[i].link.toLowerCase().indexOf(key) != -1) {
+           matchedFiles.push(files[i]); // Return as soon as the object is found
+          console.log("match Found: " + files[i].name);
+        }
+        if (i === len-1) {
+          return matchedFiles
         }
     }
-    return "nothing found"
 }
 
 
