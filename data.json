@@ -9,10 +9,7 @@
 		"dark": "etcher-dark"
 	},
 	"button":{
-		"text": "Download Etcher for {{ os }}",
-		"shortText": "Download Etcher for {{ os }}",
-		"shout": "Dowload now",
-		"link": "{{ dynamicLink.link }}",
+		"shout": "Download now",
 		"eventName": "[etcher website] download"
 	},
 	"callout": {

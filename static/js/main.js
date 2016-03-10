@@ -1,6 +1,4 @@
-
 // using parser and sniffr to get us the best of both
-console.log("adsfdfd")
 console.log("Detected: " + Sniffr.os.name);
 
 // Bind data
@@ -10,19 +8,19 @@ var app = new Vue({
     os: Sniffr.os.name,
     downloads:  [],
     version: "0.0.1",
-    dynamicLink: { "link": "https://resin-production-downloads.s3.amazonaws.com/etcher/0.0.1/Etcher.exe" },
+    dynamicLink: { "buttonText": "View on github", "link": "https://github/resin-io/etcher" },
   }
 });
 
 // Query s3
 var bucket = new s3("https://resin-production-downloads.s3.amazonaws.com", "etcher");
 
+
 bucket.getLatestVersion(function(version){
    app.version = version;
    bucket.getFiles(version, function(files){
      app.downloads = files;
-     bucket.getDynamicLink(files, app.os, "http://github.com/resin-io/etcher", function(link) {
-       console.log(link)
+     bucket.getDynamicLink(files, app.os, app.dynamicLink, function(link) {
        app.dynamicLink = link[0];
      });
    });
@@ -30,7 +28,7 @@ bucket.getLatestVersion(function(version){
 
 // Show downloads
 $( ".downloads-trigger" ).click(function() {
-  $( "#downloads" ).slideToggle( "slow")
+  $( "#downloads" ).slideToggle( "slow");
 });
 
 // mixpanel
@@ -49,7 +47,7 @@ $(function() {
     catch(err) {
       console.log(err);
     }
-
+    // console.log("event_name: " + event_name + "event_attrs" + event_attrs);
     mixpanel.track(event_name, event_attrs);
   });
 });

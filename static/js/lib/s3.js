@@ -19,29 +19,32 @@ s3.prototype.getFiles = function(version, callback){
   });
 }
 
-s3.prototype.getDynamicLink = function(files, osSlug, githubLink, callback){
-  console.log(files)
+s3.prototype.getDynamicLink = function(files, osSlug, backup, callback){
   switch (osSlug) {
     case "macos":
-        callback(findLink(files, this.productName + ".dmg"));
+        buttonText = "Download for OSX"
+        callback(findLink(files, this.productName + ".dmg", buttonText));
         break;
     case "windows":
-        callback(findLink(files, this.productName + ".exe"));
+        buttonText = "Download for Windows"
+        callback(findLink(files, this.productName + ".exe", buttonText));
         break;
     case "linux":
-        callback(findLink(files, this.productName + "-linux"));
+        buttonText = "Download for Linux"
+        callback(findLink(files, this.productName + "-linux", buttonText));
         break;
     default:
-        callback(githubLink);
+        callback();
   }
 }
 
-var findLink = function(files, key) {
+var findLink = function(files, key, buttonText) {
     var matchedFiles = []
     for (var i = 0, len = files.length; i < len; i++) {
         if (files[i].link.toLowerCase().indexOf(key) != -1) {
+           files[i].buttonText = buttonText
            matchedFiles.push(files[i]); // Return as soon as the object is found
-          console.log("match Found: " + files[i].name);
+          // console.log("match Found: " + files[i].name);
         }
         if (i === len-1) {
           return matchedFiles

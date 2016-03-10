@@ -58,7 +58,18 @@
             {% for item in topNav %}
               <li><a v-cloak data-track-id="nav button" data-track="[etcher website] link click <= item.link =>" href="<= item.link =>"><= item.title =></a></li>
             {% endfor %}
-            <a href="<= button.link =>" v-cloak class="btn btn-primary" data-track-id="nav button" data-track="<= button.eventName =>" data-track-attrs="{{ dynamicLink | json }}"><= button.shout =></a>
+            <!-- Split button -->
+            <div class="btn-group">
+              <a href="{{ dynamicLink.link }}" v-cloak class="btn btn-primary" data-track-id="nav button" data-track="[etcher website] download" data-track-attrs="{{ dynamicLink | json }}" role="button">{{ dynamicLink.buttonText }}</a>
+              <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="caret"></span>
+                <span class="sr-only">Toggle Dropdown</span>
+              </button>
+              <ul class="dropdown-menu">
+                <li v-cloak v-for="download in downloads"><a v-cloak href="{{ download.link }}" data-track="[etcher website] download" data-track-attrs="{{ download | json }}">{{ download.name }}</a></li>
+              </ul>
+            </div>
+            <!-- Split button -->
           </ul>
         </div>
       </div>
@@ -74,7 +85,7 @@
 
           <!-- Split button -->
           <div class="btn-group">
-            <a href="<= button.link =>" v-cloak class="btn btn-success btn-lg" data-track-id="jumbotron button" data-track="<= button.eventName =>" data-track-attrs="{{ dynamicLink | json }}" role="button"><= button.shout =></a>
+            <a href="{{ dynamicLink.link }}" v-cloak class="btn btn-success btn-lg" data-track-id="jumbotron button" data-track="<= button.eventName =>" data-track-attrs="{{ dynamicLink | json }}" role="button"><= button.shout =></a>
             <button type="button" class="btn btn-success btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <span class="caret"></span>
               <span class="sr-only">Toggle Dropdown</span>
@@ -116,7 +127,18 @@
       <div class="container">
         <div class="call-out">
           <h2><= callout.title =></h2>
-          <a v-cloak href="<= button.link =>" data-track-id="well button" data-track="<= button.eventName =>" data-track-attrs="{{ dynamicLink | json }}" class="btn btn-primary btn-lg"><= button.text =></a>
+          <!-- Split button -->
+          <div class="btn-group">
+            <a href="{{ dynamicLink.link }}" v-cloak class="btn btn-primary btn-lg" data-track-id="well button" data-track="[etcher website] download" data-track-attrs="{{ dynamicLink | json }}" role="button">{{ dynamicLink.buttonText }}</a>
+            <button type="button" class="btn btn-primary btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span class="caret"></span>
+              <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu">
+              <li v-cloak v-for="download in downloads"><a v-cloak href="{{ download.link }}" data-track="[etcher website] download" data-track-attrs="{{ download | json }}">{{ download.name }}</a></li>
+            </ul>
+          </div>
+          <!-- Split button -->
         </div>
         <hr>
         <div class="navbar">
