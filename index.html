@@ -58,7 +58,7 @@
             
               <li><a v-cloak data-track-id="nav button" data-track="[etcher website] link click https://github.com/resin-io/etcher" href="https://github.com/resin-io/etcher">Repository</a></li>
             
-            <a href="{{ dynamicLink.link }}" v-cloak class="btn btn-primary" data-track-id="nav button" data-track="[etcher website] download" data-track-attrs="{{ dynamicLink | json }}">Download Etcher for {{ os }}</a>
+            <a href="{{ dynamicLink.link }}" v-cloak class="btn btn-primary" data-track-id="nav button" data-track="[etcher website] download" data-track-attrs="{{ dynamicLink | json }}">Dowload now</a>
           </ul>
         </div>
       </div>
@@ -80,12 +80,12 @@
               <span class="sr-only">Toggle Dropdown</span>
             </button>
             <ul class="dropdown-menu">
-              <li v-for="download in downloads"><a v-cloak href="{{ download.link }}" data-track="[etcher website] download" data-track-attrs="{{ download | json }}">{{ download.name }}</a></li>
+              <li v-cloak v-for="download in downloads"><a v-cloak href="{{ download.link }}" data-track="[etcher website] download" data-track-attrs="{{ download | json }}">{{ download.name }}</a></li>
             </ul>
           </div>
           <!-- Split button -->
 
-          <p class="version">v{{ version }}</p>
+          <p v-cloak class="version">v{{ version }}</p>
 
         </div>
 
