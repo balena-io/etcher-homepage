@@ -26,7 +26,6 @@ bucket.getLatestVersion(function(version){
    app.version = "v" + version;
    bucket.getFiles(version, function(files){
      app.downloads = files;
-     app.os = "ios"
      bucket.getDynamicLink(files, app.os, app.dynamicLink, function(link) {
        app.dynamicLink = link[0];
      });
