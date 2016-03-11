@@ -10,7 +10,6 @@ var uglify = require("gulp-uglify");
 var concat = require('gulp-concat');
 var swigOpts = {
   defaults: { cache: false }
-
 }
 var getJsonData = function(file) {
   return require('./data.json');

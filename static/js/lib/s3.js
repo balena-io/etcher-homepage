@@ -21,6 +21,7 @@ s3.prototype.getFiles = function(version, callback){
 
 s3.prototype.getDynamicLink = function(files, osSlug, backup, callback){
   console.log(osSlug)
+  eventName = "download"
   switch (osSlug) {
     case "macos":
         buttonText = "Download for OSX"
@@ -45,6 +46,7 @@ var findLink = function(files, key, buttonText) {
     for (var i = 0, len = files.length; i < len; i++) {
         if (files[i].link.toLowerCase().indexOf(key) != -1) {
            files[i].buttonText = buttonText
+
            matchedFiles.push(files[i]); // Return as soon as the object is found
           // console.log("match Found: " + files[i].name);
         }
@@ -131,6 +133,17 @@ function bytesToHumanReadable(sizeInBytes) {
 function prettifyFileName(file) {
   // <name>-v<version>-<os>-<arch>.<extension>
   split = file.split("-");
-  return split[0] + " for " + split[1] + " " + split[2].substring(0, 3)
 
+  switch (split[1]) {
+    case "darwin":
+        split[1] = "Mac"
+        break;
+    case "win32":
+        split[1] = "Windows"
+        break;
+    case "linux":
+        split[1] = "Linux"
+        break;
+  }
+  return split[0] + " for " + split[1] + " " + split[2].substring(0, 3)
 }

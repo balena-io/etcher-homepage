@@ -19,8 +19,7 @@
     <![endif]-->
     <!-- start Mixpanel --><script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
     for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===e.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f)}})(document,window.mixpanel||[]);
-    mixpanel.init("");</script><!-- end Mixpanel -->
-    <!-- 99eec53325d4f45dd0633abd719e3ff1 -->
+    mixpanel.init("99eec53325d4f45dd0633abd719e3ff1");</script><!-- end Mixpanel -->
     <!-- end Mixpanel -->
     <script>
       !function(g,s,q,r,d){r=g[r]=g[r]||function(){(r.q=r.q||[]).push(
@@ -56,10 +55,13 @@
         <div class="collapse navbar-collapse" id="menu">
           <ul class="nav navbar-nav navbar-right">
             {% for item in topNav %}
-              <li><a v-cloak data-track-id="nav button" data-track="[etcher website] link click <= item.link =>" href="<= item.link =>"><= item.title =></a></li>
+              <li><a v-cloak data-track-id="nav button" data-toggle="modal" data-target="<= item.dataTarget =>" data-track="[etcher website] link click <= item.link =>" href="<= item.link =>"><= item.title =></a></li>
             {% endfor %}
             <!-- Split button -->
-            <div class="btn-group">
+            <template v-if="dynamicLink.mobile">
+              <a class="btn btn-primary" data-track="<= button.mobileEventName =>" href="mailto:{{ dynamicLink.link }}">{{ dynamicLink.buttonText }}<a>
+            </template>
+            <div v-else class="btn-group">
               <a href="{{ dynamicLink.link }}" v-cloak class="btn btn-primary" data-track-id="nav button" data-track="[etcher website] download" data-track-attrs="{{ dynamicLink | json }}" v-text="dynamicLink.buttonText" role="button"></a>
               <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="caret"></span>
@@ -86,7 +88,7 @@
           <!-- Split button -->
           <template v-if="dynamicLink.mobile">
             <p>Visit from your PC to download Etcher</p>
-            <a class="btn btn-success btn-lg" href="mailto:{{ dynamicLink.link }}">{{ dynamicLink.buttonText }}<a>
+            <a class="btn btn-success btn-lg" data-track="<= button.mobileEventName =>" href="mailto:{{ dynamicLink.link }}">{{ dynamicLink.buttonText }}<a>
           </template>
           <div v-else class="btn-group">
             <a href="{{ dynamicLink.link }}" v-cloak class="btn btn-success btn-lg" data-track-id="jumbotron button" data-track="<= button.eventName =>" data-track-attrs="{{ dynamicLink | json }}" v-text="dynamicLink.buttonText" role="button"></a>
@@ -104,7 +106,6 @@
           <div class="social">
             <!-- Place this tag where you want the button to render. -->
             <!-- Place this tag where you want the button to render. -->
-            <a class="github-button" href="https://github.com/resin-io/etcher" data-style="mega" data-count-href="/resin-io/etcher/stargazers" data-count-api="/repos/resin-io/etcher#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star resin-io/etcher on GitHub">Star</a>
             <a class="twitter-share-button"
               href="https://twitter.com/share"
               data-size="large"
@@ -113,7 +114,7 @@
               data-text="Introducing Etcher, a better (open source) way to burn OS images">
             Tweet
             </a>
-            <div class="fb-share-button" data-href="" data-layout="button"></div>
+            <a class="github-button" href="https://github.com/resin-io/etcher" data-style="mega" data-count-href="/resin-io/etcher/stargazers" data-count-api="/repos/resin-io/etcher#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star resin-io/etcher on GitHub">Star</a>
           </div>
 
 
@@ -124,7 +125,8 @@
         <div class="features">
           <div class="row">
             {% for feature in features %}
-            <div class="col-md-4 feature">
+            <div class="{% if feature.label %} faded {% endif %} col-md-4 feature">
+              <span class="label"><= feature.label =></span>
               <div class="image-container">
                 <img src="static/images/icons/<= feature.img =>.png" srcset="static/images/icons/<= feature.img =>@2x.png 2x">
               </div>
@@ -148,7 +150,10 @@
         <div class="call-out">
           <h2><= callout.title =></h2>
           <!-- Split button -->
-          <div class="btn-group">
+          <template v-if="dynamicLink.mobile">
+            <a class="btn btn-primary btn-lg" data-track="<= button.mobileEventName =>" href="mailto:{{ dynamicLink.link }}">{{ dynamicLink.buttonText }}<a>
+          </template>
+          <div v-else class="btn-group">
             <a href="{{ dynamicLink.link }}" v-cloak class="btn btn-primary btn-lg" data-track-id="well button" data-track="[etcher website] download" data-track-attrs="{{ dynamicLink | json }}" role="button">{{ dynamicLink.buttonText }}</a>
             <button type="button" class="btn btn-primary btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <span class="caret"></span>
@@ -164,7 +169,7 @@
         <div class="navbar">
           <ul class="nav navbar-nav navbar-left">
             {% for item in bottomNav %}
-              <li><a data-track-id="bottomNav button" data-track="[etcher website] link click <= item.link =>" href="<= item.link =>"><= item.title =></a></li>
+              <li><a data-track-id="bottomNav button" data-toggle="modal" data-target="<= item.dataTarget =>" data-track="[etcher website] link click <= item.link =>" href="<= item.link =>"><= item.title =></a></li>
             {% endfor %}
           </ul>
         </div>
@@ -173,6 +178,15 @@
         </div>
       </div> <!-- /container -->
     </footer>
+    <!-- video modal -->
+    <div class="modal fade videoModal" tabindex="-1" role="dialog" aria-labelledby="videoModal">
+      <div class="modal-dialog modal-md">
+        <div class="modal-content">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <iframe src="https://player.vimeo.com/video/158621734" width="100%" height="400" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+      </div>
+    </div>
+    <!-- video modal -->
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -206,6 +220,7 @@
       return t;
     }(document, "script", "twitter-wjs"));
     </script>
+
     <!-- // social // -->
   </body>
 </html>

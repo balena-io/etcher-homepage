@@ -10,7 +10,8 @@
 	},
 	"button":{
 		"shout": "Download now",
-		"eventName": "[etcher website] download"
+		"eventName": "[etcher website] download",
+		"mobileEventName": "[etcher website] download"
 	},
 	"callout": {
     "title": "Start burning your images the easy way"
@@ -19,6 +20,11 @@
     {
       "title": "Repository",
       "link": "https://github.com/resin-io/etcher"
+    },
+		{
+      "title": "How it works",
+      "link": "#video",
+			"dataTarget": ".videoModal"
     }
   ],
   "bottomNav":[
@@ -33,6 +39,11 @@
     {
       "title": "Blog",
       "link": "https://resin.io/blog"
+    },
+		{
+      "title": "How it works",
+			"link": "#video",
+			"dataTarget": ".videoModal"
     }
   ],
 	"features": [

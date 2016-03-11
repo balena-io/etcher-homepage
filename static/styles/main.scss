@@ -28,6 +28,11 @@ body {
     float: none;
   }
 
+  .navbar-nav>.open>a{
+    background-color: $colorBlue;
+    color: #fff;
+  }
+
   iframe {
     display: inline-block;
     vertical-align: middle;
@@ -37,6 +42,7 @@ body {
 .navbar-brand > img {
   max-width: 115px;
 }
+
 
 .navbar-brand.title .sub-title a {
   color: $colorBlack;
@@ -86,6 +92,7 @@ body {
     text-align: center;
     margin-bottom: $margin;
     min-height: 250px;
+    position: relative;
     a {
       color: #fff;
     }
@@ -95,15 +102,43 @@ body {
     img {
       margin: 0 auto;
     }
+    .label {
+      font-style: italic;
+      position: absolute;
+      right: 0;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      height: 10px;
+    }
   }
 }
 
 .dropdown-menu {
-  min-width: 240px;
+  border:none;
   li {
     width: 100%;
+    a {
+      color: $colorGrey
+    }
   }
 }
+
+.modal-content {
+  padding: 20px 0;
+  // modal x
+  .close {
+    margin: -20px 5px 5px 5px;
+  }
+}
+
+.faded {
+  .image-container, h2, p {
+    opacity: .5;
+  }
+}
+
 
 #screen-shot {
   margin: 0 auto;
