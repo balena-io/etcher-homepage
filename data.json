@@ -58,10 +58,9 @@
 			"description": "Makes drive selection obvious avoid wiping your entire harddrive"
 		},
 		{
-			"title": "Hosted on github",
+			"title": "Powered by {{{ electron }}}",
 			"img": "github_server_icon",
-			"description": "Simple to contribute = Easy to improve",
-			"link": "https://github.com/resin-io/etcher"
+			"description": "Built with Web Technologies, so it's easy customize"
 		},
 		{
 			"title": "Beautifully Simple",

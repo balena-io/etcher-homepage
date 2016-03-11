@@ -4,8 +4,7 @@ console.log("Detected: " + Sniffr.os.name);
 // lazy load jumbotron
 $(window).load(function(){
    $('.jumbotron > *').each(function(i){
-      $(this).delay((i + 1) * 250).addClass('appear');
-      // console.log("loop")
+      $(this).delay((i) * 100).addClass('appear');
    });
 });
 
@@ -16,7 +15,8 @@ var app = new Vue({
     os: Sniffr.os.name,
     downloads:  [],
     version: "0.0.1",
-    dynamicLink: { "buttonText": "Email link to me", "link": "mailto:?subject=Checkout out etcher.io&body=http://www.etcher.io", "mobile": false},
+    dynamicLink: { "buttonText": "Email link to myself", "link": "mailto:?subject=Checkout out etcher.io&body=http://www.etcher.io", "mobile": false},
+    electron: "<a href=http://electron.atom.io/>Electron</a>"
   }
 });
 
@@ -61,14 +61,3 @@ $(function() {
     mixpanel.track(event_name, event_attrs);
   });
 });
-
-// style dropdown
-// var width = $('.dropdown-menu').parent('.btn-group').css('width');
-// console.log(width);
-// $('.dropdown-menu').css("min-width", width);
-
-// $(window).load(function() {
-//    $('.jumbotron').each(function(i) {
-//       $(this).delay((i + 1) * 250).fadeIn(2000);
-//    });
-// });

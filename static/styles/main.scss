@@ -86,6 +86,9 @@ body {
     text-align: center;
     margin-bottom: $margin;
     min-height: 250px;
+    a {
+      color: #fff;
+    }
     .image-container {
       min-height: 60px;
     }
@@ -97,6 +100,9 @@ body {
 
 .dropdown-menu {
   min-width: 240px;
+  li {
+    width: 100%;
+  }
 }
 
 #screen-shot {
@@ -138,6 +144,11 @@ body {
   top: 0px;
 }
 
+// element to trigger screen-shot slide in.
+#trigger {
+  position: absolute;
+  top: 50%;
+}
 
 // Footer
 footer {
