@@ -1,7 +1,7 @@
 {
 	"pageTitle": "Etcher by resin.io",
 	"jumbotron": {
-		"description": "A fast simple way to burn OS images to SD cards",
+		"description": "A better way to burn OS images",
 		"logo": "etcher-logo"
 	},
 	"logo": {
@@ -27,24 +27,12 @@
       "link": "https://github.com/resin-io/etcher"
     },
     {
-      "title": "Terms",
-      "link": "#"
-    },
-    {
-      "title": "Privacy",
-      "link": "#"
-    },
-    {
       "title": "About Us",
       "link": "https://resin.io"
     },
     {
       "title": "Blog",
       "link": "https://resin.io/blog"
-    },
-		{
-      "title": "Downloads",
-      "link": "https://downloads.resin.io"
     }
   ],
 	"features": [
@@ -61,6 +49,7 @@
 		{
 			"title": "Card Validation",
 			"img": "SD_icon",
+			"label": "Coming Soon",
 			"description": "Save time by checking if cards are currupted before you burn"
 		},
 		{
@@ -71,7 +60,8 @@
 		{
 			"title": "Hosted on github",
 			"img": "github_server_icon",
-			"description": "Simple to contribute = Easy to improve"
+			"description": "Simple to contribute = Easy to improve",
+			"link": "https://github.com/resin-io/etcher"
 		},
 		{
 			"title": "Beautifully Simple",

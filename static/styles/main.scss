@@ -18,6 +18,9 @@ body {
   .btn {
     vertical-align: inherit;
   }
+  .btn-group {
+    margin-top: -5px;
+  }
   li {
     font-size: 15px;
     font-weight: bold;
@@ -68,9 +71,6 @@ body {
     margin-top: 20px;
     max-width: 100%;
   }
-  .dropdown-menu {
-    min-width: 206px;
-  }
   .version {
     margin-top: 20px;
     font-size: 14px;
@@ -93,6 +93,10 @@ body {
       margin: 0 auto;
     }
   }
+}
+
+.dropdown-menu {
+  min-width: 240px;
 }
 
 #screen-shot {
@@ -121,6 +125,19 @@ body {
     height: 200px;
   }
 }
+
+.jumbotron > * {
+  position: relative;
+  opacity: 0;
+  top: -50px;
+  @include transition(.8s)
+}
+
+.jumbotron > *.appear {
+  opacity: 1;
+  top: 0px;
+}
+
 
 // Footer
 footer {

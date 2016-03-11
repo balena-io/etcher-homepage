@@ -19,7 +19,8 @@
     <![endif]-->
     <!-- start Mixpanel --><script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
     for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===e.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f)}})(document,window.mixpanel||[]);
-    mixpanel.init("99eec53325d4f45dd0633abd719e3ff1");</script><!-- end Mixpanel -->
+    mixpanel.init("");</script><!-- end Mixpanel -->
+    <!-- 99eec53325d4f45dd0633abd719e3ff1 -->
     <!-- end Mixpanel -->
     <script>
       !function(g,s,q,r,d){r=g[r]=g[r]||function(){(r.q=r.q||[]).push(
@@ -41,7 +42,6 @@
     <!-- Ga -->
   </head>
   <body id="app">
-
     <nav class="navbar navbar-default">
       <div class="container">
         <div class="navbar-header">
@@ -60,13 +60,13 @@
             {% endfor %}
             <!-- Split button -->
             <div class="btn-group">
-              <a href="{{ dynamicLink.link }}" v-cloak class="btn btn-primary" data-track-id="nav button" data-track="[etcher website] download" data-track-attrs="{{ dynamicLink | json }}" role="button">{{ dynamicLink.buttonText }}</a>
+              <a href="{{ dynamicLink.link }}" v-cloak class="btn btn-primary" data-track-id="nav button" data-track="[etcher website] download" data-track-attrs="{{ dynamicLink | json }}" v-text="dynamicLink.buttonText" role="button"></a>
               <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="caret"></span>
                 <span class="sr-only">Toggle Dropdown</span>
               </button>
               <ul class="dropdown-menu">
-                <li v-cloak v-for="download in downloads"><a v-cloak href="{{ download.link }}" data-track="[etcher website] download" data-track-attrs="{{ download | json }}">{{ download.name }}</a></li>
+                <li v-cloak v-for="download in downloads"><a v-cloak href="{{ download.link }}" data-track="[etcher website] download" data-track-attrs="{{ download | json }}" v-text="download.prettyName"></a></li>
               </ul>
             </div>
             <!-- Split button -->
@@ -84,19 +84,36 @@
           <h2><= jumbotron.description =></h2>
 
           <!-- Split button -->
-          <div class="btn-group">
-            <a href="{{ dynamicLink.link }}" v-cloak class="btn btn-success btn-lg" data-track-id="jumbotron button" data-track="<= button.eventName =>" data-track-attrs="{{ dynamicLink | json }}" role="button"><= button.shout =></a>
+          <template v-if="dynamicLink.mobile">
+            <p>Visit from your PC to download Etcher</p>
+            <a class="btn btn-success btn-lg" href="mailto:{{ dynamicLink.link }}">{{ dynamicLink.buttonText }}<a>
+          </template>
+          <div v-else class="btn-group">
+            <a href="{{ dynamicLink.link }}" v-cloak class="btn btn-success btn-lg" data-track-id="jumbotron button" data-track="<= button.eventName =>" data-track-attrs="{{ dynamicLink | json }}" v-text="dynamicLink.buttonText" role="button"></a>
             <button type="button" class="btn btn-success btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <span class="caret"></span>
               <span class="sr-only">Toggle Dropdown</span>
             </button>
             <ul class="dropdown-menu">
-              <li v-cloak v-for="download in downloads"><a v-cloak href="{{ download.link }}" data-track="[etcher website] download" data-track-attrs="{{ download | json }}">{{ download.name }}</a></li>
+              <li v-cloak v-for="download in downloads"><a v-cloak href="{{ download.link }}" data-track="[etcher website] download" data-track-attrs="{{ download | json }}" v-text="download.prettyName"></a></li>
             </ul>
           </div>
           <!-- Split button -->
+          <p v-cloak v-text="version" class="version"></p>
 
-          <p v-cloak class="version">v{{ version }}</p>
+          <div class="social">
+            <!-- Place this tag where you want the button to render. -->
+              <a class="github-button" href="https://github.com/resin-io/etcher" data-style="mega" data-count-href="/resin-io/etcher/stargazers" data-count-aria-label="# stargazers on GitHub" aria-label="Star resin-io/etcher on GitHub">Star</a>
+              <a class="twitter-share-button"
+                href="https://twitter.com/share"
+                data-size="large"
+                data-url="http://www.etcher.io"
+                data-hashtags="maker, IoT, opensource"
+                data-text="Introducing Etcher, a better (open source) way to burn OS images">
+              Tweet
+              </a>
+              <div class="fb-share-button" data-href="" data-layout="button"></div>
+          </div>
 
         </div>
 
@@ -135,7 +152,7 @@
               <span class="sr-only">Toggle Dropdown</span>
             </button>
             <ul class="dropdown-menu">
-              <li v-cloak v-for="download in downloads"><a v-cloak href="{{ download.link }}" data-track="[etcher website] download" data-track-attrs="{{ download | json }}">{{ download.name }}</a></li>
+              <li v-cloak v-for="download in downloads"><a v-cloak href="{{ download.link }}" data-track="[etcher website] download" data-track-attrs="{{ download | json }}" v-text="download.prettyName"></a></li>
             </ul>
           </div>
           <!-- Split button -->
@@ -165,5 +182,27 @@
     <script src="bower_components/sniffr/dist/sniffr.min.js"/></script>
 
     <script src="static/js/main.js"></script>
+
+    <!-- // social // -->
+    <!-- Place this tag right after the last button or just before your close body tag. -->
+    <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+    <script>window.twttr = (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0],
+        t = window.twttr || {};
+      if (d.getElementById(id)) return t;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js, fjs);
+
+      t._e = [];
+      t.ready = function(f) {
+        t._e.push(f);
+      };
+
+      return t;
+    }(document, "script", "twitter-wjs"));
+    </script>
+    <!-- // social // -->
   </body>
 </html>

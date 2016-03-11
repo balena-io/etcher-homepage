@@ -20,6 +20,7 @@ s3.prototype.getFiles = function(version, callback){
 }
 
 s3.prototype.getDynamicLink = function(files, osSlug, backup, callback){
+  console.log(osSlug)
   switch (osSlug) {
     case "macos":
         buttonText = "Download for OSX"
@@ -34,7 +35,8 @@ s3.prototype.getDynamicLink = function(files, osSlug, backup, callback){
         callback(findLink(files, this.productName + "-linux", buttonText));
         break;
     default:
-        callback();
+        backup.mobile = true
+        callback([backup]);
   }
 }
 
@@ -69,9 +71,10 @@ getData = function($this, callback){
 parseXML = function(xml, $this) {
   var files = $.map(xml.find('Contents'), function(item) {
     item = $(item);
-    console.log()
+    var name = item.find('Key').text().split("/")[2]
     return {
-      name: item.find('Key').text().split("/")[2],
+      name: name,
+      prettyName: prettifyFileName(name),
       link: $this.url + "/" + item.find('Key').text(),
       lastModified: item.find('LastModified').text(),
       size: bytesToHumanReadable(item.find('Size').text()),
@@ -100,7 +103,7 @@ function getVersions(versions, prefix, callback) {
     }))
 }
 
-// pass to .sort
+// sorts the semantic versions ascending order
 function cmp (a, b) {
     var pa = a.split('.');
     var pb = b.split('.');
@@ -123,4 +126,11 @@ function bytesToHumanReadable(sizeInBytes) {
     i++;
   } while (sizeInBytes > 1024);
   return Math.max(sizeInBytes, 0.1).toFixed(1) + units[i];
+}
+
+function prettifyFileName(file) {
+  // <name>-v<version>-<os>-<arch>.<extension>
+  split = file.split("-");
+  return split[0] + " for " + split[1] + " " + split[2].substring(0, 3)
+
 }

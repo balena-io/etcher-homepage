@@ -60,6 +60,7 @@ gulp.task('browser-reload', function() {
 
 gulp.task('default',['browser-sync'], function() {
   gulp.watch('static/styles/*.scss',['styles']);
+  gulp.watch('static/js/lib/*.js',['js']);
   gulp.watch('./template.html',['render']);
   gulp.watch('./data.json',['render']);
   gulp.watch('static/styles/*.css').on("change", browserSync.reload);

@@ -1,6 +1,14 @@
 // using parser and sniffr to get us the best of both
 console.log("Detected: " + Sniffr.os.name);
 
+// lazy load jumbotron
+$(window).load(function(){
+   $('.jumbotron > *').each(function(i){
+      $(this).delay((i + 1) * 250).addClass('appear');
+      // console.log("loop")
+   });
+});
+
 // Bind data
 var app = new Vue({
   el: '#app',
@@ -8,7 +16,7 @@ var app = new Vue({
     os: Sniffr.os.name,
     downloads:  [],
     version: "0.0.1",
-    dynamicLink: { "buttonText": "View on github", "link": "https://github/resin-io/etcher" },
+    dynamicLink: { "buttonText": "Email link to me", "link": "mailto:?subject=Checkout out etcher.io&body=http://www.etcher.io", "mobile": false},
   }
 });
 
@@ -17,11 +25,13 @@ var bucket = new s3("https://resin-production-downloads.s3.amazonaws.com", "etch
 
 
 bucket.getLatestVersion(function(version){
-   app.version = version;
+   app.version = "v" + version;
    bucket.getFiles(version, function(files){
      app.downloads = files;
+    //  app.os =
      bucket.getDynamicLink(files, app.os, app.dynamicLink, function(link) {
        app.dynamicLink = link[0];
+
      });
    });
 });
@@ -51,3 +61,14 @@ $(function() {
     mixpanel.track(event_name, event_attrs);
   });
 });
+
+// style dropdown
+// var width = $('.dropdown-menu').parent('.btn-group').css('width');
+// console.log(width);
+// $('.dropdown-menu').css("min-width", width);
+
+// $(window).load(function() {
+//    $('.jumbotron').each(function(i) {
+//       $(this).delay((i + 1) * 250).fadeIn(2000);
+//    });
+// });
