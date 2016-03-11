@@ -61,7 +61,7 @@
             
             <!-- Split button -->
             <template v-if="dynamicLink.mobile">
-              <a class="btn btn-primary" data-track="[etcher website] download" href="mailto:{{ dynamicLink.link }}">{{ dynamicLink.buttonText }}<a>
+              <a class="btn btn-primary" data-track="[etcher website] Email myself link" href="mailto:{{ dynamicLink.link }}">{{ dynamicLink.buttonText }}<a>
             </template>
             <div v-else class="btn-group">
               <a href="{{ dynamicLink.link }}" v-cloak class="btn btn-primary" data-track-id="nav button" data-track="[etcher website] download" data-track-attrs="{{ dynamicLink | json }}" v-text="dynamicLink.buttonText" role="button"></a>
@@ -90,7 +90,7 @@
           <!-- Split button -->
           <template v-if="dynamicLink.mobile">
             <p>Visit from your PC to download Etcher</p>
-            <a class="btn btn-success btn-lg" data-track="[etcher website] download" href="mailto:{{ dynamicLink.link }}">{{ dynamicLink.buttonText }}<a>
+            <a class="btn btn-success btn-lg" data-track="[etcher website] Email myself link" href="mailto:{{ dynamicLink.link }}">{{ dynamicLink.buttonText }}<a>
           </template>
           <div v-else class="btn-group">
             <a href="{{ dynamicLink.link }}" v-cloak class="btn btn-success btn-lg" data-track-id="jumbotron button" data-track="[etcher website] download" data-track-attrs="{{ dynamicLink | json }}" v-text="dynamicLink.buttonText" role="button"></a>
@@ -198,7 +198,7 @@
           <h2>Start burning your images the easy way</h2>
           <!-- Split button -->
           <template v-if="dynamicLink.mobile">
-            <a class="btn btn-primary btn-lg" data-track="[etcher website] download" href="mailto:{{ dynamicLink.link }}">{{ dynamicLink.buttonText }}<a>
+            <a class="btn btn-primary btn-lg" data-track="[etcher website] Email myself link" href="mailto:{{ dynamicLink.link }}">{{ dynamicLink.buttonText }}<a>
           </template>
           <div v-else class="btn-group">
             <a href="{{ dynamicLink.link }}" v-cloak class="btn btn-primary btn-lg" data-track-id="well button" data-track="[etcher website] download" data-track-attrs="{{ dynamicLink | json }}" role="button">{{ dynamicLink.buttonText }}</a>

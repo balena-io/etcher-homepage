@@ -11,7 +11,7 @@
 	"button":{
 		"shout": "Download now",
 		"eventName": "[etcher website] download",
-		"mobileEventName": "[etcher website] download"
+		"mobileEventName": "[etcher website] Email myself link"
 	},
 	"callout": {
     "title": "Start burning your images the easy way"
