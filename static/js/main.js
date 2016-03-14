@@ -7,8 +7,8 @@ var app = new Vue({
     os: Sniffr.os.name,
     downloads:  [],
     version: "0.0.1",
-    dynamicLink: defaultLink,
-    mobileLink: mobileLink,
+    dynamicLink: $defaultLink,
+    mobileLink: $mobileLink,
     electron: "<a href=http://electron.atom.io/>Electron</a>"
   }
 });
@@ -20,9 +20,10 @@ bucket.getLatestVersion(function(version){
    app.version = "v" + version;
    bucket.getFiles(version, function(files){
      app.downloads = files;
-     bucket.getDynamicLink(files, app.os, mobileLink, function(link) {
+     bucket.getDynamicLink(files, app.os, app.mobileLink, function(link) {
        app.dynamicLink = link[0];
        $('.fadeIn').addClass('active');
+       cosmetics();
      });
    });
 });
@@ -57,14 +58,11 @@ $('.videoModal').on('hidden.bs.modal', function () {
     player.api('pause');
 })
 
-// hacky -- fix
-setInterval(function(){
-  cosmetics();
-}, 1000)
-
 function cosmetics() {
+  setTimeout(function(){
   $('.dropdown-menu').each(function(){
-    width = $(this).closest('.btn-group.appear').outerWidth()
+    width = $(this).closest('.btn-group').outerWidth()
     $(this).css("min-width", width);
   });
+}, 1000) // hacky -- fix
 }

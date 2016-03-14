@@ -20,7 +20,6 @@ s3.prototype.getFiles = function(version, callback){
 }
 
 s3.prototype.getDynamicLink = function(files, osSlug, backup, callback){
-  console.log(osSlug)
   eventName = "download"
   switch (osSlug) {
     case "macos":
