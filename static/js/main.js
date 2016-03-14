@@ -55,6 +55,14 @@ $(function() {
   });
 });
 
+//
+var iframe = $('#vimeo-player')[0];
+var player = $f(iframe);
+
+$('.videoModal').on('hidden.bs.modal', function () {
+    player.api('pause');
+})
+
 // hacky -- fix
 setInterval(function(){
   cosmetics();
