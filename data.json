@@ -58,12 +58,6 @@
 			"description": "Works for everyone,</br> no more complicated install instructions."
 		},
 		{
-			"title": "Card Validation",
-			"img": "SD_icon",
-			"label": "Coming Soon",
-			"description": "Save time by checking if cards are currupted before you burn"
-		},
-		{
 			"title": "Hard Drive Friendly",
 			"img": "SD_icon",
 			"description": "Makes drive selection obvious to avoid wiping your entire hard-drive"
@@ -77,6 +71,12 @@
 			"title": "Beautifully Simple",
 			"img": "simple_icon",
 			"description": "Did we mention it's pretty pretty?"
+		},
+		{
+			"title": "Card Validation",
+			"img": "SD_icon",
+			"label": "Coming Soon",
+			"description": "Save time by checking if cards are currupted before you burn"
 		}
 	]
 }

@@ -11,6 +11,23 @@ body {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
+.bg-img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    zoom: 1;
+    // filter: alpha(opacity=35);
+    background-image: url("../images/hero_img.png"), linear-gradient(#4790c7, #4790c7);
+}
+
 // nav
 .navbar-default {
   margin-bottom: 0;
@@ -61,13 +78,12 @@ body {
 
 // content
 .content {
-  background-image: url("../images/hero_img.png"), linear-gradient(#4790c7, #4790c7);
-  background-size: cover;
   position: relative;
   color: #fff;
 }
 
 .jumbotron {
+  min-height: 450px;
   background: none;
   text-align: center;
   .btn {
@@ -167,14 +183,14 @@ body {
   }
 }
 
-.jumbotron > * {
+.fadeIn {
   position: relative;
   opacity: 0;
-  top: -50px;
-  @include transition(.8s)
+  top: -100px;
+  @include transition(0.8s)
 }
 
-.jumbotron > *.appear {
+.fadeIn.active {
   opacity: 1;
   top: 0px;
 }

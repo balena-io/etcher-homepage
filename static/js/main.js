@@ -1,11 +1,5 @@
 // using parser and sniffr to get us the best of both
 console.log("Detected: " + Sniffr.os.name);
-// lazy load jumbotron
-$(window).load(function(){
-   $('.jumbotron > *').each(function(i){
-      $(this).delay((i) * 100).addClass('appear');
-   });
-});
 // Bind data
 var app = new Vue({
   el: '#app',
@@ -13,7 +7,7 @@ var app = new Vue({
     os: Sniffr.os.name,
     downloads:  [],
     version: "0.0.1",
-    dynamicLink: { "buttonText": "Email link to myself", "link": "mailto:?subject=Checkout out etcher.io&body=http://www.etcher.io", "mobile": true },
+    dynamicLink: { "buttonText": "Email link to myself", "link": "mailto:?subject=Checkout out etcher.io&body=http://www.etcher.io", "mobile": false },
     electron: "<a href=http://electron.atom.io/>Electron</a>"
   }
 });
@@ -26,9 +20,9 @@ bucket.getLatestVersion(function(version){
    app.version = "v" + version;
    bucket.getFiles(version, function(files){
      app.downloads = files;
-     console.log(app.os)
      bucket.getDynamicLink(files, app.os, app.dynamicLink, function(link) {
        app.dynamicLink = link[0];
+       $('.fadeIn').addClass('active');
      });
    });
 });
