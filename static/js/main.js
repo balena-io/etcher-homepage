@@ -58,7 +58,7 @@ $(function() {
 // hacky -- fix
 setInterval(function(){
   cosmetics();
-}, 3000)
+}, 1000)
 
 function cosmetics() {
   $('.dropdown-menu').each(function(){

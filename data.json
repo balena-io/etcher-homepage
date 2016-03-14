@@ -50,12 +50,12 @@
 		{
 			"title": "Open Source",
 			"img": "open_source_icon",
-			"description": "Open for you to play with, poke, prod and extend to make it your own"
+			"description": "Open for you to play with, poke, prod and extend to make your own"
 		},
 		{
 			"title": "Cross Platform",
 			"img": "screen_icon",
-			"description": "Works for everyone, no more complicated install instructions."
+			"description": "Works for everyone,</br> no more complicated install instructions."
 		},
 		{
 			"title": "Card Validation",
@@ -66,12 +66,12 @@
 		{
 			"title": "Hard Drive Friendly",
 			"img": "SD_icon",
-			"description": "Makes drive selection obvious avoid wiping your entire harddrive"
+			"description": "Makes drive selection obvious to avoid wiping your entire hard-drive"
 		},
 		{
 			"title": "Powered by {{{ electron }}}",
 			"img": "github_server_icon",
-			"description": "Built with Web Technologies, so it's easy customize"
+			"description": "Built with web technologies, so it's easy to customize"
 		},
 		{
 			"title": "Beautifully Simple",
