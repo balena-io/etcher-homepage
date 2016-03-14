@@ -19,20 +19,19 @@ s3.prototype.getFiles = function(version, callback){
   });
 }
 
-s3.prototype.getDynamicLink = function(files, osSlug, backup, callback){
-  eventName = "download"
+s3.prototype.getDynamicLink = function(files, osSlug, backup, eventName, callback){
   switch (osSlug) {
     case "macos":
         buttonText = "Download for OSX"
-        callback(findLink(files, this.productName + "-darwin", buttonText));
+        callback(findLink(files, this.productName + "-darwin", buttonText, eventName));
         break;
     case "windows":
         buttonText = "Download for Windows"
-        callback(findLink(files, this.productName + "-win32", buttonText));
+        callback(findLink(files, this.productName + "-win32", buttonText, eventName));
         break;
     case "linux":
         buttonText = "Download for Linux"
-        callback(findLink(files, this.productName + "-linux", buttonText));
+        callback(findLink(files, this.productName + "-linux", buttonText, eventName));
         break;
     default:
         backup.mobile = true
@@ -40,12 +39,12 @@ s3.prototype.getDynamicLink = function(files, osSlug, backup, callback){
   }
 }
 
-var findLink = function(files, key, buttonText) {
+var findLink = function(files, key, buttonText, eventName) {
     var matchedFiles = []
     for (var i = 0, len = files.length; i < len; i++) {
         if (files[i].link.toLowerCase().indexOf(key) != -1) {
            files[i].buttonText = buttonText
-
+           files[i].eventName = eventName
            matchedFiles.push(files[i]); // Return as soon as the object is found
           // console.log("match Found: " + files[i].name);
         }

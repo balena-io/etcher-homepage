@@ -20,7 +20,7 @@ bucket.getLatestVersion(function(version){
    app.version = "v" + version;
    bucket.getFiles(version, function(files){
      app.downloads = files;
-     bucket.getDynamicLink(files, app.os, app.mobileLink, function(link) {
+     bucket.getDynamicLink(files, app.os, app.mobileLink, app.dynamicLink.eventName, function(link) {
        app.dynamicLink = link[0];
        $('.fadeIn').addClass('active');
        cosmetics();

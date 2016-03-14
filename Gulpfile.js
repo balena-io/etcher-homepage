@@ -29,6 +29,10 @@ gulp.task('js', function () {
     .pipe(concat('etcher.min.js'))
     .pipe(uglify())
     .pipe(gulp.dest('static/js'));
+    gulp.src('static/js/main.js')
+    .pipe(concat('main.min.js'))
+    .pipe(uglify())
+    .pipe(gulp.dest('static/js'));
 });
 
 // Static server
