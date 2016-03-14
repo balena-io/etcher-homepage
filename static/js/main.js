@@ -7,7 +7,8 @@ var app = new Vue({
     os: Sniffr.os.name,
     downloads:  [],
     version: "0.0.1",
-    dynamicLink: { "buttonText": "Email link to myself", "link": "mailto:?subject=Checkout out etcher.io&body=http://www.etcher.io", "mobile": false },
+    dynamicLink: defaultLink,
+    mobileLink: mobileLink,
     electron: "<a href=http://electron.atom.io/>Electron</a>"
   }
 });
@@ -15,12 +16,11 @@ var app = new Vue({
 // Query s3
 var bucket = new s3("https://resin-production-downloads.s3.amazonaws.com", "etcher");
 
-
 bucket.getLatestVersion(function(version){
    app.version = "v" + version;
    bucket.getFiles(version, function(files){
      app.downloads = files;
-     bucket.getDynamicLink(files, app.os, app.dynamicLink, function(link) {
+     bucket.getDynamicLink(files, app.os, mobileLink, function(link) {
        app.dynamicLink = link[0];
        $('.fadeIn').addClass('active');
      });

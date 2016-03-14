@@ -8,10 +8,17 @@
 		"light": "etcher-light",
 		"dark": "etcher-dark"
 	},
-	"button":{
-		"shout": "Download now",
-		"eventName": "[etcher website] download",
-		"mobileEventName": "[etcher website] Email myself link"
+	"dynamicLink": {
+		"default": {
+			"buttonText": "Download Now",
+			"link": "https://resin-production-downloads.s3.amazonaws.com/etcher/1.0.0-beta.0/Etcher-win32-x86.exe",
+			"mobile": false
+		},
+		"mobile": {
+			"buttonText": "Email link to myself",
+			"link": "mailto:?subject=Checkout out etcher.io&body=http://www.etcher.io",
+			"mobile": true
+		}
 	},
 	"callout": {
     "title": "Start burning your images the easy way"

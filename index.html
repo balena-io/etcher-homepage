@@ -61,7 +61,7 @@
             
             <!-- Split button -->
             <template v-if="dynamicLink.mobile">
-              <a class="btn btn-primary" data-track="[etcher website] Email myself link" href="mailto:{{ dynamicLink.link }}">{{ dynamicLink.buttonText }}<a>
+              <a class="btn btn-primary" data-track="" href="mailto:{{ dynamicLink.link }}">{{ dynamicLink.buttonText }}<a>
             </template>
             <div v-else class="btn-group">
               <a href="{{ dynamicLink.link }}" v-cloak class="btn btn-primary" data-track-id="nav button" data-track="[etcher website] download" data-track-attrs="{{ dynamicLink | json }}" v-text="dynamicLink.buttonText" role="button"></a>
@@ -91,10 +91,10 @@
           <!-- Split button -->
           <template v-if="dynamicLink.mobile">
             <p>Visit from your PC to download Etcher</p>
-            <a class="btn btn-success btn-lg" data-track="[etcher website] Email myself link" href="mailto:{{ dynamicLink.link }}">{{ dynamicLink.buttonText }}<a>
+            <a class="btn btn-success btn-lg" data-track="" href="mailto:{{ dynamicLink.link }}">{{ dynamicLink.buttonText }}<a>
           </template>
           <div v-else class="btn-group">
-            <a href="{{ dynamicLink.link }}" v-cloak class="btn btn-success btn-lg" data-track-id="jumbotron button" data-track="[etcher website] download" data-track-attrs="{{ dynamicLink | json }}" v-text="dynamicLink.buttonText" role="button"></a>
+            <a href="{{ dynamicLink.link }}" v-cloak class="btn btn-success btn-lg" data-track-id="jumbotron button" data-track="" data-track-attrs="{{ dynamicLink | json }}" v-text="dynamicLink.buttonText" role="button"></a>
             <button type="button" class="btn btn-success btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <span class="caret"></span>
               <span class="sr-only">Toggle Dropdown</span>
@@ -196,7 +196,7 @@
           <h2>Start burning your images the easy way</h2>
           <!-- Split button -->
           <template v-if="dynamicLink.mobile">
-            <a class="btn btn-primary btn-lg" data-track="[etcher website] Email myself link" href="mailto:{{ dynamicLink.link }}">{{ dynamicLink.buttonText }}<a>
+            <a class="btn btn-primary btn-lg" data-track="" href="mailto:{{ dynamicLink.link }}">{{ dynamicLink.buttonText }}<a>
           </template>
           <div v-else class="btn-group">
             <a href="{{ dynamicLink.link }}" v-cloak class="btn btn-primary btn-lg" data-track-id="well button" data-track="[etcher website] download" data-track-attrs="{{ dynamicLink | json }}" role="button">{{ dynamicLink.buttonText }}</a>
@@ -249,6 +249,11 @@
     <script src="bower_components/scrollmagic/scrollmagic/minified/plugins/animation.gsap.min.js"></script>
     <script src="static/js/etcher.min.js"></script>
     <script src="bower_components/sniffr/dist/sniffr.min.js"/></script>
+
+    <script>
+      var defaultLink = "{\u0022buttonText\u0022:\u0022Download Now\u0022,\u0022link\u0022:\u0022https://resin\u002Dproduction\u002Ddownloads.s3.amazonaws.com/etcher/1.0.0\u002Dbeta.0/Etcher\u002Dwin32\u002Dx86.exe\u0022,\u0022mobile\u0022:false}"
+      var mobileLink = "{\u0022buttonText\u0022:\u0022Download Now\u0022,\u0022link\u0022:\u0022https://resin\u002Dproduction\u002Ddownloads.s3.amazonaws.com/etcher/1.0.0\u002Dbeta.0/Etcher\u002Dwin32\u002Dx86.exe\u0022,\u0022mobile\u0022:false}"
+    </script>
 
     <script src="static/js/main.js?v=1.1"></script>
 
