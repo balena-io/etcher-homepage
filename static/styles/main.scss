@@ -210,6 +210,11 @@ footer {
    a {
     color: $colorGrey;
   }
+  .navbar-nav {
+    float: none !important;
+    margin: auto;
+    display: table;
+  }
   .well {
     text-align: center;
     font-size: 16px;
@@ -220,6 +225,7 @@ footer {
     }
   }
 }
+
 .call-out {
   text-align: center;
   margin: $margin*2 0;

@@ -132,9 +132,18 @@ function prettifyFileName(file) {
   // <name>-v<version>-<os>-<arch>.<extension>
   split = file.split("-");
 
+  function getArchString(arch) {
+    if (arch != undefined) {
+      return "(" + arch.substring(0, 3) + ")"
+    } else {
+      return ""
+    }
+  }
+
   switch (split[1]) {
     case "darwin":
         split[1] = "Mac"
+        split[2] = null
         break;
     case "win32":
         split[1] = "Windows"
@@ -143,5 +152,5 @@ function prettifyFileName(file) {
         split[1] = "Linux"
         break;
   }
-  return split[0] + " for " + split[1] + " " + split[2].substring(0, 3)
+  return split[0] + " for " + split[1] + " " + getArchString(split[2]);
 }
