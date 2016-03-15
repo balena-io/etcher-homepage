@@ -57,14 +57,14 @@
 			"description": "Works for everyone,</br> no more complicated install instructions."
 		},
 		{
+			"title": "JavaScript & HTML",
+			"img": "github_server_icon",
+			"description": "Made with JS, HTML, node.js and {{{ Electron }}}. Dive in and contribute!"
+		},
+		{
 			"title": "Hard Drive Friendly",
 			"img": "SD_icon",
 			"description": "Makes drive selection obvious to avoid wiping your entire hard-drive"
-		},
-		{
-			"title": "Powered by {{{ electron }}}",
-			"img": "github_server_icon",
-			"description": "Built with web technologies, so it's easy to customize"
 		},
 		{
 			"title": "Beautifully Simple",
