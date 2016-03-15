@@ -29,11 +29,6 @@
     {
       "title": "Repository",
       "link": "https://github.com/resin-io/etcher"
-    },
-		{
-      "title": "How it works",
-      "link": "#video",
-			"dataTarget": ".videoModal"
     }
   ],
   "bottomNav":[
@@ -48,11 +43,6 @@
     {
       "title": "Blog",
       "link": "https://resin.io/blog"
-    },
-		{
-      "title": "How it works",
-			"link": "#video",
-			"dataTarget": ".videoModal"
     }
   ],
 	"features": [
