@@ -59,7 +59,7 @@
 		{
 			"title": "JavaScript & HTML",
 			"img": "github_server_icon",
-			"description": "Made with JS, HTML, node.js and {{{ Electron }}}. Dive in and contribute!"
+			"description": "Made with JS, HTML, node.js and <a target='_blank' href='http://electron.atom.io/'>Electron</a>. Dive in and contribute!"
 		},
 		{
 			"title": "Hard Drive Friendly",

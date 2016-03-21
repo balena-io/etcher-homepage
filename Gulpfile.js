@@ -8,9 +8,7 @@ var rename = require('gulp-rename');
 var savefile = require('gulp-savefile');
 var uglify = require("gulp-uglify");
 var concat = require('gulp-concat');
-var swigOpts = {
-  defaults: { cache: false }
-}
+
 var getJsonData = function(file) {
   return require('./data.json');
 };
@@ -50,7 +48,9 @@ gulp.task('render', function() {
       .pipe(data(getJsonData))
       .pipe(swig({
           defaults: {
-              varControls: [ "<=", "=>" ]
+              varControls: [ "<=", "=>" ],
+              cache: false,
+              autoescape: false
           }
       }))
       .pipe(rename('./index.html'))
