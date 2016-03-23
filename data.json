@@ -1,8 +1,9 @@
 {
 	"pageTitle": "Etcher by resin.io",
 	"jumbotron": {
-		"description": "A better way to burn OS images",
-		"logo": "etcher-logo"
+		"description": "Burn Better",
+		"productImage": "product.gif",
+		"logo": "etcher-light.png"
 	},
 	"logo": {
 		"light": "etcher-light",
