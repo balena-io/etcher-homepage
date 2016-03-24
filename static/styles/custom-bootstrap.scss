@@ -21,9 +21,6 @@
   padding: $margin $margin*1.5;
 }
 
-h1 {
-
-}
 h2 {
   font-size: 32px;
   font-weight: 200;
@@ -40,10 +37,6 @@ p {
   line-height: 1.5;
 }
 
-.well {
-  border-width: 1px;
-  border-color: rgb(198, 198, 205);
-  border-style: solid;
-  border-radius: 3px;
-  background-color: rgb(246, 246, 246);
+img {
+  max-width: 100%;
 }

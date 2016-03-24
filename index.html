@@ -39,18 +39,22 @@
       ga('send', 'pageview');
     </script>
     <!-- Ga -->
+    <!-- fonts -->
+    <script src="https://use.typekit.net/lzw7tre.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+    <!-- fonts -->
   </head>
   <body id="app">
     <nav class="navbar navbar-default">
       <div class="container">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu" aria-expanded="false">
+        <!-- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu" aria-expanded="false">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="/"><img src="static/images/etcher-dark.png" srcset="static/images/etcher-dark@2x.png 2x"/></a>
+        </button> -->
+        <a class="navbar-brand" href="/"><img src="static/images/nav-logo.png" srcset="static/images/nav-logo@2x.png 2x"/></a>
         </div>
         <div class="collapse navbar-collapse" id="menu">
           <ul class="nav navbar-nav navbar-right">
@@ -83,9 +87,8 @@
       <div class="container">
         <!-- Jumbo -->
         <div class="jumbotron fadeIn">
-          <img class="logo" src="static/images/etcher-light.png" srcset="static/images/etcher-light.png.gif 2x"/>
-          <h2>Burn Better</h2>
-          <img class="logo" src="static/images/product.gif" srcset="static/images/product.gif.gif 2x"/>
+          <div id="trigger"></div>
+          <h1>Burn. Better.</h1>
 
           <!-- Split button -->
           <template v-if="dynamicLink.mobile">
@@ -119,76 +122,70 @@
             <a class="github-button" href="https://github.com/resin-io/etcher" data-style="mega" data-count-href="/resin-io/etcher/stargazers" data-count-api="/repos/resin-io/etcher#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star resin-io/etcher on GitHub">Star</a>
           </div>
         </div>
-
+        <!-- product -->
+        <div class="product">
+          <!-- <div class="screen-shot"></div> -->
+          <img id="screen-shot" src="/static/images/product.gif"></div>
+        </div>
+      </div>  <!-- /container -->
+    </section> <!-- /content -->
+    <section class="features">
         <!-- Features -->
-        <div class="features">
+        <div class="container">
+          <h3>FEATURES</h3>
           <div class="row">
             
-            <div class=" col-md-4 feature">
-              <span class="label"></span>
+            <div class="col-md-4 feature">
               <div class="image-container">
-                <img src="static/images/icons/open_source_icon.png" srcset="static/images/icons/open_source_icon@2x.png 2x">
+                <img src="static/images/icons/open-source.png" srcset="static/images/icons/open-source@2x.png 2x">
               </div>
               <h2>Open Source</h2>
               <p>Open for you to play with, poke, prod and extend to make your own</p>
             </div>
             
-            <div class=" col-md-4 feature">
-              <span class="label"></span>
+            <div class="col-md-4 feature">
               <div class="image-container">
-                <img src="static/images/icons/screen_icon.png" srcset="static/images/icons/screen_icon@2x.png 2x">
+                <img src="static/images/icons/cross-platform.png" srcset="static/images/icons/cross-platform@2x.png 2x">
               </div>
               <h2>Cross Platform</h2>
               <p>Works for everyone,</br> no more complicated install instructions.</p>
             </div>
             
-            <div class=" col-md-4 feature">
-              <span class="label"></span>
+            <div class="col-md-4 feature">
               <div class="image-container">
-                <img src="static/images/icons/github_server_icon.png" srcset="static/images/icons/github_server_icon@2x.png 2x">
+                <img src="static/images/icons/gh.png" srcset="static/images/icons/gh@2x.png 2x">
               </div>
               <h2>JavaScript & HTML</h2>
               <p>Made with JS, HTML, node.js and <a target='_blank' href='http://electron.atom.io/'>Electron</a>. Dive in and contribute!</p>
             </div>
             
-            <div class=" col-md-4 feature">
-              <span class="label"></span>
+            <div class="col-md-4 feature">
               <div class="image-container">
-                <img src="static/images/icons/SD_icon.png" srcset="static/images/icons/SD_icon@2x.png 2x">
+                <img src="static/images/icons/sd.png" srcset="static/images/icons/sd@2x.png 2x">
               </div>
               <h2>Hard Drive Friendly</h2>
               <p>Makes drive selection obvious to avoid wiping your entire hard-drive</p>
             </div>
             
-            <div class=" col-md-4 feature">
-              <span class="label"></span>
+            <div class="col-md-4 feature">
               <div class="image-container">
-                <img src="static/images/icons/simple_icon.png" srcset="static/images/icons/simple_icon@2x.png 2x">
+                <img src="static/images/icons/simple.png" srcset="static/images/icons/simple@2x.png 2x">
               </div>
               <h2>Beautifully Simple</h2>
               <p>Did we mention it's pretty pretty?</p>
             </div>
             
-            <div class=" faded  col-md-4 feature">
-              <span class="label">Coming Soon</span>
+            <div class="col-md-4 feature">
               <div class="image-container">
-                <img src="static/images/icons/SD_icon.png" srcset="static/images/icons/SD_icon@2x.png 2x">
+                <img src="static/images/icons/coming-soon.png" srcset="static/images/icons/coming-soon@2x.png 2x">
               </div>
               <h2>Card Validation</h2>
               <p>Save time by checking if cards are currupted before you burn</p>
             </div>
             
           </div>
-          <div id="trigger"></div>
-        </div> <!-- features -->
       </div>  <!-- /container -->
-      <!-- product -->
-      <div class="product">
-        <!-- <div class="screen-shot"></div> -->
-        <img id="screen-shot" src="/static/images/product.gif"></div>
-      </div>
     </section> <!-- /content -->
-
     <footer>
       <div class="container">
         <div class="call-out">
@@ -210,21 +207,28 @@
           <!-- Split button -->
         </div>
         <hr>
-        <div class="navbar">
-          <ul class="nav navbar-nav navbar-left">
-            
-              <li><a data-track-id="bottomNav button" data-toggle="modal" data-target="" data-track="[etcher website] link click https://github.com/resin-io/etcher" href="https://github.com/resin-io/etcher">Repository</a></li>
-            
-              <li><a data-track-id="bottomNav button" data-toggle="modal" data-target="" data-track="[etcher website] link click https://resin.io" href="https://resin.io">About Us</a></li>
-            
-              <li><a data-track-id="bottomNav button" data-toggle="modal" data-target="" data-track="[etcher website] link click https://resin.io/blog" href="https://resin.io/blog">Blog</a></li>
-            
-          </ul>
-        </div>
-        <div class="well">
-          Etcher is an open source project by <a href="https://resin.io">resin.io</a> - Modern DevOps for the Industrial Internet of Things
-        </div>
-        <img class="resin-logo" src="static/images/logo.svg">
+        <div class="row">
+          <div class="col-md-6 promo">
+            <img class="logo" src="static/images/logo.png" srcset="static/images/logo@2x.png 2x"/>
+            <p>
+              Etcher is an open source project by <a href="https://resin.io">resin.io</a> - Modern DevOps for the Industrial Internet of Things
+            </p>
+            <div>MADE WITH LOVE BY <img class="resin-logo" src="static/images/logo-right.png" srcset="static/images/logo-right@2x.png 2x"></div>
+          </div>
+          <div class="col-md-6">
+            <div class="navbar">
+              <ul class="nav navbar-nav navbar-left">
+                
+                  <li><a data-track-id="bottomNav button" data-toggle="modal" data-target="" data-track="[etcher website] link click https://github.com/resin-io/etcher" href="https://github.com/resin-io/etcher">Repository</a></li>
+                
+                  <li><a data-track-id="bottomNav button" data-toggle="modal" data-target="" data-track="[etcher website] link click https://resin.io" href="https://resin.io">About Us</a></li>
+                
+                  <li><a data-track-id="bottomNav button" data-toggle="modal" data-target="" data-track="[etcher website] link click https://resin.io/blog" href="https://resin.io/blog">Blog</a></li>
+                
+              </ul>
+            </div>
+          </div>
+        </div> <!-- /row -->
       </div> <!-- /container -->
     </footer>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -232,9 +236,6 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js"></script>
     <script src="bower_components/vue/dist/vue.min.js"></script>
-    <script src="bower_components/scrollmagic/scrollmagic/minified/ScrollMagic.min.js"></script>
-    <script src="bower_components/gsap/src/minified/TweenMax.min.js"></script>
-    <script src="bower_components/scrollmagic/scrollmagic/minified/plugins/animation.gsap.min.js"></script>
     <script src="static/js/etcher.min.js"></script>
     <script src="bower_components/sniffr/dist/sniffr.min.js"/></script>
 
@@ -243,7 +244,7 @@
       var $mobileLink = JSON.parse("{\u0022buttonText\u0022:\u0022Email link to myself\u0022,\u0022link\u0022:\u0022mailto:?subject\u003DCheckout out etcher.io\u0026body\u003Dhttp://www.etcher.io\u0022,\u0022mobile\u0022:true,\u0022eventName\u0022:\u0022[etcher website] email link\u0022}")
     </script>
 
-    <script src="static/js/main.min.js?v=1.1"></script>
+    <script src="static/js/main.js?v=1.1"></script>
 
     <!-- // social // -->
     <!-- Place this tag right after the last button or just before your close body tag. -->
@@ -265,6 +266,7 @@
       return t;
     }(document, "script", "twitter-wjs"));
     </script>
+
 
     <!-- // social // -->
   </body>

@@ -1,3 +1,25 @@
+$("img#screen-shot").on('load', function() {
+  console.log("image loaded correctly");
+  positionScreenShot();
+}).each(function() {
+  if(this.complete) $(this).load();
+});
+
+function positionScreenShot() {
+  var $product = $('.product');
+  var $jumbotron = $('.jumbotron');
+  var $features = $('.features');
+  var h = $product.height();
+
+  $product.css('bottom', -(h/2));
+  $jumbotron.css('margin-bottom', h/2);
+  $features.css('padding-top', h/2).fadeIn();
+}
+
+$( window ).resize(function() {
+  positionScreenShot();
+});
+
 // using parser and sniffr to get us the best of both
 console.log("Detected: " + Sniffr.os.name);
 // Bind data
@@ -52,9 +74,9 @@ $(function() {
 
 function cosmetics() {
   setTimeout(function(){
-  $('.dropdown-menu').each(function(){
-    width = $(this).closest('.btn-group').outerWidth()
-    $(this).css("min-width", width);
-  });
-}, 1000) // hacky -- fix
+    $('.dropdown-menu').each(function(){
+      width = $(this).closest('.btn-group').outerWidth()
+      $(this).css("min-width", width);
+    });
+  }, 1000) // hacky -- fix
 }

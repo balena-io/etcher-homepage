@@ -1,14 +1,39 @@
 $colorBlue: rgb(103, 177, 231);
-$colorBlack: rgb(75, 75, 75);
+$colorBlack: #2e2f2f;
 $colorGrey: rgb(123, 123, 128);
+$colorLightGrey: #6c6d6d;
+$colorBorder: #d6dbde;
 $margin: 20px;
+$bdRadius: 100px;
+
 
 @import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
 @import "mixin";
 @import "custom-bootstrap";
 
 body {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'proxima-nova', sans-serif, Arial;
+}
+
+h1 {
+  font-weight: bold;
+}
+
+h2 {
+  color: $colorBlack;
+}
+
+p {
+  font-weight: regular;
+  font-size: 16px;
+  line-height: 1.6;
+  color: $colorLightGrey;
+}
+
+.btn {
+  letter-spacing: 0.8px;
+  font-weight: medium;
+  text-transform: uppercase;
 }
 
 .bg-img {
@@ -24,30 +49,62 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     zoom: 1;
-    // filter: alpha(opacity=35);
-    background-image: url("../images/hero_img.png"), linear-gradient(#4790c7, #4790c7);
+    background-image: url("../images/hero_img.png"), linear-gradient(#343636, #343636);
+    background: #343636;
 }
 
 // nav
 .navbar-default {
   margin-bottom: 0;
+  background: none;
+  position: absolute;
+  top: 10px;
+  border: none;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: 10;
 
   .btn {
     vertical-align: inherit;
   }
   .btn-group {
     margin-top: -5px;
+    > .btn {
+      background: rgba(255,255,255,0.5);
+      border:none;
+    }
+    .btn+.btn {
+      margin-left: 0;
+    }
   }
   li {
     font-size: 15px;
-    font-weight: bold;
+    font-weight: light;
+    text-transform: uppercase;
     display: inline-block;
     float: none;
   }
 
-  .navbar-nav>.open>a{
-    background-color: $colorBlue;
+  .navbar-nav>li>a {
     color: #fff;
+    &:hover {
+      color: #fff;
+    }
+  }
+
+  .navbar-default .navbar-nav .open .dropdown-menu>li>a {
+    color: #fff;
+  }
+
+  .navbar-nav>.open>a{
+    background-color: $colorGrey;
+    color: #fff;
+  }
+  .open>.btn-primary.dropdown-toggle:focus, .open>.btn-primary.dropdown-toggle:hover {
+    background-color: $colorGrey;
+    color: #fff;
+
   }
 
   iframe {
@@ -58,6 +115,15 @@ body {
 
 .navbar-brand > img {
   max-width: 115px;
+  @include breakpoint(small) {
+    margin: auto;
+  };
+}
+
+.navbar-brand {
+  @include breakpoint(small) {
+    float: none;
+  };
 }
 
 
@@ -65,14 +131,19 @@ body {
   color: $colorBlack;
 }
 
-.navbar-collapse {
-  text-align: center;
-  @include breakpoint(small) {
-    li {
-      display: block;
-    }
-  }
-}
+// .navbar-collapse {
+//   text-align: center;
+//   @include transition(.3s);
+//   @include breakpoint(small) {
+//     li {
+//       display: block;
+//     }
+//   }
+// }
+// .navbar-collapse.in {
+//   background: gray;
+//   height: 100vh;
+// }
 // nav
 
 
@@ -83,16 +154,14 @@ body {
 }
 
 .jumbotron {
-  min-height: 450px;
+  padding-top: 15%;
   background: none;
   text-align: center;
+
   .btn {
     text-transform: uppercase;
   }
-  .logo {
-    margin-top: 20px;
-    max-width: 100%;
-  }
+
   .version {
     margin-top: 20px;
     font-size: 14px;
@@ -101,17 +170,19 @@ body {
 }
 
 .features {
-  position: relative;
-  margin: $margin*3 0;
+  background: #F0F4F6;
+  padding-bottom: 50px;
+
+  h3 {
+    color: #b5b8b9;
+  }
 
   .feature {
     text-align: center;
     margin-bottom: $margin;
     min-height: 250px;
     position: relative;
-    a {
-      color: #fff;
-    }
+
     .image-container {
       min-height: 60px;
     }
@@ -149,38 +220,23 @@ body {
   }
 }
 
-.faded {
-  .image-container, h2, p {
-    opacity: .5;
-  }
-}
 
 
 #screen-shot {
   margin: 0 auto;
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -500px;
-  height: 500px;
-  z-index: 1;
   @include transition(1s);
-  @include breakpoint(medium) {
-    height: auto;
-    width: 80%
-  }
+  width: 100%;
+  max-width: 880px;
 }
 
 .product {
-  @include background-image-retina('../images/pattern', 'png');
-  background-size: cover;
-  width: 100%;
-  height: 500px;
-  position: relative;
-  z-index: 0;
-  @include breakpoint(small) {
-    height: 200px;
-  }
+  text-align: center;
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  width: 80%;
+  margin: auto;
 }
 
 .fadeIn {
@@ -203,6 +259,7 @@ body {
 
 // Footer
 footer {
+  margin-bottom: $margin*2;
   color: $colorGrey;
   background: #fff;
   position: static;
@@ -214,14 +271,13 @@ footer {
     float: none !important;
     margin: auto;
     display: table;
-  }
-  .well {
-    text-align: center;
-    font-size: 16px;
-    font-family: "Helvetica";
-    color: rgb(124, 124, 130);
-    a {
-      font-weight: 800;
+
+    li {
+      float: none;
+      font-weight: bold;
+      a {
+        color: $colorBlack;
+      }
     }
   }
 }
@@ -231,7 +287,6 @@ footer {
   margin: $margin*2 0;
   h2 {
     display: inline-block;
-    margin:0;
     margin:$margin $margin/2 $margin 0;
     vertical-align: sub;
     font-size: 26px;
@@ -241,7 +296,53 @@ footer {
 // Footer
 
 .resin-logo {
-  display: block;
-  margin: 10px auto 30px auto;
-  width: 30px;
+  margin-left: 10px;
+  max-width: 80px;
+}
+
+footer {
+  font-weight: normal;
+  @include breakpoint(medium) {
+    text-align: center;
+  };
+}
+
+.features .feature {
+  min-height: 275px;
+  padding: 20px;
+  margin-bottom: 0;
+  border-right: 1px solid $colorBorder;
+  &:nth-child(-n+3) {
+    border-bottom: 1px solid $colorBorder;
+  }
+  &:nth-child(3n) {
+    border-right: none;
+  }
+  @include breakpoint(medium) {
+    border:none;
+    border-bottom: 1px solid $colorBorder;
+  }
+}
+
+.btn-group {
+  > a {
+    -webkit-border-top-left-radius: 25px;
+    -webkit-border-bottom-left-radius: 25px;
+    -moz-border-radius-topleft: 25px;
+    -moz-border-radius-bottomleft: 25px;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+  }
+  .dropdown-toggle {
+    -webkit-border-top-right-radius: 25px;
+    -webkit-border-bottom-right-radius: 25px;
+    -moz-border-radius-topright: 25px;
+    -moz-border-radius-bottomright: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+  }
+}
+
+.logo {
+  margin: 20px 0;
 }

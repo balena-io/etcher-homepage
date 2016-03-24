@@ -39,18 +39,22 @@
       ga('send', 'pageview');
     </script>
     <!-- Ga -->
+    <!-- fonts -->
+    <script src="https://use.typekit.net/lzw7tre.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+    <!-- fonts -->
   </head>
   <body id="app">
     <nav class="navbar navbar-default">
       <div class="container">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu" aria-expanded="false">
+        <!-- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu" aria-expanded="false">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="/"><img src="static/images/<= logo.dark =>.png" srcset="static/images/<= logo.dark =>@2x.png 2x"/></a>
+        </button> -->
+        <a class="navbar-brand" href="/"><img src="static/images/<= logo.nav =>.png" srcset="static/images/<= logo.nav =>@2x.png 2x"/></a>
         </div>
         <div class="collapse navbar-collapse" id="menu">
           <ul class="nav navbar-nav navbar-right">
@@ -83,9 +87,8 @@
       <div class="container">
         <!-- Jumbo -->
         <div class="jumbotron fadeIn">
-          <img class="logo" src="static/images/<= jumbotron.logo =>" srcset="static/images/<= jumbotron.logo =>.gif 2x"/>
-          <h2><= jumbotron.description =></h2>
-          <img class="logo" src="static/images/<= jumbotron.productImage =>" srcset="static/images/<= jumbotron.productImage =>.gif 2x"/>
+          <div id="trigger"></div>
+          <h1><= jumbotron.description =></h1>
 
           <!-- Split button -->
           <template v-if="dynamicLink.mobile">
@@ -119,13 +122,20 @@
             <a class="github-button" href="https://github.com/resin-io/etcher" data-style="mega" data-count-href="/resin-io/etcher/stargazers" data-count-api="/repos/resin-io/etcher#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star resin-io/etcher on GitHub">Star</a>
           </div>
         </div>
-
+        <!-- product -->
+        <div class="product">
+          <!-- <div class="screen-shot"></div> -->
+          <img id="screen-shot" src="/static/images/product.gif"></div>
+        </div>
+      </div>  <!-- /container -->
+    </section> <!-- /content -->
+    <section class="features">
         <!-- Features -->
-        <div class="features">
+        <div class="container">
+          <h3>FEATURES</h3>
           <div class="row">
             {% for feature in features %}
-            <div class="{% if feature.label %} faded {% endif %} col-md-4 feature">
-              <span class="label"><= feature.label =></span>
+            <div class="col-md-4 feature">
               <div class="image-container">
                 <img src="static/images/icons/<= feature.img =>.png" srcset="static/images/icons/<= feature.img =>@2x.png 2x">
               </div>
@@ -134,16 +144,8 @@
             </div>
             {% endfor %}
           </div>
-          <div id="trigger"></div>
-        </div> <!-- features -->
       </div>  <!-- /container -->
-      <!-- product -->
-      <div class="product">
-        <!-- <div class="screen-shot"></div> -->
-        <img id="screen-shot" src="/static/images/product.gif"></div>
-      </div>
     </section> <!-- /content -->
-
     <footer>
       <div class="container">
         <div class="call-out">
@@ -165,17 +167,24 @@
           <!-- Split button -->
         </div>
         <hr>
-        <div class="navbar">
-          <ul class="nav navbar-nav navbar-left">
-            {% for item in bottomNav %}
-              <li><a data-track-id="bottomNav button" data-toggle="modal" data-target="<= item.dataTarget =>" data-track="[etcher website] link click <= item.link =>" href="<= item.link =>"><= item.title =></a></li>
-            {% endfor %}
-          </ul>
-        </div>
-        <div class="well">
-          Etcher is an open source project by <a href="https://resin.io">resin.io</a> - Modern DevOps for the Industrial Internet of Things
-        </div>
-        <img class="resin-logo" src="static/images/logo.svg">
+        <div class="row">
+          <div class="col-md-6 promo">
+            <img class="logo" src="static/images/<= logo.footer =>.png" srcset="static/images/<= logo.footer =>@2x.png 2x"/>
+            <p>
+              Etcher is an open source project by <a href="https://resin.io">resin.io</a> - Modern DevOps for the Industrial Internet of Things
+            </p>
+            <div>MADE WITH LOVE BY <img class="resin-logo" src="static/images/<= logo.resin =>.png" srcset="static/images/<= logo.resin =>@2x.png 2x"></div>
+          </div>
+          <div class="col-md-6">
+            <div class="navbar">
+              <ul class="nav navbar-nav navbar-left">
+                {% for item in bottomNav %}
+                  <li><a data-track-id="bottomNav button" data-toggle="modal" data-target="<= item.dataTarget =>" data-track="[etcher website] link click <= item.link =>" href="<= item.link =>"><= item.title =></a></li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        </div> <!-- /row -->
       </div> <!-- /container -->
     </footer>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -183,9 +192,6 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js"></script>
     <script src="bower_components/vue/dist/vue.min.js"></script>
-    <script src="bower_components/scrollmagic/scrollmagic/minified/ScrollMagic.min.js"></script>
-    <script src="bower_components/gsap/src/minified/TweenMax.min.js"></script>
-    <script src="bower_components/scrollmagic/scrollmagic/minified/plugins/animation.gsap.min.js"></script>
     <script src="static/js/etcher.min.js"></script>
     <script src="bower_components/sniffr/dist/sniffr.min.js"/></script>
 
@@ -194,7 +200,7 @@
       var $mobileLink = JSON.parse("<= dynamicLink.mobile |json |e('js') =>")
     </script>
 
-    <script src="static/js/main.min.js?v=1.1"></script>
+    <script src="static/js/main.js?v=1.1"></script>
 
     <!-- // social // -->
     <!-- Place this tag right after the last button or just before your close body tag. -->
@@ -216,6 +222,7 @@
       return t;
     }(document, "script", "twitter-wjs"));
     </script>
+
 
     <!-- // social // -->
   </body>

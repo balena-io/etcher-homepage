@@ -1,13 +1,13 @@
 {
 	"pageTitle": "Etcher by resin.io",
 	"jumbotron": {
-		"description": "Burn Better",
-		"productImage": "product.gif",
-		"logo": "etcher-light.png"
+		"description": "Burn. Better.",
+		"productImage": "product.gif"
 	},
 	"logo": {
-		"light": "etcher-light",
-		"dark": "etcher-dark"
+		"nav": "nav-logo",
+		"footer": "logo",
+		"resin": "logo-right"
 	},
 	"dynamicLink": {
 		"default": {
@@ -49,33 +49,32 @@
 	"features": [
 		{
 			"title": "Open Source",
-			"img": "open_source_icon",
+			"img": "open-source",
 			"description": "Open for you to play with, poke, prod and extend to make your own"
 		},
 		{
 			"title": "Cross Platform",
-			"img": "screen_icon",
+			"img": "cross-platform",
 			"description": "Works for everyone,</br> no more complicated install instructions."
 		},
 		{
 			"title": "JavaScript & HTML",
-			"img": "github_server_icon",
+			"img": "gh",
 			"description": "Made with JS, HTML, node.js and <a target='_blank' href='http://electron.atom.io/'>Electron</a>. Dive in and contribute!"
 		},
 		{
 			"title": "Hard Drive Friendly",
-			"img": "SD_icon",
+			"img": "sd",
 			"description": "Makes drive selection obvious to avoid wiping your entire hard-drive"
 		},
 		{
 			"title": "Beautifully Simple",
-			"img": "simple_icon",
+			"img": "simple",
 			"description": "Did we mention it's pretty pretty?"
 		},
 		{
 			"title": "Card Validation",
-			"img": "SD_icon",
-			"label": "Coming Soon",
+			"img": "coming-soon",
 			"description": "Save time by checking if cards are currupted before you burn"
 		}
 	]
