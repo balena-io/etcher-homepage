@@ -19,8 +19,7 @@
   "dependencies": {
     "bootstrap-sass": "bootstrap-sass-official#~3.3.6",
     "vue": "^1.0.17",
-    "scrollmagic": "^2.0.5",
-    "gsap": "^1.18.2",
-    "sniffr": "^1.1.4"
+    "sniffr": "^1.1.4",
+    "semver": "^4.3.4"
   }
 }

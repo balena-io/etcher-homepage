@@ -7,7 +7,8 @@ function s3(url, productName){
 s3.prototype.getLatestVersion = function(callback){
   getData(this, function(data){
     getVersions(data.directories, "etcher", function(versions){
-      callback(versions.sort(cmp)[0]);
+      callback(versions.sort(semver.rcompare)[0]);
+
     });
   });
 }
@@ -102,21 +103,6 @@ function getVersions(versions, prefix, callback) {
       return v.key.split('/')[1]
     }))
 }
-
-// sorts the semantic versions ascending order
-function cmp (a, b) {
-    var pa = a.split('.');
-    var pb = b.split('.');
-    for (var i = 0; i < 3; i++) {
-        var na = Number(pa[i]);
-        var nb = Number(pb[i]);
-        if (na > nb) return -1;
-        if (nb > na) return 1;
-        if (!isNaN(na) && isNaN(nb)) return -1;
-        if (isNaN(na) && !isNaN(nb)) return 1;
-    }
-    return 0;
-};
 
 function bytesToHumanReadable(sizeInBytes) {
   var i = -1;
