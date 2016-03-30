@@ -81,7 +81,6 @@ p {
   li {
     font-size: 15px;
     font-weight: light;
-    text-transform: uppercase;
     display: inline-block;
     float: none;
   }
@@ -132,7 +131,16 @@ p {
 }
 
 .story {
-  text-align: center;
+  position: relative;
+  color: #fff;
+  padding: $margin*3 0;
+  p {
+    color: #fff;
+  }
+  h2 {
+    text-align: center;
+    color: #fff;
+  }
 }
 
 // content
@@ -146,17 +154,10 @@ p {
   background: none;
   text-align: center;
 
-  .btn {
-    text-transform: uppercase;
-  }
-
   .description {
-    font-style: italic;
     margin-bottom: $margin;
     color: #fff;
-    font-size: 12px;
     letter-spacing: 0.5px;
-    font-family: sans-serif;
   }
 
   .version {
@@ -168,7 +169,7 @@ p {
 
 .features {
   background: #F0F4F6;
-  padding-bottom: 50px;
+  padding-bottom: $margin*3;
 
   h3 {
     color: #b5b8b9;
@@ -279,6 +280,7 @@ footer {
     display: inline-block;
     margin:$margin $margin/2 $margin 0;
     vertical-align: sub;
+    font-size: 20px;
   }
 }
 // Footer
