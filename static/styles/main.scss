@@ -131,21 +131,9 @@ p {
   color: $colorBlack;
 }
 
-// .navbar-collapse {
-//   text-align: center;
-//   @include transition(.3s);
-//   @include breakpoint(small) {
-//     li {
-//       display: block;
-//     }
-//   }
-// }
-// .navbar-collapse.in {
-//   background: gray;
-//   height: 100vh;
-// }
-// nav
-
+.story {
+  text-align: center;
+}
 
 // content
 .content {
@@ -162,6 +150,15 @@ p {
     text-transform: uppercase;
   }
 
+  .description {
+    font-style: italic;
+    margin-bottom: $margin;
+    color: #fff;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    font-family: sans-serif;
+  }
+
   .version {
     margin-top: 20px;
     font-size: 14px;
@@ -175,6 +172,7 @@ p {
 
   h3 {
     color: #b5b8b9;
+    margin-bottom: 30px;
   }
 
   .feature {
@@ -209,14 +207,6 @@ p {
     a {
       color: $colorGrey
     }
-  }
-}
-
-.modal-content {
-  padding: 20px 0;
-  // modal x
-  .close {
-    margin: -20px 5px 5px 5px;
   }
 }
 
@@ -285,12 +275,10 @@ footer {
 .call-out {
   text-align: center;
   margin: $margin*2 0;
-  h2 {
+  h3 {
     display: inline-block;
     margin:$margin $margin/2 $margin 0;
     vertical-align: sub;
-    font-size: 26px;
-    font-family: "Helvetica";
   }
 }
 // Footer
@@ -307,20 +295,27 @@ footer {
   };
 }
 
-.features .feature {
-  min-height: 275px;
-  padding: 20px;
-  margin-bottom: 0;
-  border-right: 1px solid $colorBorder;
-  &:nth-child(-n+3) {
-    border-bottom: 1px solid $colorBorder;
+.features {
+  .feature {
+    min-height: 275px;
+    padding: 20px;
+    margin-bottom: 0;
+    border-left: 1px solid $colorBorder;
+    @include breakpoint(medium) {
+      border:none;
+      border-bottom: 1px solid $colorBorder;
+    }
   }
-  &:nth-child(3n) {
-    border-right: none;
-  }
-  @include breakpoint(medium) {
-    border:none;
+  .topRow .feature {
     border-bottom: 1px solid $colorBorder;
+    &:first-child {
+      border-left: none;
+    }
+  }
+  .bottomRow .feature {
+    &:first-child {
+      border-left: none;
+    }
   }
 }
 

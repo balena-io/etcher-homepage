@@ -1,7 +1,8 @@
 {
 	"pageTitle": "Etcher by resin.io",
 	"jumbotron": {
-		"description": "Burn. Better.",
+		"title": "Burn. Better.",
+		"description": "Burn images to SD cards & USB drives, <b>safe & easy.</b>",
 		"productImage": "product.gif"
 	},
 	"logo": {
@@ -32,6 +33,7 @@
       "link": "https://github.com/resin-io/etcher"
     }
   ],
+	"story": "Here at <a href='https://resin.io' target='_blank'>resin.io</a> we have thousands of users working through our getting started process and until recently we were embarassed about the steps that involved burning an SD card. There was a separate track for each Mac/Windows/Ubuntu and several manual and error prone steps along the way. </br></br>To our surprise there was nothing out there that fitted our needs. So we built Etcher, a SD card burner app that is simple for end users, extensible for developers, and works on any platform. ",
   "bottomNav":[
     {
       "title": "Repository",
@@ -46,36 +48,35 @@
       "link": "https://resin.io/blog"
     }
   ],
-	"features": [
-		{
-			"title": "Open Source",
-			"img": "open-source",
-			"description": "Open for you to play with, poke, prod and extend to make your own"
-		},
-		{
-			"title": "Cross Platform",
-			"img": "cross-platform",
-			"description": "Works for everyone,</br> no more complicated install instructions."
-		},
-		{
-			"title": "JavaScript & HTML",
-			"img": "gh",
-			"description": "Made with JS, HTML, node.js and <a target='_blank' href='http://electron.atom.io/'>Electron</a>. Dive in and contribute!"
-		},
-		{
-			"title": "Hard Drive Friendly",
-			"img": "sd",
-			"description": "Makes drive selection obvious to avoid wiping your entire hard-drive"
-		},
-		{
-			"title": "Beautifully Simple",
-			"img": "simple",
-			"description": "Did we mention it's pretty pretty?"
-		},
-		{
-			"title": "Card Validation",
-			"img": "coming-soon",
-			"description": "Save time by checking if cards are currupted before you burn"
-		}
-	]
+	"features": {
+		"topRow": [
+			{
+				"title": "Hard Drive Friendly",
+				"img": "sd",
+				"description": "Makes drive selection obvious to avoid wiping your entire hard-drive"
+			},
+			{
+				"title": "Beautiful Interface",
+				"img": "simple",
+				"description": "Who said burning SD cards has to be an eyesore."
+			}
+		],
+		"bottomRow": [
+			{
+				"title": "Open Source",
+				"img": "open-source",
+				"description": "Made with JS, HTML, node.js and <a target='_blank' href='http://electron.atom.io/'>Electron</a>. Dive in and contribute!"
+			},
+			{
+				"title": "Cross Platform",
+				"img": "cross-platform",
+				"description": "Works for everyone,</br> no more complicated install instructions."
+			},
+			{
+				"title": "More on the way",
+				"img": "coming-soon",
+				"description": "Image validation, 50% faster burns, simultaneous writing for multiple drives. </br><a target='_blank' href='https://github.com/resin-io/etcher/milestones/Public%20Launch'>View our roadmap</a>"
+			}
+		]
+	}
 }

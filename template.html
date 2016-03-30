@@ -81,9 +81,8 @@
       <div class="container">
         <!-- Jumbo -->
         <div class="jumbotron fadeIn">
-          <div id="trigger"></div>
-          <h1><= jumbotron.description =></h1>
-
+          <h1><= jumbotron.title =></h1>
+          <p class="description"><= jumbotron.description =></p>
           <!-- Split button -->
           <template v-if="dynamicLink.mobile">
             <p>Visit from your PC to download Etcher</p>
@@ -127,8 +126,19 @@
         <!-- Features -->
         <div class="container">
           <h3>FEATURES</h3>
-          <div class="row">
-            {% for feature in features %}
+          <div class="row topRow">
+            {% for feature in features.topRow %}
+            <div class="col-md-6 feature">
+              <div class="image-container">
+                <img src="static/images/icons/<= feature.img =>.png" srcset="static/images/icons/<= feature.img =>@2x.png 2x">
+              </div>
+              <h2><= feature.title  =></h2>
+              <p><= feature.description =></p>
+            </div>
+            {% endfor %}
+          </div>
+          <div class="row bottomRow">
+            {% for feature in features.bottomRow %}
             <div class="col-md-4 feature">
               <div class="image-container">
                 <img src="static/images/icons/<= feature.img =>.png" srcset="static/images/icons/<= feature.img =>@2x.png 2x">
@@ -139,11 +149,17 @@
             {% endfor %}
           </div>
       </div>  <!-- /container -->
+      <div class="story">
+        <div class="container">
+          <h2>Why Etcher?</h2>
+          <p><= story =></p>
+        </div>
+      </div>
     </section> <!-- /content -->
     <footer>
       <div class="container">
         <div class="call-out">
-          <h2><= callout.title =></h2>
+          <h3><= callout.title =></h3>
           <!-- Split button -->
           <template v-if="dynamicLink.mobile">
             <a class="btn btn-primary btn-lg" data-track-id="well button" data-track="{{ dynamicLink.eventName }}" href="mailto:{{ dynamicLink.link }}">{{ dynamicLink.buttonText }}<a>
@@ -167,7 +183,7 @@
             <p>
               Etcher is an open source project by <a href="https://resin.io">resin.io</a> - Modern DevOps for the Industrial Internet of Things
             </p>
-            <div>MADE WITH LOVE BY <img class="resin-logo" src="static/images/<= logo.resin =>.png" srcset="static/images/<= logo.resin =>@2x.png 2x"></div>
+            <a href="https://resin.io" target="_blank">MADE WITH LOVE BY <img class="resin-logo" src="static/images/<= logo.resin =>.png" srcset="static/images/<= logo.resin =>@2x.png 2x"></a>
           </div>
           <div class="col-md-6">
             <div class="navbar">

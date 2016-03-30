@@ -81,9 +81,8 @@
       <div class="container">
         <!-- Jumbo -->
         <div class="jumbotron fadeIn">
-          <div id="trigger"></div>
           <h1>Burn. Better.</h1>
-
+          <p class="description">Burn images to SD cards & USB drives, <b>safe & easy.</b></p>
           <!-- Split button -->
           <template v-if="dynamicLink.mobile">
             <p>Visit from your PC to download Etcher</p>
@@ -127,14 +126,33 @@
         <!-- Features -->
         <div class="container">
           <h3>FEATURES</h3>
-          <div class="row">
+          <div class="row topRow">
+            
+            <div class="col-md-6 feature">
+              <div class="image-container">
+                <img src="static/images/icons/sd.png" srcset="static/images/icons/sd@2x.png 2x">
+              </div>
+              <h2>Hard Drive Friendly</h2>
+              <p>Makes drive selection obvious to avoid wiping your entire hard-drive</p>
+            </div>
+            
+            <div class="col-md-6 feature">
+              <div class="image-container">
+                <img src="static/images/icons/simple.png" srcset="static/images/icons/simple@2x.png 2x">
+              </div>
+              <h2>Beautiful Interface</h2>
+              <p>Who said burning SD cards has to be an eyesore.</p>
+            </div>
+            
+          </div>
+          <div class="row bottomRow">
             
             <div class="col-md-4 feature">
               <div class="image-container">
                 <img src="static/images/icons/open-source.png" srcset="static/images/icons/open-source@2x.png 2x">
               </div>
               <h2>Open Source</h2>
-              <p>Open for you to play with, poke, prod and extend to make your own</p>
+              <p>Made with JS, HTML, node.js and <a target='_blank' href='http://electron.atom.io/'>Electron</a>. Dive in and contribute!</p>
             </div>
             
             <div class="col-md-4 feature">
@@ -147,43 +165,25 @@
             
             <div class="col-md-4 feature">
               <div class="image-container">
-                <img src="static/images/icons/gh.png" srcset="static/images/icons/gh@2x.png 2x">
-              </div>
-              <h2>JavaScript & HTML</h2>
-              <p>Made with JS, HTML, node.js and <a target='_blank' href='http://electron.atom.io/'>Electron</a>. Dive in and contribute!</p>
-            </div>
-            
-            <div class="col-md-4 feature">
-              <div class="image-container">
-                <img src="static/images/icons/sd.png" srcset="static/images/icons/sd@2x.png 2x">
-              </div>
-              <h2>Hard Drive Friendly</h2>
-              <p>Makes drive selection obvious to avoid wiping your entire hard-drive</p>
-            </div>
-            
-            <div class="col-md-4 feature">
-              <div class="image-container">
-                <img src="static/images/icons/simple.png" srcset="static/images/icons/simple@2x.png 2x">
-              </div>
-              <h2>Beautifully Simple</h2>
-              <p>Did we mention it's pretty pretty?</p>
-            </div>
-            
-            <div class="col-md-4 feature">
-              <div class="image-container">
                 <img src="static/images/icons/coming-soon.png" srcset="static/images/icons/coming-soon@2x.png 2x">
               </div>
-              <h2>Card Validation</h2>
-              <p>Save time by checking if cards are currupted before you burn</p>
+              <h2>More on the way</h2>
+              <p>Image validation, 50% faster burns, simultaneous writing for multiple drives. </br><a target='_blank' href='https://github.com/resin-io/etcher/milestones/Public%20Launch'>View our roadmap</a></p>
             </div>
             
           </div>
       </div>  <!-- /container -->
+      <div class="story">
+        <div class="container">
+          <h2>Why Etcher?</h2>
+          <p>Here at <a href='https://resin.io' target='_blank'>resin.io</a> we have thousands of users working through our getting started process and until recently we were embarassed about the steps that involved burning an SD card. There was a separate track for each Mac/Windows/Ubuntu and several manual and error prone steps along the way. </br></br>To our surprise there was nothing out there that fitted our needs. So we built Etcher, a SD card burner app that is simple for end users, extensible for developers, and works on any platform. </p>
+        </div>
+      </div>
     </section> <!-- /content -->
     <footer>
       <div class="container">
         <div class="call-out">
-          <h2>Start burning your images the easy way</h2>
+          <h3>Start burning your images the easy way</h3>
           <!-- Split button -->
           <template v-if="dynamicLink.mobile">
             <a class="btn btn-primary btn-lg" data-track-id="well button" data-track="{{ dynamicLink.eventName }}" href="mailto:{{ dynamicLink.link }}">{{ dynamicLink.buttonText }}<a>
@@ -207,7 +207,7 @@
             <p>
               Etcher is an open source project by <a href="https://resin.io">resin.io</a> - Modern DevOps for the Industrial Internet of Things
             </p>
-            <div>MADE WITH LOVE BY <img class="resin-logo" src="static/images/logo-right.png" srcset="static/images/logo-right@2x.png 2x"></div>
+            <a href="https://resin.io" target="_blank">MADE WITH LOVE BY <img class="resin-logo" src="static/images/logo-right.png" srcset="static/images/logo-right@2x.png 2x"></a>
           </div>
           <div class="col-md-6">
             <div class="navbar">
