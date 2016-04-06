@@ -21,6 +21,13 @@
   padding: $margin $margin*1.5;
 }
 
+.btn-success {
+  background-color: rgb(68, 157, 68);
+  &:hover {
+    background-color: rgb(137, 207, 123)
+  }
+}
+
 h2 {
   font-size: 32px;
   font-weight: 200;
