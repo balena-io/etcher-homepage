@@ -23,7 +23,7 @@ s3.prototype.getFiles = function(version, callback){
 s3.prototype.getDynamicLink = function(files, osSlug, backup, eventName, callback){
   switch (osSlug) {
     case "macos":
-        buttonText = "Download for OSX"
+        buttonText = "Download for OSX >= 10.9"
         callback(findLink(files, this.productName + "-darwin", buttonText, eventName));
         break;
     case "windows":
