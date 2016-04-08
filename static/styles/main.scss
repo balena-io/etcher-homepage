@@ -302,21 +302,8 @@ footer {
     min-height: 275px;
     padding: 20px;
     margin-bottom: 0;
-    border-left: 1px solid $colorBorder;
     @include breakpoint(medium) {
       border:none;
-      border-bottom: 1px solid $colorBorder;
-    }
-  }
-  .topRow .feature {
-    border-bottom: 1px solid $colorBorder;
-    &:first-child {
-      border-left: none;
-    }
-  }
-  .bottomRow .feature {
-    &:first-child {
-      border-left: none;
     }
   }
 }
