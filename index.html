@@ -53,7 +53,7 @@
         <div class="collapse navbar-collapse" id="menu">
           <ul class="nav navbar-nav navbar-right">
             
-              <li><a v-cloak data-track-id="nav button" data-toggle="modal" data-target="" data-track="[etcher website] link click https://github.com/resin-io/etcher" href="https://github.com/resin-io/etcher">Repository</a></li>
+              <li><a v-cloak target="_blank" data-track-id="nav button" data-toggle="modal" data-target="" data-track="[etcher website] link click" data-track-attrs="{"title":"Repository","link":"https://github.com/resin-io/etcher"}"" href="https://github.com/resin-io/etcher">Repository</a></li>
             
             <!-- Split button -->
             <template v-if="dynamicLink.mobile">
@@ -66,7 +66,7 @@
                 <span class="sr-only">Toggle Dropdown</span>
               </button>
               <ul class="dropdown-menu">
-                <li v-cloak v-for="download in downloads"><a v-cloak href="{{ download.link }}" data-track="[etcher website] download" data-track-attrs="{{ download | json }}" v-text="download.prettyName"></a></li>
+                <li v-cloak v-for="download in downloads"><a v-cloak href="{{ download.link }}" data-track="[etcher website] download" data-track-attrs='{{ download | json }}' v-text="download.prettyName"></a></li>
               </ul>
             </div>
             <!-- Split button -->
@@ -220,11 +220,11 @@
             <div class="navbar">
               <ul class="nav navbar-nav navbar-left">
                 
-                  <li><a data-track-id="bottomNav button" data-toggle="modal" data-target="" data-track="[etcher website] link click https://github.com/resin-io/etcher" href="https://github.com/resin-io/etcher">Repository</a></li>
+                  <li><a data-track-id="bottomNav button" data-toggle="modal" data-target="" data-track="[etcher website] link click" data-track-attrs='{"title":"Repository","link":"https://github.com/resin-io/etcher"}' target="_blank" href="https://github.com/resin-io/etcher">Repository</a></li>
                 
-                  <li><a data-track-id="bottomNav button" data-toggle="modal" data-target="" data-track="[etcher website] link click https://resin.io" href="https://resin.io">About Us</a></li>
+                  <li><a data-track-id="bottomNav button" data-toggle="modal" data-target="" data-track="[etcher website] link click" data-track-attrs='{"title":"About Us","link":"https://resin.io"}' target="_blank" href="https://resin.io">About Us</a></li>
                 
-                  <li><a data-track-id="bottomNav button" data-toggle="modal" data-target="" data-track="[etcher website] link click https://resin.io/blog" href="https://resin.io/blog">Blog</a></li>
+                  <li><a data-track-id="bottomNav button" data-toggle="modal" data-target="" data-track="[etcher website] link click" data-track-attrs='{"title":"Blog","link":"https://resin.io/blog"}' target="_blank" href="https://resin.io/blog">Blog</a></li>
                 
               </ul>
             </div>

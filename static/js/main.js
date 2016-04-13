@@ -80,6 +80,3 @@ function cosmetics() {
     });
   }, 1000) // hacky -- fix
 }
-
-versions = ['v1.0.0-beta.1', '1.0.0-beta.0', '1.0.0-beta.2']
-console.log(versions.sort(semver.rcompare)[0]);

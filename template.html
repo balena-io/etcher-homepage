@@ -53,7 +53,7 @@
         <div class="collapse navbar-collapse" id="menu">
           <ul class="nav navbar-nav navbar-right">
             {% for item in topNav %}
-              <li><a v-cloak data-track-id="nav button" data-toggle="modal" data-target="<= item.dataTarget =>" data-track="[etcher website] link click <= item.link =>" href="<= item.link =>"><= item.title =></a></li>
+              <li><a v-cloak target="_blank" data-track-id="nav button" data-toggle="modal" data-target="<= item.dataTarget =>" data-track="[etcher website] link click" data-track-attrs="<= item|json_encode =>"" href="<= item.link =>"><= item.title =></a></li>
             {% endfor %}
             <!-- Split button -->
             <template v-if="dynamicLink.mobile">
@@ -66,7 +66,7 @@
                 <span class="sr-only">Toggle Dropdown</span>
               </button>
               <ul class="dropdown-menu">
-                <li v-cloak v-for="download in downloads"><a v-cloak href="{{ download.link }}" data-track="[etcher website] download" data-track-attrs="{{ download | json }}" v-text="download.prettyName"></a></li>
+                <li v-cloak v-for="download in downloads"><a v-cloak href="{{ download.link }}" data-track="[etcher website] download" data-track-attrs='{{ download | json }}' v-text="download.prettyName"></a></li>
               </ul>
             </div>
             <!-- Split button -->
@@ -196,7 +196,7 @@
             <div class="navbar">
               <ul class="nav navbar-nav navbar-left">
                 {% for item in bottomNav %}
-                  <li><a data-track-id="bottomNav button" data-toggle="modal" data-target="<= item.dataTarget =>" data-track="[etcher website] link click <= item.link =>" href="<= item.link =>"><= item.title =></a></li>
+                  <li><a data-track-id="bottomNav button" data-toggle="modal" data-target="<= item.dataTarget =>" data-track="[etcher website] link click" data-track-attrs='<= item|json_encode =>' target="_blank" href="<= item.link =>"><= item.title =></a></li>
                 {% endfor %}
               </ul>
             </div>
