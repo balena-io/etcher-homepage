@@ -54,8 +54,13 @@
 	"features": {
 		"topRow": [
 			{
-				"title": "Hard Drive Friendly",
+				"title": "Validated Burning",
 				"img": "sd",
+				"description": "No more writing images on corrupted cards and wondering why your device isn't booting."
+			},
+			{
+				"title": "Hard Drive Friendly",
+				"img": "hd",
 				"description": "Makes drive selection obvious to avoid wiping your entire hard-drive"
 			},
 			{
@@ -78,7 +83,7 @@
 			{
 				"title": "More on the way",
 				"img": "coming-soon",
-				"description": "Image validation, 50% faster burns, simultaneous writing for multiple drives. </br><a target='_blank' href='https://github.com/resin-io/etcher/milestones/Public%20Launch'>View our roadmap</a>"
+				"description": "50% faster burns, simultaneous writing for multiple drives. </br><a target='_blank' href='https://github.com/resin-io/etcher/milestones/Public%20Launch'>View our roadmap</a>"
 			}
 		]
 	}
