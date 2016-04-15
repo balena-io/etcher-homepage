@@ -59,6 +59,7 @@ $(function() {
 
   $("body").on('click', '[data-track]', function(evt) {
     var event_name = $(this).data('track');
+    // console.log(event_name);
     try {
       var event_attrs = $(this).data('track-attrs');
       event_attrs.trackedElement = $(this).data('track-id');
@@ -67,8 +68,9 @@ $(function() {
     catch(err) {
       console.log(err);
     }
-    // console.log("event_name: " + event_name + "event_attrs" + event_attrs);
+    console.log("event_name: " + event_name + "event_attrs" + event_attrs);
     mixpanel.track(event_name, event_attrs);
+
   });
 });
 

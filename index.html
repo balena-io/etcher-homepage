@@ -52,9 +52,7 @@
         </div>
         <div class="collapse navbar-collapse" id="menu">
           <ul class="nav navbar-nav navbar-right">
-            
-              <li><a v-cloak target="_blank" data-track-id="nav button" data-toggle="modal" data-target="" data-track="[etcher website] link click" data-track-attrs="{"title":"Repository","link":"https://github.com/resin-io/etcher"}"" href="https://github.com/resin-io/etcher">Repository</a></li>
-            
+            <li><a v-cloak target="_blank" data-track-id="nav button" data-toggle="modal" data-target="" data-track="[etcher website] link click" data-track-attrs='{"title":"Repository","link":"https://github.com/resin-io/etcher"}' href="https://github.com/resin-io/etcher">Repository</a></li>
             <!-- Split button -->
             <template v-if="dynamicLink.mobile">
               <a class="btn btn-primary" data-track-id="topNav button" data-track="{{ dynamicLink.eventName }}" href="mailto:{{ dynamicLink.link }}">{{ dynamicLink.buttonText }}<a>
@@ -187,7 +185,7 @@
         <h2>Why Etcher?</h2>
         <div class="row">
           <div class="col-md-6">
-            <p>Here at <a href='https://resin.io' target='_blank'>resin.io</a> we have thousands of users working through our getting started process and until recently we were embarassed about the steps that involved burning an SD card. There was a separate track for each Mac/Windows/Ubuntu and several manual and error prone steps along the way.</p>
+            <p>Here at <a target='_blank' data-track='[etcher website] link click' data-track-attrs='{ &quot;link&quot;: &quot;resin.io&quot;, &quot;name&quot;: &quot;resin.io&quot; }' href='https://resin.io' target='_blank'>resin.io</a> we have thousands of users working through our getting started process and until recently we were embarassed about the steps that involved burning an SD card. There was a separate track for each Mac/Windows/Ubuntu and several manual and error prone steps along the way.</p>
           </div>
           <div class="col-md-6">
             <p>To our surprise there was nothing out there that fitted our needs. So we built Etcher, a SD card burner app that is simple for end users, extensible for developers, and works on any platform. </p>
@@ -222,7 +220,7 @@
             <p>
               Etcher is an open source project by <a href="https://resin.io">resin.io</a> - Modern DevOps for the Industrial Internet of Things
             </p>
-            <a href="https://resin.io" target="_blank">MADE WITH LOVE BY <img class="resin-logo" src="static/images/logo-right.png" srcset="static/images/logo-right@2x.png 2x"></a>
+            <a data-track="[etcher website] link click" data-track-attrs="{ link: 'resin.io', name: 'etcher' }" href="https://resin.io" target="_blank">MADE WITH LOVE BY <img class="resin-logo" src="static/images/logo-right.png" srcset="static/images/logo-right@2x.png 2x"></a>
           </div>
           <div class="col-md-6">
             <div class="navbar">

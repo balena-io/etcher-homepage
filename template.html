@@ -52,9 +52,7 @@
         </div>
         <div class="collapse navbar-collapse" id="menu">
           <ul class="nav navbar-nav navbar-right">
-            {% for item in topNav %}
-              <li><a v-cloak target="_blank" data-track-id="nav button" data-toggle="modal" data-target="<= item.dataTarget =>" data-track="[etcher website] link click" data-track-attrs="<= item|json_encode =>"" href="<= item.link =>"><= item.title =></a></li>
-            {% endfor %}
+            <li><a v-cloak target="_blank" data-track-id="nav button" data-toggle="modal" data-target="" data-track="[etcher website] link click" data-track-attrs='{"title":"Repository","link":"https://github.com/resin-io/etcher"}' href="https://github.com/resin-io/etcher">Repository</a></li>
             <!-- Split button -->
             <template v-if="dynamicLink.mobile">
               <a class="btn btn-primary" data-track-id="topNav button" data-track="{{ dynamicLink.eventName }}" href="mailto:{{ dynamicLink.link }}">{{ dynamicLink.buttonText }}<a>
@@ -190,7 +188,7 @@
             <p>
               Etcher is an open source project by <a href="https://resin.io">resin.io</a> - Modern DevOps for the Industrial Internet of Things
             </p>
-            <a href="https://resin.io" target="_blank">MADE WITH LOVE BY <img class="resin-logo" src="static/images/<= logo.resin =>.png" srcset="static/images/<= logo.resin =>@2x.png 2x"></a>
+            <a data-track="[etcher website] link click" data-track-attrs="{ link: 'resin.io', name: 'etcher' }" href="https://resin.io" target="_blank">MADE WITH LOVE BY <img class="resin-logo" src="static/images/<= logo.resin =>.png" srcset="static/images/<= logo.resin =>@2x.png 2x"></a>
           </div>
           <div class="col-md-6">
             <div class="navbar">
