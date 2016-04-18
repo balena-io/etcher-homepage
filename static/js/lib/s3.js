@@ -16,6 +16,14 @@ s3.prototype.getLatestVersion = function(callback){
 s3.prototype.getFiles = function(version, callback){
   this.prefix = this.prefix + "/" + version
   getData(this, function(data){
+
+    // Omit ZIP files
+    for (var x = 0; x < data.files.length; x++) {
+      if (data.files[x].name.indexOf('.zip') !== -1) {
+        data.files.splice(x, 1);
+      }
+    }
+
     callback(data.files);
   });
 }
