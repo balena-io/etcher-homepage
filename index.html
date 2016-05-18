@@ -111,6 +111,14 @@
             </a>
             <a class="github-button" href="https://github.com/resin-io/etcher" data-style="mega" data-count-href="/resin-io/etcher/stargazers" data-count-api="/repos/resin-io/etcher#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star resin-io/etcher on GitHub">Star</a>
           </div>
+          <div class="instructions">
+            <h3>Installation</h3>
+              <p>We use <a target='_blank' href='http://appimage.org/'>appImages</a> to simplify Etcher's Linux installation process, simply:<p>
+              <p>Make it executable</p>
+              <pre>$ chmod a+x {{ selectedImage }}</pre>
+              <p>and run!</p><pre>$ sudo ./{{ selectedImage }}</pre>
+              <p>Given that Etcher writes to devices directly, it requires superuser privileges. We currently request these permissions when Etcher starts, however for convenience sake, we’re working only requesting these permissions at the time writing an image.</p>
+          </div>
         </div>
         <!-- product -->
         <div class="product">

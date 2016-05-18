@@ -31,24 +31,27 @@ var app = new Vue({
     version: "0.0.1",
     dynamicLink: $defaultLink,
     mobileLink: $mobileLink,
-    electron: "<a href=http://electron.atom.io/>Electron</a>"
+    electron: "<a href=http://electron.atom.io/>Electron</a>",
+    selectedImage: ""
   }
 });
 
 // Query s3
 var bucket = new s3("https://resin-production-downloads.s3.amazonaws.com", "etcher");
-
 bucket.getLatestVersion(function(version){
+  console.log(version);
    app.version = "v" + version;
    bucket.getFiles(version, function(files){
      app.downloads = files;
      bucket.getDynamicLink(files, app.os, app.mobileLink, app.dynamicLink.eventName, function(link) {
+       console.log("ssss")
        app.dynamicLink = link[0];
        $('.fadeIn').addClass('active');
        cosmetics();
      });
    });
 });
+
 
 // mixpanel
 $(function() {
@@ -68,11 +71,25 @@ $(function() {
     catch(err) {
       console.log(err);
     }
-    console.log("event_name: " + event_name + "event_attrs" + event_attrs);
+
+    showInstructions(app, $(this));
     mixpanel.track(event_name, event_attrs);
 
   });
 });
+
+function showInstructions(app, event_element) {
+  // check if it's linux
+  if (event_element.data('track') == '[etcher website] download') {
+    var linkArray = event_element.attr("href").split("/");
+    app.selectedImage = linkArray[linkArray.length - 1];
+    if (app.selectedImage.indexOf('linux')  > -1) {
+      $('.instructions').show();
+      $('.description').hide();
+      $('.jumbotron .btn-group').hide();
+    }
+  }
+}
 
 function cosmetics() {
   setTimeout(function(){
