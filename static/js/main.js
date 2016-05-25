@@ -1,54 +1,94 @@
-var OSName="Unknown OS";
-if (navigator.appVersion.indexOf("Win")!=-1) OSName="Windows";
-if (navigator.appVersion.indexOf("Mac")!=-1) OSName="OSX";
-if (navigator.appVersion.indexOf("X11")!=-1) OSName="UNIX";
-if (navigator.appVersion.indexOf("Linux")!=-1) OSName="Linux";
+$("img#screen-shot").on('load', function() {
+  positionScreenShot();
+}).each(function() {
+  if(this.complete) $(this).load();
+});
 
-new Vue({
+function positionScreenShot() {
+  var $product = $('.product');
+  var $jumbotron = $('.jumbotron');
+  var $features = $('.features');
+  var h = $product.height();
+
+  $product.css('bottom', -(h/2));
+  $jumbotron.css('margin-bottom', h/2);
+  $features.css('padding-top', h/2).fadeIn();
+}
+
+$( window ).resize(function() {
+  positionScreenShot();
+});
+
+// Bind data
+var app = new Vue({
   el: '#app',
   data: {
-    os: OSName
+    os: Sniffr.os.name,
+    downloads:  [],
+    version: "0.0.1",
+    dynamicLink: $defaultLink,
+    mobileLink: $mobileLink,
+    electron: "<a href=http://electron.atom.io/>Electron</a>",
+    selectedImage: ""
   }
-})
+});
 
-// define images
-	var images = [
-		"static/images/step1.png",
-		"static/images/step2.png",
-		"static/images/step3.png",
-		"static/images/complete.png"
-	];
-  console.log(window.TweenMax)
-	// TweenMax can tween any property of any object. We use this object to cycle through the array
-	var obj = {curImg: 0};
+// Query s3
+var bucket = new s3("https://resin-production-downloads.s3.amazonaws.com", "etcher");
+bucket.getLatestVersion(function(version){
+   bucket.getFiles(version, function(files){
+     app.downloads = files;
+     bucket.getDynamicLink(files, app.os, app.mobileLink, app.dynamicLink.eventName, function(link) {
+       app.dynamicLink = link[0];
+       $('.fadeIn').addClass('active');
+       cosmetics();
+     });
+   });
+});
 
-	// create tween
-	var tween = TweenMax.to(obj, 0.5,
-		{
-			curImg: images.length - 1,	// animate propery curImg to number of images
-			roundProps: "curImg",				// only integers so it can be used as an array index
-			repeat: 0,									// repeat 3 times
-			immediateRender: true,			// load first image automatically
-			ease: Linear.easeNone,			// show every image the same ammount of time
-			onUpdate: function () {
-			  $("#screen-shot").attr("src", images[obj.curImg]); // set the image source
-			}
-		}
-	);
 
-	// init controller
-	var controller = new ScrollMagic.Controller();
-	var controller2 = new ScrollMagic.Controller();
-	// build scene
-	var scene = new ScrollMagic.Scene({triggerElement: "#screen-shot", duration: 400})
-					.setTween(tween)
-					// .addIndicators() // add indicators (requires plugin)
-					.addTo(controller)
-          // .setPin("#screen-shot")
+// mixpanel
+$(function() {
+  mixpanel.track('[etcher website] page viewed', {
+    'page name' : document.title,
+    'url' : window.location.pathname
+  });
 
-  var scene2 = new ScrollMagic.Scene({triggerElement: "#trigger", duration: 100})
-					// .addIndicators() // add indicators (requires plugin)
-					.addTo(controller)
-          .on('enter', function () {
-              $("#screen-shot").css("bottom", 0);
-          });
+  $("body").on('click', '[data-track]', function(evt) {
+    var event_name = $(this).data('track');
+    try {
+      var event_attrs = $(this).data('track-attrs');
+      event_attrs.trackedElement = $(this).data('track-id');
+      event_attrs.detectedOS = app.osSlug;
+    }
+    catch(err) {
+      console.log(err);
+    }
+
+    showInstructions(app, $(this));
+    mixpanel.track(event_name, event_attrs);
+
+  });
+});
+
+function showInstructions(app, event_element) {
+  // check if it's linux
+  if (event_element.data('track') == '[etcher website] download') {
+    var linkArray = event_element.attr("href").split("/");
+    app.selectedImage = linkArray[linkArray.length - 1];
+    if (app.selectedImage.indexOf('linux')  > -1) {
+      $('.instructions').show();
+      $('.description').hide();
+      $('.jumbotron .btn-group').hide();
+    }
+  }
+}
+
+function cosmetics() {
+  setTimeout(function(){
+    $('.dropdown-menu').each(function(){
+      width = $(this).closest('.btn-group').outerWidth()
+      $(this).css("min-width", width);
+    });
+  }, 1000) // hacky -- fix
+}

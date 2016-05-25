@@ -1,37 +1,40 @@
 {
 	"pageTitle": "Etcher by resin.io",
 	"jumbotron": {
-		"description": "A fast simple way to  OS images to SD cards"
+		"title": "Flash. Better.",
+		"description": "Flash images to SD cards & USB drives, <b>safe & easy.</b>",
+		"productImage": "product.gif"
 	},
-	"button":{
-		"text": "Download Etcher for {{ os }}",
-		"shortText": "Download Etcher for {{ os }}",
-		"shout": "Dowload now",
-		"link": "https://S3-link-{{ os }}-latest",
-		"archiveLink": "https://downloads.resin.io"
+	"logo": {
+		"nav": "nav-logo",
+		"footer": "logo",
+		"resin": "logo-right"
+	},
+	"dynamicLink": {
+		"default": {
+			"buttonText": "Download Now",
+			"link": "https://resin-production-downloads.s3.amazonaws.com/etcher/1.0.0-beta.0/Etcher-win32-x86.exe",
+			"mobile": false,
+			"eventName": "[etcher website] download"
+		},
+		"mobile": {
+			"buttonText": "Email link to myself",
+			"link": "mailto:?subject=Checkout out etcher.io&body=http://www.etcher.io",
+			"mobile": true,
+			"eventName": "[etcher website] email link"
+		}
 	},
 	"callout": {
-    "title": "Start burning your images the easy way"
+    "title": "Start flashing your images the easy way"
   },
-	"description": "a fast simple way to burn OS images to SD cards",
-  "topNav":[
-    {
-      "title": "Repository",
-      "link": "https://github.com/resin-io/etcher"
-    }
-  ],
+	"story": {
+		"para1":"Here at <a target='_blank' data-track='[etcher website] link click' data-track-attrs='{ &quot;link&quot;: &quot;resin.io&quot;, &quot;name&quot;: &quot;resin.io&quot; }' href='https://resin.io' target='_blank'>resin.io</a> we have thousands of users working through our getting started process and until recently we were embarassed about the steps that involved flashing an SD card. There was a separate track for each Mac/Windows/Ubuntu and several manual and error prone steps along the way.",
+		"para2":"To our surprise there was nothing out there that fitted our needs. So we built Etcher, a SD card flasher app that is simple for end users, extensible for developers, and works on any platform. "
+	},
   "bottomNav":[
     {
       "title": "Repository",
       "link": "https://github.com/resin-io/etcher"
-    },
-    {
-      "title": "Terms",
-      "link": "#"
-    },
-    {
-      "title": "Privacy",
-      "link": "#"
     },
     {
       "title": "About Us",
@@ -40,42 +43,42 @@
     {
       "title": "Blog",
       "link": "https://resin.io/blog"
-    },
-		{
-      "title": "Downloads",
-      "link": "https://downloads.resin.io"
     }
   ],
-	"features": [
-		{
-			"title": "Open Source",
-			"img": "open_source_icon",
-			"description": "Open for you to play with, poke, prod and extend to make it your own"
-		},
-		{
-			"title": "Cross Platform",
-			"img": "screen_icon",
-			"description": "Works for everyone, no more complicated install instructions."
-		},
-		{
-			"title": "Card Validation",
-			"img": "SD_icon",
-			"description": "Save time by checking if cards are currupted before you burn"
-		},
-		{
-			"title": "Hard Drive Friendly",
-			"img": "SD_icon",
-			"description": "Makes drive selection obvious avoid wiping your entire harddrive"
-		},
-		{
-			"title": "Hosted on github",
-			"img": "github_server_icon",
-			"description": "Simple to contribute = Easy to improve"
-		},
-		{
-			"title": "Beautifully Simple",
-			"img": "simple_icon",
-			"description": "Did we mention it's pretty pretty?"
-		}
-	]
+	"features": {
+		"topRow": [
+			{
+				"title": "Validated Flashing",
+				"img": "sd",
+				"description": "No more writing images on corrupted cards and wondering why your device isn't booting."
+			},
+			{
+				"title": "Hard Drive Friendly",
+				"img": "hd",
+				"description": "Makes drive selection obvious to avoid wiping your entire hard-drive"
+			},
+			{
+				"title": "Beautiful Interface",
+				"img": "simple",
+				"description": "Who said flashing SD cards has to be an eyesore."
+			}
+		],
+		"bottomRow": [
+			{
+				"title": "Open Source",
+				"img": "open-source",
+				"description": "Made with JS, HTML, node.js and <a target='_blank' href='http://electron.atom.io/'>Electron</a>. Dive in and contribute!"
+			},
+			{
+				"title": "Cross Platform",
+				"img": "cross-platform",
+				"description": "Works for everyone,</br> no more complicated install instructions."
+			},
+			{
+				"title": "More on the way",
+				"img": "coming-soon",
+				"description": "50% faster flashes, simultaneous writing for multiple drives. </br><a target='_blank' href='https://github.com/resin-io/etcher/issues'>View our roadmap</a>"
+			}
+		]
+	}
 }
