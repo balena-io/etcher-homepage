@@ -36,6 +36,7 @@ var app = new Vue({
 // Query s3
 var bucket = new s3("https://resin-production-downloads.s3.amazonaws.com", "etcher");
 bucket.getLatestVersion(function(version){
+     app.version = "v" + version;
    bucket.getFiles(version, function(files){
      app.downloads = files;
      bucket.getDynamicLink(files, app.os, app.mobileLink, app.dynamicLink.eventName, function(link) {
