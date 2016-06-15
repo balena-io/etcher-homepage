@@ -77,7 +77,7 @@
 			{
 				"title": "More on the way",
 				"img": "coming-soon",
-				"description": "50% faster burns, simultaneous writing for multiple drives. </br><a target='_blank' href='https://github.com/resin-io/etcher/issues'>View our roadmap</a>"
+				"description": "50% faster burns, simultaneous writing for multiple drives. </br><a target='_blank' href='https://github.com/resin-io/etcher/milestones'>View our roadmap</a>"
 			}
 		]
 	}
