@@ -5,10 +5,36 @@ function s3(url, productName){
 }
 
 s3.prototype.getLatestVersion = function(callback){
+  var self = this;
+
+  var EXPECTED_NUMBER_OF_FILES_IN_VERSION = 5;
+
   getData(this, function(data){
     getVersions(data.directories, "etcher", function(versions){
-      callback(versions.sort(semver.rcompare)[0]);
+      var validVersions = [];
 
+      var ASYNC_CONCURRENT_LIMIT = 3;
+      async.eachLimit(versions, ASYNC_CONCURRENT_LIMIT, function(version, callback) {
+
+        getData({
+          url: self.url,
+          productName: self.productName,
+          prefix: self.prefix + "/" + version
+        }, function(versionData) {
+          if (versionData.files.length >= EXPECTED_NUMBER_OF_FILES_IN_VERSION) {
+            validVersions.push(version);
+          }
+
+          return callback();
+        });
+
+      }, function(error) {
+        if (error) {
+          return callback(error);
+        }
+
+        callback(validVersions.sort(semver.rcompare)[0]);
+      });
     });
   });
 }
