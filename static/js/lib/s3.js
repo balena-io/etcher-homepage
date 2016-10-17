@@ -154,7 +154,18 @@ function prettifyFileName(file) {
 
   function getArchString(arch) {
     if (arch != undefined) {
-      return "(" + arch.substring(0, 3) + ")"
+      platform = arch.substring(0, 3)
+      switch (platform) {
+        case "x86":
+          platform = platform + ", 32-bit"
+          break;
+        case "x64":
+          platform = platform + ", 64-bit"
+          break;
+        default:
+          break;
+      }
+      return "(" + platform + ")"
     } else {
       return ""
     }
