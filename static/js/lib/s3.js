@@ -157,15 +157,15 @@ function prettifyFileName(file) {
       platform = arch.substring(0, 3)
       switch (platform) {
         case "x86":
-          platform = platform + ", 32-bit"
+          platform = platform + " (32-bit)"
           break;
         case "x64":
-          platform = platform + ", 64-bit"
+          platform = platform + " (64-bit)"
           break;
         default:
           break;
       }
-      return "(" + platform + ")"
+      return platform
     } else {
       return ""
     }
