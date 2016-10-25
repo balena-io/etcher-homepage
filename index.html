@@ -8,7 +8,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Etcher by Resin.io" />
     <meta property="og:description" content="Burn images to SD cards and USB drives, safe and easy." />
-    <meta property="og:image" content="http://www.etcher.io/static/images/interface.png" />
+    <meta property="og:image" content="/static/images/interface.png" />
     <link rel="shortcut icon" type="image/png" href="static/images/etcher.ico"/>
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Etcher by resin.io</title>
@@ -57,21 +57,24 @@
         </div>
         <div class="collapse navbar-collapse" id="menu">
           <ul class="nav navbar-nav navbar-right">
-            <li><a v-cloak target="_blank" data-track-id="nav button" data-toggle="modal" data-target="" data-track="[etcher website] link click" data-track-attrs='{"title":"Repository","link":"https://github.com/resin-io/etcher"}' href="https://github.com/resin-io/etcher">Repository</a></li>
+            <li><a v-cloak target="_blank" data-track-id="nav button" data-track="[etcher website] link click" data-track-attrs='{"title":"Repository","link":"https://github.com/resin-io/etcher"}' href="https://github.com/resin-io/etcher">Repository</a></li>
+            <li><a v-cloak target="_blank" data-track-id="nav button" data-track="[etcher website] link click" data-track-attrs='{"title":"Chat on Gitter","link":"https://gitter.im/resin-io/etcher"}' href="https://gitter.im/resin-io/etcher">Chat on Gitter</a></li>
             <!-- Split button -->
-            <template v-if="dynamicLink.mobile">
-              <a class="btn btn-primary" data-track-id="topNav button" data-track="{{ dynamicLink.eventName }}" href="mailto:{{ dynamicLink.link }}">{{ dynamicLink.buttonText }}<a>
-            </template>
-            <div v-else class="btn-group">
-              <a href="{{ dynamicLink.link }}" v-cloak class="btn btn-primary" data-track-id="topNav button" data-track="{{ dynamicLink.eventName }}" data-track-attrs="{{ dynamicLink | json }}" v-text="dynamicLink.buttonText" role="button"></a>
-              <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="caret"></span>
-                <span class="sr-only">Toggle Dropdown</span>
-              </button>
-              <ul class="dropdown-menu">
-                <li v-cloak v-for="download in downloads"><a v-cloak href="{{ download.link }}" data-track="[etcher website] download" data-track-attrs='{{ download | json }}' v-text="download.prettyName"></a></li>
-              </ul>
-            </div>
+            <li>
+              <template v-if="dynamicLink.mobile">
+                <a class="btn btn-primary" data-track-id="topNav button" data-track="{{ dynamicLink.eventName }}" href="mailto:{{ dynamicLink.link }}">{{ dynamicLink.buttonText }}<a>
+              </template>
+              <div v-else class="btn-group">
+                <a href="{{ dynamicLink.link }}" v-cloak class="btn btn-primary" data-track-id="topNav button" data-track="{{ dynamicLink.eventName }}" data-track-attrs="{{ dynamicLink | json }}" v-text="dynamicLink.buttonText" role="button"></a>
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <span class="caret"></span>
+                  <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <ul class="dropdown-menu">
+                  <li v-cloak v-for="download in downloads"><a v-cloak href="{{ download.link }}" data-track="[etcher website] download" data-track-attrs='{{ download | json }}' v-text="download.prettyName"></a></li>
+                </ul>
+              </div>
+            </li>
             <!-- Split button -->
           </ul>
         </div>
@@ -240,6 +243,8 @@
               <ul class="nav navbar-nav navbar-left">
 
                   <li><a data-track-id="bottomNav button" data-toggle="modal" data-target="" data-track="[etcher website] link click" data-track-attrs='{"title":"Repository","link":"https://github.com/resin-io/etcher"}' target="_blank" href="https://github.com/resin-io/etcher">Repository</a></li>
+
+                  <li><a data-track-id="bottomNav button" data-toggle="modal" data-target="" data-track="[etcher website] link click" data-track-attrs='{"title":"Chat on gitter","link":"https://gitter.im/resin-io/etcher"}' target="_blank" href="https://gitter.im/resin-io/etcher">Chat on gitter</a></li>
 
                   <li><a data-track-id="bottomNav button" data-toggle="modal" data-target="" data-track="[etcher website] link click" data-track-attrs='{"title":"About Us","link":"https://resin.io"}' target="_blank" href="https://resin.io">About Us</a></li>
 

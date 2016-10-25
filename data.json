@@ -36,6 +36,10 @@
       "title": "Repository",
       "link": "https://github.com/resin-io/etcher"
     },
+		{
+      "title": "Chat on gitter",
+      "link": "https://gitter.im/resin-io/etcher"
+    },
     {
       "title": "About Us",
       "link": "https://resin.io"
