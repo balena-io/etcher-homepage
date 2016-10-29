@@ -7,7 +7,7 @@ function s3(url, productName){
 s3.prototype.getLatestVersion = function(callback){
   var self = this;
 
-  var EXPECTED_NUMBER_OF_FILES_IN_VERSION = 5;
+  var EXPECTED_NUMBER_OF_FILES_IN_VERSION = 7;
 
   getData(this, function(data){
     getVersions(data.directories, "etcher", function(versions){
@@ -43,9 +43,9 @@ s3.prototype.getFiles = function(version, callback){
   this.prefix = this.prefix + "/" + version
   getData(this, function(data){
 
-    // Omit ZIP files
+    // Omit OS X ZIP files (used for update purposes)
     for (var x = 0; x < data.files.length; x++) {
-      if (data.files[x].name.indexOf('.zip') !== -1) {
+      if (data.files[x].name.indexOf('.zip') !== -1 && data.files[x].name.indexOf('darwin') !== -1) {
         data.files.splice(x, 1);
       }
     }
@@ -58,15 +58,15 @@ s3.prototype.getDynamicLink = function(files, osSlug, backup, eventName, callbac
   switch (osSlug) {
     case "macos":
         buttonText = "Download for OSX >= 10.9"
-        callback(findLink(files, this.productName + "-darwin", buttonText, eventName));
+        callback(findLink(files, "darwin", buttonText, eventName));
         break;
     case "windows":
         buttonText = "Download for Windows"
-        callback(findLink(files, this.productName + "-win32", buttonText, eventName));
+        callback(findLink(files, "win32", buttonText, eventName));
         break;
     case "linux":
         buttonText = "Download for Linux"
-        callback(findLink(files, this.productName + "-linux", buttonText, eventName));
+        callback(findLink(files, "linux", buttonText, eventName));
         break;
     default:
         backup.mobile = true
@@ -171,17 +171,22 @@ function prettifyFileName(file) {
     }
   }
 
-  switch (split[1]) {
+  var extension = file.substring(file.lastIndexOf('.') + 1, file.length);
+  var type = '';
+
+  switch (split[3]) {
     case "darwin":
-        split[1] = "Mac"
-        split[2] = null
+        split[3] = "Mac"
         break;
     case "win32":
-        split[1] = "Windows"
+        split[3] = "Windows"
+        if (extension === 'zip') {
+          type = ' (Standalone)'
+        }
         break;
     case "linux":
-        split[1] = "Linux"
+        split[3] = "Linux"
         break;
   }
-  return split[0] + " for " + split[1] + " " + getArchString(split[2]);
+  return split[0] + " for " + split[3] + " " + getArchString(split[4]) + type;
 }
