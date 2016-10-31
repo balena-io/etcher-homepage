@@ -181,7 +181,9 @@ function prettifyFileName(file) {
     case "win32":
         split[3] = "Windows"
         if (extension === 'zip') {
-          type = ' (Standalone)'
+          type = ' (Portable)'
+        } else if (extension === 'exe') {
+          type = ' (Installer)'
         }
         break;
     case "linux":
