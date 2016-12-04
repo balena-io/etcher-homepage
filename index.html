@@ -59,20 +59,7 @@
           <ul class="nav navbar-nav navbar-right">
             <li><a v-cloak target="_blank" data-track-id="nav button" data-track="[etcher website] link click" data-track-attrs='{"title":"Chat on Gitter","link":"https://gitter.im/resin-io/etcher"}' href="https://gitter.im/resin-io/etcher">Chat on Gitter</a></li>
             <li><a v-cloak target="_blank" data-track-id="nav button" data-track="[etcher website] link click" data-track-attrs='{"title":"Repository","link":"https://github.com/resin-io/etcher"}' href="https://github.com/resin-io/etcher">Repository</a></li>
-            <!-- Split button -->
-            <template v-if="dynamicLink.mobile">
-              <a class="btn btn-primary" data-track-id="topNav button" data-track="{{ dynamicLink.eventName }}" href="mailto:{{ dynamicLink.link }}">{{ dynamicLink.buttonText }}<a>
-            </template>
-            <div v-else class="btn-group">
-              <a href="{{ dynamicLink.link }}" v-cloak class="btn btn-primary" data-track-id="topNav button" data-track="{{ dynamicLink.eventName }}" data-track-attrs="{{ dynamicLink | json }}" v-text="dynamicLink.buttonText" role="button"></a>
-              <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="caret"></span>
-                <span class="sr-only">Toggle Dropdown</span>
-              </button>
-              <ul class="dropdown-menu">
-                <li v-cloak v-for="download in downloads"><a v-cloak href="{{ download.link }}" data-track="[etcher website] download" data-track-attrs='{{ download | json }}' v-text="download.prettyName"></a></li>
-              </ul>
-            </div>
+            <li><a v-cloak data-track-id="nav button" data-track="[etcher website] link click" data-track-attrs='{"title":"Repository","link":"/#downloads"}' href="/#downloads">Downloads</a></li>
             <!-- Split button -->
           </ul>
         </div>
@@ -205,34 +192,47 @@
         </div>
       </div>
     </section>
-    <footer>
+    <section id="downloads" class="downloads">
       <div class="container">
+        <h2>Downloads</h2>
         <div class="call-out">
           <h3>Start burning your images the easy way</h3>
-          <!-- Split button -->
-          <template v-if="dynamicLink.mobile">
-            <a class="btn btn-primary btn-lg" data-track-id="well button" data-track="{{ dynamicLink.eventName }}" href="mailto:{{ dynamicLink.link }}">{{ dynamicLink.buttonText }}<a>
-          </template>
-          <div v-else class="btn-group">
-            <a href="{{ dynamicLink.link }}" v-cloak class="btn btn-primary btn-lg" data-track-id="well button" data-track="{{ dynamicLink.eventName }}" data-track-attrs="{{ dynamicLink | json }}" role="button">{{ dynamicLink.buttonText }}</a>
-            <button type="button" class="btn btn-primary btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <span class="caret"></span>
-              <span class="sr-only">Toggle Dropdown</span>
-            </button>
-            <ul class="dropdown-menu">
-              <li v-cloak v-for="download in downloads"><a v-cloak href="{{ download.link }}" data-track="[etcher website] download" data-track-attrs="{{ download | json }}" v-text="download.prettyName"></a></li>
-            </ul>
-          </div>
-          <!-- Split button -->
+          <a class="btn btn-primary" href="{{ dynamicLink.link }}" v-cloak class="btn btn-primary btn-lg" data-track-id="well button" data-track="{{ dynamicLink.eventName }}" data-track-attrs="{{ dynamicLink | json }}" role="button">{{ dynamicLink.buttonText }}</a>
         </div>
         <hr>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Release</th>
+              <th>OS</th>
+              <th>Architecture</th>
+              <th>Size</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-cloak v-for="download in downloads">
+              <td>
+                <a data-track="download" data-track-meta="{{ download | json }}" href="{{ download.link }}">{{ download.name }}</a>
+              </td>
+              <td>{{ download.os }}</td>
+              <td>{{ download.arch }}</td>
+              <td>{{ download.size }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <footer class="section-inverse">
+      <div class="bg-img"></div>
+      <div class="container">
         <div class="row">
           <div class="col-md-6 promo">
-            <img class="logo" src="static/images/logo.png" srcset="static/images/logo@2x.png 2x"/>
+            <img class="logo" src="static/images/nav-logo.png" srcset="static/images/nav-logo@2x.png 2x"/>
             <p>
-              Etcher is an open source project by <a href="https://resin.io">resin.io</a> - Modern DevOps for the Industrial Internet of Things
+              Etcher is an open source project by <a class="resin-link" href="https://resin.io">resin.io</a> - Modern DevOps for the Industrial Internet of Things
             </p>
-            <a data-track="[etcher website] link click" data-track-attrs="{ link: 'resin.io', name: 'etcher' }" href="https://resin.io" target="_blank">MADE WITH LOVE BY <img class="resin-logo" src="static/images/logo-right.png" srcset="static/images/logo-right@2x.png 2x"></a>
+            <p>Made with love by <a class="resin-link" data-track="[etcher website] link click" data-track-attrs="{ link: 'resin.io', name: 'etcher' }" href="https://resin.io" target="_blank">resin.io</a>
+            </p>
           </div>
           <div class="col-md-6">
             <div class="navbar">
@@ -263,7 +263,7 @@
     <script src="bower_components/sniffr/dist/sniffr.min.js"/></script>
 
     <script>
-      var $defaultLink = JSON.parse("{\u0022buttonText\u0022:\u0022Download Now\u0022,\u0022link\u0022:\u0022https://resin\u002Dproduction\u002Ddownloads.s3.amazonaws.com/etcher/1.0.0\u002Dbeta.0/Etcher\u002Dwin32\u002Dx86.exe\u0022,\u0022mobile\u0022:false,\u0022eventName\u0022:\u0022[etcher website] download\u0022}")
+      var $defaultLink = JSON.parse("{\u0022buttonText\u0022:\u0022Download Now\u0022,\u0022link\u0022:\u0022https://resin\u002Dproduction\u002Ddownloads.s3.amazonaws.com/etcher/1.0.0\u002Dbeta.17/Etcher\u002D1.0.0\u002Dbeta.17\u002Dwin32\u002Dx86.zip\u0022,\u0022mobile\u0022:false,\u0022eventName\u0022:\u0022[etcher website] download\u0022}")
       var $mobileLink = JSON.parse("{\u0022buttonText\u0022:\u0022Email link to myself\u0022,\u0022link\u0022:\u0022mailto:?subject\u003DCheckout out etcher.io\u0026body\u003Dhttp://www.etcher.io\u0022,\u0022mobile\u0022:true,\u0022eventName\u0022:\u0022[etcher website] email link\u0022}")
     </script>
 

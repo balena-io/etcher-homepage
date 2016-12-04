@@ -83,11 +83,6 @@ p {
     font-weight: light;
     display: inline-block;
     float: none;
-    &:first-child {
-      a {
-        padding-right: 0;
-      }
-    }
   }
 
   .navbar-nav>li>a {
@@ -261,28 +256,40 @@ p {
 }
 
 // Footer
+.section-inverse {
+  position: relative;
+  color: #fff;
+  a {
+    color: $colorGrey;
+  }
+}
+
 footer {
-  margin-bottom: $margin*2;
+  padding: $margin*2;
   color: $colorGrey;
   background: #fff;
   position: static;
   z-index: 2;
-   a {
-    color: $colorGrey;
-  }
   .navbar-nav {
     float: none !important;
     margin: auto;
     display: table;
-
     li {
       float: none;
       font-weight: bold;
       a {
-        color: $colorBlack;
+        color: $colorLightGrey;
+        &:hover {
+          background: none;
+          color: #fff;
+        }
       }
     }
   }
+}
+
+.resin-link {
+  color: #fff !important;
 }
 
 .call-out {
@@ -317,6 +324,13 @@ footer {
     @include breakpoint(medium) {
       border:none;
     }
+  }
+}
+
+.downloads {
+  padding: 60px 0;
+  h2 {
+    text-align: center;
   }
 }
 

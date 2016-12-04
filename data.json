@@ -13,7 +13,7 @@
 	"dynamicLink": {
 		"default": {
 			"buttonText": "Download Now",
-			"link": "https://resin-production-downloads.s3.amazonaws.com/etcher/1.0.0-beta.0/Etcher-win32-x86.exe",
+			"link": "https://resin-production-downloads.s3.amazonaws.com/etcher/1.0.0-beta.17/Etcher-1.0.0-beta.17-win32-x86.zip",
 			"mobile": false,
 			"eventName": "[etcher website] download"
 		},

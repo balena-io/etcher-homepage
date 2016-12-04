@@ -89,8 +89,6 @@ var findLink = function(files, key, buttonText, eventName) {
     }
 }
 
-
-
 getData = function($this, callback){
   query_url = $this.url + "?delimiter=/&prefix=" + $this.prefix + "/"
   $.get(query_url)
@@ -107,15 +105,19 @@ parseXML = function(xml, $this) {
   var files = $.map(xml.find('Contents'), function(item) {
     item = $(item);
     var name = item.find('Key').text().split("/")[2]
+    var nameArray = name.split("-")
     return {
       name: name,
       prettyName: prettifyFileName(name),
       link: $this.url + "/" + item.find('Key').text(),
       lastModified: item.find('LastModified').text(),
       size: bytesToHumanReadable(item.find('Size').text()),
-      type: 'file'
+      type: 'file',
+      os: nameArray[3],
+      arch: getArchString(nameArray[4])
     }
   });
+
   var directories = $.map(xml.find('CommonPrefixes'), function(item) {
     item = $(item);
     return {
@@ -148,29 +150,28 @@ function bytesToHumanReadable(sizeInBytes) {
   return Math.max(sizeInBytes, 0.1).toFixed(1) + units[i];
 }
 
+function getArchString(arch) {
+  if (arch != undefined) {
+    platform = arch.substring(0, 3)
+    switch (platform) {
+      case "x86":
+        platform = platform + " (32-bit)"
+        break;
+      case "x64":
+        platform = platform + " (64-bit)"
+        break;
+      default:
+        break;
+    }
+    return platform
+  } else {
+    return ""
+  }
+}
+
 function prettifyFileName(file) {
   // <name>-v<version>-<os>-<arch>.<extension>
-  split = file.split("-");
-
-  function getArchString(arch) {
-    if (arch != undefined) {
-      platform = arch.substring(0, 3)
-      switch (platform) {
-        case "x86":
-          platform = platform + " (32-bit)"
-          break;
-        case "x64":
-          platform = platform + " (64-bit)"
-          break;
-        default:
-          break;
-      }
-      return platform
-    } else {
-      return ""
-    }
-  }
-
+  var split = file.split('-')
   var extension = file.substring(file.lastIndexOf('.') + 1, file.length);
   var type = '';
 
