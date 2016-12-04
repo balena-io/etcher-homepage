@@ -113,7 +113,7 @@ parseXML = function(xml, $this) {
       lastModified: item.find('LastModified').text(),
       size: bytesToHumanReadable(item.find('Size').text()),
       type: 'file',
-      os: nameArray[3],
+      os: getOS(nameArray[3]),
       arch: getArchString(nameArray[4])
     }
   });
@@ -169,27 +169,34 @@ function getArchString(arch) {
   }
 }
 
+function getOS(string) {
+  switch (string) {
+    case "darwin":
+        return "Mac"
+        break;
+    case "win32":
+        return "Windows"
+        break;
+    case "linux":
+        return "Linux"
+        break;
+  }
+}
+
+function getType(os, ext) {
+  if (os != 'win32') {
+    return ""
+  }
+  if (ext === 'zip') {
+    return ' (Portable)'
+  } else if (ext === 'exe') {
+    return ' (Installer)'
+  }
+}
+
 function prettifyFileName(file) {
   // <name>-v<version>-<os>-<arch>.<extension>
   var split = file.split('-')
   var extension = file.substring(file.lastIndexOf('.') + 1, file.length);
-  var type = '';
-
-  switch (split[3]) {
-    case "darwin":
-        split[3] = "Mac"
-        break;
-    case "win32":
-        split[3] = "Windows"
-        if (extension === 'zip') {
-          type = ' (Portable)'
-        } else if (extension === 'exe') {
-          type = ' (Installer)'
-        }
-        break;
-    case "linux":
-        split[3] = "Linux"
-        break;
-  }
-  return split[0] + " for " + split[3] + " " + getArchString(split[4]) + type;
+  return split[0] + " for " + getOS(split[3]) + " " + getArchString(split[4]) + getType(split[3], extension);
 }
