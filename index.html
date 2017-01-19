@@ -73,11 +73,11 @@
         <!-- Jumbo -->
         <div class="jumbotron fadeIn">
           <h1>Burn. Better.</h1>
-          <p class="description">Burn images to SD cards & USB drives, <b>safe & easy.</b></p>
+          <p class="description">Burn images to SD cards &amp; USB drives, <b>safely &amp; easily.</b></p>
           <!-- Split button -->
           <template v-if="dynamicLink.mobile">
             <p>Visit from your PC to download Etcher</p>
-            <a class="btn btn-success btn-lg" data-track-id="jumbotron button" data-track="{{ dynamicLink.eventName }}" href="mailto:{{ dynamicLink.link }}">{{ dynamicLink.buttonText }}<a>
+            <a class="btn btn-success btn-lg" data-track-id="jumbotron button" data-track="{{ dynamicLink.eventName }}" href="mailto:{{ dynamicLink.link }}">{{ dynamicLink.buttonText }}</a>
           </template>
           <div v-else class="btn-group">
             <a href="{{ dynamicLink.link }}" v-cloak class="btn btn-success btn-lg" data-track-id="jumbotron button" data-track="{{ dynamicLink.eventName }}" data-track-attrs="{{ dynamicLink | json }}" v-text="dynamicLink.buttonText" role="button"></a>
@@ -99,7 +99,7 @@
               href="https://twitter.com/share"
               data-size="large"
               data-url="http://www.etcher.io"
-              data-text="Meet Etcher by @resin_io an awesome new way to write SD cards. Give it a shot and you'll never go back!">
+              data-text="Meet Etcher by @resin_io, an awesome new way to write SD cards. Give it a shot and you'll never go back!">
             Tweet
             </a>
             <a class="github-button" href="https://github.com/resin-io/etcher" data-style="mega" data-count-href="/resin-io/etcher/stargazers" data-count-api="/repos/resin-io/etcher#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star resin-io/etcher on GitHub">Star</a>
@@ -114,7 +114,7 @@
         <!-- product -->
         <div class="product">
           <!-- <div class="screen-shot"></div> -->
-          <img id="screen-shot" src="/static/images/product.gif"></div>
+          <img id="screen-shot" src="/static/images/product.gif"/>
         </div>
       </div>  <!-- /container -->
     </section> <!-- /content -->
@@ -136,8 +136,8 @@
               <div class="image-container">
                 <img src="static/images/icons/hd.png" srcset="static/images/icons/hd@2x.png 2x">
               </div>
-              <h2>Hard Drive Friendly</h2>
-              <p>Makes drive selection obvious to avoid wiping your entire hard-drive</p>
+              <h2>Hard-Drive-Friendly</h2>
+              <p>Makes drive selection obvious to avoid wiping your entire hard-drive.</p>
             </div>
             
             <div class="col-md-4 feature">
@@ -145,7 +145,7 @@
                 <img src="static/images/icons/simple.png" srcset="static/images/icons/simple@2x.png 2x">
               </div>
               <h2>Beautiful Interface</h2>
-              <p>Who said burning SD cards has to be an eyesore.</p>
+              <p>Who said burning SD cards has to be an eyesore?</p>
             </div>
             
           </div>
@@ -155,7 +155,7 @@
               <div class="image-container">
                 <img src="static/images/icons/open-source.png" srcset="static/images/icons/open-source@2x.png 2x">
               </div>
-              <h2>Open Source</h2>
+              <h2>Open-Source</h2>
               <p>Made with JS, HTML, node.js and <a target='_blank' href='http://electron.atom.io/'>Electron</a>. Dive in and contribute!</p>
             </div>
             
@@ -163,8 +163,8 @@
               <div class="image-container">
                 <img src="static/images/icons/cross-platform.png" srcset="static/images/icons/cross-platform@2x.png 2x">
               </div>
-              <h2>Cross Platform</h2>
-              <p>Works for everyone,</br> no more complicated install instructions.</p>
+              <h2>Cross-Platform</h2>
+              <p>It works for everyone; no more complicated install instructions.</p>
             </div>
             
             <div class="col-md-4 feature">
@@ -172,7 +172,7 @@
                 <img src="static/images/icons/coming-soon.png" srcset="static/images/icons/coming-soon@2x.png 2x">
               </div>
               <h2>More on the way</h2>
-              <p>50% faster burns, simultaneous writing for multiple drives. </br><a target='_blank' href='https://github.com/resin-io/etcher/milestones'>View our roadmap</a></p>
+              <p>50% faster burns, simultaneous writing for multiple drives. <br/><a target='_blank' href='https://github.com/resin-io/etcher/milestones'>View our roadmap</a></p>
             </div>
             
           </div>
@@ -184,10 +184,10 @@
         <h2>Why Etcher?</h2>
         <div class="row">
           <div class="col-md-6">
-            <p>Here at <a target='_blank' data-track='[etcher website] link click' data-track-attrs='{ &quot;link&quot;: &quot;resin.io&quot;, &quot;name&quot;: &quot;resin.io&quot; }' href='https://resin.io' target='_blank'>resin.io</a> we have thousands of users working through our getting started process and until recently we were embarassed about the steps that involved burning an SD card. There was a separate track for each Mac/Windows/Ubuntu and several manual and error prone steps along the way.</p>
+            <p>Here at <a target='_blank' data-track='[etcher website] link click' data-track-attrs='{ &quot;link&quot;: &quot;resin.io&quot;, &quot;name&quot;: &quot;resin.io&quot; }' href='https://resin.io' target='_blank'>resin.io</a> we have thousands of users working through our <i>getting started</i> process and until recently were embarassed about the steps that involved burning an SD card. There was a separate track for each OS (Mac/Windows/Ubuntu) and several manual and error prone steps along the way.</p>
           </div>
           <div class="col-md-6">
-            <p>To our surprise there was nothing out there that fitted our needs. So we built Etcher, a SD card burner app that is simple for end users, extensible for developers, and works on any platform. </p>
+            <p>To our surprise there was nothing out there that fit our needs. So we built Etcher, an SD card burner app that is simple for end users, extensible for developers, and works on any platform. </p>
           </div>
         </div>
       </div>
@@ -229,7 +229,7 @@
           <div class="col-md-6 promo">
             <img class="logo" src="static/images/nav-logo.png" srcset="static/images/nav-logo@2x.png 2x"/>
             <p>
-              Etcher is an open source project by <a class="resin-link" href="https://resin.io">resin.io</a> - Modern DevOps for the Industrial Internet of Things
+              Etcher is an open-source project by <a class="resin-link" href="https://resin.io">resin.io</a> - Modern DevOps for the Industrial Internet of Things
             </p>
             <p>Made with love by <a class="resin-link" data-track="[etcher website] link click" data-track-attrs="{ link: 'resin.io', name: 'etcher' }" href="https://resin.io" target="_blank">resin.io</a>
             </p>
@@ -258,9 +258,9 @@
     <script src="bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js"></script>
     <script src="bower_components/semver/semver.min.js"></script>
     <script src="bower_components/vue/dist/vue.min.js"></script>
-    <script src="bower_components/async/dist/async.min.js"/></script>
+    <script src="bower_components/async/dist/async.min.js"></script>
     <script src="static/js/etcher.min.js?v=1.5"></script>
-    <script src="bower_components/sniffr/dist/sniffr.min.js"/></script>
+    <script src="bower_components/sniffr/dist/sniffr.min.js"></script>
 
     <script>
       var $defaultLink = JSON.parse("{\u0022buttonText\u0022:\u0022Download Now\u0022,\u0022link\u0022:\u0022https://resin\u002Dproduction\u002Ddownloads.s3.amazonaws.com/etcher/1.0.0\u002Dbeta.17/Etcher\u002D1.0.0\u002Dbeta.17\u002Dwin32\u002Dx86.zip\u0022,\u0022mobile\u0022:false,\u0022eventName\u0022:\u0022[etcher website] download\u0022}")
