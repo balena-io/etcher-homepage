@@ -61,7 +61,7 @@ s3.prototype.getDynamicLink = function(files, osSlug, backup, eventName, callbac
         callback(findLink(files, "darwin", buttonText, eventName));
         break;
     case "windows":
-        buttonText = "Download for Windows"
+        buttonText = "Download for Windows >= 7"
         callback(findLink(files, "win32", buttonText, eventName));
         break;
     case "linux":
