@@ -66,24 +66,9 @@ $(function() {
       console.log(err);
     }
 
-    showInstructions(app, $(this));
     mixpanel.track(event_name, event_attrs);
-
   });
 });
-
-function showInstructions(app, event_element) {
-  // check if it's linux
-  if (event_element.data('track') == '[etcher website] download') {
-    var linkArray = event_element.attr("href").split("/");
-    app.selectedImage = linkArray[linkArray.length - 1];
-    if (app.selectedImage.indexOf('linux')  > -1) {
-      $('.instructions').show();
-      $('.description').hide();
-      $('.jumbotron .btn-group').hide();
-    }
-  }
-}
 
 function cosmetics() {
   setTimeout(function(){
