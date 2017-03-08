@@ -10,6 +10,7 @@
 		"footer": "logo",
 		"resin": "logo-right"
 	},
+	"debianLink": "https://github.com/resin-io/etcher#debian-and-ubuntu-based-package-repository-gnulinux-x86x64",
 	"dynamicLink": {
 		"default": {
 			"buttonText": "Download Now",
