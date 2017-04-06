@@ -4,6 +4,27 @@ $("img#screen-shot").on('load', function() {
   if(this.complete) $(this).load();
 });
 
+// https://gist.github.com/tdukart/b87afb278c41245741ae7a0c355a0a0b
+function kebabCase(string) {
+  var result = string;
+
+  // Convert camelCase capitals to kebab-case.
+  result = result.replace(/([a-z][A-Z])/g, function(match) {
+    return match.substr(0, 1) + '-' + match.substr(1, 1).toLowerCase();
+  });
+
+  // Convert non-camelCase capitals to lowercase.
+  result = result.toLowerCase();
+
+  // Convert non-alphanumeric characters to hyphens
+  result = result.replace(/[^-a-z0-9]+/g, '-');
+
+  // Remove hyphens from both ends
+  result = result.replace(/^-+/, '').replace(/-$/, '');
+
+  return result;
+}
+
 function positionScreenShot() {
   var $product = $('.product');
   var $jumbotron = $('.jumbotron');
@@ -25,7 +46,8 @@ var app = new Vue({
   data: {
     os: Sniffr.os.name,
     downloads:  [],
-    version: "0.0.1",
+    version: null,
+    versionKebabed: null,
     dynamicLink: $defaultLink,
     mobileLink: $mobileLink,
     electron: "<a href=http://electron.atom.io/>Electron</a>",
@@ -36,15 +58,16 @@ var app = new Vue({
 // Query s3
 var bucket = new s3("https://resin-production-downloads.s3.amazonaws.com", "etcher");
 bucket.getLatestVersion(function(version){
-     app.version = "v" + version;
-   bucket.getFiles(version, function(files){
-     app.downloads = files;
-     bucket.getDynamicLink(files, app.os, app.mobileLink, app.dynamicLink.eventName, function(link) {
+  app.version = "v" + version;
+  app.versionKebabed = kebabCase(app.version);
+  bucket.getFiles(version, function(files){
+    app.downloads = files;
+    bucket.getDynamicLink(files, app.os, app.mobileLink, app.dynamicLink.eventName, function(link) {
        app.dynamicLink = link[0];
        $('.fadeIn').addClass('active');
        cosmetics();
-     });
-   });
+    });
+  });
 });
 
 
