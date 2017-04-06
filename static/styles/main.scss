@@ -86,8 +86,8 @@ p {
   }
 
   .navbar-nav>li>a {
-    color: #fff;
-    &:hover {
+
+    &, &:hover, &:focus {
       color: #fff;
     }
   }
