@@ -49,11 +49,7 @@
           <h1><= jumbotron.title =></h1>
           <p class="description"><= jumbotron.description =></p>
           <!-- Split button -->
-          <template v-if="dynamicLink.mobile">
-            <p>Visit from your PC to download Etcher</p>
-            <a class="btn btn-success btn-lg" data-track-id="jumbotron button" data-track="{{ dynamicLink.eventName }}" href="mailto:{{ dynamicLink.link }}">{{ dynamicLink.buttonText }}<a>
-          </template>
-          <div v-else class="btn-group">
+          <div class="btn-group">
             <a href="{{ dynamicLink.link }}" v-cloak class="btn btn-success btn-lg" data-track-id="jumbotron button" data-track="{{ dynamicLink.eventName }}" data-track-attrs="{{ dynamicLink | json }}" v-text="dynamicLink.buttonText" role="button"></a>
             <button type="button" class="btn btn-success btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <span class="caret"></span>
@@ -204,7 +200,6 @@
 
     <script>
       var $defaultLink = JSON.parse("<= dynamicLink.default |json |e('js') =>")
-      var $mobileLink = JSON.parse("<= dynamicLink.mobile |json |e('js') =>")
     </script>
 
     <script src="static/js/main.min.js?v=1.5"></script>

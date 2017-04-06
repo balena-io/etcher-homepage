@@ -49,9 +49,8 @@ var app = new Vue({
     version: null,
     versionKebabed: null,
     dynamicLink: $defaultLink,
-    mobileLink: $mobileLink,
     electron: "<a href=http://electron.atom.io/>Electron</a>",
-    selectedImage: ""
+    selectedImage: null
   }
 });
 
@@ -62,7 +61,7 @@ bucket.getLatestVersion(function(version){
   app.versionKebabed = kebabCase(app.version);
   bucket.getFiles(version, function(files){
     app.downloads = files;
-    bucket.getDynamicLink(files, app.os, app.mobileLink, app.dynamicLink.eventName, function(link) {
+    bucket.getDynamicLink(files, app.os, app.dynamicLink.eventName, function(link) {
        app.dynamicLink = link[0];
        $('.fadeIn').addClass('active');
        cosmetics();

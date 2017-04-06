@@ -54,7 +54,7 @@ s3.prototype.getFiles = function(version, callback){
   });
 }
 
-s3.prototype.getDynamicLink = function(files, osSlug, backup, eventName, callback){
+s3.prototype.getDynamicLink = function(files, osSlug, eventName, callback){
   switch (osSlug) {
     case "macos":
         buttonText = "Download for OSX >= 10.9"
@@ -69,8 +69,8 @@ s3.prototype.getDynamicLink = function(files, osSlug, backup, eventName, callbac
         callback(findLink(files, "linux", buttonText, eventName));
         break;
     default:
-        backup.mobile = true
-        callback([backup]);
+        buttonText = "Download for Windows >= 7"
+        callback(findLink(files, "win32", buttonText, eventName));
   }
 }
 
