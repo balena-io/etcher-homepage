@@ -1,6 +1,6 @@
 {
-  "name": "nextDoxx",
-  "description": "testing next.js",
+  "name": "etcher.io",
+  "description": "react based static site",
   "dependencies": {
     "babel-preset-es2016": "6.24.1",
     "bootstrap": "4.0.0-alpha.6",
@@ -22,9 +22,10 @@
     "xml2js": "0.4.17"
   },
   "scripts": {
-    "dev": "next",
+    "start": "next",
     "build": "next build",
-    "start": "next start",
+    "serve": "next start",
+    "export": "next export -o build",
     "serve-build": "node ./test/index.js",
     "test": "ENV=test node ./test/index.js"
   },
@@ -43,5 +44,6 @@
     "pwmetrics": "^2.0.0",
     "raw-loader": "0.5.1",
     "sass-loader": "6.0.3"
-  }
+  },
+  "license": "Apache-2.0"
 }
