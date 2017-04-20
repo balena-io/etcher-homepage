@@ -2,7 +2,7 @@ import React from 'react';
 import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem, Button } from 'reactstrap';
 import Router from 'next/router';
 
-export default class Example extends React.Component {
+export default class DownloadBtn extends React.Component {
   constructor(props) {
     super(props);
     this.toggle = this.toggle.bind(this);
@@ -30,7 +30,7 @@ export default class Example extends React.Component {
             this.props.handler('[ etcher website ] download', this.state.link )
           }}
         >
-          Download
+          {`Download ${this.state.link.release.text.split(' ').slice(1,4).join(' ')}`}
         </Button>
         <DropdownToggle caret color="primary" />
         <DropdownMenu>

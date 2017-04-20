@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { Nav, NavItem, NavLink } from 'reactstrap';
+import { isExternal } from '../lib/utils';
 
 export default ({ pages, children, ...props }) => {
   return(
@@ -14,7 +15,7 @@ export default ({ pages, children, ...props }) => {
             <Nav vertical>
               {Object.keys(pages).map((p) => (
                 <NavItem key={p} className="px-1">
-                  <Link prefetch href={pages[p]}><a>{p}</a></Link>
+                  <Link prefetch={isExternal(pages[p])} href={pages[p]}><a>{p}</a></Link>
                 </NavItem>
               ))}
             </Nav>

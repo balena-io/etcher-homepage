@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from './Image';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem } from 'reactstrap';
+import { isExternal } from '../lib/utils';
 
 export default class Example extends React.Component {
   constructor() {
@@ -40,10 +41,10 @@ export default class Example extends React.Component {
           <NavbarToggler right onClick={this.toggle} />
           <Link prefetch href="/"><a>{ this.brand(brand, title) }</a></Link>
           <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className="ml-auto" navbar>
+            <Nav className="ml-auto py-2" navbar>
               {Object.keys(pages).map((p) => (
                 <NavItem key={p} className="px-1">
-                  <Link prefetch href={pages[p]}><a>{p}</a></Link>
+                  <Link prefetch={isExternal(pages[p])} href={pages[p]}><a>{p}</a></Link>
                 </NavItem>
               ))}
             </Nav>

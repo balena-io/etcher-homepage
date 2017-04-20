@@ -1,5 +1,0 @@
-# https://caddyserver.com/docs/caddyfile
-0.0.0.0:1337 {
-  root ./build
-  gzip
-}

@@ -21,11 +21,11 @@ const fetchData = async () => {
 
 export default class extends Component {
 
-  static async getInitialProps () {
+  static async getInitialProps (props) {
     return fetchData();
   }
 
-  static async getStaticInitialProps () {
+  static async getStaticInitialProps (props) {
     return fetchData();
   }
 

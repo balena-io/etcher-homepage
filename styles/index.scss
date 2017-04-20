@@ -1,0 +1,43 @@
+// View all available vars
+// https://github.com/twbs/bootstrap/blob/v4-dev/scss/_variables.scss
+
+// vars go here:
+
+@import 'bootstrap/scss/bootstrap.scss';
+
+body {
+  font-family: proxima-nova,'Open Sans',Tahoma,sans-serif;
+}
+
+// overwrite bts default
+.bg-faded {
+  background-color: #F0F4F6;
+}
+
+.navbar-toggler {
+  border: none;
+  padding: 0;
+}
+
+.bg-inverse a {
+  color: #fff;
+
+  &.dropdown-item {
+    // download btn dropdown
+    color: $gray-dark;
+    cursor: pointer;
+  }
+}
+
+.dropdown-menu {
+  min-width: 100%;
+}
+
+@include media-breakpoint-between(0, xs) {
+  .btn-group {
+    width: 100%;
+    a {
+      width: 100%;
+    }
+  }
+}
