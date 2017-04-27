@@ -2,7 +2,7 @@ import 'isomorphic-fetch';
 import React from 'react';
 import Markdown from 'react-markdown';
 import Nav from '../components/Nav';
-import Layout from '../components/Layout';
+import Layout from './_Layout';
 import locals from '../locals';
 
 const fetchData = async () => {

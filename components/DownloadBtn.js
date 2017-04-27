@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { PropTypes, Component } from 'react';
 import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem, Button } from 'reactstrap';
 import Router from 'next/router';
+import platform from 'platform';
+import reject from 'lodash/reject';
+import includes from 'lodash/includes';
 
-export default class DownloadBtn extends React.Component {
+export default class DownloadBtn extends Component {
   constructor(props) {
     super(props);
     this.toggle = this.toggle.bind(this);
     this.state = {
       isOpen: false,
-      link: this.props.downloads.links[0],
-      links: this.props.downloads.links
+      link: props.downloads.links[0],
+      links: reject(props.downloads.links, props.downloads.links[0])
     };
   }
 
@@ -19,34 +22,51 @@ export default class DownloadBtn extends React.Component {
     });
   }
 
+  componentDidMount() {
+    // TODO run tests with .arch detection and see if it's accurate.
+    const os = platform.parse(window.navigator.userAgent).os;
+    const links = this.props.downloads.links;
+    const link = links.find((l) => {
+      return l.release.text.indexOf(os.family) > -1;
+    })
+    if (link) {
+      this.setState({
+        link : link,
+        links: reject(links, link),
+      })
+    }
+  }
+
   render() {
+    const { downloads, ...props } = this.props;
+    const { isOpen, link, links } = this.state;
     return (
-      <ButtonDropdown isOpen={this.state.isOpen} toggle={this.toggle}>
+      <ButtonDropdown isOpen={isOpen} toggle={this.toggle} {...props}>
         <Button
           id="caret"
           color="primary"
-          href={ this.state.link.release.href }
+          href={ link.release.href }
           onClick={() => {
-            this.props.handler('[ etcher website ] download', this.state.link )
+            this.context.tracker.create('download', link );
           }}
         >
-          {`Download ${this.state.link.release.text.split(' ').slice(1,4).join(' ')}`}
+          {`Download ${link.release.text.split(' ').slice(1,4).join(' ')}`}
         </Button>
         <DropdownToggle caret color="primary" />
         <DropdownMenu>
           {
-            this.state.links.length > 0 && this.state.links.map((link, index) => {
+            links.length > 0 && links.map((l, index) => {
               return (
                 <DropdownItem
                   onClick={() => {
-                    window.location.href = this.state.release.href
-                    this.props.handler('[ etcher website ] download', link )
+                    this.context.tracker.create('download', l );
                   }}
+                  href={ l.release.href }
                   id={ index }
                   key={ index }
                   tag='a'
                   >
-                    { link.release.text }
+                    { l.release.text }
                 </DropdownItem>
               )
             })
@@ -56,3 +76,7 @@ export default class DownloadBtn extends React.Component {
     );
   }
 }
+
+DownloadBtn.contextTypes = {
+  tracker: React.PropTypes.object
+};

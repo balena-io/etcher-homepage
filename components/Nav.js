@@ -36,21 +36,19 @@ export default class Example extends React.Component {
   render() {
     const { brand, pages, title, ...rest } = this.props;
     return (
-      <div>
-        <Navbar {...rest} toggleable>
-          <NavbarToggler right onClick={this.toggle} />
-          <Link prefetch href="/"><a>{ this.brand(brand, title) }</a></Link>
-          <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className="ml-auto py-2" navbar>
-              {Object.keys(pages).map((p) => (
-                <NavItem key={p} className="px-1">
-                  <Link prefetch={isExternal(pages[p])} href={pages[p]}><a>{p}</a></Link>
-                </NavItem>
-              ))}
-            </Nav>
-          </Collapse>
-        </Navbar>
-      </div>
+      <Navbar {...rest} toggleable>
+        <NavbarToggler right onClick={this.toggle} />
+        <Link prefetch href="/"><a>{ this.brand(brand, title) }</a></Link>
+        <Collapse isOpen={this.state.isOpen} navbar>
+          <Nav className="ml-auto py-2" navbar>
+            {Object.keys(pages).map((p) => (
+              <NavItem key={p} className="px-1">
+                <Link prefetch={isExternal(pages[p])} href={pages[p]}><a>{p}</a></Link>
+              </NavItem>
+            ))}
+          </Nav>
+        </Collapse>
+      </Navbar>
     );
   }
 }

@@ -25,7 +25,7 @@ const locals = {
     gaSite: 'etcher.io',
     gaId: 'UA-61137143-2',
     gosquaredId: 'GSN-575655-Q',
-    prefix: 'Etcher'
+    prefix: 'Etcher Website'
   },
   nav: {
     header: pick(links, [ 'Repository', 'Changlog' , 'Chat', 'Mailing List' ]),

@@ -2,6 +2,7 @@
 // https://github.com/twbs/bootstrap/blob/v4-dev/scss/_variables.scss
 
 // vars go here:
+$blue: #1496E1;
 
 @import 'bootstrap/scss/bootstrap.scss';
 
@@ -14,23 +15,31 @@ body {
   background-color: #F0F4F6;
 }
 
+.jumbotron {
+  img {
+    max-width: 80%;
+  }
+}
+
 .navbar-toggler {
   border: none;
   padding: 0;
 }
 
-.bg-inverse a {
-  color: #fff;
+.bg-inverse, .text-white {
+  a {
+    color: #fff;
 
-  &.dropdown-item {
-    // download btn dropdown
-    color: $gray-dark;
-    cursor: pointer;
+    &.dropdown-item {
+      // download btn dropdown
+      color: $gray-dark;
+      cursor: pointer;
+    }
   }
-}
 
-.dropdown-menu {
-  min-width: 100%;
+  .dropdown-menu {
+    min-width: 100%;
+  }
 }
 
 @include media-breakpoint-between(0, xs) {
