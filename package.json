@@ -2,9 +2,9 @@
   "name": "etcher.io",
   "description": "react based static site",
   "dependencies": {
-    "babel-preset-es2016": "6.24.1",
     "bootstrap": "4.0.0-alpha.6",
     "es6-promise": "4.1.0",
+    "gh-pages": "^0.12.0",
     "isomorphic-fetch": "2.2.1",
     "lodash": "4.17.4",
     "next": "2.1.1",
@@ -13,8 +13,10 @@
     "react-addons-css-transition-group": "15.5.2",
     "react-addons-transition-group": "15.5.2",
     "react-dom": "15.5.4",
+    "react-github-button": "^0.1.10",
     "react-markdown": "2.5.0",
     "react-strap": "0.0.1",
+    "react-twitter-widgets": "1.3.0",
     "react-typekit": "1.0.8",
     "reactstrap": "4.5.0",
     "resin-event-log": "1.4.0",
@@ -27,13 +29,15 @@
     "serve": "next start",
     "export": "next export -o build",
     "serve-build": "node ./test/index.js",
-    "test": "ENV=test node ./test/index.js"
+    "test": "ENV=test node ./test/index.js",
+    "deploy": "gh-pages -d build"
   },
   "devDependencies": {
     "autoprefixer": "6.7.7",
     "babel-plugin-module-resolver": "2.7.0",
     "babel-plugin-transform-decorators-legacy": "1.3.4",
     "babel-plugin-wrap-in-js": "1.1.1",
+    "babel-preset-es2016": "6.24.1",
     "babel-preset-es2017": "6.24.1",
     "compression": "1.6.2",
     "eslint": "^3.19.0",

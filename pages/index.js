@@ -10,11 +10,12 @@ import Feature from '../components/Feature';
 import Story from '../components/Story';
 import Section from '../components/Section';
 import Table from '../components/Table';
+import Image from '../components/Image';
+import { Share } from 'react-twitter-widgets';
 
 const fetchData = async () => {
   const url = 'https://resin-production-downloads.s3.amazonaws.com';
-  const prefix = 'etcher';
-  const downloads = await S3(url, prefix);
+  const downloads = await S3(url, locals.title.toLowerCase());
   return { downloads: downloads, locals: locals, tracker: null };
 }
 
@@ -41,8 +42,15 @@ export default class extends Component {
             color="primary">
               downloads.links[0].release.text
           </DownloadBtn>
+          <div className="share mb-5">
+            <Share url={locals.website} />
+            <a className="github-button" href={`://github.com/resin-io/${locals.title.toLowerCase()}`} data-icon="octicon-star" data-show-count="true" aria-label={`Star resin-io/${locals.title.toLowerCase()} on GitHub`}>Star</a>
+          </div>
           <div className="screenshot">
-            <img className="screenshotContainer" src={`/static/${locals.screenShot}`} />
+            <Image
+              src={`${locals.screenshot}`}
+              retina={false}
+            />
           </div>
         </Jumbotron>
         <Section title="Features" className="bg-primary text-white py-5">

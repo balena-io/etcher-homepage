@@ -42,6 +42,16 @@ body {
   }
 }
 
+.share {
+  > * {
+    display: inline-block;
+    margin-left: .5rem;
+  }
+  &:first-child {
+    margin-left: 0;
+  }
+}
+
 @include media-breakpoint-between(0, xs) {
   .btn-group {
     width: 100%;

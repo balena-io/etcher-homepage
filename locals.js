@@ -1,5 +1,7 @@
 import pick from 'lodash/pick';
 
+const IS_PROD = process.env.NODE_ENV === 'production';
+
 const links = {
   'Home': '/',
   'Changlog': '/changelog',
@@ -13,11 +15,13 @@ const links = {
 
 const locals = {
   website: 'https://etcher.io',
+  // prefix is used when hosting on gh
   title: 'Etcher',
+  prefix: IS_PROD ? '/etcher.io' : '',
   slogan: 'Burn. Better.',
   lead: 'Burn images to SD cards & USB drives, safe & easy.',
   logo: 'logo.png',
-  screenShot: 'screenShot.gif',
+  screenshot: 'screenshot.gif',
   analytics: {
     debug: true,
     mixpanelToken: '9d6bc43e4d64eb3bd64922c969e2955f',

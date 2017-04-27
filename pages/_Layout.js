@@ -21,7 +21,7 @@ export default class extends Component {
               <meta charSet='utf-8' />
               <meta name='viewport' content='initial-scale=1.0, width=device-width' />
               <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon" />
-              <link rel="icon" href="/static/favicon.ico" type="image/x-icon" />
+              <link rel="icon" href={`${locals.prefix}/static/favicon.ico`} type="image/x-icon" />
               <meta property="og:url" content={`${locals.website}`} />
               <meta property="og:type" content="website" />
               <meta property="og:title" content={`${locals.title} by resin.io`} />
@@ -30,6 +30,7 @@ export default class extends Component {
               <title>{this.props.locals.title}</title>
               <Typekit kitId="lzw7tre"/>
               <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
+              <script async defer src="https://buttons.github.io/buttons.js"></script>
             </Head>
             <Nav
               color="inverse"

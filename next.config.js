@@ -1,5 +1,7 @@
-const path = require('path')
-const glob = require('glob')
+const path = require('path');
+const glob = require('glob');
+
+const IS_PROD = process.env.NODE_ENV === 'production';
 
 module.exports = {
   webpack: (config, { dev }) => {

@@ -51,8 +51,8 @@ app.use('/', express.static(path.join(__dirname, '../build')));
 app.use(compression());
 
 const server = app.listen(1337, function() {
-  console.log('Listening :)');
-  if (!process.env.ENV === 'test') return;
+  console.log('Listening on port: ' + 1337);
+  if (process.env.ENV !== 'test') return;
 
   return runTest('http://localhost:1337')
     .then(handleOk)
