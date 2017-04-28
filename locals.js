@@ -10,7 +10,8 @@ const links = {
   'Contact': 'mailto:hello@etcher.io',
   'About Us': 'https://resin.io',
   'Blog': 'https://resin.io/blog',
-  'Mailing List': 'http://eepurl.com/cJ4fkX'
+  'Mailing List': 'http://eepurl.com/cJ4fkX',
+  'Help': 'https://github.com/resin-io/etcher/blob/master/SUPPORT.md'
 }
 
 const locals = {
@@ -34,7 +35,7 @@ const locals = {
     prefix: 'Etcher Website'
   },
   nav: {
-    header: pick(links, [ 'Repository', 'Changlog' , 'Chat', 'Mailing List' ]),
+    header: pick(links, [ 'Repository', 'Changlog' , 'Chat', 'Mailing List', 'Help']),
     footer: links
   },
   attribution: 'Etcher is an open source project by <a target="_blank" href="https://resin.io">resin.io</a> - Modern DevOps for the Industrial Internet of Things',
