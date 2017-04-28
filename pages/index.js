@@ -83,6 +83,9 @@ export default class extends Component {
         </Section>
         <Section title="Downloads" className="py-5">
           <Table items={downloads.links} />
+          <a href="https://github.com/resin-io/etcher#debian-and-ubuntu-based-package-repository-gnulinux-x86x64">
+            Looking for Debian (.deb) packages
+          </a>
         </Section>
       </Layout>
     );
