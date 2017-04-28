@@ -14,6 +14,7 @@ import Image from '../components/Image';
 import { Share } from 'react-twitter-widgets';
 import includes from 'lodash/includes';
 
+
 const getReleaseNote = async (version) => {
   try {
     const res = await fetch(`https://forums.resin.io/c/etcher.json`);
@@ -82,9 +83,11 @@ export default class extends Component {
         </Section>
         <Section title="Downloads" className="py-5">
           <Table items={downloads.links} />
-          <a href="https://github.com/resin-io/etcher#debian-and-ubuntu-based-package-repository-gnulinux-x86x64">
-            Looking for Debian (.deb) packages
-          </a>
+          <div className="text-center">
+            <a href="https://github.com/resin-io/etcher#debian-and-ubuntu-based-package-repository-gnulinux-x86x64">
+              Looking for Debian (.deb) packages?
+            </a>
+          </div>
         </Section>
       </Layout>
     );

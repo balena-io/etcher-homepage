@@ -27,10 +27,10 @@
     "start": "next",
     "build": "next build",
     "serve": "next start",
-    "export": "next export -o build",
+    "export": "next export -o build && cp CNAME build/CNAME",
     "serve-build": "node ./test/index.js",
     "test": "ENV=test node ./test/index.js",
-    "deploy": "gh-pages -d build"
+    "deploy": "cp CNAME build/CNAME && gh-pages -d build"
   },
   "devDependencies": {
     "autoprefixer": "6.7.7",

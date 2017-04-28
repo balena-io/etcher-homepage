@@ -17,7 +17,7 @@ const locals = {
   website: 'https://etcher.io',
   // prefix is used when hosting on gh
   title: 'Etcher',
-  prefix: IS_PROD ? '/etcher.io' : '',
+  prefix: IS_PROD ? '' : '',
   slogan: 'Burn. Better.',
   lead: 'Burn images to SD cards & USB drives, safe & easy.',
   logo: 'logo.png',
