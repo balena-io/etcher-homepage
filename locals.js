@@ -22,6 +22,8 @@ const locals = {
   lead: 'Burn images to SD cards & USB drives, safe & easy.',
   logo: 'logo.png',
   screenshot: 'screenshot.gif',
+  typekitId: 'lzw7tre',
+  s3Bucket: 'https://resin-production-downloads.s3.amazonaws.com',
   analytics: {
     debug: true,
     mixpanelToken: '9d6bc43e4d64eb3bd64922c969e2955f',

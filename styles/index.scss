@@ -47,6 +47,9 @@ body {
     display: inline-block;
     margin-left: .5rem;
   }
+  iframe {
+    border: 0;
+  }
   &:first-child {
     margin-left: 0;
   }

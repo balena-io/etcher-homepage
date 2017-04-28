@@ -12,11 +12,25 @@ import Section from '../components/Section';
 import Table from '../components/Table';
 import Image from '../components/Image';
 import { Share } from 'react-twitter-widgets';
+import includes from 'lodash/includes'
+
+const getReleaseNote = async (version) => {
+  try {
+    const res = await fetch(`https://forums.resin.io/c/etcher.json`);
+    const releaseNotes = await res.json();
+    return releaseNotes.topic_list.topics.find(topic => ( topic.title.includes(version)))
+  } catch (e) {
+    // this is to catch the current CORS issue with discourse
+    console.warn(e)
+    return;
+  }
+}
 
 const fetchData = async () => {
-  const url = 'https://resin-production-downloads.s3.amazonaws.com';
-  const downloads = await S3(url, locals.title.toLowerCase());
-  return { downloads: downloads, locals: locals, tracker: null };
+  const downloads = await S3(locals.s3Bucket, locals.title.toLowerCase());
+  const releaseNote = await getReleaseNote(downloads.version)
+
+  return { downloads, locals, releaseNote };
 }
 
 export default class extends Component {
@@ -30,7 +44,8 @@ export default class extends Component {
   }
 
   render () {
-    const { locals, downloads } = this.props;
+    const { locals, downloads, releaseNote } = this.props;
+    // console.log({ releaseNote })
     return (
       <Layout locals={locals}>
         <Jumbotron className="text-center bg-inverse text-white rounded-0 mb-0">
@@ -40,11 +55,18 @@ export default class extends Component {
             className="mb-3"
             downloads={downloads}
             color="primary">
-              downloads.links[0].release.text
+              {downloads.links[0].release.text}
           </DownloadBtn>
+          <div className="text-muted">
+            <p className="version">version {downloads.version}
+              { releaseNote && (<a href={`https://forums.resin.io/t/${releaseNote.slug}`}> - See whats new!</a>)}
+            </p>
+          </div>
           <div className="share mb-5">
             <Share url={locals.website} />
-            <a className="github-button" href={`://github.com/resin-io/${locals.title.toLowerCase()}`} data-icon="octicon-star" data-show-count="true" aria-label={`Star resin-io/${locals.title.toLowerCase()} on GitHub`}>Star</a>
+            <div>
+              <iframe src={`https://ghbtns.com/github-btn.html?user=resin-io&repo=${locals.title.toLowerCase()}&type=star&count=true`} scrolling="0" width="100" height="20px"></iframe>
+            </div>
           </div>
           <div className="screenshot">
             <Image
