@@ -26,11 +26,11 @@ const locals = {
   s3Bucket: 'https://resin-production-downloads.s3.amazonaws.com',
   analytics: {
     debug: true,
-    mixpanelToken: '9d6bc43e4d64eb3bd64922c969e2955f',
+    mixpanelToken: '0b4c23e0072d8dee7cf8ac7ab7c4a216',
     mixpanelHost: 'https://api.mixpanel.com',
     gaSite: 'etcher.io',
-    gaId: 'UA-61137143-2',
-    gosquaredId: 'GSN-575655-Q',
+    gaId: 'UA-45671959-2',
+    gosquaredId: 'GSN-954701-N',
     prefix: 'Etcher Website'
   },
   nav: {
