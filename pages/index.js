@@ -12,7 +12,7 @@ import Section from '../components/Section';
 import Table from '../components/Table';
 import Image from '../components/Image';
 import { Share } from 'react-twitter-widgets';
-import includes from 'lodash/includes'
+import includes from 'lodash/includes';
 
 const getReleaseNote = async (version) => {
   try {
@@ -20,15 +20,14 @@ const getReleaseNote = async (version) => {
     const releaseNotes = await res.json();
     return releaseNotes.topic_list.topics.find(topic => ( topic.title.includes(version)))
   } catch (e) {
-    // this is to catch the current CORS issue with discourse
-    console.warn(e)
+    console.warn(e);
     return;
   }
 }
 
 const fetchData = async () => {
   const downloads = await S3(locals.s3Bucket, locals.title.toLowerCase());
-  const releaseNote = await getReleaseNote(downloads.version)
+  const releaseNote = await getReleaseNote(downloads.version);
 
   return { downloads, locals, releaseNote };
 }
@@ -59,7 +58,7 @@ export default class extends Component {
           </DownloadBtn>
           <div className="text-muted">
             <p className="version">version {downloads.version}
-              { releaseNote && (<a href={`https://forums.resin.io/t/${releaseNote.slug}`}> - See whats new!</a>)}
+              { releaseNote && (<a href={`https://forums.resin.io/t/${releaseNote.slug}`}> - See what&#39;s new!</a>)}
             </p>
           </div>
           <div className="share mb-5">
