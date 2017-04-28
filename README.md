@@ -20,6 +20,7 @@ yarn run deploy
 ```
 
 Cool things:
+
 - [x] prefetch links & code splitting (performance of a website with app responsiveness there after)
 - [x] perf testing
 - [ ] CI perf testing
@@ -29,6 +30,3 @@ Cool things:
 - [ ] export css file instead of injecting it
 - [ ] use Preact to reduce bundle size
 - [ ] extract everything besides (pages) to stand alone lib.
-
-## reading:
-https://github.com/zeit/next.js/issues/1706

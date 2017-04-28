@@ -25,7 +25,7 @@ const locals = {
   typekitId: 'lzw7tre',
   s3Bucket: 'https://resin-production-downloads.s3.amazonaws.com',
   analytics: {
-    debug: true,
+    // debug: true,
     mixpanelToken: '0b4c23e0072d8dee7cf8ac7ab7c4a216',
     mixpanelHost: 'https://api.mixpanel.com',
     gaSite: 'etcher.io',
