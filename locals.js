@@ -4,7 +4,7 @@ const IS_PROD = process.env.NODE_ENV === 'production';
 
 const links = {
   'Home': '/',
-  'Changlog': '/changelog',
+  'Changelog': '/changelog',
   'Repository': 'https://github.com/resin-io/etcher',
   'Chat': 'https://gitter.im/resin-io/etcher',
   'Contact': 'mailto:hello@etcher.io',
@@ -35,7 +35,7 @@ const locals = {
     prefix: 'Etcher Website'
   },
   nav: {
-    header: pick(links, [ 'Repository', 'Changlog' , 'Chat', 'Mailing List', 'Help']),
+    header: pick(links, [ 'Repository', 'Changelog' , 'Chat', 'Mailing List', 'Help']),
     footer: links
   },
   attribution: 'Etcher is an open source project by <a target="_blank" href="https://resin.io">resin.io</a> - Modern DevOps for the Industrial Internet of Things',
