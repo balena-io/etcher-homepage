@@ -1,6 +1,5 @@
 const path = require('path');
 const glob = require('glob');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const IS_PROD = process.env.NODE_ENV === 'production';
 
