@@ -27,7 +27,7 @@ Page.getInitialProps = async ({ req }) => {
   return fetchData();
 }
 
-Page.getInitialStaticProps = async ({ req }) => {
+Page.getStaticInitialProps = async ({ req }) => {
   return fetchData();
 }
 
