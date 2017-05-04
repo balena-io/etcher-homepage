@@ -6,6 +6,7 @@ import Footer from '../components/Footer';
 import Image from '../components/Image';
 import Typekit from 'react-typekit';
 import { Tracker, Locals } from './_Providers';
+import 'babel-polyfill';
 
 import stylesheet from 'styles/index.scss';
 

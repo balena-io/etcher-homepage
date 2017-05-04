@@ -1,9 +1,16 @@
 {
   "presets": [
-    "latest",
-    "react",
-    "es2016",
-    "es2017"
+    ["@resin.io/next/babel", {
+      "targets": {
+        "browsers": [
+          "chrome >= 52",
+          "firefox >= 47",
+          "ie >= 10",
+          "edge >= 13",
+          "safari >= 9"
+        ]
+      }
+    }]
   ],
   "plugins": [
     [
@@ -22,7 +29,6 @@
     ],
     "transform-object-rest-spread",
     "transform-class-properties",
-    "transform-runtime",
-    "transform-decorators-legacy"
+    "transform-runtime"
   ]
 }
