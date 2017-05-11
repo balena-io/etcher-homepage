@@ -13,6 +13,7 @@ import Table from '../components/Table';
 import Image from '../components/Image';
 import { Share } from 'react-twitter-widgets';
 import includes from 'lodash/includes';
+import Link from 'next/link';
 
 
 const getReleaseNote = async (version) => {
@@ -58,7 +59,9 @@ export default class extends Component {
               {downloads.links[0].release.text}
           </DownloadBtn>
           <div className="text-muted">
-            <p className="version">version {downloads.version}
+            <p>
+              or, use our <Link href="/cli">experimental CLI</Link><br/>
+              version {downloads.version}
               { releaseNote && (<a href={`https://forums.resin.io/t/${releaseNote.slug}`}> - See what&#39;s new!</a>)}
             </p>
           </div>
