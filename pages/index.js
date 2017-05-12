@@ -1,4 +1,3 @@
-import 'isomorphic-fetch';
 import React, { Component } from 'react';
 import { Jumbotron } from 'reactstrap';
 import Layout from './_Layout';
