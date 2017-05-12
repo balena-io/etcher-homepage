@@ -14,23 +14,9 @@ import { Share } from 'react-twitter-widgets';
 import includes from 'lodash/includes';
 import Link from 'next/link';
 
-
-const getReleaseNote = async (version) => {
-  try {
-    const res = await fetch(`https://forums.resin.io/c/etcher.json`);
-    const releaseNotes = await res.json();
-    return releaseNotes.topic_list.topics.find(topic => ( topic.title.includes(version)))
-  } catch (e) {
-    console.warn(e);
-    return;
-  }
-}
-
 const fetchData = async () => {
   const downloads = await S3(locals.s3Bucket, locals.title.toLowerCase());
-  const releaseNote = await getReleaseNote(downloads.version);
-
-  return { downloads, locals, releaseNote };
+  return { downloads, locals };
 }
 
 export default class extends Component {
@@ -44,8 +30,7 @@ export default class extends Component {
   }
 
   render () {
-    const { locals, downloads, releaseNote } = this.props;
-    // console.log({ releaseNote })
+    const { locals, downloads } = this.props;
     return (
       <Layout locals={locals}>
         <Jumbotron className="text-center bg-inverse text-white rounded-0 mb-0">
@@ -61,7 +46,7 @@ export default class extends Component {
             <p>
               or, use our <Link prefetch href="/cli"><a>experimental CLI</a></Link><br/>
               version {downloads.version} -
-              { releaseNote && (<a href={`https://forums.resin.io/t/${releaseNote.slug}`}> See what&#39;s new!</a>)}
+              <a target="_blank" href="https://resin.io/blog/etcher-1-0-is-here/"> See what&#39;s new!</a>
             </p>
           </div>
           <div className="share mb-5">
