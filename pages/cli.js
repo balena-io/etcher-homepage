@@ -3,19 +3,29 @@ import React from 'react';
 import Markdown from 'react-markdown';
 import Nav from '../components/Nav';
 import Layout from './_Layout';
+import S3 from '../lib/s3';
 import locals from '../locals';
+import Table from '../components/Table';
 
 const fetchData = async () => {
-  const res = await fetch('https://api.github.com/repos/resin-io/etcher/contents/docs/cli.md');
-  const json = await res.json();
-  return { content: new Buffer(json.content.toString(), 'base64').toString() }
+  const data = await Promise.all([
+    fetch('https://api.github.com/repos/resin-io/etcher/contents/docs/CLI-INSTALLATION.md').then(res => ( res.json() )),
+    S3(locals.s3Bucket, locals.title.toLowerCase(), true)
+  ])
+
+  return { content: new Buffer(data[0].content.toString(), 'base64').toString(), downloads: data[1] }
 }
 
-const Page = ({ content }) => (
+const Page = ({ content, downloads }) => (
   <Layout locals={locals}>
     <div className="container">
       <div className="row">
         <div className="my-5 col-md-8 offset-md-2">
+          <h1>Etcher CLI - <code>experimental</code></h1>
+          <p>The Etcher CLI is a command-line tool that aims to provide all the benefits of the Etcher desktop application in a way that can be run from a terminal, or even used from a script.</p>
+          <h2 id="download">Download</h2>
+          <Table items={downloads.links} />
+          <h2 id="install">Install</h2>
           <Markdown source={content} />
         </div>
       </div>

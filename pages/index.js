@@ -60,9 +60,9 @@ export default class extends Component {
           </DownloadBtn>
           <div className="text-muted">
             <p>
-              or, use our <Link href="/cli">experimental CLI</Link><br/>
-              version {downloads.version}
-              { releaseNote && (<a href={`https://forums.resin.io/t/${releaseNote.slug}`}> - See what&#39;s new!</a>)}
+              or, use our <Link prefetch href="/cli"><a>experimental CLI</a></Link><br/>
+              version {downloads.version} -
+              { releaseNote && (<a href={`https://forums.resin.io/t/${releaseNote.slug}`}> See what&#39;s new!</a>)}
             </p>
           </div>
           <div className="share mb-5">
