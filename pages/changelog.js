@@ -1,4 +1,3 @@
-import 'isomorphic-fetch';
 import React from 'react';
 import Markdown from 'react-markdown';
 import Nav from '../components/Nav';

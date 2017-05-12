@@ -2,7 +2,7 @@
   "name": "etcher.io",
   "description": "react based static site",
   "dependencies": {
-    "@resin.io/next": "^2.0.1",
+    "@resin.io/next": "^2.0.2",
     "babel-polyfill": "6.23.0",
     "bootstrap": "4.0.0-alpha.6",
     "gh-pages": "^0.12.0",

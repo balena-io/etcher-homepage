@@ -1,4 +1,3 @@
-import 'isomorphic-fetch';
 import React, { Component } from 'react';
 import { Jumbotron } from 'reactstrap';
 import Layout from './_Layout';
@@ -13,6 +12,7 @@ import Table from '../components/Table';
 import Image from '../components/Image';
 import { Share } from 'react-twitter-widgets';
 import includes from 'lodash/includes';
+import Link from 'next/link';
 
 
 const getReleaseNote = async (version) => {
@@ -58,8 +58,10 @@ export default class extends Component {
               {downloads.links[0].release.text}
           </DownloadBtn>
           <div className="text-muted">
-            <p className="version">version {downloads.version}
-              { releaseNote && (<a href={`https://forums.resin.io/t/${releaseNote.slug}`}> - See what&#39;s new!</a>)}
+            <p>
+              or, use our <Link prefetch href="/cli"><a>experimental CLI</a></Link><br/>
+              version {downloads.version} -
+              { releaseNote && (<a href={`https://forums.resin.io/t/${releaseNote.slug}`}> See what&#39;s new!</a>)}
             </p>
           </div>
           <div className="share mb-5">
