@@ -2,36 +2,18 @@ import React from 'react';
 import Markdown from 'react-markdown';
 import Nav from '../components/Nav';
 import Layout from './_Layout';
-import locals from '../locals';
+import locals from '../locals.json';
 
-const fetchData = async () => {
-  try {
-    const res = await fetch('https://api.github.com/repos/resin-io/etcher/contents/CHANGELOG.md');
-    const json = await res.json();
-    return { content: new Buffer(json.content.toString(), 'base64').toString() }
-  } catch(err) {
-    return { content: 'There was an issue fetching page from github' }
-  }
-}
-
-const Page = ({ content }) => (
-  <Layout locals={locals}>
+const Page = (props) => (
+  <Layout {...locals}>
     <div className="container">
       <div className="row">
         <div className="my-5 col-md-8 offset-md-2">
-          <Markdown source={content} />
+          <Markdown source={locals.changelog} />
         </div>
       </div>
     </div>
   </Layout>
 )
-
-Page.getInitialProps = async ({ req }) => {
-  return fetchData();
-}
-
-Page.getStaticInitialProps = async ({ req }) => {
-  return fetchData();
-}
 
 export default Page;
