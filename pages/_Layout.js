@@ -7,11 +7,12 @@ import Image from '../components/Image';
 import Typekit from 'react-typekit';
 import { Tracker, Locals } from './_Providers';
 import 'babel-polyfill';
+import '../lib/raven';
 
 export default class extends Component {
   render() {
     const { locals, children } = this.props;
-
+    
     return (
       <Tracker analytics={locals.analytics}>
         <Locals locals={locals}>
