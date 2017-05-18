@@ -17,6 +17,7 @@ const links = {
 
 const locals = {
   website: 'https://etcher.io',
+  // prefix is used when hosting on gh
   title: 'Etcher',
   prefix: IS_PROD ? '' : '',
   slogan: 'Burn. Better.',

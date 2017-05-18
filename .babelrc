@@ -1,6 +1,7 @@
 {
   "presets": [
-    ["@resin.io/next/babel", {
+    ["next/babel"],
+    ["env", {
       "targets": {
         "browsers": [
           "chrome >= 52",

@@ -3,6 +3,11 @@ const glob = require('glob');
 
 module.exports = {
   webpack: (config, { dev }) => {
+    if (config.resolve.alias) {
+      delete config.resolve.alias['react']
+      delete config.resolve.alias['react-dom']
+    }
+
     config.module.rules.push(
       {
         test: /\.(css|scss)/,
@@ -33,5 +38,12 @@ module.exports = {
     )
 
     return config
+  },
+  exportPathMap: function () {
+    return {
+      "/": { page: "/" },
+      "/changelog": { page: "/changelog" },
+      "/cli": { page: "/cli" }
+    }
   }
 }
