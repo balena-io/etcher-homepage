@@ -64,3 +64,10 @@ body {
     }
   }
 }
+
+pre code {
+  background: $gray-lightest;
+  padding: 5px 10px;
+  width: 100%;
+  display: block;
+}
