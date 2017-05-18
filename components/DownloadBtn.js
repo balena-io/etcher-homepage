@@ -24,6 +24,7 @@ export default class DownloadBtn extends Component {
 
   componentDidMount() {
     // TODO run tests with .arch detection and see if it's accurate.
+    if (this.props.downloads.links === 0) return;
     const os = platform.parse(window.navigator.userAgent).os;
     const links = this.props.downloads.links;
     const link = links.find((l) => {

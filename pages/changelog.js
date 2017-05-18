@@ -5,9 +5,13 @@ import Layout from './_Layout';
 import locals from '../locals';
 
 const fetchData = async () => {
-  const res = await fetch('https://api.github.com/repos/resin-io/etcher/contents/CHANGELOG.md');
-  const json = await res.json();
-  return { content: new Buffer(json.content.toString(), 'base64').toString() }
+  try {
+    const res = await fetch('https://api.github.com/repos/resin-io/etcher/contents/CHANGELOG.md');
+    const json = await res.json();
+    return { content: new Buffer(json.content.toString(), 'base64').toString() }
+  } catch(err) {
+    return { content: 'There was an issue fetching page from github' }
+  }
 }
 
 const Page = ({ content }) => (

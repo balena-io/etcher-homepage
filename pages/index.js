@@ -15,8 +15,13 @@ import includes from 'lodash/includes';
 import Link from 'next/link';
 
 const fetchData = async () => {
-  const downloads = await S3(locals.s3Bucket, locals.title.toLowerCase());
-  return { downloads, locals };
+  try {
+    const downloads = await S3(locals.s3Bucket, locals.title.toLowerCase());
+    return { downloads, locals };
+  } catch(err) {
+    console.error(err)
+    return { locals }
+  }
 }
 
 export default class extends Component {

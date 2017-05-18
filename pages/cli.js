@@ -7,12 +7,22 @@ import locals from '../locals';
 import Table from '../components/Table';
 
 const fetchData = async () => {
-  const data = await Promise.all([
-    fetch('https://api.github.com/repos/resin-io/etcher/contents/docs/CLI-INSTALLATION.md').then(res => ( res.json() )),
+  return Promise.all([
+    fetch('https://api.github.com/repos/resin-io/etcher/contents/docs/CLI-INSTALLATION.md')
+    .then(res => ( res.json() )),
     S3(locals.s3Bucket, locals.title.toLowerCase(), true)
   ])
-
-  return { content: new Buffer(data[0].content.toString(), 'base64').toString(), downloads: data[1] }
+  .then(data => {
+    return { content: new Buffer(data[0].content.toString(), 'base64').toString(), downloads: data[1] }
+  })
+  .catch(err => {
+    return {
+      content: 'There was an issue fetching page from github',
+      downloads: {
+        links: []
+      }
+    }
+  })
 }
 
 const Page = ({ content, downloads }) => (
