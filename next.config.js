@@ -3,10 +3,11 @@ const glob = require('glob');
 
 module.exports = {
   webpack: (config, { dev }) => {
-    if (config.resolve.alias) {
-      delete config.resolve.alias['react']
-      delete config.resolve.alias['react-dom']
-    }
+    // if (config.resolve.alias) {
+    //   delete config.resolve.alias['react']
+    //   delete config.resolve.alias['react-dom']
+    // }
+    console.log({dev})
 
     config.module.rules.push(
       {
