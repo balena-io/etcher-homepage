@@ -17,7 +17,7 @@ const fetchData = async () => {
   })
   .catch(err => {
     return {
-      content: 'There was an issue fetching content from github',
+      content: 'There was an issue fetching page from github',
       downloads: {
         links: []
       }

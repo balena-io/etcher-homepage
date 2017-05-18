@@ -8,11 +8,10 @@ import Typekit from 'react-typekit';
 import { Tracker, Locals } from './_Providers';
 import 'babel-polyfill';
 
-import stylesheet from 'styles/index.scss';
-
 export default class extends Component {
   render() {
     const { locals, children } = this.props;
+
     return (
       <Tracker analytics={locals.analytics}>
         <Locals locals={locals}>
@@ -27,10 +26,10 @@ export default class extends Component {
               <meta property="og:type" content="website" />
               <meta property="og:title" content={`${locals.title} by resin.io`} />
               <meta property="og:description" content={`${locals.lead}`} />
-              <meta property="og:image" href={`${locals.prefix}/static/${locals.prefix}`} />
+              <meta property="og:image" href={`${locals.prefix}/static/${locals.screenshot}`} />
               <title>{this.props.locals.title}</title>
               <Typekit kitId={this.props.locals.typekitId}/>
-              <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
+              <link rel="stylesheet" type="text/css" href={`${locals.prefix}/static/index.css`} />
             </Head>
             <Nav
               color="inverse"
