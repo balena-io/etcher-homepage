@@ -1,6 +1,7 @@
 {
   "presets": [
-    ["@resin.io/next/babel", {
+    ["next/babel"],
+    ["env", {
       "targets": {
         "browsers": [
           "chrome >= 52",
@@ -13,20 +14,6 @@
     }]
   ],
   "plugins": [
-    [
-      "module-resolver", {
-        "root": ["."],
-        "alias": {
-          "styles": "./styles"
-        },
-        "cwd": "babelrc"
-    }],
-    [
-      "wrap-in-js",
-      {
-        "extensions": ["css$", "scss$"]
-      }
-    ],
     "transform-object-rest-spread",
     "transform-class-properties",
     "transform-runtime"

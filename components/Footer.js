@@ -19,7 +19,7 @@ const Footer = ({ pages, children, ...props }, { locals }) => {
                   <NavItem key={p} className="px-1">
                     <Link
                       prefetch={!EXTERNAL}
-                      href={`${!EXTERNAL ? locals.prefix : '' }${pages[p]}`}
+                      href={pages[p]}
                     >
                       <a>{p}</a>
                     </Link>
@@ -33,9 +33,5 @@ const Footer = ({ pages, children, ...props }, { locals }) => {
     </footer>
   )
 }
-
-Footer.contextTypes = {
-  locals: React.PropTypes.object
-};
 
 export default Footer;

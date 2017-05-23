@@ -38,7 +38,7 @@ export default class Navigation extends React.Component {
     return (
       <Navbar {...rest} toggleable>
         <NavbarToggler right onClick={this.toggle} />
-        <Link prefetch href={`${this.context.locals.prefix}/`}><a>{ this.brand(brand, title) }</a></Link>
+        <Link prefetch href="/"><a>{ this.brand(brand, title) }</a></Link>
         <Collapse isOpen={this.state.isOpen} navbar>
           <Nav className="ml-auto py-2" navbar>
             {Object.keys(pages).map((p) => {
@@ -48,7 +48,7 @@ export default class Navigation extends React.Component {
                 <NavItem key={p} className="px-1">
                 <Link
                   prefetch={!EXTERNAL}
-                  href={`${!EXTERNAL ? this.context.locals.prefix : '' }${pages[p]}`}
+                  href={`${pages[p]}`}
                 >
                   <a>{p}</a>
                 </Link>
