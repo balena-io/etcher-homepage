@@ -17,7 +17,7 @@ const Page = () => (
             <span className="badge badge-warning">Warning</span> the CLI is currently experimental, proceed with caution and <a href="https://github.com/resin-io/etcher/issues">report issues.</a>
           </p>
           <h2 id="download">Download</h2>
-          <Table items={locals.downloads.links} />
+          <Table items={locals.cliDownloads.links} />
           <h2 id="install">Install</h2>
           <Markdown source={locals.cli} />
         </div>

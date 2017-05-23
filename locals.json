@@ -83,6 +83,67 @@
         "links": [
             {
                 "release": {
+                    "text": "Etcher for OS X x64 (64-bit) ",
+                    "href": "https://resin-production-downloads.s3.amazonaws.com/etcher/1.0.0/Etcher-1.0.0-darwin-x64.dmg"
+                },
+                "os": "OS X",
+                "arch": "x64"
+            },
+            {
+                "release": {
+                    "text": "Etcher for Linux x64 (64-bit) ",
+                    "href": "https://resin-production-downloads.s3.amazonaws.com/etcher/1.0.0/Etcher-1.0.0-linux-x64.zip"
+                },
+                "os": "Linux",
+                "arch": "x64"
+            },
+            {
+                "release": {
+                    "text": "Etcher for Linux x86 (32-bit) ",
+                    "href": "https://resin-production-downloads.s3.amazonaws.com/etcher/1.0.0/Etcher-1.0.0-linux-x86.zip"
+                },
+                "os": "Linux",
+                "arch": "x86"
+            },
+            {
+                "release": {
+                    "text": "Etcher for Windows x64 (64-bit) (Installer)",
+                    "href": "https://resin-production-downloads.s3.amazonaws.com/etcher/1.0.0/Etcher-1.0.0-win32-x64.exe"
+                },
+                "os": "Windows",
+                "arch": "x64"
+            },
+            {
+                "release": {
+                    "text": "Etcher for Windows x64 (64-bit) (Portable)",
+                    "href": "https://resin-production-downloads.s3.amazonaws.com/etcher/1.0.0/Etcher-1.0.0-win32-x64.zip"
+                },
+                "os": "Windows",
+                "arch": "x64"
+            },
+            {
+                "release": {
+                    "text": "Etcher for Windows x86 (32-bit) (Installer)",
+                    "href": "https://resin-production-downloads.s3.amazonaws.com/etcher/1.0.0/Etcher-1.0.0-win32-x86.exe"
+                },
+                "os": "Windows",
+                "arch": "x86"
+            },
+            {
+                "release": {
+                    "text": "Etcher for Windows x86 (32-bit) (Portable)",
+                    "href": "https://resin-production-downloads.s3.amazonaws.com/etcher/1.0.0/Etcher-1.0.0-win32-x86.zip"
+                },
+                "os": "Windows",
+                "arch": "x86"
+            }
+        ]
+    },
+    "cliDownloads": {
+        "version": "1.0.0",
+        "links": [
+            {
+                "release": {
                     "text": "Etcher CLI for OS X x64 (64-bit)",
                     "href": "https://resin-production-downloads.s3.amazonaws.com/etcher/1.0.0/Etcher-cli-1.0.0-darwin-x64.tar.gz"
                 },

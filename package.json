@@ -19,18 +19,19 @@
     "reactstrap": "4.6.2",
     "resin-event-log": "1.4.0",
     "semver": "5.3.0",
+    "webpack-bundle-analyzer": "^2.8.2",
     "xml2js": "0.4.17"
   },
   "scripts": {
     "generateLocals": "babel-node lib/fetchData.js",
     "start": "next && node-sass -w --include-path scss styles/index.scss static/index.css",
-    "build": "npm run build-css && next build",
+    "build": "npm run generateLocals && npm run build-css && next build",
     "build-css": "node-sass --include-path scss styles/index.scss static/index.css --output-style compressed",
     "serve": "next start",
-    "export": "npm run build && next export -o build && cp CNAME build/CNAME",
+    "export": "npm run build && next export -o build && cp CNAME build/CNAME && touch build/.nojekyll",
     "serve-build": "node ./test/index.js",
     "test": "ENV=test node ./test/index.js",
-    "deploy": "cp CNAME build/CNAME && gh-pages -d build"
+    "deploy": "gh-pages -d build"
   },
   "devDependencies": {
     "autoprefixer": "6.7.7",
