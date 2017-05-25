@@ -2,12 +2,9 @@
   "name": "etcher.io",
   "description": "react based static site",
   "dependencies": {
-    "babel-polyfill": "6.23.0",
     "bootstrap": "4.0.0-alpha.6",
-    "gh-pages": "^0.12.0",
     "isomorphic-fetch": "2.2.1",
     "lodash": "4.17.4",
-    "next": "beta",
     "raven-js": "3.15.0",
     "react": "15.5.4",
     "react-dom": "15.5.4",
@@ -17,10 +14,7 @@
     "react-typekit": "1.0.8",
     "reactstrap": "4.6.2",
     "resin-event-log": "1.4.0",
-    "semver": "5.3.0",
-    "sniffr": "^1.1.4",
-    "webpack-bundle-analyzer": "^2.8.2",
-    "xml2js": "0.4.17"
+    "sniffr": "^1.1.4"
   },
   "scripts": {
     "generateLocals": "babel-node lib/fetchData.js",
@@ -28,12 +22,18 @@
     "build": "npm run generateLocals && npm run build-css && next build",
     "build-css": "node-sass --include-path scss styles/index.scss static/index.css --output-style compressed",
     "serve": "next start",
-    "export": "npm run build && next export -o build && cp CNAME build/CNAME && touch build/.nojekyll",
+    "export": "npm run build && next export -o build && cp CNAME build/CNAME && cp .nojekyll build/.nojekyll",
     "serve-build": "node ./test/index.js",
     "test": "ENV=test node ./test/index.js",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build --dotfiles"
   },
   "devDependencies": {
+    "semver": "5.3.0",
+    "xml2js": "0.4.17",
+    "webpack-bundle-analyzer": "^2.8.2",
+    "babel-polyfill": "6.23.0",
+    "next": "beta",
+    "gh-pages": "^0.12.0",
     "autoprefixer": "6.7.7",
     "babel-plugin-module-resolver": "2.7.0",
     "babel-plugin-transform-decorators-legacy": "1.3.4",
