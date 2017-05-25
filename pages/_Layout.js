@@ -38,13 +38,24 @@ export default class extends Component {
           />
             { this.props.children }
           <Footer className="bg-inverse text-white py-5" pages={this.props.nav.footer}>
-            <Image
-              className="mb-2"
-              src={`${this.props.logo}`}
-            />
             <p
               className="col-md-8 pl-0 text-muted"
-              dangerouslySetInnerHTML={{ __html: this.props.attribution }} />
+              dangerouslySetInnerHTML={{ __html: this.props.attribution }}
+            />
+            <Image
+              className="mb-2 mr-3"
+              src={`${this.props.logo}`}
+            />
+            <a
+              href={this.props.company.website}
+              target="_blank"
+            >
+              <Image
+                className="mb-2"
+                style={{maxWidth: '165px'}}
+                src={this.props.company.logo}
+              />
+            </a>
           </Footer>
         </div>
       </Tracker>
