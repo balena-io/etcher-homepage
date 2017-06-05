@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Jumbotron } from 'reactstrap';
 import Layout from './_Layout';
-import locals from '../locals.json';
+import locals from '../config/locals.json';
 import DownloadBtn from '../components/DownloadBtn';
 import Grid from '../components/Grid';
 import Feature from '../components/Feature';
@@ -24,12 +24,12 @@ export default class extends Component {
             className="mb-3"
             downloads={locals.downloads}
             color="primary">
-              {locals.downloads.links[0].release.text}
+              {locals.downloads[0].text}
           </DownloadBtn>
           <div className="text-muted">
             <p>
               or, use our <Link prefetch href="/cli"><a>experimental CLI</a></Link><br/>
-              version {locals.downloads.version} -
+              version {locals.version} -
               <a target="_blank" href="https://resin.io/blog/etcher-1-0-is-here/"> See what&#39;s new!</a>
             </p>
           </div>
@@ -57,7 +57,7 @@ export default class extends Component {
           <Story story={locals.story} />
         </Section>
         <Section title="Downloads" className="py-5">
-          <Table items={locals.downloads.links} />
+          <Table items={locals.downloads} />
           <div className="text-center">
             <a href="https://github.com/resin-io/etcher#debian-and-ubuntu-based-package-repository-gnulinux-x86x64">
               Looking for Debian (.deb) packages?

@@ -3,7 +3,7 @@ import Markdown from 'react-markdown';
 import Nav from '../components/Nav';
 import Layout from './_Layout';
 import S3 from '../lib/s3';
-import locals from '../locals.json';
+import locals from '../config/locals.json';
 import Table from '../components/Table';
 
 const Page = () => (
@@ -17,7 +17,7 @@ const Page = () => (
             <span className="badge badge-warning">Warning</span> the CLI is currently experimental, proceed with caution and <a href="https://github.com/resin-io/etcher/issues">report issues.</a>
           </p>
           <h2 id="download">Download</h2>
-          <Table items={locals.cliDownloads.links} />
+          <Table items={locals.cliDownloads} />
           <h2 id="install">Install</h2>
           <Markdown source={locals.cli} />
         </div>
