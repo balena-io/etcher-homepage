@@ -2,8 +2,8 @@ import React, { PropTypes, Component } from 'react';
 import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem, Button } from 'reactstrap';
 import Router from 'next/router';
 import Sniffr from 'sniffr';
-import reject from 'lodash/reject';
-import includes from 'lodash/includes';
+import sortBy from 'lodash/sortBy';
+import arch from 'arch';
 
 export default class DownloadBtn extends Component {
 
@@ -12,8 +12,8 @@ export default class DownloadBtn extends Component {
     this.toggle = this.toggle.bind(this);
     this.state = {
       isOpen: false,
-      link: props.downloads.links[0],
-      links: reject(props.downloads.links, props.downloads.links[0])
+      link: props.downloads[0],
+      links: props.downloads.slice(1)
     };
   }
 
@@ -25,23 +25,36 @@ export default class DownloadBtn extends Component {
 
   componentDidMount() {
     // TODO run tests with .arch detection and see if it's accurate.
-    if (this.props.downloads.links === 0) return;
-
+    if (this.props.downloads.length < 1) return;
     const client = new Sniffr();
+
     client.sniff(window.navigator.userAgent);
+    client.os.arch = arch()
     if (client.os.name === 'macos') {
       client.os.name = 'os x';
     }
-    const links = this.props.downloads.links;
-    const link = links.find((l) => {
-      return l.release.text.toLowerCase().indexOf(client.os.name) > -1;
+
+    const links = this.props.downloads;
+
+    // give points for not matching
+    const score = (i, p) => (i == -1 ? p : 0)
+
+    const sortedLinks = sortBy(links, (l) => {
+      const txt = l.text.toLowerCase();
+      let linkScore = score(txt.indexOf(client.os.name), 2);
+
+      if (linkScore === 0) {
+        // if os.name match order by arch
+        linkScore = linkScore + (score(txt.indexOf(client.os.arch), 1))
+      }
+
+      return linkScore
     })
-    if (link) {
-      this.setState({
-        link : link,
-        links: reject(links, link),
-      })
-    }
+
+    this.setState({
+      link : sortedLinks[0],
+      links: sortedLinks.splice(1),
+    })
   }
 
   render() {
@@ -52,12 +65,12 @@ export default class DownloadBtn extends Component {
         <Button
           id="caret"
           color="primary"
-          href={ link.release.href }
+          href={ link.href }
           onClick={() => {
             this.context.tracker.create('download', link );
           }}
         >
-          {`Download ${link.release.text.split(' ').slice(1,4).join(' ')}`}
+          {`Download ${link.text.split(' ').slice(1,4).join(' ')}`}
         </Button>
         <DropdownToggle caret color="primary" />
         <DropdownMenu>
@@ -68,12 +81,12 @@ export default class DownloadBtn extends Component {
                   onClick={() => {
                     this.context.tracker.create('download', l );
                   }}
-                  href={ l.release.href }
+                  href={ l.href }
                   id={ index }
                   key={ index }
                   tag='a'
                   >
-                    { l.release.text }
+                    { l.text }
                 </DropdownItem>
               )
             })
