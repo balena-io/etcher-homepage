@@ -20,7 +20,7 @@ const DownloadTable = ({ items }, { tracker }) => {
                 <a
                   href={item.href}
                   onClick={() => {
-                    tracker.create('download', item[key] );
+                    tracker.create('download', item );
                   }}
                 >
                   {item.text}
