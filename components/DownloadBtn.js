@@ -2,8 +2,8 @@ import React, { PropTypes, Component } from 'react';
 import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem, Button } from 'reactstrap';
 import Router from 'next/router';
 import Sniffr from 'sniffr';
-import reject from 'lodash/reject';
-import includes from 'lodash/includes';
+import sortBy from 'lodash/sortBy';
+import arch from 'arch';
 
 export default class DownloadBtn extends Component {
 
@@ -13,7 +13,7 @@ export default class DownloadBtn extends Component {
     this.state = {
       isOpen: false,
       link: props.downloads[0],
-      links: reject(props.downloads, props.downloads[0])
+      links: props.downloads.slice(1)
     };
   }
 
@@ -26,23 +26,35 @@ export default class DownloadBtn extends Component {
   componentDidMount() {
     // TODO run tests with .arch detection and see if it's accurate.
     if (this.props.downloads.length < 1) return;
-
     const client = new Sniffr();
+
     client.sniff(window.navigator.userAgent);
+    client.os.arch = arch()
     if (client.os.name === 'macos') {
       client.os.name = 'os x';
     }
 
     const links = this.props.downloads;
-    const link = links.find((l) => {
-      return l.text.toLowerCase().indexOf(client.os.name) > -1;
+
+    // give points for not matching
+    const score = (i, p) => (i == -1 ? p : 0)
+
+    const sortedLinks = sortBy(links, (l) => {
+      const txt = l.text.toLowerCase();
+      let linkScore = score(txt.indexOf(client.os.name), 2);
+
+      if (linkScore === 0) {
+        // if os.name match order by arch
+        linkScore = linkScore + (score(txt.indexOf(client.os.arch), 1))
+      }
+
+      return linkScore
     })
-    if (link) {
-      this.setState({
-        link : link,
-        links: reject(links, link),
-      })
-    }
+
+    this.setState({
+      link : sortedLinks[0],
+      links: sortedLinks.splice(1),
+    })
   }
 
   render() {
