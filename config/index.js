@@ -20,7 +20,7 @@ const locals = {
   title: 'Etcher',
   prefix: IS_PROD ? '' : '',
   slogan: 'Burn. Better.',
-  lead: 'Burn images to SD cards & USB drives, safe & easy.',
+  lead: 'Burn images to SD cards & USB drives, safely and easily.',
   logo: 'logo.png',
   screenshot: 'screenshot-1x.gif',
   typekitId: 'lzw7tre',
@@ -68,16 +68,16 @@ const locals = {
 		{
 			"title": "Cross Platform",
 			"image": "cross-platform",
-			"meta": "Works for everyone,</br> no more complicated install instructions."
+			"meta": "Works for everyone,<br/>no more complicated install instructions."
 		},
 		{
 			"title": "More on the way",
 			"image": "coming-soon",
-			"meta": "50% faster burns, simultaneous writing for multiple drives. </br><a target='_blank' href='https://github.com/resin-io/etcher/milestones'>View our roadmap</a>"
+			"meta": "50% faster burns, simultaneous writing for multiple drives.<br/><a target='_blank' href='https://github.com/resin-io/etcher/milestones'>View our roadmap</a>"
 		}
 	],
   story: [
-		"Here at <a target='_blank' href='https://resin.io'>resin.io</a> we have thousands of users working through our getting started process and until recently we were embarassed about the steps that involved burning an SD card. There was a separate track for each Mac/Windows/Ubuntu and several manual and error prone steps along the way.",
+		"Here at <a target='_blank' href='https://resin.io'>resin.io</a> we have thousands of users working through our getting started process and until recently we were embarassed about the steps that involved burning an SD card. There was a separate track for each Mac/Windows/Linux and several manual and error-prone steps along the way.",
 		"To our surprise there was nothing out there that fitted our needs. So we built Etcher, a SD card burner app that is simple for end users, extensible for developers, and works on any platform. "
 	]
 }
