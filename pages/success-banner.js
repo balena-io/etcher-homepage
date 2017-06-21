@@ -17,8 +17,9 @@ class Button extends React.Component {
 const Banner = () => (
   <main className="vertical center">
     <div>
-      <h1>We hope you enjoyed using</h1>
-      <img src="/static/etcher.svg" className="etcher-logo"></img>
+      <h1>We hope you enjoyed using
+        <img src="/static/etcher.svg" className="etcher-logo" />
+      </h1>
     </div>
     <div className="horizontal center">
       <Button href="https://github.com/resin-io/etcher">
