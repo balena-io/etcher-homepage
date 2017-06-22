@@ -2365,6 +2365,12 @@ googleapis@^16.0.0:
     google-auth-library "~0.10.0"
     string-template "~1.0.0"
 
+gosquared@3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/gosquared/-/gosquared-3.1.0.tgz#3484f8f0640cf5860db3a73ba9fc0248525a604c"
+  dependencies:
+    request "^2.51.0"
+
 got@^6.7.1:
   version "6.7.1"
   resolved "https://registry.yarnpkg.com/got/-/got-6.7.1.tgz#240cd05785a9a18e561dc1b44b41c763ef1e8db0"
@@ -4293,7 +4299,7 @@ repeating@^2.0.0:
   dependencies:
     is-finite "^1.0.0"
 
-request@2, request@2.x, request@^2.72.0, request@^2.74.0, request@^2.79.0, request@^2.81.0:
+request@2, request@2.x, request@^2.51.0, request@^2.72.0, request@^2.74.0, request@^2.79.0, request@^2.81.0:
   version "2.81.0"
   resolved "https://registry.yarnpkg.com/request/-/request-2.81.0.tgz#c6928946a0e06c5f8d6f8a9333469ffda46298a0"
   dependencies:
@@ -4339,28 +4345,36 @@ require-uncached@^1.0.2:
     caller-path "^0.1.0"
     resolve-from "^1.0.0"
 
-resin-event-log@1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/resin-event-log/-/resin-event-log-1.4.0.tgz#9c922c4970dba633e0dce0f7eb06126044c95a24"
+resin-event-log@^1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/resin-event-log/-/resin-event-log-1.6.0.tgz#5ca52f95985496605e462ff2436d150834f22564"
   dependencies:
     bluebird "^3.4.7"
     lodash "^4.0.0"
-    resin-mixpanel-client "^2.1.0"
-    resin-universal-ga "^1.1.0"
+    resin-mixpanel-client "^2.2.0"
+    resin-universal-ga "^1.2.0"
+    resin-universal-gosquared "^0.2.0"
 
-resin-mixpanel-client@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/resin-mixpanel-client/-/resin-mixpanel-client-2.1.0.tgz#6292ddfe1ee5a6609fb38918509aa65b0681cde8"
+resin-mixpanel-client@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/resin-mixpanel-client/-/resin-mixpanel-client-2.2.0.tgz#cb05bff660140376c4918d60546d68e62f49f36b"
   dependencies:
     bluebird "^3.4.7"
     resin-universal-mixpanel "^2.1.0"
 
-resin-universal-ga@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/resin-universal-ga/-/resin-universal-ga-1.1.0.tgz#645f84dd3557b38835c3a37af68d941ecd5d9c6b"
+resin-universal-ga@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/resin-universal-ga/-/resin-universal-ga-1.2.0.tgz#9076db3b6ea32333065e0c8269cc41524fa3640f"
   dependencies:
     bluebird "^3.4.7"
     universal-analytics "^0.4.8"
+
+resin-universal-gosquared@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/resin-universal-gosquared/-/resin-universal-gosquared-0.2.0.tgz#e7086e5c8a867ad09365c052eba6d0016b90c80c"
+  dependencies:
+    bluebird "^3.4.7"
+    gosquared "3.1.0"
 
 resin-universal-mixpanel@^2.1.0:
   version "2.1.0"
