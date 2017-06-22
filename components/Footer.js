@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { Nav, NavItem, NavLink } from 'reactstrap';
-import { isExternal } from '../lib/utils';
+import renderLink from './Link';
 
 const Footer = ({ pages, children, ...props }, { locals }) => {
   return(
@@ -14,15 +14,9 @@ const Footer = ({ pages, children, ...props }, { locals }) => {
           <div className="col-md-4">
             <Nav vertical>
               {Object.keys(pages).map((p) => {
-                const EXTERNAL = isExternal(pages[p]);
                 return (
                   <NavItem key={p} className="px-1">
-                    <Link
-                      prefetch={!EXTERNAL}
-                      href={pages[p]}
-                    >
-                      <a>{p}</a>
-                    </Link>
+                    {renderLink(pages, p)}
                   </NavItem>
                 )
               })}

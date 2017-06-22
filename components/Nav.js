@@ -1,8 +1,9 @@
 import React from 'react';
-import Link from 'next/link';
 import Image from './Image';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem } from 'reactstrap';
-import { isExternal } from '../lib/utils';
+
+import renderLink from './Link';
+import Link from 'next/link';
 
 export default class Navigation extends React.Component {
   constructor() {
@@ -42,16 +43,9 @@ export default class Navigation extends React.Component {
         <Collapse isOpen={this.state.isOpen} navbar>
           <Nav className="ml-auto py-2" navbar>
             {Object.keys(pages).map((p) => {
-              const EXTERNAL = isExternal(pages[p]);
-              // console.log(EXTERNAL, pages[p])
               return (
                 <NavItem key={p} className="px-1">
-                <Link
-                  prefetch={!EXTERNAL}
-                  href={`${pages[p]}`}
-                >
-                  <a>{p}</a>
-                </Link>
+                  {renderLink(pages, p)}
                 </NavItem>
               )
             })}
