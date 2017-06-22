@@ -36,7 +36,7 @@ export default class extends Component {
           <div className="share mb-5">
             <Share url={locals.website} />
             <div>
-              <iframe src={`https://ghbtns.com/github-btn.html?user=resin-io&repo=${locals.title.toLowerCase()}&type=star&count=true`} scrolling="0" width="100" height="20px"></iframe>
+              <iframe src={`https://ghbtns.com/github-btn.html?user=resin-io&repo=${locals.title.toLowerCase()}&type=star&count=true`} scrolling="0" width="100" height="20"></iframe>
             </div>
           </div>
           <div className="screenshot">
