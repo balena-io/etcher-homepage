@@ -3,7 +3,7 @@ import Markdown from 'react-markdown';
 import Nav from '../components/Nav';
 import Layout from './_Layout';
 import S3 from '../lib/s3';
-import locals from '../config/locals.json';
+import locals from '../config/cache.json';
 import Table from '../components/Table';
 
 const Page = () => (

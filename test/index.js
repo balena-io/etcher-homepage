@@ -47,8 +47,8 @@ const runTest = function(url) {
   }).start();
 }
 
-app.use('/', express.static(path.join(__dirname, '../build')));
 app.use(compression());
+app.use('/', express.static(path.join(__dirname, '../build')));
 
 const server = app.listen(1337, function() {
   console.log('Listening on port: ' + 1337);

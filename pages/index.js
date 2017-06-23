@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Jumbotron } from 'reactstrap';
 import Layout from './_Layout';
-import locals from '../config/locals.json';
+import locals from '../config/cache.json';
 import DownloadBtn from '../components/DownloadBtn';
 import Grid from '../components/Grid';
 import Feature from '../components/Feature';
