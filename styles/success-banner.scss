@@ -1,0 +1,81 @@
+body {
+  display: flex;
+  justify-content: center;
+  background-color: #535760;
+  font-family: 'Helvetica Thin', Helvetica, sans-serif;
+  color: #ffffff;
+}
+
+.horizontal {
+  display: flex;
+}
+
+.vertical {
+  @extend .horizontal;
+  flex-direction: column;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 165px;
+  padding: 14px 44px;
+  margin: 7.5px;
+  background-color: #313339;
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 3px;
+
+  > img {
+    margin: 0 10px;
+  }
+}
+
+.icon {
+  max-height: 24px;
+
+  &.github {
+    margin-right: 15px;
+  }
+
+  &.twitter {
+    margin-right: 8px;
+    margin-left: -4px;
+  }
+}
+
+footer {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  > img {
+    margin: 0 0.5em;
+  }
+
+  > .brand {
+    max-height: 24px;
+  }
+}
+
+h1 {
+  display: inline-block;
+  padding: 5px;
+  margin-top: 0;
+  font-weight: normal;
+  font-size: 26px;
+}
+
+.etcher-logo {
+  margin-left: 8px;
+  width: 130px;
+}
