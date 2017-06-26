@@ -25,7 +25,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 160px;
+  width: 165px;
   padding: 14px 44px;
   margin: 7.5px;
   background-color: #313339;
@@ -42,8 +42,12 @@ body {
 .icon {
   max-height: 24px;
 
+  &.github {
+    margin-right: 15px;
+  }
+
   &.twitter {
-    margin-right: 2px;
+    margin-right: 8px;
     margin-left: -4px;
   }
 }
@@ -68,9 +72,10 @@ h1 {
   padding: 5px;
   margin-top: 0;
   font-weight: normal;
+  font-size: 26px;
 }
 
 .etcher-logo {
   margin-left: 8px;
-  width: 150px;
+  width: 130px;
 }
