@@ -44,16 +44,14 @@ const Footer = () => (
 )
 
 const Page = ({ content }) => (
-  <html>
+  <div>
     <Head>
       <meta charset="utf-8" />
       <link rel="stylesheet" type="text/css" href="/static/success-banner.css" />
     </Head>
-    <body>
-      <Banner />
-      <Footer />
-    </body>
-  </html>
+    <Banner />
+    <Footer />
+  </div>
 )
 
 export default Page;
