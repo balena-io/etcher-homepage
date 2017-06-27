@@ -19,14 +19,11 @@ build static site
 yarn run deploy
 ```
 
-Cool things:
+note for banners
 
-- [x] prefetch links & code splitting (performance of a website with app responsiveness there after)
-- [x] perf testing
-- [ ] CI perf testing
-- [ ] All components use `resin-components` lib
-- [ ] Analytics are in stand alone module (awaiting PRs in [resin-analytics](https://github.com/resin-io-modules/))
-- [ ] Autogenerate `locals.js` from readme
-- [ ] export css file instead of injecting it
-- [ ] use Preact to reduce bundle size
-- [ ] extract everything besides (pages) to stand alone lib.
+If a banner is intended to be script-free, the relevant tags
+(`<link>`, `<script>`) need to be removed manually, and moved to `static_html/`
+which will be automatically copied on `export`. There is also a sub-command
+`copy-static` available, which allows you to do this step without re-running
+`export`.
+
