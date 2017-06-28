@@ -21,30 +21,31 @@ const eventLog = (eventDesc) => {
   }
 }
 
-class Button extends React.PureComponent {
+class Link extends React.PureComponent {
+  constructor() {
+    super();
+
+    this.type = 'link';
+  }
+
   render() {
     return (
       <a
         href={ this.props.href }
         target="_blank"
-        className="button"
-        onClick={ eventLog(`click ${this.props.label} button`) }>
+        className={ this.type }
+        onClick={ eventLog(`click ${this.props.label} ${this.type}`) }>
         { this.props.children }
       </a>
     )
   }
 }
 
-class Link extends React.PureComponent {
-  render() {
-    return (
-      <a
-        href={ this.props.href }
-        target="_blank"
-        onClick={ eventLog(`click ${this.props.label} link`) }>
-        { this.props.children }
-      </a>
-    )
+class Button extends Link {
+  constructor() {
+    super();
+
+    this.type = 'button';
   }
 }
 
@@ -57,7 +58,7 @@ const Banner = () => (
     </div>
     <div className="horizontal center">
       <Button href="https://github.com/resin-io/etcher"
-        label="Github star">
+        label="star on Github">
         <img className="icon github" src="/static/social/octocat.png" />
         Star on Github
       </Button>
