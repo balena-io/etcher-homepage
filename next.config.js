@@ -21,7 +21,8 @@ module.exports = {
     return {
       "/": { page: "/" },
       "/changelog": { page: "/changelog" },
-      "/cli": { page: "/cli" }
+      "/cli": { page: "/cli" },
+      "/success-banner": { page: "/success-banner" }
     }
   }
 }
