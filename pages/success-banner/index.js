@@ -5,23 +5,43 @@ const eventLog = (eventDesc) => {
   const data = 'Banner ' + eventDesc;
 
   return () => {
-    const logJSON = JSON.stringify({
-      command: 'log',
-      data
-    });
+    const url = new URL(location.href);
 
-    console.log(logJSON);
+    if (url.searchParams.get('etcher-version').indexOf('1.0.0') !== -1) {
+      console.log(data);
+
+    } else {
+      const logJSON = JSON.stringify({
+        command: 'log',
+        data
+      });
+
+      console.log(logJSON);
+    }
   }
 }
 
-class Button extends React.Component {
+class Button extends React.PureComponent {
   render() {
     return (
       <a
         href={ this.props.href }
         target="_blank"
         className="button"
-        onClick={ eventLog(this.props.event) }>
+        onClick={ eventLog(`click ${this.props.label} button`) }>
+        { this.props.children }
+      </a>
+    )
+  }
+}
+
+class Link extends React.PureComponent {
+  render() {
+    return (
+      <a
+        href={ this.props.href }
+        target="_blank"
+        onClick={ eventLog(`click ${this.props.label} link`) }>
         { this.props.children }
       </a>
     )
@@ -37,13 +57,13 @@ const Banner = () => (
     </div>
     <div className="horizontal center">
       <Button href="https://github.com/resin-io/etcher"
-        event="click Github star button">
+        label="Github star">
         <img className="icon github" src="/static/social/octocat.png" />
         Star on Github
       </Button>
       <Button
         href="https://twitter.com/intent/tweet?text=Just%20flashed%20an%20image%20with%20%23etcher%20https%3A%2F%2Fetcher.io%20by%20%40resin_io%20and...">
-        event="click Tweet button">
+        label="Tweet">
         <img className="icon twitter" src="/static/social/twitter.png" />
         Tweet
       </Button>
@@ -56,9 +76,10 @@ const Footer = () => (
     made with
     <img className="icon" src="/static/love.svg" />
     by
-    <a href="https://resin.io/">
+    <Link href="https://resin.io/"
+      label="Resin">
       <img className="brand" src="/static/resin.png" />
-    </a>
+    </Link>
   </footer>
 )
 
