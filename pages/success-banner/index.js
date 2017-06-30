@@ -25,6 +25,26 @@ const eventLog = (eventDesc) => {
   };
 };
 
+class EtcherVersion extends React.PureComponent {
+  constructor() {
+    super();
+
+    this.state = { version: '' };
+  }
+
+  render() {
+    return (
+      <span className="version">{ this.state.version }</span>
+    )
+  }
+
+  componentDidMount() {
+    const version = (new URL(location.href)).searchParams.get('etcher-version');
+    console.log(version);
+    this.setState({ version });
+  }
+}
+
 class Link extends React.PureComponent {
   constructor() {
     super();
@@ -83,6 +103,10 @@ const Footer = () => (
     <Link href="https://resin.io/"
       label="Resin">
       <img className="brand" src="/static/resin.png" />
+    </Link>
+    <Link href="https://github.com/resin-io/etcher/blob/master/CHANGELOG.md"
+      label="Version">
+      <EtcherVersion />
     </Link>
   </footer>
 )
