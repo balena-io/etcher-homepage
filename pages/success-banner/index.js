@@ -40,7 +40,6 @@ class EtcherVersion extends React.PureComponent {
 
   componentDidMount() {
     const version = (new URL(location.href)).searchParams.get('etcher-version');
-    console.log(version);
     this.setState({ version });
   }
 }
