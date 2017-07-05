@@ -1,23 +1,29 @@
 import React from 'react';
 import Head from 'next/head';
 
+/**
+ * @summary Make and return an event method for a given event description string
+ */
 const eventLog = (eventDesc) => {
   const data = 'Banner ' + eventDesc;
 
   return () => {
     const url = new URL(location.href);
 
+    // Use the 'new' API version for more recent versions of Etcher utilizing
+    // the Robot object format.
     if (url.searchParams.get('api-version') === '1') {
       console.log(JSON.stringify({
         command: 'log',
         data
       }));
 
+    // Fallback to the old pure-string format.
     } else {
       console.log(data);
     }
-  }
-}
+  };
+};
 
 class Link extends React.PureComponent {
   constructor() {
