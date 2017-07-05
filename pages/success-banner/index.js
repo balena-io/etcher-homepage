@@ -7,16 +7,14 @@ const eventLog = (eventDesc) => {
   return () => {
     const url = new URL(location.href);
 
-    if (url.searchParams.get('etcher-version').indexOf('1.0.0') !== -1) {
-      console.log(data);
-
-    } else {
-      const logJSON = JSON.stringify({
+    if (url.searchParams.get('api-version') === '1') {
+      console.log(JSON.stringify({
         command: 'log',
         data
-      });
+      }));
 
-      console.log(logJSON);
+    } else {
+      console.log(data);
     }
   }
 }
