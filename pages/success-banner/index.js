@@ -3,6 +3,14 @@ import Head from 'next/head';
 
 /**
  * @summary Make and return an event method for a given event description string
+ * @function
+ * @private
+ *
+ * @param {String} eventDecs - event description
+ *
+ * @example
+ * eventLog('click Tweet button');
+ * > 'Banner click Tweet button'
  */
 const eventLog = (eventDesc) => {
   const data = 'Banner ' + eventDesc;
@@ -25,6 +33,14 @@ const eventLog = (eventDesc) => {
   };
 };
 
+/**
+ * @summary Pure text links
+ * @class
+ * @private
+ *
+ * @example
+ * <Link label="Example" href="https://example.com/">Example page</Link>
+ */
 class Link extends React.PureComponent {
   constructor() {
     super();
@@ -37,6 +53,7 @@ class Link extends React.PureComponent {
       <a
         href={ this.props.href }
         target="_blank"
+        rel="noopener noreferrer"
         className={ this.type }
         onClick={ eventLog(`click ${this.props.label} ${this.type}`) }>
         { this.props.children }
@@ -45,6 +62,14 @@ class Link extends React.PureComponent {
   }
 }
 
+/**
+ * @summary Button links
+ * @class
+ * @private
+ *
+ * @example
+ * <Button label="Submit" href="/submit/">Submit something</Button>
+ */
 class Button extends Link {
   constructor() {
     super();
@@ -53,6 +78,14 @@ class Button extends Link {
   }
 }
 
+/**
+ * @summary Banner
+ * @function
+ * @private
+ *
+ * @example
+ * <Banner />
+ */
 const Banner = () => (
   <main className="vertical center">
     <div>
@@ -67,7 +100,7 @@ const Banner = () => (
         Star on Github
       </Button>
       <Button
-        href="https://twitter.com/intent/tweet?text=Just%20flashed%20an%20image%20with%20%23etcher%20https%3A%2F%2Fetcher.io%20by%20%40resin_io%20and...">
+        href="https://twitter.com/intent/tweet?text=Just%20flashed%20an%20image%20with%20%23etcher%20https%3A%2F%2Fetcher.io%20by%20%40resin_io%20and..."
         label="Tweet">
         <img className="icon twitter" src="/static/social/twitter.png" />
         Tweet
@@ -76,6 +109,14 @@ const Banner = () => (
   </main>
 )
 
+/**
+ * @summary Footer
+ * @function
+ * @private
+ *
+ * @example
+ * <Footer />
+ */
 const Footer = () => (
   <footer>
     made with
@@ -88,7 +129,15 @@ const Footer = () => (
   </footer>
 )
 
-const Page = ({ content }) => (
+/**
+ * @summary Page
+ * @function
+ * @public
+ *
+ * @example
+ * <Page />
+ */
+const Page = () => (
   <div>
     <Head>
       <meta charset="utf-8" />
