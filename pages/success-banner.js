@@ -26,7 +26,7 @@ const Banner = () => (
         <img className="icon github" src="/static/social/octocat.png" />
         Star on Github
       </Button>
-      <Button href="https://twitter.com/intent/tweet?text=Just%20flashed%20an%20image%20with%20%23etcher%20http%3A%2F%2Fetcher.io%20by%20%40resin_io%20and...">
+      <Button href="https://twitter.com/intent/tweet?text=Just%20flashed%20an%20image%20with%20%23etcher%20https%3A%2F%2Fetcher.io%20by%20%40resin_io%20and...">
         <img className="icon twitter" src="/static/social/twitter.png" />
         Tweet
       </Button>
