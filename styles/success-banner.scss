@@ -58,11 +58,11 @@ footer {
   align-items: center;
   justify-content: center;
 
-  > img {
+  > img, > a {
     margin: 0 0.5em;
   }
 
-  > .brand {
+  > a > .brand {
     max-height: 24px;
   }
 }
