@@ -6,6 +6,10 @@ body {
   color: #ffffff;
 }
 
+a {
+  color: #ffffff;
+}
+
 .horizontal {
   display: flex;
 }
@@ -64,6 +68,15 @@ footer {
 
   > a > .brand {
     max-height: 24px;
+  }
+
+  > a > .version {
+    position: absolute;
+    bottom: 30px;
+    right: 40px;
+    color: #85898c;
+    border-bottom: 1px solid #787c7f;
+    font-size: 10px;
   }
 }
 

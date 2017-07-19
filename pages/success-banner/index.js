@@ -6,7 +6,7 @@ import Head from 'next/head';
  * @function
  * @private
  *
- * @param {String} eventDecs - event description
+ * @param {String} eventDesc - event description
  *
  * @example
  * eventLog('click Tweet button');
@@ -32,6 +32,33 @@ const eventLog = (eventDesc) => {
     }
   };
 };
+
+/**
+ * @summary Display Etcher version on mount
+ * @class
+ * @private
+ *
+ * @example
+ * <EtcherVersion />
+ */
+class EtcherVersion extends React.PureComponent {
+  constructor() {
+    super();
+
+    this.state = { version: '' };
+  }
+
+  render() {
+    return (
+      <span className="version">{ this.state.version }</span>
+    )
+  }
+
+  componentDidMount() {
+    const version = (new URL(location.href)).searchParams.get('etcher-version');
+    this.setState({ version });
+  }
+}
 
 /**
  * @summary Pure text links
@@ -86,6 +113,7 @@ class Button extends Link {
  * @example
  * <Banner />
  */
+
 const Banner = () => (
   <main className="vertical center">
     <div>
@@ -125,6 +153,10 @@ const Footer = () => (
     <Link href="https://resin.io/"
       label="Resin">
       <img className="brand" src="/static/resin.png" />
+    </Link>
+    <Link href="https://github.com/resin-io/etcher/blob/master/CHANGELOG.md"
+      label="Version">
+      <EtcherVersion />
     </Link>
   </footer>
 )
