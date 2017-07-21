@@ -27,8 +27,16 @@ export default class extends Component {
   componentDidMount() {
     fetch(`https://forums.resin.io/c/etcher.json`)
     .then((res) => res.json())
-    .then((releaseNotes) => {
-      return releaseNotes.topic_list.topics.find(topic => ( topic.title.includes(locals.version)))
+    .then((topics) => {
+      const JVIOTTI_USERID = 4;
+      return topics.topic_list.topics.find(topic => {
+        // check if jviotti made the post
+        // and it contains latest version
+        return (
+          topic.title.includes(locals.version) &&
+          topic.posters[0].user_id == JVIOTTI_USERID
+        )
+      })
     })
     .then((releaseNote) => {
       releaseNote.link = `https://forums.resin.io/t/${releaseNote.slug}`
