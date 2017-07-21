@@ -14,6 +14,29 @@ import includes from 'lodash/includes';
 import Link from 'next/link';
 
 export default class extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      // default to changelog if no forumlink is found
+      releaseNote: {
+        link: '/changelog'
+      }
+    }
+  }
+
+  componentDidMount() {
+    fetch(`https://forums.resin.io/c/etcher.json`)
+    .then((res) => res.json())
+    .then((releaseNotes) => {
+      return releaseNotes.topic_list.topics.find(topic => ( topic.title.includes(locals.version)))
+    })
+    .then((releaseNote) => {
+      releaseNote.link = `https://forums.resin.io/t/${releaseNote.slug}`
+      releaseNote && this.setState({ releaseNote });
+    })
+    .catch(e => console.warn(e));
+  }
+
   render () {
     return (
       <Layout {...locals}>
@@ -30,7 +53,7 @@ export default class extends Component {
             <p>
               or, use our <Link prefetch href="/cli"><a>experimental CLI</a></Link><br/>
               version {locals.version} -
-              <a target="_blank" href="https://resin.io/blog/etcher-1-0-is-here/"> See what&#39;s new!</a>
+              <a target="_blank" href={this.state.releaseNote.link}> See what&#39;s new!</a>
             </p>
           </div>
           <div className="share mb-5">
