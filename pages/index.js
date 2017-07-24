@@ -13,6 +13,8 @@ import { Share } from 'react-twitter-widgets';
 import includes from 'lodash/includes';
 import Link from 'next/link';
 
+const FORUM_LINK = 'https://forums.resin.io'
+
 export default class extends Component {
   constructor(props) {
     super(props)
@@ -25,14 +27,25 @@ export default class extends Component {
   }
 
   componentDidMount() {
-    fetch(`https://forums.resin.io/c/etcher.json`)
+    fetch(`${FORUM_LINK}/c/etcher.json`)
     .then((res) => res.json())
-    .then((releaseNotes) => {
-      return releaseNotes.topic_list.topics.find(topic => ( topic.title.includes(locals.version)))
+    .then((topics) => {
+      const JVIOTTI_USERID = 4;
+      return topics.topic_list.topics.find(topic => {
+        // check if jviotti made the post
+        // and it contains latest version
+        return (
+          topic.title.includes(`Etcher ${locals.version} release`) &&
+          topic.posters[0].user_id == JVIOTTI_USERID
+        )
+      })
     })
     .then((releaseNote) => {
-      releaseNote.link = `https://forums.resin.io/t/${releaseNote.slug}`
-      releaseNote && this.setState({ releaseNote });
+      if (releaseNote) {
+        releaseNote.link = `${FORUM_LINK}/t/${releaseNote.slug}`;
+        releaseNote.target = '_blank';
+        this.setState({ releaseNote });
+      }
     })
     .catch(e => console.warn(e));
   }
@@ -53,7 +66,7 @@ export default class extends Component {
             <p>
               or, use our <Link prefetch href="/cli"><a>experimental CLI</a></Link><br/>
               version {locals.version} -
-              <a target="_blank" href={this.state.releaseNote.link}> See what&#39;s new!</a>
+              <a target={this.state.releaseNote.target} href={this.state.releaseNote.link}> See what&#39;s new!</a>
             </p>
           </div>
           <div className="share mb-5">
