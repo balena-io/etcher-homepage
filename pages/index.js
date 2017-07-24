@@ -41,6 +41,7 @@ export default class extends Component {
     .then(releaseNote => {
       if (releaseNote) {
         releaseNote.link = `https://forums.resin.io/t/${releaseNote.slug}`;
+        releaseNote.target = '_blank';
         this.setState({ releaseNote });
       }
     })
@@ -63,7 +64,7 @@ export default class extends Component {
             <p>
               or, use our <Link prefetch href="/cli"><a>experimental CLI</a></Link><br/>
               version {locals.version} -
-              <a target="_blank" href={this.state.releaseNote.link}> See what&#39;s new!</a>
+              <a target={this.state.releaseNote.target} href={this.state.releaseNote.link}> See what&#39;s new!</a>
             </p>
           </div>
           <div className="share mb-5">
