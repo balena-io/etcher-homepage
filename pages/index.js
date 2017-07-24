@@ -26,21 +26,23 @@ export default class extends Component {
 
   componentDidMount() {
     fetch(`https://forums.resin.io/c/etcher.json`)
-    .then((res) => res.json())
-    .then((topics) => {
+    .then(res => res.json())
+    .then(topics => {
       const JVIOTTI_USERID = 4;
       return topics.topic_list.topics.find(topic => {
         // check if jviotti made the post
         // and it contains latest version
         return (
-          topic.title.includes(locals.version) &&
+          topic.title.includes(`Etcher ${locals.version} release`) &&
           topic.posters[0].user_id == JVIOTTI_USERID
         )
       })
     })
-    .then((releaseNote) => {
-      releaseNote.link = `https://forums.resin.io/t/${releaseNote.slug}`
-      releaseNote && this.setState({ releaseNote });
+    .then(releaseNote => {
+      if (releaseNote) {
+        releaseNote.link = `https://forums.resin.io/t/${releaseNote.slug}`;
+        this.setState({ releaseNote });
+      }
     })
     .catch(e => console.warn(e));
   }
