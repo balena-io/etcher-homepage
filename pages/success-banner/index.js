@@ -124,7 +124,10 @@ const Banner = () =>
     <div>
       <h1>
         We hope you enjoyed using
-        <img src="/static/etcher.svg" className="etcher-logo" />
+        <Link href="https://etcher.io?ref=etcher_banner"
+          label="Etcher logo">
+          <img src="/static/etcher.svg" className="etcher-logo" />
+        </Link>
       </h1>
     </div>
     <div className="horizontal center">
@@ -155,7 +158,7 @@ const Footer = () =>
     made with
     <img className="icon" src="/static/love.svg" />
     by
-    <Link href="https://resin.io/" label="Resin">
+    <Link href="https://resin.io?ref=etcher_banner" label="Resin">
       <img className="brand" src="/static/resin.png" />
     </Link>
     <Link
