@@ -11,13 +11,13 @@ export class Tracker extends Component {
     };
   }
 
-  componentDidMount () {
+  componentDidMount() {
     if (isEmpty(this.state.tracker)) {
       const tracker = EventLog(this.props.analytics);
       tracker.start();
       tracker.page.visit({ url: window.location.pathname });
 
-      Router.routeChangeComplete = (url) => {
+      Router.routeChangeComplete = url => {
         // track any further client side route changes
         tracker.page.visit({ url: url });
       };
@@ -29,8 +29,8 @@ export class Tracker extends Component {
   }
 
   static childContextTypes = {
-    tracker: PropTypes.object.isRequired,
-  }
+    tracker: PropTypes.object.isRequired
+  };
 
   getChildContext() {
     return {
@@ -39,7 +39,7 @@ export class Tracker extends Component {
   }
 
   render() {
-    return Children.only(this.props.children)
+    return Children.only(this.props.children);
   }
 }
 
@@ -49,8 +49,8 @@ export class Locals extends Component {
   }
 
   static childContextTypes = {
-    locals: PropTypes.object.isRequired,
-  }
+    locals: PropTypes.object.isRequired
+  };
 
   getChildContext() {
     return {
@@ -59,6 +59,6 @@ export class Locals extends Component {
   }
 
   render() {
-    return Children.only(this.props.children)
+    return Children.only(this.props.children);
   }
 }

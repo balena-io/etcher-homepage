@@ -12,7 +12,7 @@ import Head from 'next/head';
  * eventLog('click Tweet button');
  * > 'Banner click Tweet button'
  */
-const eventLog = (eventDesc) => {
+const eventLog = eventDesc => {
   const data = 'Banner ' + eventDesc;
 
   return () => {
@@ -21,12 +21,14 @@ const eventLog = (eventDesc) => {
     // Use the 'new' API version for more recent versions of Etcher utilizing
     // the Robot object format.
     if (url.searchParams.get('api-version') === '1') {
-      console.log(JSON.stringify({
-        command: 'log',
-        data
-      }));
+      console.log(
+        JSON.stringify({
+          command: 'log',
+          data
+        })
+      );
 
-    // Fallback to the old pure-string format.
+      // Fallback to the old pure-string format.
     } else {
       console.log(data);
     }
@@ -50,12 +52,14 @@ class EtcherVersion extends React.PureComponent {
 
   render() {
     return (
-      <span className="version">{ this.state.version }</span>
-    )
+      <span className="version">
+        {this.state.version}
+      </span>
+    );
   }
 
   componentDidMount() {
-    const version = (new URL(location.href)).searchParams.get('etcher-version');
+    const version = new URL(location.href).searchParams.get('etcher-version');
     this.setState({ version });
   }
 }
@@ -78,14 +82,15 @@ class Link extends React.PureComponent {
   render() {
     return (
       <a
-        href={ this.props.href }
+        href={this.props.href}
         target="_blank"
         rel="noopener noreferrer"
-        className={ this.type }
-        onClick={ eventLog(`click ${this.props.label} ${this.type}`) }>
-        { this.props.children }
+        className={this.type}
+        onClick={eventLog(`click ${this.props.label} ${this.type}`)}
+      >
+        {this.props.children}
       </a>
-    )
+    );
   }
 }
 
@@ -114,28 +119,28 @@ class Button extends Link {
  * <Banner />
  */
 
-const Banner = () => (
+const Banner = () =>
   <main className="vertical center">
     <div>
-      <h1>We hope you enjoyed using
+      <h1>
+        We hope you enjoyed using
         <img src="/static/etcher.svg" className="etcher-logo" />
       </h1>
     </div>
     <div className="horizontal center">
-      <Button href="https://github.com/resin-io/etcher"
-        label="star on Github">
+      <Button href="https://github.com/resin-io/etcher" label="star on Github">
         <img className="icon github" src="/static/social/octocat.png" />
         Star on Github
       </Button>
       <Button
         href="https://twitter.com/intent/tweet?text=Just%20flashed%20an%20image%20with%20%23etcher%20https%3A%2F%2Fetcher.io%20by%20%40resin_io%20and..."
-        label="Tweet">
+        label="Tweet"
+      >
         <img className="icon twitter" src="/static/social/twitter.png" />
         Tweet
       </Button>
     </div>
-  </main>
-)
+  </main>;
 
 /**
  * @summary Footer
@@ -145,21 +150,21 @@ const Banner = () => (
  * @example
  * <Footer />
  */
-const Footer = () => (
+const Footer = () =>
   <footer>
     made with
     <img className="icon" src="/static/love.svg" />
     by
-    <Link href="https://resin.io/"
-      label="Resin">
+    <Link href="https://resin.io/" label="Resin">
       <img className="brand" src="/static/resin.png" />
     </Link>
-    <Link href="https://github.com/resin-io/etcher/blob/master/CHANGELOG.md"
-      label="Version">
+    <Link
+      href="https://github.com/resin-io/etcher/blob/master/CHANGELOG.md"
+      label="Version"
+    >
       <EtcherVersion />
     </Link>
-  </footer>
-)
+  </footer>;
 
 /**
  * @summary Page
@@ -169,15 +174,18 @@ const Footer = () => (
  * @example
  * <Page />
  */
-const Page = () => (
+const Page = () =>
   <div>
     <Head>
       <meta charset="utf-8" />
-      <link rel="stylesheet" type="text/css" href="/static/success-banner.css" />
+      <link
+        rel="stylesheet"
+        type="text/css"
+        href="/static/success-banner.css"
+      />
     </Head>
     <Banner />
     <Footer />
-  </div>
-)
+  </div>;
 
 export default Page;

@@ -15,18 +15,35 @@ export default class extends Component {
       <Tracker analytics={this.props.analytics}>
         <div>
           <Head>
-            <title>{this.props.title}</title>
-            <meta charSet='utf-8' />
-            <meta name='viewport' content='initial-scale=1.0, width=device-width' />
-            <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon" />
+            <title>
+              {this.props.title}
+            </title>
+            <meta charSet="utf-8" />
+            <meta
+              name="viewport"
+              content="initial-scale=1.0, width=device-width"
+            />
+            <link
+              rel="shortcut icon"
+              href="/static/favicon.ico"
+              type="image/x-icon"
+            />
             <link rel="icon" href="/static/favicon.ico" type="image/x-icon" />
             <meta property="og:url" content={`${this.props.website}`} />
             <meta property="og:type" content="website" />
-            <meta property="og:title" content={`${this.props.title} by resin.io`} />
+            <meta
+              property="og:title"
+              content={`${this.props.title} by resin.io`}
+            />
             <meta property="og:description" content={`${this.props.lead}`} />
-            <meta property="og:image" href={`/static/${this.props.screenshot}`} />
-            <title>{this.props.title}</title>
-            <Typekit kitId={this.props.typekitId}/>
+            <meta
+              property="og:image"
+              href={`/static/${this.props.screenshot}`}
+            />
+            <title>
+              {this.props.title}
+            </title>
+            <Typekit kitId={this.props.typekitId} />
             <link rel="stylesheet" type="text/css" href="/static/index.css" />
           </Head>
           <Nav
@@ -36,29 +53,26 @@ export default class extends Component {
             brand={this.props.logo}
             pages={this.props.nav.header}
           />
-            { this.props.children }
-          <Footer className="bg-inverse text-white py-5" pages={this.props.nav.footer}>
+          {this.props.children}
+          <Footer
+            className="bg-inverse text-white py-5"
+            pages={this.props.nav.footer}
+          >
             <p
               className="col-md-8 pl-0 text-muted"
               dangerouslySetInnerHTML={{ __html: this.props.attribution }}
             />
-            <Image
-              className="mb-2 mr-3"
-              src={`${this.props.logo}`}
-            />
-            <a
-              href={this.props.company.website}
-              target="_blank"
-            >
+            <Image className="mb-2 mr-3" src={`${this.props.logo}`} />
+            <a href={this.props.company.website} target="_blank">
               <Image
                 className="mb-2"
-                style={{maxWidth: '165px'}}
+                style={{ maxWidth: '165px' }}
                 src={this.props.company.logo}
               />
             </a>
           </Footer>
         </div>
       </Tracker>
-    )
+    );
   }
 }

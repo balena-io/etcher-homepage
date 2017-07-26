@@ -4,7 +4,7 @@ import Nav from '../components/Nav';
 import Layout from './_Layout';
 import locals from '../config/cache.json';
 
-const Page = (props) => (
+const Page = props =>
   <Layout {...locals}>
     <div className="container">
       <div className="row">
@@ -13,7 +13,6 @@ const Page = (props) => (
         </div>
       </div>
     </div>
-  </Layout>
-)
+  </Layout>;
 
 export default Page;

@@ -12,72 +12,89 @@ import Image from '../components/Image';
 import { Share } from 'react-twitter-widgets';
 import includes from 'lodash/includes';
 import Link from 'next/link';
+const FORUM_LINK = 'https://forums.resin.io';
 
 export default class extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       // default to changelog if no forumlink is found
       releaseNote: {
         link: '/changelog'
       }
-    }
+    };
   }
 
   componentDidMount() {
-    fetch(`https://forums.resin.io/c/etcher.json`)
-    .then(res => res.json())
-    .then(topics => {
-      const JVIOTTI_USERID = 4;
-      return topics.topic_list.topics.find(topic => {
-        // check if jviotti made the post
-        // and it contains latest version
-        return (
-          topic.title.includes(`Etcher ${locals.version} release`) &&
-          topic.posters[0].user_id == JVIOTTI_USERID
-        )
+    fetch(`${FORUM_LINK}/c/etcher.json`)
+      .then(res => res.json())
+      .then(topics => {
+        const JVIOTTI_USERID = 4;
+        return topics.topic_list.topics.find(topic => {
+          // check if jviotti made the post
+          // and it contains latest version
+          return (
+            topic.title.includes(`Etcher ${locals.version} release`) &&
+            topic.posters[0].user_id == JVIOTTI_USERID
+          );
+        });
       })
-    })
-    .then(releaseNote => {
-      if (releaseNote) {
-        releaseNote.link = `https://forums.resin.io/t/${releaseNote.slug}`;
-        releaseNote.target = '_blank';
-        this.setState({ releaseNote });
-      }
-    })
-    .catch(e => console.warn(e));
+      .then(releaseNote => {
+        if (releaseNote) {
+          releaseNote.link = `${FORUM_LINK}/t/${releaseNote.slug}`;
+          releaseNote.target = '_blank';
+          this.setState({ releaseNote });
+        }
+      })
+      .catch(e => console.warn(e));
   }
 
-  render () {
+  render() {
     return (
       <Layout {...locals}>
         <Jumbotron className="text-center bg-inverse text-white rounded-0 mb-0">
-          <h1 className="display-3">{locals.slogan}</h1>
-          <p className="lead">{locals.lead}</p>
+          <h1 className="display-3">
+            {locals.slogan}
+          </h1>
+          <p className="lead">
+            {locals.lead}
+          </p>
           <DownloadBtn
             className="mb-3"
             downloads={locals.downloads}
-            color="primary">
-              {locals.downloads[0].text}
+            color="primary"
+          >
+            {locals.downloads[0].text}
           </DownloadBtn>
           <div className="text-muted">
             <p>
-              or, use our <Link prefetch href="/cli"><a>experimental CLI</a></Link><br/>
+              or, use our{' '}
+              <Link prefetch href="/cli">
+                <a>experimental CLI</a>
+              </Link>
+              <br />
               version {locals.version} -
-              <a target={this.state.releaseNote.target} href={this.state.releaseNote.link}> See what&#39;s new!</a>
+              <a
+                target={this.state.releaseNote.target}
+                href={this.state.releaseNote.link}
+              >
+                {' '}See what&#39;s new!
+              </a>
             </p>
           </div>
           <div className="share mb-5">
             <Share url={locals.website} />
             <div>
-              <iframe src={`https://ghbtns.com/github-btn.html?user=resin-io&repo=${locals.title.toLowerCase()}&type=star&count=true`} scrolling="0" width="100" height="20"></iframe>
+              <iframe
+                src={`https://ghbtns.com/github-btn.html?user=resin-io&repo=${locals.title.toLowerCase()}&type=star&count=true`}
+                scrolling="0"
+                width="100"
+                height="20"
+              />
             </div>
           </div>
           <div className="screenshot">
-            <Image
-              src={`${locals.screenshot}`}
-              retina={false}
-            />
+            <Image src={`${locals.screenshot}`} retina={false} />
           </div>
         </Jumbotron>
         <Section title="Features" className="bg-primary text-white py-5">
@@ -87,7 +104,10 @@ export default class extends Component {
             items={locals.features}
           />
         </Section>
-        <Section title={`Why ${locals.title}?`} className="bg-inverse text-white py-5">
+        <Section
+          title={`Why ${locals.title}?`}
+          className="bg-inverse text-white py-5"
+        >
           <Story story={locals.story} />
         </Section>
         <Section title="Downloads" className="py-5">
@@ -101,4 +121,4 @@ export default class extends Component {
       </Layout>
     );
   }
-};
+}

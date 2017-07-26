@@ -27,7 +27,7 @@
     "serve-build": "node ./test/index.js",
     "test": "ENV=test node ./test/index.js",
     "deploy": "gh-pages -d build --dotfiles",
-    "prettier": "prettier --single-quote --write 'lib/*'"
+    "prettier": "prettier --single-quote --write '{lib,pages}/**/*.js'"
   },
   "devDependencies": {
     "autoprefixer": "6.7.7",
