@@ -22,7 +22,7 @@ const locals = {
   slogan: 'Burn. Better.',
   lead: 'Burn images to SD cards & USB drives, safely and easily.',
   logo: 'logo.png',
-  screenshot: 'screenshot-1x.gif',
+  screenshot: 'screenshot.gif',
   typekitId: 'lzw7tre',
   sentryURL: 'https://e7db2e0ed6bc413dbc3c77c72a165171@sentry.io/169437',
   s3Bucket: 'https://resin-production-downloads.s3.amazonaws.com',

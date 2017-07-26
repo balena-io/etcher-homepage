@@ -14,8 +14,7 @@ build static site
 yarn run export
 ```
 
-build static site
+deploy static site
 ```
 yarn run deploy
 ```
-
