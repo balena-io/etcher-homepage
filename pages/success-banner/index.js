@@ -133,7 +133,7 @@ const Banner = () =>
         Star on Github
       </Button>
       <Button
-        href="https://twitter.com/intent/tweet?text=Just%20flashed%20an%20image%20with%20%23etcher%20by%20%40resin_io!%20Check%20it%20out%20at%20https%3A%2F%2Fetcher.io"
+        href="https://twitter.com/intent/tweet?text=Just%20flashed%20an%20image%20with%20%23etcher%20by%20%40resin_io!%20Check%20it%20out%20https%3A%2F%2Fetcher.io"
         label="Tweet"
       >
         <img className="icon twitter" src="/static/social/twitter.png" />
