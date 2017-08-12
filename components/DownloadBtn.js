@@ -30,22 +30,16 @@ export default class DownloadBtn extends Component {
 
     client.sniff(window.navigator.userAgent);
     client.os.arch = arch()
-    if (client.os.name === 'macos') {
-      client.os.name = 'os x';
-    }
 
     const links = this.props.downloads;
 
     // give points for not matching
-    const score = (i, p) => (i == -1 ? p : 0)
+    const score = (condition, p) => (!condition ? p : 0)
 
     const sortedLinks = sortBy(links, (l) => {
-      const txt = l.text.toLowerCase();
-      let linkScore = score(txt.indexOf(client.os.name), 2);
-
+      let linkScore = score(l.os.toLowerCase() === client.os.name.toLowerCase(), 2);
       if (linkScore === 0) {
-        // if os.name match order by arch
-        linkScore = linkScore + (score(txt.indexOf(client.os.arch), 1))
+        linkScore = linkScore + (l.arch === client.os.arch, 1)
       }
 
       return linkScore
