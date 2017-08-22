@@ -113,13 +113,13 @@ export default class extends Component {
         <Section title="Downloads" className="py-5">
           <Table items={locals.downloads} />
           <div className="text-center">
-            Looking for
+            Looking for{' '}
             <a href="https://github.com/resin-io/etcher#debian-and-ubuntu-based-package-repository-gnulinux-x86x64">
               Debian (.deb) packages
             </a>
-            or
+            {' '}or{' '}
             <a href="https://github.com/resin-io/etcher#redhat-rhel-and-fedora-based-package-repository-gnulinux-x86x64">
-              Redhat (.rpm) packages
+              Red Hat (.rpm) packages
             </a>
             ?
           </div>
