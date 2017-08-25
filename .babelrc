@@ -6,11 +6,11 @@
         "browsers": [
           "chrome >= 52",
           "firefox >= 47",
-          "ie >= 10",
+          "ie >= 9",
           "edge >= 13",
           "safari >= 9"
         ]
-      }
+      },
     }]
   ],
   "plugins": [
