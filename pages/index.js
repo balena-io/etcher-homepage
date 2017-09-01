@@ -12,6 +12,7 @@ import Image from '../components/Image';
 import { Share } from 'react-twitter-widgets';
 import includes from 'lodash/includes';
 import Link from 'next/link';
+import fetch from 'isomorphic-fetch';
 const FORUM_LINK = 'https://forums.resin.io';
 
 export default class extends Component {
