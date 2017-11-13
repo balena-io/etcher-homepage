@@ -94,6 +94,7 @@ pre code {
 .pro-jumbotron__logo {
   max-width: 450px;
   height: 49px;
+  width: 100%;
 }
 
 .pro-jumbotron__lead {
@@ -102,6 +103,7 @@ pre code {
 
 .pro-jumbotron__product {
   max-width: 740px;
+  width: 100%;
 }
 
 // Subscribe
@@ -109,4 +111,20 @@ pre code {
   &:focus, &:active {
     color: $gray-dark;
   }
+}
+
+.pro-nav {
+  z-index: 1;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  transition: bottom .3s ease;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+.pro-nav--hide {
+  bottom: -100%;
 }

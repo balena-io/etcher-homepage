@@ -14,5 +14,7 @@ before_script:
   - curl -L https://raw.githubusercontent.com/GoogleChrome/lighthouse/master/lighthouse-core/scripts/download-chrome.sh | bash
 
 script:
+  - yarn prettier-check
+  - yarn lint
   - yarn run export
   - yarn test

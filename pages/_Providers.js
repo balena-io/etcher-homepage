@@ -12,10 +12,20 @@ export class Tracker extends Component {
   }
 
   componentDidMount() {
+    const ifvisible = require('ifvisible.js');
     if (this.state.track === null) {
       const tracker = EventLog(this.props.analytics);
       tracker.start();
-      tracker.page.visit({ url: window.location.pathname });
+
+      if (window.location.pathname.startsWith('/success-banner')) {
+        // on sucess page we only log page views on 'focus/mouse' moves
+        ifvisible.on('wakeup', () => {
+          // go back updating data
+          tracker.page.visit({ url: window.location.pathname });
+        });
+      } else {
+        tracker.page.visit({ url: window.location.pathname });
+      }
 
       Router.routeChangeComplete = url => {
         // track any further client side route changes
@@ -27,7 +37,7 @@ export class Tracker extends Component {
           tracker.create(type, data);
           // we should consider adding facebook pixel
           // to resin-analytics if we use it elsewhere
-          window.fbq !== undefined && window.fbq(type, data);
+          window.fbq !== undefined && window.fbq('track', type, data);
         } catch (err) {
           // don't throw on analytics failures
           console.error(err);

@@ -86,7 +86,7 @@ const locals = {
     {
 			"title": "Multi-Write",
 			"image": "pro/features/multi-write.png",
-			"meta": "Duplicate 1 SD Card, USB Stick, or External Hard Disk to 15. Or write an image file, either from the web, USB Stick, or External Disk, to 15 Destinations (SD Card, USB Sticks, or External Disks). With Etcher Pro, it’s a matter of a few taps."
+			"meta": "Duplicate 1 SD Card, USB Stick, or External Hard Disk to 16. Or write an image file, either from the web, USB Stick, or External Disk, to 16 Destinations (SD Card, USB Sticks, or External Disks). With Etcher Pro, it’s a matter of a few taps."
 		},
 		{
 			"title": "Insane Speeds",
@@ -96,12 +96,12 @@ const locals = {
 		{
 			"title": "Modular Expansion",
 			"image": "pro/features/modular-expansion.png",
-			"meta": "Are 15 cards too few for you? Good news! Etcher Pro is modularly expandable. Simply connect two Etcher Pro devices together, they will act as one device with 30 destination slots. If you want even more ports, just add more devices, and write to dozens of cards simultaneously. Etcher Pro can expand up to 150 ports, while continuing to operate at full speed."
+			"meta": "Are 16 cards too few for you? Good news! Etcher Pro is modularly expandable. Simply connect two Etcher Pro devices together, they will act as one device with 32 destination slots. If you want even more ports, just add more devices, and write to dozens of cards simultaneously. Etcher Pro can expand up to 160 ports, while continuing to operate at full speed."
 		},
 		{
 			"title": "Competitive Pricing",
 			"image": "pro/features/competitive-pricing.png",
-			"meta": "For the first time ever, a professional card and flash drive duplicator that doesn’t break the bank. Etcher Pro will be competitively price compared to the competition, finally making it affordable for regular people, schools and small businesses to simultaneously write to external media fast."
+			"meta": "For the first time ever, a professional card and flash drive duplicator that doesn’t break the bank. Etcher Pro will be competitively priced, finally making it affordable for regular people, schools and small businesses to simultaneously write to external media fast."
 		}
   ]
 }

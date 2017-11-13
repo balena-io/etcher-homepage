@@ -5,7 +5,7 @@ import Nav from '../components/Nav';
 import Footer from '../components/Footer';
 import Image from '../components/Image';
 import Typekit from 'react-typekit';
-import { Tracker, Locals } from './_Providers';
+import { Tracker } from './_Providers';
 import 'babel-polyfill';
 import '../lib/raven';
 
@@ -51,7 +51,11 @@ export default class extends Component {
               {this.props.title}
             </title>
             <Typekit kitId={this.props.typekitId} />
-            <link rel="stylesheet" type="text/css" href="/static/index.css?v=1.0.0" />
+            <link
+              rel="stylesheet"
+              type="text/css"
+              href="/static/index.css?v=1.0.3"
+            />
           </Head>
           <noscript
             dangerouslySetInnerHTML={{
