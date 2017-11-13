@@ -15,9 +15,11 @@ export class Tracker extends Component {
     if (this.state.track === null) {
       const tracker = EventLog(this.props.analytics);
       tracker.start();
+      dataLayer.push({'event': 'optimize.activate'});
       tracker.page.visit({ url: window.location.pathname });
 
       Router.routeChangeComplete = url => {
+        dataLayer.push({'event': 'optimize.activate'});
         // track any further client side route changes
         tracker.page.visit({ url: url });
       };
