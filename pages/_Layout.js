@@ -9,12 +9,19 @@ import { Tracker, Locals } from './_Providers';
 import 'babel-polyfill';
 import '../lib/raven';
 
+import { tagManagerHead, tagManagerNoScript } from '../lib/scripts';
+
 export default class extends Component {
   render() {
     return (
       <Tracker analytics={this.props.analytics}>
         <div>
           <Head>
+            <script
+              dangerouslySetInnerHTML={{
+                __html: tagManagerHead(this.props.analytics.tagManagerId)
+              }}
+            />
             <title>
               {this.props.title}
             </title>
@@ -46,6 +53,11 @@ export default class extends Component {
             <Typekit kitId={this.props.typekitId} />
             <link rel="stylesheet" type="text/css" href="/static/index.css" />
           </Head>
+          <noscript
+            dangerouslySetInnerHTML={{
+              __html: tagManagerNoScript(this.props.analytics.tagManagerId)
+            }}
+          />
           <Nav
             color="inverse"
             inverse

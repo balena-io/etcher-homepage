@@ -117,8 +117,8 @@ export default class extends Component {
             Looking for{' '}
             <a href="https://github.com/resin-io/etcher#debian-and-ubuntu-based-package-repository-gnulinux-x86x64">
               Debian (.deb) packages
-            </a>
-            {' '}or{' '}
+            </a>{' '}
+            or{' '}
             <a href="https://github.com/resin-io/etcher#redhat-rhel-and-fedora-based-package-repository-gnulinux-x86x64">
               Red Hat (.rpm) packages
             </a>
