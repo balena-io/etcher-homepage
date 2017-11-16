@@ -4,9 +4,9 @@ import Router from 'next/router';
 import Sniffr from 'sniffr';
 import sortBy from 'lodash/sortBy';
 import arch from 'arch';
+import withTrack from '../lib/withTrack'
 
-export default class DownloadBtn extends Component {
-
+class DownloadBtn extends Component {
   constructor(props) {
     super(props);
     this.toggle = this.toggle.bind(this);
@@ -52,7 +52,7 @@ export default class DownloadBtn extends Component {
   }
 
   render() {
-    const { downloads, ...props } = this.props;
+    const { downloads, track, ...props } = this.props;
     const { isOpen, link, links } = this.state;
     return (
       <ButtonDropdown isOpen={isOpen} toggle={this.toggle} {...props}>
@@ -61,7 +61,7 @@ export default class DownloadBtn extends Component {
           color="primary"
           href={ link.href }
           onClick={() => {
-            this.context.tracker.create('download', link );
+            track('download', link );
           }}
         >
           {`Download ${link.text.split(' ').slice(1,4).join(' ')}`}
@@ -73,7 +73,7 @@ export default class DownloadBtn extends Component {
               return (
                 <DropdownItem
                   onClick={() => {
-                    this.context.tracker.create('download', l );
+                    track('download', l );
                   }}
                   href={ l.href }
                   id={ index }
@@ -91,6 +91,4 @@ export default class DownloadBtn extends Component {
   }
 }
 
-DownloadBtn.contextTypes = {
-  tracker: React.PropTypes.object
-};
+export default withTrack(DownloadBtn);

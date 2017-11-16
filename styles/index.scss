@@ -3,6 +3,7 @@
 
 // vars go here:
 $blue: #1496E1;
+$gray: #c3c3c3;
 
 @import 'node_modules/bootstrap/scss/bootstrap.scss';
 
@@ -10,21 +11,33 @@ body {
   font-family: proxima-nova,'Open Sans',Tahoma,sans-serif;
 }
 
+.z-0 {
+  z-index: 0;
+}
+
+.bg-white {
+  background: white;
+}
+
 // overwrite bts default
 .bg-faded {
   background-color: #F0F4F6;
 }
 
-.jumbotron {
-  img {
-    width: 80%;
-    max-width: 800px;
-  }
+.screenshot {
+  width: 80%;
+  max-width: 800px;
+  margin: auto;
 }
 
 .navbar-toggler {
   border: none;
   padding: 0;
+}
+
+.feature__img-container {
+  max-width: 70px;
+  min-height: 70px;
 }
 
 .bg-inverse, .text-white {
@@ -70,4 +83,30 @@ pre code {
   padding: 5px 10px;
   width: 100%;
   display: block;
+}
+
+// pro page
+
+// Jumbotron
+.pro-jumbotron {
+  background: $gray;
+}
+.pro-jumbotron__logo {
+  max-width: 450px;
+  height: 49px;
+}
+
+.pro-jumbotron__lead {
+  font-weight: 500;
+}
+
+.pro-jumbotron__product {
+  max-width: 740px;
+}
+
+// Subscribe
+.subscribe__input {
+  &:focus, &:active {
+    color: $gray-dark;
+  }
 }

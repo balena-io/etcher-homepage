@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default ({ items, Component, ...props }) => {
+export default ({ items, Component, cols = 3, ...props }) => {
   return(
     <div  { ...props }>
       <div className="container">
@@ -8,7 +8,7 @@ export default ({ items, Component, ...props }) => {
         {
           items.map((item, i) => {
             return (
-              <div key={i} className="col-md-4">
+              <div key={i} className={`col-md-${12/cols}`}>
                 <Component {...item} />
               </div>
             );
