@@ -48,39 +48,62 @@ const locals = {
   features: [
     {
 			"title": "Validated Burning",
-			"image": "sd",
+			"image": "features/sd.png",
 			"meta": "No more writing images on corrupted cards and wondering why your device isn't booting."
 		},
 		{
 			"title": "Hard Drive Friendly",
-			"image": "hd",
+			"image": "features/hd.png",
 			"meta": "Makes drive selection obvious to avoid wiping your entire hard-drive"
 		},
 		{
 			"title": "Beautiful Interface",
-			"image": "simple",
+			"image": "features/simple.png",
 			"meta": "Who said burning SD cards has to be an eyesore."
 		},
 		{
 			"title": "Open Source",
-			"image": "open-source",
+			"image": "features/open-source.png",
 			"meta": "Made with JS, HTML, node.js and <a target='_blank' href='http://electron.atom.io/'>Electron</a>. Dive in and contribute!"
 		},
 		{
 			"title": "Cross Platform",
-			"image": "cross-platform",
+			"image": "features/cross-platform.png",
 			"meta": "Works for everyone,<br/>no more complicated install instructions."
 		},
 		{
 			"title": "More on the way",
-			"image": "coming-soon",
+			"image": "features/coming-soon.png",
 			"meta": "50% faster burns, simultaneous writing for multiple drives.<br/><a target='_blank' href='https://github.com/resin-io/etcher/milestones'>View our roadmap</a>"
 		}
 	],
   story: [
 		"Here at <a target='_blank' href='https://resin.io'>resin.io</a> we have thousands of users working through our getting started process and until recently we were embarassed about the steps that involved burning an SD card. There was a separate track for each Mac/Windows/Linux and several manual and error-prone steps along the way.",
 		"To our surprise there was nothing out there that fitted our needs. So we built Etcher, a SD card burner app that is simple for end users, extensible for developers, and works on any platform. "
-	]
+	],
+  proMailChimpList: 'https://resin.us3.list-manage.com/subscribe/post?u=87871f17defba2d203db77a92&amp;id=135af0f95d',
+  proFeatures: [
+    {
+			"title": "Multi-Write",
+			"image": "pro/features/multi-write.png",
+			"meta": "Duplicate 1 SD Card, USB Stick, or External Hard Disk to 15. Or write an image file, either from the web, USB Stick, or External Disk, to 15 Destinations (SD Card, USB Sticks, or External Disks). With Etcher Pro, it’s a matter of a few taps."
+		},
+		{
+			"title": "Insane Speeds",
+			"image": "pro/features/insane-speeds.png",
+			"meta": "We built Etcher Pro with meticulous attention to the hardware, to assure the fastest writing speed available on the market today. Each Etcher Pro can write with a maximum speed of 60MB/s per port, and 750MB/s total. This is of course limited by the maximum speed of the drives you are writing to, but at least the hardware will no longer slow you down!"
+		},
+		{
+			"title": "Modular Expansion",
+			"image": "pro/features/modular-expansion.png",
+			"meta": "Are 15 cards too few for you? Good news! Etcher Pro is modularly expandable. Simply connect two Etcher Pro devices together, they will act as one device with 30 destination slots. If you want even more ports, just add more devices, and write to dozens of cards simultaneously. Etcher Pro can expand up to 150 ports, while continuing to operate at full speed."
+		},
+		{
+			"title": "Competitive Pricing",
+			"image": "pro/features/competitive-pricing.png",
+			"meta": "For the first time ever, a professional card and flash drive duplicator that doesn’t break the bank. Etcher Pro will be competitively price compared to the competition, finally making it affordable for regular people, schools and small businesses to simultaneously write to external media fast."
+		}
+  ]
 }
 
 export default locals;

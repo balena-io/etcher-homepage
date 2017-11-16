@@ -7,12 +7,12 @@ export class Tracker extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      tracker: {}
+      track: null
     };
   }
 
   componentDidMount() {
-    if (isEmpty(this.state.tracker)) {
+    if (this.state.track === null) {
       const tracker = EventLog(this.props.analytics);
       tracker.start();
       tracker.page.visit({ url: window.location.pathname });
@@ -22,39 +22,31 @@ export class Tracker extends Component {
         tracker.page.visit({ url: url });
       };
 
+      const track = (type, data) => {
+        try {
+          tracker.create(type, data);
+          // we should consider adding facebook pixel
+          // to resin-analytics if we use it elsewhere
+          window.fbq !== undefined && window.fbq(type, data);
+        } catch (err) {
+          // don't throw on analytics failures
+          console.error(err);
+        }
+      };
+
       this.setState({
-        tracker
+        track
       });
     }
   }
 
   static childContextTypes = {
-    tracker: PropTypes.object.isRequired
+    track: PropTypes.func
   };
 
   getChildContext() {
     return {
-      tracker: this.state.tracker
-    };
-  }
-
-  render() {
-    return Children.only(this.props.children);
-  }
-}
-
-export class Locals extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  static childContextTypes = {
-    locals: PropTypes.object.isRequired
-  };
-
-  getChildContext() {
-    return {
-      locals: this.props.locals
+      track: this.state.track
     };
   }
 
