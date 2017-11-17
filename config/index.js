@@ -33,7 +33,8 @@ const locals = {
     gaSite: 'etcher.io',
     gaId: 'UA-45671959-2',
     gosquaredId: 'GSN-954701-N',
-    prefix: 'Etcher Website'
+    prefix: 'Etcher Website',
+    tagManagerId: 'GTM-WPMGNJJ'
   },
   nav: {
     header: pick(links, [ 'Repository', 'Changelog' , 'CLI', 'Chat', 'Mailing List', 'Help']),
