@@ -1,6 +1,14 @@
 import React from 'react';
 import Head from 'next/head';
+import {
+  Tracker
+} from '../_Providers';
+import Image from '../../components/Image'
+import locals from '../../config/cache.json';
 
+import { tagManagerHead, tagManagerNoScript } from '../../lib/scripts';
+
+const CAMPAIGN_URL = 'https://etcher.io/pro/?utm_source=etcher_app&utm_campaign=etcher_pro&utm_content=vna'
 /**
  * @summary Make and return an event method for a given event description string
  * @function
@@ -73,7 +81,7 @@ class EtcherVersion extends React.PureComponent {
  * <Link label="Example" href="https://example.com/">Example page</Link>
  */
 class Link extends React.PureComponent {
-  constructor() {
+  constructor(props, context) {
     super();
 
     this.type = 'link';
@@ -86,13 +94,21 @@ class Link extends React.PureComponent {
         target="_blank"
         rel="noopener noreferrer"
         className={this.type}
-        onClick={eventLog(`click ${this.props.label} ${this.type}`)}
+        onClick={() => {
+          this.context.tracker.create(`${this.props.label} ${this.type}`)
+          eventLog(`click ${this.props.label} ${this.type}`)
+        }}
       >
         {this.props.children}
       </a>
     );
   }
 }
+
+// Get tracker details
+Link.contextTypes = {
+  tracker: React.PropTypes.object
+};
 
 /**
  * @summary Button links
@@ -142,6 +158,32 @@ const Banner = () =>
     </div>
   </main>;
 
+
+  /**
+   * @summary Etcher Pro Banner
+   * @function
+   * @private
+   *
+   * @example
+   * <Banner />
+   */
+
+  const BannerEtcherPro = () =>
+    <main className="vertical center">
+      <div>
+        <h1>
+          Ever wanted a duplicator as slick as Etcher?
+        </h1>
+      </div>
+      <div className="horizontal center">
+        <Button label="etcher pro" href={CAMPAIGN_URL}>
+          Discover
+          <Image className="icon github" src="pro/logo-banner.svg" retina={false} />
+        </Button>
+        <Image className="jumbo-img" src="pro/outline.png" />
+      </div>
+    </main>;
+
 /**
  * @summary Footer
  * @function
@@ -175,17 +217,30 @@ const Footer = () =>
  * <Page />
  */
 const Page = () =>
-  <div>
-    <Head>
-      <meta charset="utf-8" />
-      <link
-        rel="stylesheet"
-        type="text/css"
-        href="/static/success-banner.css"
+  <Tracker analytics={locals.analytics}>
+    <div>
+      <Head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: tagManagerHead(locals.analytics.tagManagerId)
+          }}
+        />
+        <meta charset="utf-8" />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="/static/success-banner.css"
+        />
+      </Head>
+      <noscript
+        dangerouslySetInnerHTML={{
+          __html: tagManagerNoScript(locals.analytics.tagManagerId)
+        }}
       />
-    </Head>
-    <Banner />
-    <Footer />
-  </div>;
+      <BannerEtcherPro />
+      <Footer />
+    </div>
+  </Tracker>;
+
 
 export default Page;
