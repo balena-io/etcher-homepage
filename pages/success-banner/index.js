@@ -95,7 +95,7 @@ class Link extends React.PureComponent {
         rel="noopener noreferrer"
         className={this.type}
         onClick={() => {
-          this.context.tracker.create(`${this.props.label} ${this.type}`)
+          this.context.track(`${this.props.label} ${this.type}`)
           eventLog(`click ${this.props.label} ${this.type}`)
         }}
       >
@@ -107,7 +107,7 @@ class Link extends React.PureComponent {
 
 // Get tracker details
 Link.contextTypes = {
-  tracker: React.PropTypes.object
+  track: React.PropTypes.func
 };
 
 /**
@@ -176,7 +176,7 @@ const Banner = () =>
         </h1>
       </div>
       <div className="horizontal center">
-        <Button label="etcher pro" href={CAMPAIGN_URL}>
+        <Button label="successBanner pro" href={CAMPAIGN_URL}>
           Discover
           <Image className="icon github" src="pro/logo-banner.svg" retina={false} />
         </Button>
