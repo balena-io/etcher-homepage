@@ -3,7 +3,7 @@ import Section from '../Section';
 import Image from '../Image'
 
 export default () =>
-  <Section className="text-muted py-5" title="Rationale">
+  <Section className="text-muted py-5" title="Story">
     <Row>
       <Col md={{ size: 8, push: 2 }}>
         <p>A few months ago, we started hearing that Etcher’s algorithms were so robust, that they could write files that professional duplicators were failing on. That was a surprise to us, so we started investigating the world of professional duplicators. We discovered devices that were expensive, bulky, heavy, hard to use, limited in functionality, and using outdated technology. Did we say they were expensive? The cheapest professional duplicators cost $85 per slot. So if you wanted a 15-drive duplicator, you’re looking at a $1300 purchase.
