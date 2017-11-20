@@ -10,12 +10,12 @@
     "raven-js": "3.17.0",
     "react": "15.6.1",
     "react-dom": "15.6.1",
-    "react-headroom": "^2.2.2",
     "react-icons": "^2.2.7",
     "react-markdown": "2.5.0",
     "react-transition-group": "^2.2.0",
     "react-twitter-widgets": "1.4.0",
     "react-typekit": "1.1.0",
+    "react-waypoint": "^7.3.1",
     "reactstrap": "4.8.0",
     "resin-event-log": "^1.7.1",
     "sniffr": "^1.1.4"

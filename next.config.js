@@ -24,8 +24,8 @@ module.exports = {
       "/cli": { page: "/cli" },
       "/success-banner": { page: "/success-banner" },
       "/pro": { page: "/pro" },
-      "/pro-vnb": { page: "/pro-vnb" },
-      "/pro-vnc": { page: "/pro-vnc" }
+      "/pro-vnb": { page: "/pro", query: { vn: 'b' } },
+      "/pro-vnc": { page: "/pro", query: { vn: 'c' } }
     }
   }
 }

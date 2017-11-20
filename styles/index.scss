@@ -110,3 +110,15 @@ pre code {
     color: $gray-dark;
   }
 }
+
+.pro-nav {
+  z-index: 1;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  transition: top .3s ease;
+}
+
+.pro-nav--hide {
+  top: -100%;
+}

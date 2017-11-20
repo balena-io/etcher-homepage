@@ -95,7 +95,7 @@ class Link extends React.PureComponent {
         rel="noopener noreferrer"
         className={this.type}
         onClick={() => {
-          this.context.track(`${this.props.label} ${this.type}`)
+          this.context.track(`etcher_app ${this.props.label} ${this.type}`)
           eventLog(`click ${this.props.label} ${this.type}`)
         }}
       >
