@@ -15,10 +15,12 @@ export class Tracker extends Component {
     if (this.state.track === null) {
       const tracker = EventLog(this.props.analytics);
       tracker.start();
+      // used to run optimize a/b dom manipulation after the react render.
       dataLayer.push({'event': 'optimize.activate'});
       tracker.page.visit({ url: window.location.pathname });
 
       Router.routeChangeComplete = url => {
+        // used to run optimize a/b dom manipulation after the react render.
         dataLayer.push({'event': 'optimize.activate'});
         // track any further client side route changes
         tracker.page.visit({ url: url });
@@ -29,7 +31,7 @@ export class Tracker extends Component {
           tracker.create(type, data);
           // we should consider adding facebook pixel
           // to resin-analytics if we use it elsewhere
-          window.fbq !== undefined && window.fbq(type, data);
+          window.fbq !== undefined && window.fbq('track', type, data);
         } catch (err) {
           // don't throw on analytics failures
           console.error(err);

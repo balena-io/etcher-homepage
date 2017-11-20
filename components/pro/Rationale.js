@@ -25,7 +25,7 @@ export default () =>
         </p>
 
         <p>
-          The development process so far has been full of exciting, fast paced developments, and the results so far have exceeded our expectations. If you want to keep up with our progress, sign up on our mailing list to receive weekly updates!
+          The development process so far has been full of exciting, fast paced developments, and the results so far have exceeded our expectations. If you want to keep up with our progress, sign up on our mailing list to receive regular updates!
         </p>
       </Col>
     </Row>

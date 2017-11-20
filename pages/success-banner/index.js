@@ -8,7 +8,7 @@ import locals from '../../config/cache.json';
 
 import { tagManagerHead, tagManagerNoScript } from '../../lib/scripts';
 
-const CAMPAIGN_URL = 'https://etcher.io/pro/?utm_source=etcher_app&utm_campaign=etcher_pro&utm_content=vna'
+const CAMPAIGN_URL = 'https://etcher.io/pro?utm_source=etcher_app&utm_campaign=etcher_pro&utm_content=vnc'
 /**
  * @summary Make and return an event method for a given event description string
  * @function
