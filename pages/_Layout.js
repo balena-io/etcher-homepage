@@ -51,7 +51,11 @@ export default class extends Component {
               {this.props.title}
             </title>
             <Typekit kitId={this.props.typekitId} />
-            <link rel="stylesheet" type="text/css" href="/static/index.css?v=1.0.1" />
+            <link
+              rel="stylesheet"
+              type="text/css"
+              href="/static/index.css?v=1.0.1"
+            />
           </Head>
           <noscript
             dangerouslySetInnerHTML={{

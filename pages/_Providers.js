@@ -16,12 +16,12 @@ export class Tracker extends Component {
       const tracker = EventLog(this.props.analytics);
       tracker.start();
       // used to run optimize a/b dom manipulation after the react render.
-      dataLayer.push({'event': 'optimize.activate'});
+      dataLayer.push({ event: 'optimize.activate' });
       tracker.page.visit({ url: window.location.pathname });
 
       Router.routeChangeComplete = url => {
         // used to run optimize a/b dom manipulation after the react render.
-        dataLayer.push({'event': 'optimize.activate'});
+        dataLayer.push({ event: 'optimize.activate' });
         // track any further client side route changes
         tracker.page.visit({ url: url });
       };

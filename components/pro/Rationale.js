@@ -17,7 +17,7 @@ export default () =>
         So we’ve decided take the plunge! We are now building the first prototype of Etcher Pro, working with our hardware design partners in Italy, and we expect to have prototypes in our hands by the end of the year. Here’s what the design currently looks like:
         </p>
 
-        <Image className='w-50 mb-3 mt-2'  src='pro/single.png' />
+        <Image className='w-50 mb-3 mt-2'  src='pro/product.png' />
         <Image className='w-50 mb-3 mt-2'  src='pro/double.png' />
 
         <p>

@@ -1,14 +1,13 @@
 import React from 'react';
 import Head from 'next/head';
-import {
-  Tracker
-} from '../_Providers';
-import Image from '../../components/Image'
+import { Tracker } from '../_Providers';
+import Image from '../../components/Image';
 import locals from '../../config/cache.json';
 
 import { tagManagerHead, tagManagerNoScript } from '../../lib/scripts';
 
-const CAMPAIGN_URL = 'https://etcher.io/pro?utm_source=etcher_app&utm_campaign=etcher_pro&utm_content=vnc'
+const CAMPAIGN_URL =
+  'https://etcher.io/pro?utm_source=etcher_app&utm_campaign=etcher_pro';
 /**
  * @summary Make and return an event method for a given event description string
  * @function
@@ -95,8 +94,8 @@ class Link extends React.PureComponent {
         rel="noopener noreferrer"
         className={this.type}
         onClick={() => {
-          this.context.track(`etcher_app ${this.props.label} ${this.type}`)
-          eventLog(`click ${this.props.label} ${this.type}`)
+          this.context.track(`etcher_app ${this.props.label} ${this.type}`);
+          eventLog(`click ${this.props.label} ${this.type}`);
         }}
       >
         {this.props.children}
@@ -119,10 +118,10 @@ Link.contextTypes = {
  * <Button label="Submit" href="/submit/">Submit something</Button>
  */
 class Button extends Link {
-  constructor() {
+  constructor(props) {
     super();
 
-    this.type = 'button';
+    this.type = 'button ' + props.className;
   }
 }
 
@@ -158,31 +157,72 @@ const Banner = () =>
     </div>
   </main>;
 
-
-  /**
-   * @summary Etcher Pro Banner
+/**
+   * @summary Etcher Pro Banner variant A
    * @function
    * @private
    *
    * @example
-   * <Banner />
+   * <BannerEtcherProA />
    */
 
-  const BannerEtcherPro = () =>
-    <main className="vertical center">
-      <div>
-        <h1>
-          Ever wanted a duplicator as slick as Etcher?
-        </h1>
-      </div>
-      <div className="horizontal center">
-        <Button label="successBanner pro" href={CAMPAIGN_URL}>
+const BannerEtcherProA = () =>
+  <main className="vertical center variantA">
+    <div>
+      <h1 className="variantA">Ever wanted a duplicator as slick as Etcher?</h1>
+    </div>
+    <div className="horizontal center grow">
+      <div className="vertical center">
+        <Button
+          className="variantA"
+          label="successBanner pro"
+          href={`${CAMPAIGN_URL}&utm_medium=vna`}
+        >
           Discover
-          <Image className="icon github" src="pro/logo-banner.svg" retina={false} />
+          <Image className="icon" src="pro/logo-banner.svg" retina={false} />
         </Button>
-        <Image className="jumbo-img" src="pro/outline.png" />
       </div>
-    </main>;
+      <div className="vertical center">
+        <Image className="product-img" src="pro/outline.png" />
+      </div>
+    </div>
+    <Footer />
+  </main>;
+
+/**
+     * @summary Etcher Pro Banner variant B
+     * @function
+     * @private
+     *
+     * @example
+     * <BannerEtcherProB />
+     */
+
+const BannerEtcherProB = () =>
+  <main className="vertical center">
+    <div className="horizontal center grow">
+      <div>
+        <Image className="product-img" src="pro/outline.png" />
+      </div>
+      <div className="ml-2 vertical center">
+        <h1>
+          Introducing
+          <Image
+            className="icon etcherPro"
+            src="pro/logo-banner.svg"
+            retina={false}
+          />
+        </h1>
+        <Button
+          label="successBanner pro"
+          href={`${CAMPAIGN_URL}&utm_medium=vnb`}
+        >
+          Discover More
+        </Button>
+      </div>
+    </div>
+    <Footer />
+  </main>;
 
 /**
  * @summary Footer
@@ -216,7 +256,7 @@ const Footer = () =>
  * @example
  * <Page />
  */
-const Page = () =>
+const Page = ({ variant = 'a' }) =>
   <Tracker analytics={locals.analytics}>
     <div>
       <Head>
@@ -229,7 +269,7 @@ const Page = () =>
         <link
           rel="stylesheet"
           type="text/css"
-          href="/static/success-banner.css"
+          href="/static/success-banner.css?v=1.0.0"
         />
       </Head>
       <noscript
@@ -237,10 +277,12 @@ const Page = () =>
           __html: tagManagerNoScript(locals.analytics.tagManagerId)
         }}
       />
-      <Banner />
-      <Footer />
+      {variant === 'a' ? <BannerEtcherProA /> : <BannerEtcherProB />}
     </div>
   </Tracker>;
 
+Page.getInitialProps = ({ query }) => {
+  return { variant: query.vn };
+};
 
 export default Page;

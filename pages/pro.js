@@ -8,7 +8,7 @@ import Description from '../components/pro/Description';
 import Jumbotron from '../components/pro/Jumbotron';
 import Features from '../components/pro/Features';
 import Waypoint from 'react-waypoint';
-import get from 'lodash/get'
+import get from 'lodash/get';
 
 const Content = ({ children, navHide, toggleNav }) => {
   return (
@@ -19,32 +19,32 @@ const Content = ({ children, navHide, toggleNav }) => {
       <Waypoint
         onLeave={() => toggleNav(false)}
         onEnter={() => toggleNav(true)}
-        >
+      >
         <div>
           <Jumbotron mailChimpAction={locals.proMailChimpList} />
         </div>
       </Waypoint>
       {children}
     </Layout>
-  )
-}
+  );
+};
 
 class Page extends React.Component {
   constructor(props) {
-    super()
+    super();
     this.state = {
       navHide: true
-    }
+    };
   }
 
-  toggleNav = (newState) => {
+  toggleNav = newState => {
     this.setState({
       navHide: newState
-    })
-  }
+    });
+  };
 
   render() {
-    const variant = get(this.props, 'query.vn') || 'a'
+    const variant = get(this.props, 'query.vn') || 'a';
     switch (variant) {
       case 'b':
         return (
@@ -69,12 +69,11 @@ class Page extends React.Component {
           </Content>
         );
     }
-
   }
-};
+}
 
 Page.getInitialProps = ({ query }) => {
-  return { query }
-}
+  return { query };
+};
 
 export default Page;
