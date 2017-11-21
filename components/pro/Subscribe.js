@@ -60,7 +60,7 @@ class Subscribe extends Component {
         <FormGroup className="mb-0">
           <InputGroup className="z-0">
           <Input
-            className="subscribe__input"
+            className="subscribe__input p-3"
             type="email"
             placeholder="email"
             value={this.state.email}

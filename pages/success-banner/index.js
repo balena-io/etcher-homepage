@@ -237,7 +237,7 @@ const Page = () =>
           __html: tagManagerNoScript(locals.analytics.tagManagerId)
         }}
       />
-      <BannerEtcherPro />
+      <Banner />
       <Footer />
     </div>
   </Tracker>;
