@@ -16,14 +16,7 @@ const Content = ({ children, navHide, toggleNav }) => {
       <Nav hide={navHide}>
         <Subscribe action={locals.proMailChimpList} />
       </Nav>
-      <Waypoint
-        onLeave={() => toggleNav(false)}
-        onEnter={() => toggleNav(true)}
-      >
-        <div>
-          <Jumbotron mailChimpAction={locals.proMailChimpList} />
-        </div>
-      </Waypoint>
+      <Jumbotron mailChimpAction={locals.proMailChimpList} />
       {children}
     </Layout>
   );

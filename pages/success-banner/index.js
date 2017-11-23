@@ -142,12 +142,13 @@ const Banner = () =>
         <img src="/static/etcher.svg" className="etcher-logo" />
       </h1>
     </div>
-    <div className="horizontal center">
+    <div className="horizontal center grow">
       <Button href="https://github.com/resin-io/etcher" label="star on Github">
         <img className="icon github" src="/static/social/octocat.png" />
         Star on Github
       </Button>
       <Button
+        className="ml-2"
         href="https://twitter.com/intent/tweet?text=Just%20flashed%20an%20image%20with%20%23etcher%20by%20%40resin_io!%20Check%20it%20out%3A%20https%3A%2F%2Fetcher.io"
         label="Tweet"
       >
@@ -155,6 +156,7 @@ const Banner = () =>
         Tweet
       </Button>
     </div>
+    <Footer />
   </main>;
 
 /**
@@ -248,6 +250,7 @@ const Footer = () =>
     </Link>
   </footer>;
 
+// {variant === 'a' ? <BannerEtcherProA /> : <BannerEtcherProB />}
 /**
  * @summary Page
  * @function
@@ -269,7 +272,7 @@ const Page = ({ variant = 'a' }) =>
         <link
           rel="stylesheet"
           type="text/css"
-          href="/static/success-banner.css?v=1.0.0"
+          href="/static/success-banner.css?v=1.0.1"
         />
       </Head>
       <noscript
@@ -277,7 +280,7 @@ const Page = ({ variant = 'a' }) =>
           __html: tagManagerNoScript(locals.analytics.tagManagerId)
         }}
       />
-      {variant === 'a' ? <BannerEtcherProA /> : <BannerEtcherProB />}
+      <Banner />
     </div>
   </Tracker>;
 

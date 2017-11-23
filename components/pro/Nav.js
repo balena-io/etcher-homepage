@@ -4,8 +4,8 @@ import Subscribe from './Subscribe'
 import locals from '../../config/cache.json'
 import Headroom from 'react-headroom'
 
-export default ({ children, hide = true }) =>
-  <Navbar className={`flex-row align-items-center bg-white py-3 pro-nav ${hide ? 'pro-nav--hide': ''}`}>
+export default ({ children }) =>
+  <Navbar className={`flex-row align-items-center bg-white py-3 pro-nav`}>
     <Nav className="mr-auto" navbar>
       <NavItem>
         <Image src="pro/logo-nav.svg" retina={false}/>

@@ -54,7 +54,7 @@ export default class extends Component {
             <link
               rel="stylesheet"
               type="text/css"
-              href="/static/index.css?v=1.0.1"
+              href="/static/index.css?v=1.0.2"
             />
           </Head>
           <noscript
