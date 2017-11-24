@@ -23,6 +23,10 @@ export default () =>
           expensive, while at the same time easier to use and packed with
           features, so that you can do much more than just copy SD Cards.
         </p>
+        <p>
+          If you want to keep up with our progress, sign up on our mailing list
+          to receive regular updates!
+        </p>
       </Col>
     </Row>
   </Section>;

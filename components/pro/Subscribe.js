@@ -1,5 +1,4 @@
 /* eslint-disable */
-
 import { Component } from 'react';
 import {
   InputGroup,
@@ -21,9 +20,26 @@ class Subscribe extends Component {
     super(props);
     this.state = {
       valid: null,
+      msg: '',
       email: '',
-      msg: ''
+      meta: {
+        utm_source: '',
+        utm_campaign: '',
+        utm_medium: '',
+        vn: ''
+      }
     };
+  }
+
+  componentDidMount() {
+    let params = new URL(document.location).searchParams;
+    const meta = {
+      vn: params.get('vn') || 'a',
+      utm_source: params.get('utm_source'),
+      utm_campaign: params.get('utm_campaign'),
+      utm_medium: params.get('utm_medium')
+    };
+    this.setState({ meta });
   }
 
   // eslint-disable-next-line
@@ -32,7 +48,11 @@ class Subscribe extends Component {
 
     const url =
       getAjaxUrl(this.props.action) +
-      `&EMAIL=${encodeURIComponent(this.state.email)}`;
+      `&EMAIL=${encodeURIComponent(this.state.email)}
+      &VN=${encodeURIComponent(this.state.meta.vn)}
+      &UTM_SOURCE=${encodeURIComponent(this.state.meta.utm_source)}
+      &UTM_CAMPAI=${encodeURIComponent(this.state.meta.utm_campaign)}
+      &UTM_MEDIUM=${encodeURIComponent(this.state.meta.utm_medium)}`;
 
     jsonp(
       url,
@@ -66,9 +86,11 @@ class Subscribe extends Component {
         this.setState({
           valid: true
         });
+
         // track signup
         this.props.track('proSubscribe', {
-          email: this.state.email
+          email: this.state.email,
+          ...this.state.meta
         });
       }
     );
@@ -101,7 +123,7 @@ class Subscribe extends Component {
               />
             : <div className="d-flex align-items-center">
                 <p
-                  className="text-muted mr-2 mb-0 hidden-sm-down"
+                  className="text-muted mr-3 mb-0 hidden-sm-down"
                   style={{ whiteSpace: 'nowrap' }}
                 >
                   Want to get updates?

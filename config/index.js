@@ -101,7 +101,7 @@ const locals = {
 		{
 			"title": "Competitive Pricing",
 			"image": "pro/features/competitive-pricing.png",
-			"meta": "For the first time ever, a professional card and flash drive duplicator that doesn’t break the bank. Etcher Pro will be competitively price compared to the competition, finally making it affordable for regular people, schools and small businesses to simultaneously write to external media fast."
+			"meta": "For the first time ever, a professional card and flash drive duplicator that doesn’t break the bank. Etcher Pro will be competitively priced, finally making it affordable for regular people, schools and small businesses to simultaneously write to external media fast."
 		}
   ]
 }

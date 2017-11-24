@@ -31,7 +31,7 @@ export default () =>
         </p>
 
         <p>
-          So we’ve decided take the plunge! We are now building the first
+          So we’ve decided to take the plunge! We are now building the first
           prototype of Etcher Pro, working with our hardware design partners in
           Italy, and we expect to have prototypes in our hands by the end of the
           year. Here’s what the design currently looks like:
