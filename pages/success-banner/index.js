@@ -294,7 +294,7 @@ class Page extends Component {
                 __html: tagManagerHead(locals.analytics.tagManagerId)
               }}
             />
-            <meta charset="utf-8" />
+            <meta charSet="utf-8" />
             <link
               rel="stylesheet"
               type="text/css"
