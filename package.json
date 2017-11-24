@@ -15,7 +15,6 @@
     "react-transition-group": "^2.2.0",
     "react-twitter-widgets": "1.4.0",
     "react-typekit": "1.1.0",
-    "react-waypoint": "^7.3.1",
     "reactstrap": "4.8.0",
     "resin-event-log": "^1.7.1",
     "sniffr": "^1.1.4"
@@ -31,6 +30,7 @@
     "test": "ENV=test node ./test/index.js",
     "deploy": "gh-pages -d build --dotfiles",
     "prettier": "prettier --single-quote --write '{lib,pages,components}/**/*.js'",
+    "prettier-check": "prettier-check --single-quote '{lib,pages,components}/**/*.js'",
     "lint": "eslint 'pages/**/*.js', 'lib/**/*.js', 'components/**/*.js'"
   },
   "devDependencies": {
@@ -51,6 +51,7 @@
     "postcss-easy-import": "2.1.0",
     "postcss-loader": "2.0.6",
     "prettier": "1.5.3",
+    "prettier-check": "^2.0.0",
     "pwmetrics": "^3.1.2",
     "raw-loader": "0.5.1",
     "sass-loader": "6.0.6",
