@@ -3,6 +3,7 @@ import Head from 'next/head';
 import { Tracker } from '../_Providers';
 import Image from '../../components/Image';
 import locals from '../../config/cache.json';
+import get from 'lodash/get'
 
 import { tagManagerHead, tagManagerNoScript } from '../../lib/scripts';
 
@@ -259,33 +260,33 @@ const Footer = () =>
  * @example
  * <Page />
  */
-const Page = ({ variant = 'a' }) =>
-  <Tracker analytics={locals.analytics}>
-    <div>
-      <Head>
-        <script
+const Page = ({ url }) => {
+  const variant = get(url, 'query.vn') || 'a';
+  return (
+    <Tracker analytics={locals.analytics}>
+      <div>
+        <Head>
+          <script
+            dangerouslySetInnerHTML={{
+              __html: tagManagerHead(locals.analytics.tagManagerId)
+            }}
+          />
+          <meta charset="utf-8" />
+          <link
+            rel="stylesheet"
+            type="text/css"
+            href="/static/success-banner.css?v=1.0.1"
+          />
+        </Head>
+        <noscript
           dangerouslySetInnerHTML={{
-            __html: tagManagerHead(locals.analytics.tagManagerId)
+            __html: tagManagerNoScript(locals.analytics.tagManagerId)
           }}
         />
-        <meta charset="utf-8" />
-        <link
-          rel="stylesheet"
-          type="text/css"
-          href="/static/success-banner.css?v=1.0.1"
-        />
-      </Head>
-      <noscript
-        dangerouslySetInnerHTML={{
-          __html: tagManagerNoScript(locals.analytics.tagManagerId)
-        }}
-      />
-      <Banner />
-    </div>
-  </Tracker>;
-
-Page.getInitialProps = ({ query }) => {
-  return { variant: query.vn };
-};
+        <Banner />
+      </div>
+    </Tracker>
+  )
+}
 
 export default Page;

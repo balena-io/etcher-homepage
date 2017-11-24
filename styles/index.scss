@@ -94,6 +94,7 @@ pre code {
 .pro-jumbotron__logo {
   max-width: 450px;
   height: 49px;
+  width: 100%;
 }
 
 .pro-jumbotron__lead {
@@ -102,11 +103,7 @@ pre code {
 
 .pro-jumbotron__product {
   max-width: 740px;
-}
-
-.pro-jumbotron__cta {
-  font-weight: 500;
-  font-size: 20px;
+  width: 100%;
 }
 
 // Subscribe

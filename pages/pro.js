@@ -32,13 +32,6 @@ const Page = ({ url }) => {
         </Content>
       );
       break;
-    case 'c':
-      return (
-        <Content>
-          <Rationale />
-        </Content>
-      );
-      break;
     default:
       return (
         <Content>

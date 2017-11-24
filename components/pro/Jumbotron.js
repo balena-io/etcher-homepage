@@ -15,13 +15,5 @@ export default ({ mailChimpAction }) =>
         The Etcher you love, with the perfect hardware
       </p>
       <Image className="pro-jumbotron__product mb-3" src="pro/product.png" />
-      <Row>
-        <Col xs="auto" className="mx-auto">
-          <p className="text-left text-muted pro-jumbotron__cta">
-            Want to get updates?
-          </p>
-          <Subscribe action={mailChimpAction} />
-        </Col>
-      </Row>
     </Container>
   </Jumbotron>;

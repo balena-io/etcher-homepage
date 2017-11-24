@@ -7,7 +7,9 @@ import {
   Input,
   Button,
   FormGroup,
-  Form
+  Form,
+  Col,
+  Label
 } from 'reactstrap';
 import jsonp from 'jsonp';
 import FaCheck from 'react-icons/lib/fa/check';
@@ -97,10 +99,14 @@ class Subscribe extends Component {
                 className="mt-2"
                 dangerouslySetInnerHTML={{ __html: this.state.msg }}
               />
-            : <InputGroup className="z-0">
+            :
+            <div className="d-flex align-items-center">
+              <p className="text-muted mr-2 mb-0 hidden-sm-down" style={{ whiteSpace: 'nowrap' }}>Want to get updates?</p>
+              <InputGroup>
                 <Input
                   className="subscribe__input p-3"
                   type="email"
+                  id="email"
                   placeholder="email"
                   value={this.state.email}
                   onChange={evt => {
@@ -110,7 +116,9 @@ class Subscribe extends Component {
                 <InputGroupButton color="primary">
                   {this.renderButton(this.state.valid)}
                 </InputGroupButton>
-              </InputGroup>}
+              </InputGroup>
+            </div>
+            }
         </FormGroup>
       </Form>
     );
