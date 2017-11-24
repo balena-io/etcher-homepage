@@ -16,7 +16,7 @@
     "react-twitter-widgets": "1.4.0",
     "react-typekit": "1.1.0",
     "reactstrap": "4.8.0",
-    "resin-event-log": "^1.7.1",
+    "resin-event-log": "^1.7.2",
     "sniffr": "^1.1.4"
   },
   "scripts": {

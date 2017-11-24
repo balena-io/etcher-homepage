@@ -7,7 +7,7 @@ const PWMetrics = require('pwmetrics');
 const runTest = function(url) {
   return new PWMetrics(url, {
     flags: {
-      expectations: true,
+      expectations: false,
       runs: '3', // number or runs
     },
     expectations: {
