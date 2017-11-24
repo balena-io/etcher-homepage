@@ -21,12 +21,12 @@ const Content = ({ children, toggleNav }) => {
   );
 };
 
-const Page = () => {
-  const variant = get(this.props, 'query.vn') || 'a';
+const Page = ({ url }) => {
+  const variant = get(url, 'query.vn') || 'a';
   switch (variant) {
     case 'b':
       return (
-        <Content navHide={this.state.navHide} toggleNav={this.toggleNav}>
+        <Content>
           <Features cols={2} features={locals.proFeatures} />
           <Rationale />
         </Content>
@@ -34,23 +34,19 @@ const Page = () => {
       break;
     case 'c':
       return (
-        <Content navHide={this.state.navHide} toggleNav={this.toggleNav}>
+        <Content>
           <Rationale />
         </Content>
       );
       break;
     default:
       return (
-        <Content navHide={this.state.navHide} toggleNav={this.toggleNav}>
+        <Content>
           <Description />
           <Features cols={2} features={locals.proFeatures} />
         </Content>
       );
   }
-};
-
-Page.getInitialProps = ({ query }) => {
-  return { query };
 };
 
 export default Page;

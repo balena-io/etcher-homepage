@@ -96,7 +96,7 @@ const locals = {
 		{
 			"title": "Modular Expansion",
 			"image": "pro/features/modular-expansion.png",
-			"meta": "Are 16 cards too few for you? Good news! Etcher Pro is modularly expandable. Simply connect two Etcher Pro devices together, they will act as one device with 30 destination slots. If you want even more ports, just add more devices, and write to dozens of cards simultaneously. Etcher Pro can expand up to 160 ports, while continuing to operate at full speed."
+			"meta": "Are 16 cards too few for you? Good news! Etcher Pro is modularly expandable. Simply connect two Etcher Pro devices together, they will act as one device with 32 destination slots. If you want even more ports, just add more devices, and write to dozens of cards simultaneously. Etcher Pro can expand up to 160 ports, while continuing to operate at full speed."
 		},
 		{
 			"title": "Competitive Pricing",
