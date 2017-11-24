@@ -1,9 +1,8 @@
 import Image from '../Image';
-import Subscribe from './Subscribe';
 
-import { Container, Row, Col, Jumbotron } from 'reactstrap';
+import { Container, Jumbotron } from 'reactstrap';
 
-export default ({ mailChimpAction }) =>
+export default () =>
   <Jumbotron className="text-center pro-jumbotron mb-0">
     <Container>
       <Image

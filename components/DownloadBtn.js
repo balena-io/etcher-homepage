@@ -61,7 +61,8 @@ class DownloadBtn extends Component {
   }
 
   render() {
-    const { track, ...props } = this.props;
+    // eslint-disable-next-line no-unused-vars
+    const { track, downloads, ...props } = this.props;
     const { isOpen, link, links } = this.state;
     return (
       <ButtonDropdown isOpen={isOpen} toggle={this.toggle} {...props}>

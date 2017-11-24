@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Head from 'next/head';
 import { Tracker } from '../_Providers';
 import Image from '../../components/Image';
 import locals from '../../config/cache.json';
-import get from 'lodash/get'
+import get from 'lodash/get';
 
 import { tagManagerHead, tagManagerNoScript } from '../../lib/scripts';
 
@@ -95,7 +95,10 @@ class Link extends React.PureComponent {
         rel="noopener noreferrer"
         className={this.type}
         onClick={() => {
-          this.context.track(`etcher_app ${this.props.label} ${this.type}`);
+          this.context.track(
+            `etcher_app ${this.props.label} button`,
+            this.props.meta
+          );
           eventLog(`click ${this.props.label} ${this.type}`);
         }}
       >
@@ -180,6 +183,9 @@ const BannerEtcherProA = () =>
           className="variantA"
           label="successBanner pro"
           href={`${CAMPAIGN_URL}&utm_medium=vna`}
+          meta={{
+            vn: 'a'
+          }}
         >
           Discover
           <Image className="icon" src="pro/logo-banner.svg" retina={false} />
@@ -218,6 +224,9 @@ const BannerEtcherProB = () =>
         </h1>
         <Button
           label="successBanner pro"
+          meta={{
+            vn: 'b'
+          }}
           href={`${CAMPAIGN_URL}&utm_medium=vnb`}
         >
           Discover More
@@ -251,7 +260,6 @@ const Footer = () =>
     </Link>
   </footer>;
 
-// {variant === 'a' ? <BannerEtcherProA /> : <BannerEtcherProB />}
 /**
  * @summary Page
  * @function
@@ -260,33 +268,48 @@ const Footer = () =>
  * @example
  * <Page />
  */
-const Page = ({ url }) => {
-  const variant = get(url, 'query.vn') || 'a';
-  return (
-    <Tracker analytics={locals.analytics}>
-      <div>
-        <Head>
-          <script
+class Page extends Component {
+  constructor() {
+    super();
+    this.state = {
+      vn: 'a'
+    };
+  }
+
+  componentDidMount() {
+    // get the variant from url query params
+    let params = new URL(document.location).searchParams;
+    this.setState({
+      vn: params.get('vn')
+    });
+  }
+
+  render() {
+    return (
+      <Tracker analytics={locals.analytics}>
+        <div>
+          <Head>
+            <script
+              dangerouslySetInnerHTML={{
+                __html: tagManagerHead(locals.analytics.tagManagerId)
+              }}
+            />
+            <meta charset="utf-8" />
+            <link
+              rel="stylesheet"
+              type="text/css"
+              href="/static/success-banner.css?v=1.0.1"
+            />
+          </Head>
+          <noscript
             dangerouslySetInnerHTML={{
-              __html: tagManagerHead(locals.analytics.tagManagerId)
+              __html: tagManagerNoScript(locals.analytics.tagManagerId)
             }}
           />
-          <meta charset="utf-8" />
-          <link
-            rel="stylesheet"
-            type="text/css"
-            href="/static/success-banner.css?v=1.0.1"
-          />
-        </Head>
-        <noscript
-          dangerouslySetInnerHTML={{
-            __html: tagManagerNoScript(locals.analytics.tagManagerId)
-          }}
-        />
-        <Banner />
-      </div>
-    </Tracker>
-  )
+          {this.state.vn === 'a' ? <BannerEtcherProA /> : <BannerEtcherProB />}
+        </div>
+      </Tracker>
+    );
+  }
 }
-
 export default Page;

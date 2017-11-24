@@ -99,26 +99,29 @@ class Subscribe extends Component {
                 className="mt-2"
                 dangerouslySetInnerHTML={{ __html: this.state.msg }}
               />
-            :
-            <div className="d-flex align-items-center">
-              <p className="text-muted mr-2 mb-0 hidden-sm-down" style={{ whiteSpace: 'nowrap' }}>Want to get updates?</p>
-              <InputGroup>
-                <Input
-                  className="subscribe__input p-3"
-                  type="email"
-                  id="email"
-                  placeholder="email"
-                  value={this.state.email}
-                  onChange={evt => {
-                    this.setState({ email: evt.target.value });
-                  }}
-                />
-                <InputGroupButton color="primary">
-                  {this.renderButton(this.state.valid)}
-                </InputGroupButton>
-              </InputGroup>
-            </div>
-            }
+            : <div className="d-flex align-items-center">
+                <p
+                  className="text-muted mr-2 mb-0 hidden-sm-down"
+                  style={{ whiteSpace: 'nowrap' }}
+                >
+                  Want to get updates?
+                </p>
+                <InputGroup>
+                  <Input
+                    className="subscribe__input p-3"
+                    type="email"
+                    id="email"
+                    placeholder="email"
+                    value={this.state.email}
+                    onChange={evt => {
+                      this.setState({ email: evt.target.value });
+                    }}
+                  />
+                  <InputGroupButton color="primary">
+                    {this.renderButton(this.state.valid)}
+                  </InputGroupButton>
+                </InputGroup>
+              </div>}
         </FormGroup>
       </Form>
     );

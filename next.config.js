@@ -23,7 +23,6 @@ module.exports = {
       "/changelog": { page: "/changelog" },
       "/cli": { page: "/cli" },
       "/success-banner": { page: "/success-banner" },
-      "/success-banner": { page: "/success-banner", query: { vn: 'b' } },
       "/pro": { page: "/pro" }
     }
   }
