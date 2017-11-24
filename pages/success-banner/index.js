@@ -280,7 +280,7 @@ class Page extends Component {
     // get the variant from url query params
     let params = new URL(document.location).searchParams;
     this.setState({
-      vn: params.get('vn')
+      vn: params.get('vn') || 'a'
     });
   }
 
@@ -306,9 +306,8 @@ class Page extends Component {
               __html: tagManagerNoScript(locals.analytics.tagManagerId)
             }}
           />
-          <Banner />
           {
-            //this.state.vn === 'b' ? <BannerEtcherProB /> : <BannerEtcherProA />
+            this.state.vn === 'b' ? <BannerEtcherProB /> : <BannerEtcherProA />
           }
         </div>
       </Tracker>

@@ -18,18 +18,16 @@ export class Tracker extends Component {
       tracker.start();
 
       if (window.location.pathname.startsWith('/success-banner')) {
-        // on sucess page we only log page views on focus
-        ifvisible.on('focus', function() {
+        // on sucess page we only log page views on 'focus/mouse' moves
+        ifvisible.on('wakeup', () => {
+          // go back updating data
           tracker.page.visit({ url: window.location.pathname });
         });
       } else {
-        dataLayer.push({ event: 'optimize.activate' });
         tracker.page.visit({ url: window.location.pathname });
       }
 
       Router.routeChangeComplete = url => {
-        // used to run optimize a/b dom manipulation after the react render.
-        dataLayer.push({ event: 'optimize.activate' });
         // track any further client side route changes
         tracker.page.visit({ url: url });
       };
