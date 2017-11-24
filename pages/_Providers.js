@@ -12,12 +12,21 @@ export class Tracker extends Component {
   }
 
   componentDidMount() {
+    const ifvisible = require('ifvisible.js')
     if (this.state.track === null) {
       const tracker = EventLog(this.props.analytics);
       tracker.start();
-      // used to run optimize a/b dom manipulation after the react render.
-      dataLayer.push({ event: 'optimize.activate' });
-      tracker.page.visit({ url: window.location.pathname });
+
+      if (window.location.pathname.startsWith('/success-banner')) {
+        // on sucess page we only log page views on focus
+        ifvisible.on('focus', function() {
+          tracker.page.visit({ url: window.location.pathname });
+        })
+      } else {
+        dataLayer.push({ event: 'optimize.activate' });
+        tracker.page.visit({ url: window.location.pathname });
+      }
+
 
       Router.routeChangeComplete = url => {
         // used to run optimize a/b dom manipulation after the react render.

@@ -306,7 +306,7 @@ class Page extends Component {
               __html: tagManagerNoScript(locals.analytics.tagManagerId)
             }}
           />
-          {this.state.vn === 'a' ? <BannerEtcherProA /> : <BannerEtcherProB />}
+          {this.state.vn === 'b' ? <BannerEtcherProB /> : <BannerEtcherProA /> }
         </div>
       </Tracker>
     );
