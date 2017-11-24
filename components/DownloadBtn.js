@@ -1,10 +1,16 @@
-import React, { PropTypes, Component } from 'react';
-import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem, Button } from 'reactstrap';
-import Router from 'next/router';
+import { Component } from 'react';
+import {
+  ButtonDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+  Button
+} from 'reactstrap';
+
 import Sniffr from 'sniffr';
 import sortBy from 'lodash/sortBy';
 import arch from 'arch';
-import withTrack from '../lib/withTrack'
+import withTrack from '../lib/withTrack';
 
 class DownloadBtn extends Component {
   constructor(props) {
@@ -29,62 +35,64 @@ class DownloadBtn extends Component {
     const client = new Sniffr();
 
     client.sniff(window.navigator.userAgent);
-    client.os.arch = arch()
+    client.os.arch = arch();
 
     const links = this.props.downloads;
 
     // give points for not matching
-    const score = (condition, p) => (!condition ? p : 0)
+    const score = (condition, p) => (!condition ? p : 0);
 
-    const sortedLinks = sortBy(links, (l) => {
-      let linkScore = score(l.os.toLowerCase() === client.os.name.toLowerCase(), 2);
+    const sortedLinks = sortBy(links, l => {
+      let linkScore = score(
+        l.os.toLowerCase() === client.os.name.toLowerCase(),
+        2
+      );
       if (linkScore === 0) {
-        linkScore = linkScore + (l.arch === client.os.arch, 1)
+        linkScore = linkScore + (l.arch === client.os.arch, 1);
       }
 
-      return linkScore
-    })
+      return linkScore;
+    });
 
     this.setState({
-      link : sortedLinks[0],
-      links: sortedLinks.splice(1),
-    })
+      link: sortedLinks[0],
+      links: sortedLinks.splice(1)
+    });
   }
 
   render() {
-    const { downloads, track, ...props } = this.props;
+    const { track, ...props } = this.props;
     const { isOpen, link, links } = this.state;
     return (
       <ButtonDropdown isOpen={isOpen} toggle={this.toggle} {...props}>
         <Button
           id="caret"
           color="primary"
-          href={ link.href }
+          href={link.href}
           onClick={() => {
-            track('download', link );
+            track('download', link);
           }}
         >
-          {`Download ${link.text.split(' ').slice(1,4).join(' ')}`}
+          {`Download ${link.text.split(' ').slice(1, 4).join(' ')}`}
         </Button>
         <DropdownToggle caret color="primary" />
         <DropdownMenu>
-          {
-            links.length > 0 && links.map((l, index) => {
+          {links.length > 0 &&
+            links.map((l, index) => {
               return (
                 <DropdownItem
                   onClick={() => {
-                    track('download', l );
+                    track('download', l);
                   }}
-                  href={ l.href }
-                  id={ index }
-                  key={ index }
-                  tag='a'
-                  >
-                    { l.text }
+                  href={l.href}
+                  id={index}
+                  key={index}
+                  tag="a"
+                >
+                  {l.text}
                 </DropdownItem>
-              )
-            })
-          }
+              );
+            })}
         </DropdownMenu>
       </ButtonDropdown>
     );

@@ -80,7 +80,7 @@ class EtcherVersion extends React.PureComponent {
  * <Link label="Example" href="https://example.com/">Example page</Link>
  */
 class Link extends React.PureComponent {
-  constructor(props, context) {
+  constructor() {
     super();
 
     this.type = 'link';

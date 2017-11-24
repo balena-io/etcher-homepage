@@ -1,9 +1,8 @@
 import React from 'react';
 import { Table } from 'reactstrap';
 
-
 const DownloadTable = ({ items }, { tracker }) => {
-  return(
+  return (
     <Table>
       <thead>
         <tr>
@@ -13,32 +12,30 @@ const DownloadTable = ({ items }, { tracker }) => {
         </tr>
       </thead>
       <tbody>
-        {
-          items.map((item, n) => (
-            <tr key={n}>
-              <td key={`${n}-release`}>
-                <a
-                  href={item.href}
-                  onClick={() => {
-                    tracker.create('download', item );
-                  }}
-                >
-                  {item.text}
-                  </a>
-              </td>
-              <td>
-                {item.os}
-              </td>
-              <td>
-                {item.arch}
-              </td>
-            </tr>
-          ))
-        }
+        {items.map((item, n) =>
+          <tr key={n}>
+            <td key={`${n}-release`}>
+              <a
+                href={item.href}
+                onClick={() => {
+                  tracker.create('download', item);
+                }}
+              >
+                {item.text}
+              </a>
+            </td>
+            <td>
+              {item.os}
+            </td>
+            <td>
+              {item.arch}
+            </td>
+          </tr>
+        )}
       </tbody>
     </Table>
-  )
-}
+  );
+};
 
 export default DownloadTable;
 
