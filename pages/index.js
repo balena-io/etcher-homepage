@@ -30,13 +30,19 @@ export default class extends Component {
     fetch(`${FORUM_LINK}/c/etcher.json`)
       .then(res => res.json())
       .then(topics => {
-        const JVIOTTI_USERID = 4;
+        // Forum user IDs of Etcher team members
+        const ETCHER_TEAM_USERIDS = [
+          4, // @jviotti
+          169, // @lurch
+          179, // @shou
+          223 // @jhermsmeier
+        ];
+        // Check if someone from the Etcher team made the post
+        // and it contains latest version
         return topics.topic_list.topics.find(topic => {
-          // check if jviotti made the post
-          // and it contains latest version
           return (
             topic.title.includes(`Etcher ${locals.version} release`) &&
-            topic.posters[0].user_id == JVIOTTI_USERID
+            ETCHER_TEAM_USERIDS.includes(topic.posters[0].user_id)
           );
         });
       })
