@@ -28,6 +28,10 @@ body {
   width: 80%;
   max-width: 800px;
   margin: auto;
+
+  > img {
+    max-width: 100%;
+  }
 }
 
 .navbar-toggler {
