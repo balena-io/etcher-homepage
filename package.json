@@ -1,6 +1,6 @@
 {
   "name": "etcher.io",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "react based static site",
   "dependencies": {
     "arch": "^2.1.0",
