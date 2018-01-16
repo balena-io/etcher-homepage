@@ -272,16 +272,8 @@ class Page extends Component {
   constructor() {
     super();
     this.state = {
-      vn: 'a'
+      vn: 'b'
     };
-  }
-
-  componentDidMount() {
-    // get the variant from url query params
-    let params = new URL(document.location).searchParams;
-    this.setState({
-      vn: params.get('vn') || 'a'
-    });
   }
 
   render() {
