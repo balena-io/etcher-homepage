@@ -2,7 +2,8 @@ import pick from 'lodash/pick';
 const IS_PROD = process.env.NODE_ENV === 'production';
 
 const links = {
-  'Home': '/',
+	'Home': '/',
+	'Etcher Pro': 'https://etcher.io/pro',
   'Changelog': '/changelog',
   'Repository': 'https://github.com/resin-io/etcher',
   'CLI': '/cli',
