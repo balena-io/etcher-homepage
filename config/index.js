@@ -6,7 +6,7 @@ const links = {
   'Changelog': '/changelog',
   'Repository': 'https://github.com/resin-io/etcher',
   'CLI': '/cli',
-  'Chat': 'https://gitter.im/resin-io/etcher',
+  'Forums': 'https://forums.resin.io/c/etcher',
   'Contact': 'mailto:hello@etcher.io',
   'About Us': 'https://resin.io',
   'Blog': 'https://resin.io/blog',
@@ -37,7 +37,7 @@ const locals = {
     tagManagerId: 'GTM-WPMGNJJ'
   },
   nav: {
-    header: pick(links, [ 'Repository', 'Changelog' , 'CLI', 'Chat', 'Mailing List', 'Help']),
+    header: pick(links, [ 'Repository', 'Changelog' , 'CLI', 'Forums', 'Mailing List', 'Help']),
     footer: links
   },
   company: {
