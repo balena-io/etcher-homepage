@@ -20,7 +20,7 @@ const locals = {
   title: 'Etcher',
   prefix: IS_PROD ? '' : '',
   slogan: 'Burn. Better.',
-  lead: 'Burn images to SD cards & USB drives, safely and easily.',
+  lead: 'Flash OS images to SD cards & USB drives, safely and easily.',
   logo: 'logo.png',
   screenshot: 'screenshot.gif',
   typekitId: 'lzw7tre',
@@ -47,7 +47,7 @@ const locals = {
   attribution: 'Etcher is an open source project by <a target="_blank" href="https://resin.io">resin.io</a> - modern tools to build your fleet of IoT devices.',
   features: [
     {
-			"title": "Validated Burning",
+			"title": "Validated Flashing",
 			"image": "features/sd.png",
 			"meta": "No more writing images on corrupted cards and wondering why your device isn't booting."
 		},
@@ -59,7 +59,7 @@ const locals = {
 		{
 			"title": "Beautiful Interface",
 			"image": "features/simple.png",
-			"meta": "Who said burning SD cards has to be an eyesore."
+			"meta": "Who said flashing SD cards has to be an eyesore."
 		},
 		{
 			"title": "Open Source",
@@ -74,12 +74,12 @@ const locals = {
 		{
 			"title": "More on the way",
 			"image": "features/coming-soon.png",
-			"meta": "50% faster burns, simultaneous writing for multiple drives.<br/><a target='_blank' href='https://github.com/resin-io/etcher/milestones'>View our roadmap</a>"
+			"meta": "50% faster flashes, simultaneous writing for multiple drives.<br/><a target='_blank' href='https://github.com/resin-io/etcher/milestones'>View our roadmap</a>"
 		}
 	],
   story: [
-		"Here at <a target='_blank' href='https://resin.io'>resin.io</a> we have thousands of users working through our getting started process and until recently we were embarassed about the steps that involved burning an SD card. There was a separate track for each Mac/Windows/Linux and several manual and error-prone steps along the way.",
-		"To our surprise there was nothing out there that fitted our needs. So we built Etcher, a SD card burner app that is simple for end users, extensible for developers, and works on any platform. "
+		"Here at <a target='_blank' href='https://resin.io'>resin.io</a> we have thousands of users working through our getting started process and until recently we were embarassed about the steps that involved flashing an SD card. There was a separate track for each Mac/Windows/Linux and several manual and error-prone steps along the way.",
+		"To our surprise there was nothing out there that fitted our needs. So we built Etcher, an SD card flasher app that is simple for end users, extensible for developers, and works on any platform. "
 	],
   proMailChimpList: 'https://resin.us3.list-manage.com/subscribe/post?u=87871f17defba2d203db77a92&amp;id=135af0f95d',
   proFeatures: [
