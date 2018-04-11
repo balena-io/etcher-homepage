@@ -36,7 +36,7 @@
     "deploy": "gh-pages -d build --dotfiles",
     "prettier": "prettier --single-quote --write '{lib,pages,components}/**/*.js'",
     "prettier-check": "prettier-check --single-quote '{lib,pages,components}/**/*.js'",
-    "lint": "eslint 'pages/**/*.js', 'lib/**/*.js', 'components/**/*.js'"
+    "lint": "npm run prettier-check && eslint 'pages/**/*.js', 'lib/**/*.js', 'components/**/*.js'"
   },
   "devDependencies": {
     "autoprefixer": "7.1.2",

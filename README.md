@@ -1,20 +1,20 @@
 # etcher.io 🔥💿🔥💿
 
 ```
-yarn install
+npm install
 ```
 
 dev
 ```
-yarn start
+npm start
 ```
 
 build static site
 ```
-yarn run export
+npm run export
 ```
 
 deploy static site
 ```
-yarn run deploy
+npm run deploy
 ```

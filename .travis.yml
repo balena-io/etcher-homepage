@@ -1,9 +1,7 @@
 language: node_js
 node_js:
-  - "7"
-dist: trusty
+  - stable
 cache:
-  yarn: true
   directories:
     - node_modules
 
@@ -14,7 +12,6 @@ before_script:
   - curl -L https://raw.githubusercontent.com/GoogleChrome/lighthouse/master/lighthouse-core/scripts/download-chrome.sh | bash
 
 script:
-  - yarn prettier-check
-  - yarn lint
-  - yarn run export
-  - yarn test
+  - npm run lint
+  - npm run run export
+  - npm run test
