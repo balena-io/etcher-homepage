@@ -50,11 +50,11 @@ const runTest = function(url) {
 app.use(compression());
 app.use('/', express.static(path.join(__dirname, '../build')));
 
-const server = app.listen(1337, function() {
-  console.log('Listening on port: ' + 1337);
+const server = app.listen(function() {
+  console.log('Listening on', this.address());
   if (process.env.ENV !== 'test') return;
 
-  return runTest('http://localhost:1337')
+  return runTest('http://localhost:' + this.address().port)
     .then(handleOk)
     .catch(handleError);
 });
