@@ -13,5 +13,5 @@ before_script:
 
 script:
   - npm run lint
-  - npm run run export
+  - npm run export
   - npm run test
