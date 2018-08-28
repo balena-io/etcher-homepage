@@ -1,0 +1,6 @@
+---
+npm:
+  platforms:
+    - name: linux
+      os: alpine
+      architecture: x86_64
