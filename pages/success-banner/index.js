@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { Tracker } from '../_Providers';
 import Image from '../../components/Image';
 import locals from '../../config/cache.json';
-import get from 'lodash/get';
+import compareVersions from 'compare-versions';
 
 import { tagManagerHead, tagManagerNoScript } from '../../lib/scripts';
 
@@ -207,34 +207,55 @@ const BannerEtcherProA = () =>
      * <BannerEtcherProB />
      */
 
-const BannerEtcherProB = () =>
-  <main className="vertical center">
-    <div className="horizontal center grow">
-      <div>
-        <Image className="product-img" src="pro/outline.png" />
-      </div>
-      <div className="ml-2 vertical center">
-        <h1>
-          Introducing
-          <Image
-            className="icon etcherPro"
-            src="pro/logo-banner.svg"
-            retina={false}
-          />
-        </h1>
-        <Button
-          label="successBanner pro"
-          meta={{
-            vn: 'b'
-          }}
-          href={`${CAMPAIGN_URL}&utm_medium=vnb`}
-        >
-          Discover More
-        </Button>
-      </div>
-    </div>
-    <Footer />
-  </main>;
+class BannerEtcherProB extends React.PureComponent {
+  constructor() {
+    super();
+
+    this.state = { legacy: false };
+  }
+
+  render() {
+    return (
+      <main className="vertical center" className={this.state.legacy ? 'legacy-background-color' : 'new-background-color'}>
+        <div className="horizontal center grow">
+          <div>
+            <Image className="product-img" src="pro/outline.png" />
+          </div>
+          <div className="ml-2 vertical center">
+            <h1>
+              Introducing
+              <Image
+                className="icon etcherPro"
+                src="pro/logo-banner.svg"
+                retina={false}
+              />
+            </h1>
+            <Button
+              label="successBanner pro"
+              meta={{
+                vn: 'b'
+              }}
+              href={`${CAMPAIGN_URL}&utm_medium=vnb`}
+            >
+              Discover More
+            </Button>
+          </div>
+        </div>
+        <Footer />
+      </main>
+    );
+  }
+
+  componentDidMount() {
+    const version = new URL(location.href).searchParams.get('etcher-version');
+    if (version) {
+      const legacy = compareVersions(version, '1.4.4') < 1;
+      this.setState({ legacy });
+    } else {
+      this.setState({ legacy: true });
+    }
+  }
+}
 
 /**
  * @summary Footer

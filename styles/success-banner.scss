@@ -2,10 +2,17 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: #4d5057;
   font-family: 'Helvetica Thin', Helvetica, sans-serif;
   color: #ffffff;
   margin: 0;
+}
+
+.legacy-background-color {
+  background-color: #535760;
+}
+
+.new-background-color {
+  background-color: #4d5057;
 }
 
 a {
