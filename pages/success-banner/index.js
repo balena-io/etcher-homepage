@@ -215,8 +215,9 @@ class BannerEtcherProB extends React.PureComponent {
   }
 
   render() {
+    const className = `vertical center ${this.state.legacy ? 'legacy-background-color' : 'new-background-color'}`;
     return (
-      <main className="vertical center" className={this.state.legacy ? 'legacy-background-color' : 'new-background-color'}>
+      <main className={className}>
         <div className="horizontal center grow">
           <div>
             <Image className="product-img" src="pro/outline.png" />
