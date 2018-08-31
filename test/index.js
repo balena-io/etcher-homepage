@@ -7,6 +7,7 @@ const PWMetrics = require('pwmetrics');
 const runTest = function(url) {
   return new PWMetrics(url, {
     flags: {
+      port: 1991,
       expectations: false,
       runs: '3', // number or runs
     },
@@ -45,7 +46,7 @@ const runTest = function(url) {
       }
     }
   }).start();
-}
+};
 
 app.use(compression());
 app.use('/', express.static(path.join(__dirname, '../build')));
