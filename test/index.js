@@ -6,9 +6,11 @@ const PWMetrics = require('pwmetrics');
 
 const runTest = function(url) {
   return new PWMetrics(url, {
+    chromeFlags: '--headless',
     flags: {
       expectations: false,
-      runs: '3', // number or runs
+      runs: '3', // number or runs,
+      json: true
     },
     expectations: {
       ttfmp: {
@@ -38,15 +40,11 @@ const runTest = function(url) {
       vs100: {
         warn: '>=1500',
         error: '>=2000'
-      },
-      tti: {
-        warn: '>=1500',
-        error: '>=2000'
       }
     }
   }).start();
 }
-
+;
 app.use(compression());
 app.use('/', express.static(path.join(__dirname, '../build')));
 
@@ -62,7 +60,7 @@ const server = app.listen(1337, function() {
 /**
  * Handle success
  */
-const handleOk = function(results) {
+const handleOk = function() {
   server.close();
   process.exit(0);
 };
