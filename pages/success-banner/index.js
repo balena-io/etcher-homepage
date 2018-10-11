@@ -130,40 +130,6 @@ class Button extends Link {
 }
 
 /**
- * @summary Banner
- * @function
- * @private
- *
- * @example
- * <Banner />
- */
-
-const Banner = () =>
-  <main className="vertical center">
-    <div>
-      <h1>
-        We hope you enjoyed using
-        <img src="/static/etcher.svg" className="etcher-logo" />
-      </h1>
-    </div>
-    <div className="horizontal center grow">
-      <Button href="https://github.com/resin-io/etcher" label="star on Github">
-        <img className="icon github" src="/static/social/octocat.png" />
-        Star on Github
-      </Button>
-      <Button
-        className="ml-2"
-        href="https://twitter.com/intent/tweet?text=Just%20flashed%20an%20image%20with%20%23etcher%20by%20%40resin_io!%20Check%20it%20out%3A%20https%3A%2F%2Fetcher.io"
-        label="Tweet"
-      >
-        <img className="icon twitter" src="/static/social/twitter.png" />
-        Tweet
-      </Button>
-    </div>
-    <Footer />
-  </main>;
-
-/**
    * @summary Etcher Pro Banner variant A
    * @function
    * @private
@@ -215,7 +181,9 @@ class BannerEtcherProB extends React.PureComponent {
   }
 
   render() {
-    const className = `vertical center ${this.state.legacy ? 'legacy-background-color' : 'new-background-color'}`;
+    const className = `vertical center ${this.state.legacy
+      ? 'legacy-background-color'
+      : 'new-background-color'}`;
     return (
       <main className={className}>
         <div className="horizontal center grow">
