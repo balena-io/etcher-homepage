@@ -4,7 +4,7 @@ module.exports = {
 		title: 'balenaEtcher',
 		lead: 'Flash. Flawless.',
     description: 'Flash OS images to SD cards & USB drives, safely and easily.',
-    featuresLead: 'An engine compatible with docker containers',
+    featuresLead: 'A better way to burn.',
 		features: [
         {
           "title": "Validated Flashing",
@@ -58,15 +58,15 @@ module.exports = {
     navigationLinks: [
       {
         text: 'Repository',
-        link: '/docs',
+        link: 'https://github.com/resin-io/etcher/',
       },
       {
         text: 'Changelog',
-        link: '/changelog',
+        link: '/etcher/changelog',
       },
       {
         text: 'CLI',
-        link: '/cli'
+        link: '/etcher/cli'
       },
       {
         text: 'Forums',

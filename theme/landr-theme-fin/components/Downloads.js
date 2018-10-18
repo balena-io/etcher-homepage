@@ -169,8 +169,18 @@ export default withTheme(props => {
                   </tr>
                 ))}
             </Table>
+            <Box style={{textAlign: 'left'}} mt='79px'>
+              <Text.span fontSize='14px'>
+                Looking for{' '}
+                <Link href={'https://github.com/resin-io/etcher#debian-and-ubuntu-based-package-repository-gnulinux-x86x64'}>Debian (.deb) packages</Link>
+                {' '}or{' '}
+                <Link href={'https://github.com/resin-io/etcher#redhat-rhel-and-fedora-based-package-repository-gnulinux-x86x64'}>Red Hat (.rpm) packages</Link>
+                ?
+              </Text.span>
+            </Box>
           </Box>
         </TableWrapper>
+        
       </Container>
     </DownloadsWrapper>
   );

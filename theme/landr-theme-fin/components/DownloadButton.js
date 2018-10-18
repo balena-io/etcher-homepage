@@ -7,7 +7,7 @@ import theme from '../theme'
 import { compose } from 'recompose'
 const isArray = require('lodash/isArray')
 import { space, color, fontSize, width } from 'styled-system'
-import { Sniffr } from 'sniffr'
+//import Sniffr from 'sniffr';
 
 const ToggleBase = styled(Button)`
   min-width: 0;
@@ -48,25 +48,20 @@ const MenuBase = styled.div`
   box-shadow: -10px 9px 21px 0 rgba(152, 173, 227, 0.08);
   border: solid 1px #e8ebf2;
   background-color: #ffffff;
-  color: #172c3d;
+  color: #2a506f;
 
   background: white;
-  position: absolute;
-  min-width: ${props => props.minWidth};
-  z-index: 1;
-  margin-top: 2px;
-  left: ${props => (props.alignRight ? 'auto' : 0)};
-  right: ${props => (!props.alignRight ? 'auto' : 0)};
   white-space: nowrap;
   max-height: 280px;
   overflow-y: auto;
+  padding: 28px 13px;
 `
 
 MenuBase.defaultProps = { theme }
 
 const Wrapper = styled.div`
-  ${space} ${width} ${fontSize} display: inline-block;
-  border-radius: ${props => px(props.theme.radius)};
+  display: inline-block;
+  border-radius: 2px;
   vertical-align: top;
   position: relative;
 `
@@ -152,9 +147,9 @@ class DropDownButton extends React.Component {
       ...props
     } = this.props
 
-    let label = this.props.label
+    let label = this.props.label || 'Download'
 
-    if (label === undefined) {
+/*    if (label === undefined) {
       if (Sniffr.os.name === 'MacOS') {
         label = 'Download for MacOS'
       }
@@ -168,7 +163,7 @@ class DropDownButton extends React.Component {
         label = 'Download'
       }
     }
-
+*/
 
     const dropdownContents = isArray(children) ? children : [children]
 
