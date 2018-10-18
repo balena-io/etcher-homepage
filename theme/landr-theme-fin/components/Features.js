@@ -13,10 +13,10 @@ const FeaturesBox = styled(Box)`
 `;
 
 export default withTheme(props => {
-  console.log('Features',{props})
+  
   const list = props.settings.features.map((feature, index) => {
-    const imageSet = `${assets[`${feature.icon}@1x`]},
-		${assets[`${feature.icon}@1x`]} 1x,
+    const imageSet = `${assets[`${feature.icon}`]},
+		${assets[`${feature.icon}`]} 1x,
 		${assets[`${feature.icon}@2x`]} 2x,
 		${assets[`${feature.icon}@3x`]} 3x`;
     return (
@@ -58,7 +58,7 @@ export default withTheme(props => {
             width={[1, 1, 1, 1 / 2]}
             mb={[50, 50, 50, 20]}
           >
-            <Box width={[1, 1, 1, 11 / 12]} pl={[0, 0, 0, 64]}>
+            <Box pl={[0, 0, 0, 64]}>
               <Heading.h5
                 fontSize={14}
                 mb={16}

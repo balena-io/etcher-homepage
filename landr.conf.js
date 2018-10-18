@@ -8,32 +8,32 @@ module.exports = {
 		features: [
         {
           "title": "Validated Flashing",
-          "icon": "features/sd.png",
+          "icon": "group-29",
           "description": "No more writing images on corrupted cards and wondering why your device isn't booting."
         },
         {
           "title": "Hard Drive Friendly",
-          "icon": "features/hd.png",
+          "icon": "group-36",
           "description": "Makes drive selection obvious to avoid wiping your entire hard-drive"
         },
         {
           "title": "Beautiful Interface",
-          "icon": "features/simple.png",
+          "icon": "group-32",
           "description": "Who said flashing SD cards has to be an eyesore."
         },
         {
           "title": "Open Source",
-          "icon": "features/open-source.png",
+          "icon": "group-38",
           "description": "Made with JS, HTML, node.js and <a target='_blank' href='http://electron.atom.io/'>Electron</a>. Dive in and contribute!"
         },
         {
           "title": "Cross Platform",
-          "icon": "features/cross-platform.png",
+          "icon": "group-39",
           "description": "Works for everyone,<br/>no more complicated install instructions."
         },
         {
           "title": "More on the way",
-          "icon": "features/coming-soon.png",
+          "icon": "group-35",
           "description": "50% faster flashes, simultaneous writing for multiple drives.<br/><a target='_blank' href='https://github.com/resin-io/etcher/milestones'>View our roadmap</a>"
         }
 	    ],
@@ -99,5 +99,91 @@ module.exports = {
         link: ''
       },
     ],
+    releases: [
+      {
+        text: "Etcher for Windows x64 (64-bit) (Installer)",
+        href: "https://github.com/resin-io/etcher/releases/download/v1.4.5/Etcher-Setup-1.4.5-x64.exe",
+        os: "Windows",
+        arch: "x64",
+        installerType: "(Installer)"
+      },
+      {
+        text: "Etcher for Windows x64 (64-bit) (Portable)",
+        href: "https://github.com/resin-io/etcher/releases/download/v1.4.5/Etcher-Portable-1.4.5-x64.exe",
+        os: "Windows",
+        arch: "x64",
+        installerType: "(Portable)"
+      },
+      {
+        text: "Etcher for Windows x86 (32-bit) (Installer)",
+        href: "https://github.com/resin-io/etcher/releases/download/v1.4.5/Etcher-Setup-1.4.5-x86.exe",
+        os: "Windows",
+        arch: "x86",
+        installerType: "(Installer)"
+      },
+      {
+        text: "Etcher for Windows x86 (32-bit) (Portable)",
+        href: "https://github.com/resin-io/etcher/releases/download/v1.4.5/Etcher-Portable-1.4.5-x86.exe",
+        os: "Windows",
+        arch: "x86",
+        installerType: "(Portable)"
+      },
+      {
+        text: "Etcher for macOS",
+        href: "https://github.com/resin-io/etcher/releases/download/v1.4.5/Etcher-1.4.5.dmg",
+        os: "macOS",
+        arch: "x64"
+      },
+      {
+        text: "Etcher for Linux x64 (64-bit) (AppImage)",
+        href: "https://github.com/resin-io/etcher/releases/download/v1.4.5/etcher-electron-1.4.5-linux-x64.zip",
+        os: "Linux",
+        arch: "x64",
+        installerType: "(AppImage)"
+      },
+      {
+        text: "Etcher for Linux x86 (32-bit) (AppImage)",
+        href: "https://github.com/resin-io/etcher/releases/download/v1.4.5/etcher-electron-1.4.5-linux-ia32.zip",
+        os: "Linux",
+        arch: "x86",
+        installerType: "(AppImage)"
+      }
+    ],
+    cliDownloads: [
+      {
+        text: "Etcher CLI for Windows x64 (64-bit)",
+        href: "https://github.com/resin-io/etcher/releases/download/v1.4.5/etcher-cli-1.4.5-windows-x64.zip",
+        os: "Windows",
+        arch: "x64",
+        installerType: "(Installer)"
+      },
+      {
+        text: "Etcher CLI for Windows x86 (32-bit)",
+        href: "https://github.com/resin-io/etcher/releases/download/v1.4.5/etcher-cli-1.4.5-windows-x86.zip",
+        os: "Windows",
+        arch: "x86",
+        installerType: "(Installer)"
+      },
+      {
+        text: "Etcher CLI for macOS",
+        href: "https://github.com/resin-io/etcher/releases/download/v1.4.5/etcher-cli-1.4.5-darwin-x64.tar.gz",
+        os: "macOS",
+        arch: "x64"
+      },
+      {
+        text: "Etcher CLI for Linux x64 (64-bit)",
+        href: "https://github.com/resin-io/etcher/releases/download/v1.4.5/etcher-cli-1.4.5-linux-x64.tar.gz",
+        os: "Linux",
+        arch: "x64",
+        installerType: "(AppImage)"
+      },
+      {
+        text: "Etcher CLI for Linux x86 (32-bit)",
+        href: "https://github.com/resin-io/etcher/releases/download/v1.4.5/etcher-cli-1.4.5-linux-x86.tar.gz",
+        os: "Linux",
+        arch: "x86",
+        installerType: "(AppImage)"
+      }
+    ]
 	},
 };
