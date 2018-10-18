@@ -8,27 +8,27 @@ module.exports = {
 		features: [
         {
           "title": "Validated Flashing",
-          "icon": "group-29",
+          "icon": "group-53",
           "description": "No more writing images on corrupted cards and wondering why your device isn't booting."
         },
         {
           "title": "Hard Drive Friendly",
-          "icon": "group-36",
+          "icon": "group-38",
           "description": "Makes drive selection obvious to avoid wiping your entire hard-drive"
         },
         {
           "title": "Beautiful Interface",
-          "icon": "group-32",
+          "icon": "group-39",
           "description": "Who said flashing SD cards has to be an eyesore."
         },
         {
           "title": "Open Source",
-          "icon": "group-38",
+          "icon": "group-14",
           "description": "Made with JS, HTML, node.js and <a target='_blank' href='http://electron.atom.io/'>Electron</a>. Dive in and contribute!"
         },
         {
           "title": "Cross Platform",
-          "icon": "group-39",
+          "icon": "group-5",
           "description": "Works for everyone,<br/>no more complicated install instructions."
         },
         {

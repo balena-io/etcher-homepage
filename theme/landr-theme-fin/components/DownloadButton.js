@@ -1,8 +1,10 @@
 import styled, { withTheme } from 'styled-components'
-const IconCaretDown = require('react-icons/lib/fa/caret-down')
-const IconCaretUp = require('react-icons/lib/fa/caret-up')
+import IconCaretDown from '../images/toggleDown.svg'
+import IconCaretUp from '../images/toggleUp.svg'
+import WhiteCaretUp from '../images/whiteCaretUp.svg'
+import WhiteCaretDown from '../images/whiteCaretDown.svg'
 import * as React from 'react'
-import { Button, Divider, Fixed, Box, Flex } from 'resin-components'
+import { Button, Divider, Fixed, Box, Flex, Image } from 'resin-components'
 import theme from '../theme'
 import { compose } from 'recompose'
 const isArray = require('lodash/isArray')
@@ -90,29 +92,27 @@ const JoinedButton = styled(Button)`
 `
 const px = (n) => (typeof n === 'number' ? n + 'px' : n);
 
-const Toggle = ({ open, handler, label, joined, ...props }) => {
+const Toggle = ({ open, handler, label, joined, whiteCaretStyle, ...props }) => {
   if (joined) {
     if (label) {
       return (
         <JoinedButton {...props} pl={16} pr={0} onClick={handler}>
           <Flex justify='space-between' align='center'>
             <Box mt='1px'>{label}</Box>
-            <IconWrapper>
-              {open ? <IconCaretUp /> : <IconCaretDown />}
-            </IconWrapper>
+            {open ? <Image src={whiteCaretStyle ? WhiteCaretUp : IconCaretUp} /> : <Image src={whiteCaretStyle ? WhiteCaretDown : IconCaretDown} /> }
           </Flex>
         </JoinedButton>
       )
     }
     return (
       <JoinedButton {...props} square onClick={handler}>
-        {open ? <IconCaretUp /> : <IconCaretDown />}
+        {open ? <Image src={whiteCaretStyle ? WhiteCaretUp : IconCaretUp} /> : <Image src={whiteCaretStyle ? WhiteCaretDown : IconCaretDown} />}
       </JoinedButton>
     )
   }
   return (
     <ToggleBase {...props} onClick={handler}>
-      {open ? <IconCaretUp /> : <IconCaretDown />}
+      {open ? <Image src={whiteCaretStyle ? WhiteCaretUp : IconCaretUp} /> : <Image src={whiteCaretStyle ? WhiteCaretDown : IconCaretDown} />}
     </ToggleBase>
   )
 }

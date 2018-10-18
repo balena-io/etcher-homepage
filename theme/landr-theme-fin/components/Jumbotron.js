@@ -2,8 +2,7 @@ import React from 'react';
 import { withTheme } from 'styled-components';
 import get from 'lodash/get';
 
-import { Button, Heading, Banner, Image, Flex } from 'resin-components';
-import { Link } from 'landr';
+import { Link, Heading, Banner, Image, Flex } from 'resin-components';
 import DownloadButton from './DownloadButton'
 import background from '../images/red-background.svg';
 import imagePic from '../images/etcherImg/image.svg'
@@ -50,14 +49,14 @@ export default withTheme((props) => {
         </Flex>
         <Flex direction='column' mx={25}>
           <Image src={drivePic} />
-          <Heading.h5 color='#172c3d' mt={16} align='center'>Select drive</Heading.h5>
+          <Heading.h5 color='#325069' mt={16} align='center'>Select drive</Heading.h5>
         </Flex>
         <Flex mx={25}>
           <Image src={arrowPic} />
         </Flex>
         <Flex direction='column' mx={25}>
           <Image src={flashPic} />
-          <Heading.h5 color='#172c3d' mt={16} align='center'>Flash!</Heading.h5>
+          <Heading.h5 color='#325069' mt={16} align='center'>Flash!</Heading.h5>
         </Flex>
 			</Flex>
       
@@ -70,12 +69,11 @@ export default withTheme((props) => {
           borderColor='#a5de37' 
           releases={props.settings.releases}
         >
-          <div>Etcher for Windows x64 (64-bit) (Installer)</div>
-          <div>Etcher for Windows x64 (64-bit) (Portable)</div>
-          <div>Etcher for Windows x86 (32-bit) (Installer)</div>
-          <div>Etcher for Windows x86 (32-bit) (Portable)</div>
-          <div>Etcher for Linux x64 (64-bit) (AppImage)</div>
-          <div>Etcher for Linux x96 (64-bit) (AppImage)</div>
+        {
+          props.settings.releases.map((asset, index) => (
+            <Link href={asset.href} color='#2a506f'>{asset.href}</Link>
+          ))   
+        }
         </DownloadButton>
 
         <DownloadButton 
@@ -85,13 +83,13 @@ export default withTheme((props) => {
           borderColor='#a5de37' 
           label='Install experimental CLI'
           releases={props.settings.cliDownloads}
+          whiteCaretStyle
         >
-          <div>Etcher for Windows x64 (64-bit) (Installer)</div>
-          <div>Etcher for Windows x64 (64-bit) (Portable)</div>
-          <div>Etcher for Windows x86 (32-bit) (Installer)</div>
-          <div>Etcher for Windows x86 (32-bit) (Portable)</div>
-          <div>Etcher for Linux x64 (64-bit) (AppImage)</div>
-          <div>Etcher for Linux x96 (64-bit) (AppImage)</div>
+          {
+            props.settings.cliDownloads.map((asset) => (
+              <Link href={asset.href} color='#2a506f' blank>{asset.text}</Link>
+            ))
+          }
         </DownloadButton>
         
       </Flex>
