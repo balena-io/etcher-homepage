@@ -32,10 +32,10 @@ export default class extends Component {
             />
             <link
               rel="shortcut icon"
-              href="/static/favicon.ico"
+              href="/etcher/static/favicon.ico"
               type="image/x-icon"
             />
-            <link rel="icon" href="/static/favicon.ico" type="image/x-icon" />
+            <link rel="icon" href="/etcher/static/favicon.ico" type="image/x-icon" />
             <meta property="og:url" content={`${this.props.website}`} />
             <meta property="og:type" content="website" />
             <meta

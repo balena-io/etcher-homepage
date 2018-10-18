@@ -32,10 +32,10 @@
     "build": "npm run build:data && npm run build-css && next build",
     "build-css": "node-sass --include-path scss styles/index.scss static/index.css --output-style compressed && node-sass --include-path scss styles/success-banner.scss static/success-banner.css --output-style compressed",
     "serve": "next start",
-    "export": "npm run build && next export -o build && cp CNAME build/CNAME && cp .nojekyll build/.nojekyll",
+    "export": "npm run build && next export -o build && cp .nojekyll build/.nojekyll",
     "serve-build": "node ./test/index.js",
     "test": "ENV=test node ./test/index.js",
-    "deploy": "gh-pages -d build --dotfiles",
+    "deploy": "gh-pages -d build --dotfiles --repo git@github.com:thundron/etcher.git",
     "prettier": "prettier --single-quote --write '{lib,pages,components}/**/*.js'",
     "prettier-check": "prettier-check --single-quote '{lib,pages,components}/**/*.js'",
     "lint": "npm run prettier-check && eslint 'pages/**/*.js', 'lib/**/*.js', 'components/**/*.js'"

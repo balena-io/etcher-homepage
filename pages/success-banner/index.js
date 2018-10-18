@@ -237,10 +237,10 @@ class BannerEtcherProB extends React.PureComponent {
 const Footer = () =>
   <footer>
     made with
-    <img className="icon" src="/static/love.svg" />
+    <img className="icon" src="/etcher/static/love.svg" />
     by
     <Link href="https://resin.io/" label="Resin">
-      <img className="brand" src="/static/resin.png" />
+      <img className="brand" src="/etcher/static/resin.png" />
     </Link>
     <Link
       href="https://github.com/resin-io/etcher/blob/master/CHANGELOG.md"
@@ -280,7 +280,7 @@ class Page extends Component {
             <link
               rel="stylesheet"
               type="text/css"
-              href="/static/success-banner.css?v=1.0.1"
+              href="/etcher/static/success-banner.css?v=1.0.1"
             />
           </Head>
           <noscript
