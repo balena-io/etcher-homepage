@@ -54,7 +54,7 @@ export default class extends Component {
             <link
               rel="stylesheet"
               type="text/css"
-              href="/static/index.css?v=1.0.3"
+              href="/etcher/static/index.css?v=1.0.3"
             />
           </Head>
           <noscript

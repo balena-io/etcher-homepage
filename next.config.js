@@ -3,6 +3,7 @@ const glob = require('glob');
 const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer')
 
 module.exports = {
+  outDir: '.next/etcher',
   webpack: (config, { dev }) => {
     // Perform customizations to config
     config.plugins.push(

@@ -4,8 +4,8 @@ const Image = ({ src, retina, ...props }) => {
   return (
     <img
       alt={`${fileName}`}
-      src={`/static/${src}`}
-      srcSet={retina ? `/static/${fileName}@2x.${ext} 2x` : ''}
+      src={`/etcher/static/${src}`}
+      srcSet={retina ? `/etcher/static/${fileName}@2x.${ext} 2x` : ''}
       {...props}
     />
   );

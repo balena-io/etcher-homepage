@@ -21,7 +21,7 @@ export default class extends Component {
     this.state = {
       // default to changelog if no forumlink is found
       releaseNote: {
-        link: '/changelog'
+        link: '/etcher/changelog'
       }
     };
   }
@@ -76,7 +76,7 @@ export default class extends Component {
           <div className="text-muted">
             <p>
               or, use our{' '}
-              <Link prefetch href="/cli">
+              <Link prefetch href="/etcher/cli">
                 <a>experimental CLI</a>
               </Link>
               <br />
