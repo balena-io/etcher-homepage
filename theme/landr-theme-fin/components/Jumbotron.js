@@ -26,9 +26,9 @@ export default withTheme((props) => {
 				minHeight: 'auto',
 				height: 640,
 				position: 'relative',
-			}}
+      }}
 		>
-			<Flex width={1/2} direction='column' align='center' style={{ zIndex: 1 }}>
+			<Flex width={1/2} direction='column' justifyContent='center' style={{ zIndex: 1 }}>
 				<Heading.h1 align="center" my={3} style={{ fontSize: '72px'}}>
 					{getter('settings.lead') ||
 						getter('settings.description') ||
@@ -37,32 +37,39 @@ export default withTheme((props) => {
 				<Heading.h2 align="center" my={3} style={{ fontSize: '18px' }}>
 					{getter('settings.description') ||
 						getter('settings.name')}
-				</Heading.h2>
-				
+				</Heading.h2>	
 			</Flex>
-			<Flex style={{ backgroundColor: '#3F617D' }} width={1 / 2} py={27} px={75} mb='50px'>
-        <Flex direction='column' justifyContent='space-between'>
+
+			<Flex style={{ backgroundColor: '#3F617D' }} width={1 / 2} py={27} my={50} ml={50} mr={49} justifyContent='center'>
+        <Flex direction='column' >
           <Image src={imagePic} />
-          <Heading.h5 color='#fff' mt={16}>Select image</Heading.h5>
+          <Heading.h5 color='#fff' mt={16} align='center'>Select image</Heading.h5>
         </Flex>
-        <Flex direction='column' justifyContent='center' mx={25}>
+        <Flex mx={25}>
           <Image src={arrowPic} />
         </Flex>
-        <Flex direction='column' justifyContent='center' mx={25}>
+        <Flex direction='column' mx={25}>
           <Image src={drivePic} />
-          <Heading.h5 color='#172c3d' mt={16}>Select drive</Heading.h5>
+          <Heading.h5 color='#172c3d' mt={16} align='center'>Select drive</Heading.h5>
         </Flex>
-        <Flex direction='column' justifyContent='center' mx={25}>
+        <Flex mx={25}>
           <Image src={arrowPic} />
         </Flex>
-        <Flex direction='column' justifyContent='center' mx={25}>
+        <Flex direction='column' mx={25}>
           <Image src={flashPic} />
-          <Heading.h5 color='#172c3d' mt={16}>Flash!</Heading.h5>
+          <Heading.h5 color='#172c3d' mt={16} align='center'>Flash!</Heading.h5>
         </Flex>
 			</Flex>
+      
       <Flex direction='row' width={1/2} justifyContent='center'>
 
-        <DownloadButton mx={2} color='#172c3d' background='#a5de37' borderColor='#a5de37' label='Download for MacOS'>
+        <DownloadButton 
+          mx={2} 
+          color='#172c3d' 
+          background='#a5de37' 
+          borderColor='#a5de37' 
+          releases={props.settings.releases}
+        >
           <div>Etcher for Windows x64 (64-bit) (Installer)</div>
           <div>Etcher for Windows x64 (64-bit) (Portable)</div>
           <div>Etcher for Windows x86 (32-bit) (Installer)</div>
@@ -71,7 +78,14 @@ export default withTheme((props) => {
           <div>Etcher for Linux x96 (64-bit) (AppImage)</div>
         </DownloadButton>
 
-        <DownloadButton mx={2} color='white' background='transparent' borderColor='#a5de37' label='Install experimental CLI'>
+        <DownloadButton 
+          mx={2} 
+          color='white' 
+          background='transparent' 
+          borderColor='#a5de37' 
+          label='Install experimental CLI'
+          releases={props.settings.cliDownloads}
+        >
           <div>Etcher for Windows x64 (64-bit) (Installer)</div>
           <div>Etcher for Windows x64 (64-bit) (Portable)</div>
           <div>Etcher for Windows x86 (32-bit) (Installer)</div>

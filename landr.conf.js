@@ -49,7 +49,7 @@ module.exports = {
 		},
     motivation: {
       blogPost:
-        'https://resin.io/blog/introducing-project-fin-a-board-for-fleet-owners',
+        'https://resin.io/blog/tag/etcher',
       paragraphs: [
         "Here at <a target='_blank' href='https://resin.io'>resin.io</a> we have thousands of users working through our getting started process and until recently we were embarassed about the steps that involved flashing an SD card. There was a separate track for each Mac/Windows/Linux and several manual and error-prone steps along the way.",
         "To our surprise there was nothing out there that fitted our needs. So we built Etcher, an SD card flasher app that is simple for end users, extensible for developers, and works on any platform. "

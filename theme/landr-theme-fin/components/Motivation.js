@@ -33,6 +33,11 @@ export default withTheme(props => {
 						</Box>
 					))}
 				</Flex>
+        <Button round outline primary mt={16}>
+          <Link blank href={props.settings.motivation.blogPost} mx={3} color={props.theme.colors.tertiary.main} >
+            Read more on our blog
+						</Link>
+        </Button>
 			</Container>
 		</Box>
 	);

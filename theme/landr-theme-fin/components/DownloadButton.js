@@ -7,6 +7,7 @@ import theme from '../theme'
 import { compose } from 'recompose'
 const isArray = require('lodash/isArray')
 import { space, color, fontSize, width } from 'styled-system'
+import { Sniffr } from 'sniffr'
 
 const ToggleBase = styled(Button)`
   min-width: 0;
@@ -126,9 +127,10 @@ class DropDownButton extends React.Component {
     super(props)
     this.state = {
       open: false,
-      minWidth: 0
+      minWidth: 0,
     }
   }
+
 
   toggle(e) {
     this.setState({
@@ -138,10 +140,10 @@ class DropDownButton extends React.Component {
   }
 
   render() {
+    console.log('rendered')
     const {
       alignRight,
       children,
-      label,
       border,
       joined,
       noListFormat,
@@ -149,6 +151,24 @@ class DropDownButton extends React.Component {
       tooltip,
       ...props
     } = this.props
+
+    let label = this.props.label
+
+    if (label === undefined) {
+      if (Sniffr.os.name === 'MacOS') {
+        label = 'Download for MacOS'
+      }
+      else if (Sniffr.os.name === 'Windows') {
+        label = 'Download for Windows'
+      }
+      else if (Sniffr.os.name === 'Linux') {
+        label = 'Download for Linux'
+      }
+      else {
+        label = 'Download'
+      }
+    }
+
 
     const dropdownContents = isArray(children) ? children : [children]
 
