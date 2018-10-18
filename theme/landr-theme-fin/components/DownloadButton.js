@@ -1,120 +1,210 @@
-import React, { Component } from 'react'
-import Sniffr from 'sniffr'
-import sortBy from 'lodash/sortBy'
-import arch from 'arch'
-import { DropDownButton, Text } from 'resin-components'
-import { withTheme } from 'styled-components'
-import { Link } from 'landr'
-import get from 'lodash/get'
+import styled, { withTheme } from 'styled-components'
+const IconCaretDown = require('react-icons/lib/fa/caret-down')
+const IconCaretUp = require('react-icons/lib/fa/caret-up')
+import * as React from 'react'
+import { Button, Divider, Fixed, Box, Flex } from 'resin-components'
+import theme from '../theme'
+import { compose } from 'recompose'
+const isArray = require('lodash/isArray')
+import { space, color, fontSize, width } from 'styled-system'
 
-const Asset = ({ asset, color, ...props }) => {
-  // TODO make PR width prop into resin-components lib
+const ToggleBase = styled(Button)`
+  min-width: 0;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  margin-left: -10px;
+  border-left: 0;
+  margin: 0;
+  border-width: ${props => props.outline && '1px'};
+  vertical-align: top;
+  background-color: ${props => props.background}
+  border-left: 1px solid transparent;
+  border-top: 1px solid ${props => props.borderColor};
+  border-bottom: 1px solid ${props => props.borderColor};
+  border-right: 1px solid ${props => props.borderColor};
+`
+
+const ButtonBase = styled(Button)`
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: 0;
+  margin: 0;
+  border-width: ${props => props.outline && '5px'};
+  background-color: ${props => props.background}
+  border-left: 1px solid ${props => props.borderColor};
+  border-top: 1px solid ${props => props.borderColor};
+  border-bottom: 1px solid ${props => props.borderColor};
+  border-right: 1px solid transparent;
+`
+
+const MenuBase = styled.div`
+
+  border-radius: 2px;
+  box-shadow: -10px 9px 21px 0 rgba(152, 173, 227, 0.08);
+  border: solid 1px #e8ebf2;
+  background-color: #ffffff;
+  color: #172c3d;
+
+  background: white;
+  position: absolute;
+  min-width: ${props => props.minWidth};
+  z-index: 1;
+  margin-top: 2px;
+  left: ${props => (props.alignRight ? 'auto' : 0)};
+  right: ${props => (!props.alignRight ? 'auto' : 0)};
+  white-space: nowrap;
+  max-height: 280px;
+  overflow-y: auto;
+`
+
+MenuBase.defaultProps = { theme }
+
+const Wrapper = styled.div`
+  ${space} ${width} ${fontSize} display: inline-block;
+  border-radius: ${props => px(props.theme.radius)};
+  vertical-align: top;
+  position: relative;
+`
+
+const Item = styled.div`
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 16px;
+  padding-right: 16px;
+  border-top: ${props =>
+    props.border && '1px solid ' + props.theme.colors.gray.main};
+  border-radius: ${props => px(props.theme.radius)};
+  &:hover {
+    background: ${props => props.theme.colors.gray.light};
+  }
+`
+
+Item.defaultProps = { theme }
+
+const IconWrapper = styled.span`
+  width: 28px;
+`
+
+const JoinedButton = styled(Button)`
+  margin: 0;
+`
+const px = (n) => (typeof n === 'number' ? n + 'px' : n);
+
+const Toggle = ({ open, handler, label, joined, ...props }) => {
+  if (joined) {
+    if (label) {
+      return (
+        <JoinedButton {...props} pl={16} pr={0} onClick={handler}>
+          <Flex justify='space-between' align='center'>
+            <Box mt='1px'>{label}</Box>
+            <IconWrapper>
+              {open ? <IconCaretUp /> : <IconCaretDown />}
+            </IconWrapper>
+          </Flex>
+        </JoinedButton>
+      )
+    }
+    return (
+      <JoinedButton {...props} square onClick={handler}>
+        {open ? <IconCaretUp /> : <IconCaretDown />}
+      </JoinedButton>
+    )
+  }
   return (
-    <Link
-      style={{ width: '100%' }}
-      {...props}
-      color={color}
-      to={asset.browser_download_url}
-    >
-      {asset.prettyName || asset.name}
-    </Link>
+    <ToggleBase {...props} onClick={handler}>
+      {open ? <IconCaretUp /> : <IconCaretDown />}
+    </ToggleBase>
   )
 }
 
-class DownloadButton extends Component {
+class DropDownButton extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      primaryAsset: null,
-      assets: props.assets
+      open: false,
+      minWidth: 0
     }
   }
 
-  componentDidMount() {
-    const assets = this.state.assets
-    // only run if we have assets and if there is an os prop
-    if (assets.length < 1 || !assets[0].os) {
-      this.setState({
-        primaryAsset: null,
-        assets: assets
-      })
-      return
-    }
-
-    const client = new Sniffr()
-    client.sniff(window.navigator.userAgent)
-    client.os.arch = arch()
-
-    // give points for not matching
-    const score = (condition, p) => (!condition ? p : 0)
-
-    const sortedAssets = sortBy(assets, l => {
-      let assetScore = score(
-        l.os.toLowerCase() === client.os.name.toLowerCase(),
-        2
-      )
-      if (assetScore === 0) {
-        assetScore = assetScore + (l.arch === client.os.arch, 1)
-      }
-
-      return assetScore
-    })
-
+  toggle(e) {
     this.setState({
-      primaryAsset: sortedAssets.shift(),
-      assets: sortedAssets
+      open: !this.state.open,
+      minWidth: this.base && this.base.offsetWidth
     })
   }
 
-  render(props) {
-    const getter = key => get(props, key)
-    const tracker = this.context.tracker
-    const assets = [...this.state.assets].filter(t => {
-      // etcher specifc code
-      return t.type !== 'CLI'
-    })
+  render() {
+    const {
+      alignRight,
+      children,
+      label,
+      border,
+      joined,
+      noListFormat,
+      outline,
+      tooltip,
+      ...props
+    } = this.props
+
+    const dropdownContents = isArray(children) ? children : [children]
 
     return (
-      <DropDownButton
-        {...props}
-        emphasized
-        primary
-        joined={!this.state.primaryAsset}
-        label={
-          this.state.primaryAsset ? (
-            <Asset
-              px={3}
-              onClick={() => {
-                tracker.create('download', this.state.primaryAsset)
-              }}
-              asset={this.state.primaryAsset}
-              color={'white'}
-            />
-          ) : (
-              <Text px={3}>Download</Text>
-            )
-        }
-      >
-        {assets.map((asset, i) => {
-          return (
-            <Asset
-              key={i}
-              py={2}
-              asset={asset}
-              onClick={() => {
-                tracker.create('download', asset)
-              }}
-              color={getter('theme.colors.gray.dark')}
-            />
-          )
-        })}
-      </DropDownButton>
+      <Wrapper {...props}>
+        {joined ? (
+          <Toggle
+            {...props}
+            tooltip={tooltip}
+            outline={outline}
+            joined={joined}
+            label={label}
+            handler={e => this.toggle(e)}
+            open={this.state.open}
+          />
+        ) : (
+            <span>
+              <ButtonBase {...props} tooltip={tooltip} outline={outline}>
+                {label}
+              </ButtonBase>
+              <Toggle
+                {...props}
+                outline={outline}
+                handler={e => this.toggle(e)}
+                open={this.state.open}
+              />
+            </span>
+          )}
+        {this.state.open && <Fixed onClick={e => this.toggle(e)} />}
+        {this.state.open && (
+          <MenuBase
+            alignRight={alignRight}
+            onClick={e => this.toggle(e)}
+            minWidth={`${this.state.minWidth}px`}
+          >
+            {dropdownContents.map((child, i) => {
+              if (noListFormat) {
+                return child
+              }
+              if (!child) {
+                return
+              }
+              if (child.type === Divider) {
+                return child
+              }
+              return (
+                <Item border={border && i} key={i}>
+                  {child}
+                </Item>
+              )
+            })}
+          </MenuBase>
+        )}
+      </Wrapper>
     )
   }
 }
 
-DownloadButton.contextTypes = {
-  tracker: React.PropTypes.object
-}
-
-export default withTheme(DownloadButton)
+export default compose(withTheme)(DropDownButton)
