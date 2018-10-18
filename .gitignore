@@ -1,0 +1,7 @@
+.next
+node_modules
+.DS_store
+build
+config/cache.json
+static/index.css
+static/success-banner.css

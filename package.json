@@ -1,0 +1,22 @@
+{
+  "name": "fin-site",
+  "version": "0.3.0",
+  "description": "Website for the Balena Fin board",
+  "main": "index.js",
+  "scripts": {
+    "start": "landr develop",
+    "build": "landr build",
+    "serve": "landr serve",
+    "deploy": "landr deploy",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Resin Inc. <hello@etcher.io>",
+  "license": "ISC",
+  "dependencies": {
+    "landr": "^2.3.0",
+    "styled-components": "^3.4.9"
+  },
+  "devDependencies": {
+    "babel-plugin-webpack-alias": "^2.1.2"
+  }
+}
