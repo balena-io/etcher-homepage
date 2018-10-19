@@ -92,8 +92,26 @@ const theme = userTheme => {
 };
 
 const globalStyles = theme => `
+
+@font-face {
+  font-family: "Nunito";
+	src: url("/fonts/Nunito-Regular.ttf") format("truetype");
+	font-weight: normal;
+}
+@font-face {
+  font-family: "Nunito";
+	src: url("/fonts/Nunito-Bold.ttf") format("truetype");
+	font-weight: 700;
+}
+@font-face {
+  font-family: "CircularStd";
+	src: url("/fonts/CircularStd-Book.otf") format("opentype");
+	font-weight: bold;
+}
+
 * { box-sizing: border-box; }
 body {
+	font-family: Nunito;
 	margin: 0;
 	color: ${theme.colors.text.main};
 }

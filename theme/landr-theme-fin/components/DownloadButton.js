@@ -18,8 +18,6 @@ const ToggleBase = styled(Button)`
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   margin-left: -10px;
-  border-left: 0;
-  margin: 0;
   border-width: ${props => props.outline && '1px'};
   vertical-align: top;
   background-color: ${props => props.background}
@@ -27,6 +25,8 @@ const ToggleBase = styled(Button)`
   border-top: 1px solid ${props => props.borderColor};
   border-bottom: 1px solid ${props => props.borderColor};
   border-right: 1px solid ${props => props.borderColor};
+  width: 50px;
+  font-size: 14px;
 `
 
 const ButtonBase = styled(Button)`
@@ -42,6 +42,8 @@ const ButtonBase = styled(Button)`
   border-top: 1px solid ${props => props.borderColor};
   border-bottom: 1px solid ${props => props.borderColor};
   border-right: 1px solid transparent;
+  width: ${props => props.width-40};
+  font-size: 14px;
 `
 
 const MenuBase = styled.div`

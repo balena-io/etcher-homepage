@@ -61,14 +61,14 @@ export default withTheme((props) => {
         </Flex>
 			</Flex>
       
-      <Flex direction='row' width={1/2} justifyContent='center'>
-
+      <Flex direction='row' justifyContent='center' alignItems='center'>
         <DownloadButton 
           mx={2} 
           color='#172c3d' 
           background='#a5de37' 
           borderColor='#a5de37' 
           releases={props.settings.releases}
+          width='210px'
         >
         {
           props.settings.releases.map((asset, index) => (
@@ -85,6 +85,7 @@ export default withTheme((props) => {
           label='Install experimental CLI'
           releases={props.settings.cliDownloads}
           whiteCaretStyle
+          width='210px'
         >
           {
             props.settings.cliDownloads.map((asset) => (
