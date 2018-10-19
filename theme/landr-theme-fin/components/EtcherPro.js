@@ -11,14 +11,6 @@ export const Card = styled(Box)`
   text-align: center;
 `;
 
-const LearnMoreLink = styled(Link)`
-  font-size: 14px;
-  color: '#fff;
-  &:hover {
-    color: #fff;
-  }
-`;
-
 export default withTheme(props => {
   return (
     <Container>
@@ -50,6 +42,7 @@ export default withTheme(props => {
         </Flex>
         <Flex width={1 / 2} direction='column'>
           <Box style={{ 
+            fontSize: '14px',
             width: '120px', 
             height: '29px', 
             borderTopLeftRadius: '14px', 
@@ -63,10 +56,10 @@ export default withTheme(props => {
           </Box>
           <Box width={2 / 3}>
             <Card style={{width: '384px', height: '329px'}} p={50} align='center'>
-              <Text align='center' mt={9} mb={30} size={11} color='#00aeef'>HARDWARE</Text>
+              <Text align='center' mt={9} mb={30} size='11px' color='#00aeef'>HARDWARE</Text>
               <Image src={etcherProLogo} />
-              <Text mt={30} align='center'>Etcher Pro is the next stage in Etcher’s journey, and an expansion of Etcher’s vision and focus.</Text>
-              <Button mt={30} primary style={{ borderRadius: '20px' }}><Link href={'/etcher/pro'}>Learn more</Link></Button>
+              <Text mt={30} align='center' size='14px'>Etcher Pro is the next stage in Etcher’s journey, and an expansion of Etcher’s vision and focus.</Text>
+              <Button mt={30} primary style={{ borderRadius: '20px' }}><Link style={{color: '#fff', fontSize: '14px'}} href='/etcher/pro'>Learn more</Link></Button>
             </Card>
           </Box>
         </Flex>

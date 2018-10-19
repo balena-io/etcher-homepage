@@ -2,7 +2,8 @@ import React from 'react';
 import { withTheme } from 'styled-components';
 import get from 'lodash/get';
 
-import { Link, Heading, Banner, Image, Flex } from 'resin-components';
+import { Heading, Banner, Image, Flex } from 'resin-components';
+import { Link } from 'landr'
 import DownloadButton from './DownloadButton'
 import background from '../images/red-background.svg';
 import imagePic from '../images/etcherImg/image.svg'
@@ -39,7 +40,7 @@ export default withTheme((props) => {
 				</Heading.h2>	
 			</Flex>
 
-			<Flex style={{ backgroundColor: '#3F617D' }} width={1 / 2} py={27} my={50} ml={50} mr={49} justifyContent='center'>
+      <Flex alignItems='center' justifyContent='center' style={{ backgroundColor: '#3F617D', padding: '50px 26px', margin: '50px auto' }} >
         <Flex direction='column' >
           <Image src={imagePic} />
           <Heading.h5 color='#fff' mt={16} align='center'>Select image</Heading.h5>
@@ -71,7 +72,7 @@ export default withTheme((props) => {
         >
         {
           props.settings.releases.map((asset, index) => (
-            <Link href={asset.href} color='#2a506f'>{asset.href}</Link>
+            <Link target to={asset.href} color='#2a506f'>{asset.text}</Link>
           ))   
         }
         </DownloadButton>
@@ -87,7 +88,7 @@ export default withTheme((props) => {
         >
           {
             props.settings.cliDownloads.map((asset) => (
-              <Link href={asset.href} color='#2a506f' blank>{asset.text}</Link>
+              <Link target to={asset.href} color='#2a506f' blank>{asset.text}</Link>
             ))
           }
         </DownloadButton>

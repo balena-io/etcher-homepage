@@ -11,6 +11,7 @@ import {
 
 import balenaLogo from '../images/balena.svg';
 import etcherLogo from '../images/etcher-logo.svg';
+import GitHubLogo from '../images/github.svg'
 
 import { Link, assets } from 'landr';
 import styled from 'styled-components';
