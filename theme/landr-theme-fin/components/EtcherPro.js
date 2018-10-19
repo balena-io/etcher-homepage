@@ -9,17 +9,13 @@ export const Card = styled(Box)`
   background-color: #ffffff;
   box-shadow: 0 2px 11px 0 rgba(0, 0, 0, 0.05);
   text-align: center;
-
-  padding: ${props => (props.noPadding ? 0 : '30px 45px')};
 `;
 
-const StyledLink = styled(Link)`
-  && {
-    font-size: 14px;
-    color: '#fff;
-    &:hover {
-      color: #fff;
-    }
+const LearnMoreLink = styled(Link)`
+  font-size: 14px;
+  color: '#fff;
+  &:hover {
+    color: #fff;
   }
 `;
 
@@ -52,7 +48,19 @@ export default withTheme(props => {
             </Flex>
           </Box>
         </Flex>
-        <Flex width={1 / 2}>
+        <Flex width={1 / 2} direction='column'>
+          <Box style={{ 
+            width: '120px', 
+            height: '29px', 
+            borderTopLeftRadius: '14px', 
+            borderTopRightRadius: '14px', 
+            backgroundColor: '#2a506f',
+            color: '#c8f178',
+            textAlign: 'center',
+            marginLeft: '25px',
+            padding: '6px'}}>
+            Coming soon
+          </Box>
           <Box width={2 / 3}>
             <Card style={{width: '384px', height: '329px'}} p={50} align='center'>
               <Text align='center' mt={9} mb={30} size={11} color='#00aeef'>HARDWARE</Text>
