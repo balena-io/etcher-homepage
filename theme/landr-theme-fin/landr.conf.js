@@ -10,11 +10,7 @@ module.exports = {
 				title: 'Home',
 				component: `${containers}/Home`,
 			},
-			{
-				path: '/success-banner',
-				title: 'success-banner',
-				component: `${containers}/success-banner`,
-			},
+
 			{
 				component: `${containers}/Docs`,
 				title: 'Docs',

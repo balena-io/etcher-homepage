@@ -110,6 +110,7 @@ const globalStyles = theme => `
 }
 
 * { box-sizing: border-box; }
+
 body {
 	font-family: Nunito;
 	margin: 0;
@@ -172,6 +173,9 @@ table tbody td {
 	color: ${theme.colors.text.main};
 	padding: 16px;
 	font-size: ${fontSizes[1]}px;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: CircularStd;
 }
 `;
 

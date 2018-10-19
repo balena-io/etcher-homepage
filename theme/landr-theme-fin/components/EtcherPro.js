@@ -3,7 +3,7 @@ import styled, { withTheme } from 'styled-components';
 import { Container, Heading, Flex, Text, Image, Box, Button, Link } from 'resin-components';
 import check from '../images/green-check.svg'
 import etcherPro from '../images/etcherPro/img.jpg'
-import etcherProLogo from '../images/balena-etcher-dark.svg'
+import etcherProLogo from '../images/balena-etcher-pro.svg'
 
 export const Card = styled(Box)`
   border-radius: 10px;
