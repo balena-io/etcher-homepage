@@ -55,15 +55,15 @@ const Footer = ({ repository, ...props }) => {
           </MenuLink>
         ))}
       </Flex>
-      <Flex mt='60px' mb='60px' alignItems='center' direction='row' width='100%'>
+      <Flex mt='60px' mb='60px' align='center' direction='row'>
         <Image src={balenaEtcher} />
-        <Flex  alignItems='flex-end'>
+        <Flex  align='center'>
           <Text.span fontSize='12px'>An open source project by</Text.span>
           <Link target to="https://balena.io">
             <Image src={balena} ml='5px'/>
           </Link>
         </Flex>
-    </Flex>
+      </Flex>
       <Flex alignItems='center'>
         {props.settings.ToSLinks.map((entry, i) => (
           <ToSLink
