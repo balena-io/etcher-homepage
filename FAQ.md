@@ -18,11 +18,9 @@ Ubuntu images (and potentially some other related GNU/Linux distributions) have 
 
 A consequence of this enhancement is that some programs, like parted get confused about the drive's format and partition table, printing warnings such as:
 
-```
 /dev/xxx contains GPT signatures, indicating that it has a GPT table. However, it does not have a valid fake msdos partition table, as it should. Perhaps it was corrupted -- possibly by a program that doesn't understand GPT partition tables. Or perhaps you deleted the GPT table, and are now using an msdos partition table. Is this a GPT partition table? Both the primary and backup GPT tables are corrupt. Try making a fresh table, and using Parted's rescue feature to recover partitions.
 
 Warning: The driver descriptor says the physical block size is 2048 bytes, but Linux says it is 512 bytes.
-```
 
 All these warnings are safe to ignore, and your drive should be able to boot without any problems.
 
@@ -32,12 +30,10 @@ Refer to [the following message from Ubuntu's mailing list](https://lists.ubuntu
 
 Electron is based on Gtk2, which can't run natively on Wayland. Fortunately, the XWayland Server provides backwards compatibility to run any X client on Wayland, including Etcher.
 
-This usually works out of the box on mainstream GNU/Linux distributions that properly support Wayland. If it doesn't, make sure the `xwayland.so` module is being loaded by declaring it in your [weston.ini](http://manpages.ubuntu.com/manpages/wily/man5/weston.ini.5.html):
+This usually works out of the box on mainstream GNU/Linux distributions that properly support Wayland. If it doesn't, make sure the xwayland.so module is being loaded by declaring it in your [weston.ini](http://manpages.ubuntu.com/manpages/wily/man5/weston.ini.5.html):
 
-```
 [core]
 modules=xwayland.so
-```
 
 ## What are the runtime GNU/LINUX dependencies?
 
@@ -45,11 +41,11 @@ modules=xwayland.so
 
 ## How can I simulate an update alert?
 
-You can set the `ETCHER_FAKE_S3_LATEST_VERSION` environment variable to a valid semver version (greater than the current version) to trick the application into thinking that what you put there is the latest available version, therefore causing the update notification dialog to be presented at startup.
+You can set the ETCHER_FAKE_S3_LATEST_VERSION environment variable to a valid semver version (greater than the current version) to trick the application into thinking that what you put there is the latest available version, therefore causing the update notification dialog to be presented at startup.
 
-Note that the value of the variable will be ignored if it doesn't match the release type of the current application version. For example, setting the variable to a production version (e.g. `ETCHER_FAKE_S3_LATEST_VERSION=2.0.0`) will be ignored if you're running a snapshot build, and vice-versa.
+Note that the value of the variable will be ignored if it doesn't match the release type of the current application version. For example, setting the variable to a production version (e.g. ETCHER_FAKE_S3_LATEST_VERSION=2.0.0) will be ignored if you're running a snapshot build, and vice-versa.
 
-See [`PUBLISHING.md`](https://github.com/resin-io/etcher/blob/master/docs/PUBLISHING.md) for more details about release types.
+See [PUBLISHING.md](https://github.com/resin-io/etcher/blob/master/docs/PUBLISHING.md) for more details about release types.
 
 ## How can I recover the broken drive?
 

@@ -57,14 +57,6 @@ module.exports = {
     },
     navigationLinks: [
       {
-        text: 'Repository',
-        link: 'https://github.com/resin-io/etcher/',
-      },
-      {
-        text: 'Changelog',
-        link: '/etcher/changelog',
-      },
-      {
         text: 'CLI',
         link: '/etcher/cli'
       },
@@ -74,12 +66,16 @@ module.exports = {
       },
       {
         text: 'Mailing list',
-        link: '/mailinglist',
+        link: '/etcher/mailinglist',
       },
       {
-        text: 'Docs',
-        link: 'https://github.com/resin-io/etcher/tree/master/docs',
-      }
+        text: 'Changelog',
+        link: '/etcher/changelog',
+      },
+      {
+        text: 'EtcherPro',
+        link: '/etcher/pro',
+      },
     ],
     ToSLinks: [
       {

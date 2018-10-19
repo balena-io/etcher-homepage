@@ -1,15 +1,19 @@
 import React from 'react';
-import { withTheme } from 'styled-components';
+import styled, { withTheme } from 'styled-components';
 import get from 'lodash/get';
 
-import { Heading, Banner, Image, Flex } from 'resin-components';
-import { Link } from 'landr'
+import { Heading, Banner, Image, Flex, Link, DropDownButton } from 'resin-components';
 import DownloadButton from './DownloadButton'
 import background from '../images/red-background.svg';
 import imagePic from '../images/etcherImg/image.svg'
 import drivePic from '../images/etcherImg/drive.svg'
 import flashPic from '../images/etcherImg/flash.svg'
 import arrowPic from '../images/etcherImg/arrow.svg'
+
+const gifHeading = styled(Heading.h5)`
+  transition: color 3s;
+  color: #fff;
+`
 
 export default withTheme((props) => {
   const getter = key => get(props, key);
@@ -72,7 +76,7 @@ export default withTheme((props) => {
         >
         {
           props.settings.releases.map((asset, index) => (
-            <Link target to={asset.href} color='#2a506f'>{asset.text}</Link>
+            <Link href={asset.href} color='#2a506f'>{asset.text}</Link>
           ))   
         }
         </DownloadButton>
@@ -86,13 +90,16 @@ export default withTheme((props) => {
           releases={props.settings.cliDownloads}
           whiteCaretStyle
           width='210px'
+          
         >
           {
             props.settings.cliDownloads.map((asset) => (
-              <Link target to={asset.href} color='#2a506f' blank>{asset.text}</Link>
+              <Link href={asset.href} color='#2a506f' blank>{asset.text}</Link>
             ))
           }
         </DownloadButton>
+
+        
         
       </Flex>
 		</Banner>

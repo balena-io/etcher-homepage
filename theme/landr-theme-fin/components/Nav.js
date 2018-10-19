@@ -6,7 +6,8 @@ import {
 	Flex,
 	Container,
 	Text,
-	DropDownButton,
+  DropDownButton,
+  Link as RLink
 } from 'resin-components';
 
 import balenaLogo from '../images/balena.svg';
@@ -69,47 +70,52 @@ const DesktopNavigation = styled(Flex)`
 	}
 `;
 
+
 const Nav = withTheme((props) => {
 	return (
 		<StickyHeader py={2}>
 			<Container>
-				<Flex justify="space-between" align="center" p={2}>
-					<Box>
-						<Flex alignItems='flex-end' mb={1}>
-							<Text.span fontSize={'12px'} color='#fff'>Open source project by</Text.span>
-							<Link target to="https://balena.io">
-								<Image ml={2} style={{ height: '20px' }} src={balenaLogo} />
-							</Link>
-						</Flex>
-						<Link to="/">
-							<Brand />
-						</Link>
-					</Box>
+        <Flex justify='space-between' style={{alignItems: 'center'}} mb={23}>
+          <Flex direction='row' style={{ alignItems: 'center' }} >
+            <Text.span fontSize={'12px'} color='#fff'>Open source project by</Text.span>
+            <Link target to="https://balena.io">
+              <Image ml={2} style={{ height: '20px'}} src={balenaLogo} />
+            </Link>
+          </Flex>
+          <RLink align='right' href='www.github.com' style={{marginTop: '-8px'}} >
+            <Image src={GitHubLogo} />
+          </RLink>
+        </Flex>
 
-					<MobileNavigation joined primary>
-						<Flex direction="column">
-							{props.settings.navigationLinks.map((entry, i) => (
-								<MenuLink my={2} key={i} to={entry.link} blank={entry.isBlank}>
-									{entry.text}
-								</MenuLink>
-							))}
-						</Flex>
-					</MobileNavigation>
+        <Flex justify='space-between' style={{ alignItems: 'center' }}>
+          <Link to="/">
+            <Brand />
+          </Link>
+          <MobileNavigation joined primary>
+            <Flex direction="column">
+              {props.settings.navigationLinks.map((entry, i) => (
+                <MenuLink my={2} key={i} to={entry.link} blank={entry.isBlank}>
+                  {entry.text}
+                </MenuLink>
+              ))}
+            </Flex>
+          </MobileNavigation>
 
-					<DesktopNavigation align="center">
-						{props.settings.navigationLinks.map((entry, i) => (
-							<MenuLink
-								underline
-								mx={3}
-								key={i}
-								to={entry.link}
-								blank={entry.isBlank}
-							>
-								{entry.text}
-							</MenuLink>
-						))}
-					</DesktopNavigation>
-				</Flex>
+          <DesktopNavigation align="center">
+            {props.settings.navigationLinks.map((entry, i) => (
+              <MenuLink
+                underline
+                mx={3}
+                key={i}
+                to={entry.link}
+                blank={entry.isBlank}
+              >
+                {entry.text}
+              </MenuLink>
+            ))}
+          </DesktopNavigation>
+        </Flex>
+
 			</Container>
 		</StickyHeader>
 	);
