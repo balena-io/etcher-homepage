@@ -5,6 +5,29 @@ module.exports = {
 		lead: 'Flash. Flawless.',
     description: 'Flash OS images to SD cards & USB drives, safely and easily.',
     featuresLead: 'A better way to burn.',
+    proLead: 'The Etcher you love, with the perfect hardware',
+    featuresPro: [
+      {
+        "title": "Multi-Write",
+        "icon": "write",
+        "description": "Duplicate 1 SD Card, USB Stick, or External Hard Disk to 16. Or write an image file, either from the web, USB Stick, or External Disk, to 16 Destinations (SD Card, USB Sticks, or External Disks). With Etcher Pro, it’s a matter of a few taps."
+      },
+      {
+        "title": "Insane Speeds",
+        "icon": "speed",
+        "description": "We built Etcher Pro with meticulous attention to the hardware, to assure the fastest writing speed available on the market today. Each Etcher Pro can write with a maximum speed of 60MB/s per port, and 750MB/s total. This is of course limited by the maximum speed of the drives you are writing to, but at least the hardware will no longer slow you down!"
+      },
+      {
+        "title": "Modular Expansion",
+        "icon": "modular",
+        "description": "Are 16 cards too few for you? Good news! Etcher Pro is modularly expandable. Simply connect two Etcher Pro devices together, they will act as one device with 32 destination slots. If you want even more ports, just add more devices, and write to dozens of cards simultaneously. Etcher Pro can expand up to 160 ports, while continuing to operate at full speed."
+      },
+      {
+        "title": "Competitive Pricing",
+        "icon": "price",
+        "description": "For the first time ever, a professional card and flash drive duplicator that doesn’t break the bank. Etcher Pro will be competitively priced, finally making it affordable for regular people, schools and small businesses to simultaneously write to external media fast."
+      },
+    ],
 		features: [
         {
           "title": "Validated Flashing",
@@ -46,13 +69,19 @@ module.exports = {
 			gosquaredId: 'GSN-954701-N',
 			prefix: 'Etcher Website',
 			tagManagerId: 'GTM-WPMGNJJ'
-		},
+    },
     motivation: {
       blogPost:
         'https://resin.io/blog/tag/etcher',
       paragraphs: [
         "Here at <a target='_blank' href='https://resin.io'>resin.io</a> we have thousands of users working through our getting started process and until recently we were embarassed about the steps that involved flashing an SD card. There was a separate track for each Mac/Windows/Linux and several manual and error-prone steps along the way.",
         "To our surprise there was nothing out there that fitted our needs. So we built Etcher, an SD card flasher app that is simple for end users, extensible for developers, and works on any platform. "
+      ]
+    },
+    motivationPro: {
+      paragraphs: [
+        "Etcher is already the best and fastest way for writing to disk images, in fact it’s currently writing 500,000 SD Cards & USB Drives per month! Now, we are working on a way for you to write to more devices, with the same ease of use and streamlined interface you have come to expect from Etcher, and completely independent from your computer.",
+        "Etcher Pro is a stand-alone hardware device that allows you to write to multiple cards or usb disks at once, at extreme speeds. Compared to a traditional Disk Duplicator, Etcher Pro is faster and less expensive, while at the same time easier to use and packed with features, so that you can do much more than just copy SD Cards."
       ]
     },
     navigationLinks: [

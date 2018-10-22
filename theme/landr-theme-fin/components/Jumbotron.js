@@ -13,9 +13,6 @@ import arrowPic from '../images/etcherImg/arrow.svg'
 
 export default withTheme((props) => {
   const getter = key => get(props, key);
-  const downloadAssets = [
-    { key: 'Something', type: 'sometype', name: 'somename', browser_download_url: 'www.download.com' }
-  ]
 
 	return (
 		<Banner

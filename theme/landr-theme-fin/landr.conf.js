@@ -6,7 +6,7 @@ module.exports = {
 	getRoutes: ({ siteProps }) => {
 		const routes = [
 			{
-				path: '/',
+				path: '/etcher',
 				title: 'Home',
 				component: `${containers}/Home`,
 			},
@@ -14,10 +14,22 @@ module.exports = {
 			{
 				component: `${containers}/Docs`,
 				title: 'Docs',
-				path: '/docs',
+				path: '/etcher/docs',
 				children: siteProps.docs.map(doc => {
 					return {
 						component: `${containers}/Doc`,
+						title: doc.title,
+						path: `/${doc.slug}`,
+					};
+				}),
+			},
+			{
+				component: `${containers}/Pro`,
+				title: 'EtcherPro',
+				path: '/etcher/pro',
+				children: siteProps.docs.map(doc => {
+					return {
+						component: `${containers}/Pro`,
 						title: doc.title,
 						path: `/${doc.slug}`,
 					};

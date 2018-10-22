@@ -17,7 +17,6 @@ const EtcherProComponent = styled(Flex)`
   background-repeat: no-repeat;
   background-position: right;
   background-size: auto;
-  margin-top: 41px;
 `
 
 export default withTheme(props => {

@@ -8,9 +8,8 @@ function createMarkup(html) {
 }
 
 export default withTheme(props => {
-  console.log('Motivation: ',props)
 	return (
-		<Box px={3} mb={5}>
+		<Box style={{ marginTop: '120px' }}>
 			<Container>
 				<Heading.h5
 					fontSize={14}

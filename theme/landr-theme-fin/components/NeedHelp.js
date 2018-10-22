@@ -10,7 +10,7 @@ const Footer = () => {
 				<Flex justify="center" my={4}>
 					<Text.span fontSize={3}>
 						Need help? Check out the{' '}
-						<Link blank to="https://forums.resin.io/c/balena-fin">
+						<Link blank to="https://forums.balena.io/c/etcher">
 							community forums
 						</Link>
 					</Text.span>
