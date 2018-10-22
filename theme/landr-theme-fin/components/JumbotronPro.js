@@ -47,11 +47,11 @@ export default withTheme((props) => {
         </Heading.h1>
       </Flex>
 
-      <Flex style={{justifyContent: 'space-evenly'}}>
+      <Flex style={{justifyContent: 'space-evenly', alignItems: 'center', marginTop: '68px'}}>
 
-        <Image src={etcherPro} imgSet={imageSet} width={[1, 1, 1, 1 / 2]} style={{ height: '100%', marginTop: '68px'}}/>
+        <Image src={etcherPro} imgSet={imageSet} width={[1, 1, 1, 1 / 2]} style={{ height: '100%'}}/>
 
-        <Flex width={1 / 4} direction='column' style={{ marginTop: '124px' }}>
+        <Flex width={1 / 4} direction='column'>
           <Box style={{
             fontSize: '14px',
             width: '120px',
@@ -67,9 +67,9 @@ export default withTheme((props) => {
             Coming soon
         </Box>
           <Box width={2 / 3}>
-            <Card style={{ width: '384px', height: '329px', marginRight: '326px' }} p={50} align='center'>
+            <Card style={{ width: '386px', height: '320px'}} p={50} align='center'>
               <Image src={etcherProLogo} />
-              <Text mt={30} align='center' size='14px'>Keep up with our progress and sign up on our mailing list.</Text>
+              <Text mt={30} align='center' size='14px' color='#2a506f'>Keep up with our progress and sign up on our mailing list.</Text>
               <Input emphasized m={2} placeholder='Email'
                 style={{
                   backgroundColor: '#f6f6f6', color: '#979797',
