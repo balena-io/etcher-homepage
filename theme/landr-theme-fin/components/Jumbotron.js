@@ -2,7 +2,7 @@ import React from 'react';
 import styled, { withTheme } from 'styled-components';
 import get from 'lodash/get';
 
-import { Heading, Banner, Image, Flex, Link, DropDownButton } from 'resin-components';
+import { Heading, Banner, Image, Flex, Link, Text } from 'resin-components';
 import DownloadButton from './DownloadButton'
 import background from '../images/red-background.svg';
 import imagePic from '../images/etcherImg/image.svg'
@@ -10,10 +10,6 @@ import drivePic from '../images/etcherImg/drive.svg'
 import flashPic from '../images/etcherImg/flash.svg'
 import arrowPic from '../images/etcherImg/arrow.svg'
 
-const gifHeading = styled(Heading.h5)`
-  transition: color 3s;
-  color: #fff;
-`
 
 export default withTheme((props) => {
   const getter = key => get(props, key);
@@ -47,21 +43,21 @@ export default withTheme((props) => {
       <Flex alignItems='center' justifyContent='center' style={{ backgroundColor: '#3F617D', padding: '50px 26px', margin: '50px auto' }} >
         <Flex direction='column' >
           <Image src={imagePic} />
-          <Heading.h5 color='#fff' mt={16} align='center'>Select image</Heading.h5>
+          <Text bold color='#fff' mt={16} align='center' style={{size: '16px'}}>Select image</Text>
         </Flex>
         <Flex mx={25}>
           <Image src={arrowPic} />
         </Flex>
         <Flex direction='column' mx={25}>
           <Image src={drivePic} />
-          <Heading.h5 color='#325069' mt={16} align='center'>Select drive</Heading.h5>
+          <Text bold color='#325069' mt={16} align='center' style={{ size: '16px' }}>Select drive</Text>
         </Flex>
         <Flex mx={25}>
           <Image src={arrowPic} />
         </Flex>
         <Flex direction='column' mx={25}>
           <Image src={flashPic} />
-          <Heading.h5 color='#325069' mt={16} align='center'>Flash!</Heading.h5>
+          <Text bold color='#325069' mt={16} align='center' style={{ size: '16px' }}>Flash!</Text>
         </Flex>
 			</Flex>
       
@@ -73,6 +69,10 @@ export default withTheme((props) => {
           borderColor='#a5de37' 
           releases={props.settings.releases}
           width='210px'
+          style={{
+            fontFamily: 'Nunito',
+            fontWeight: 'bold'
+          }}
         >
         {
           props.settings.releases.map((asset, index) => (
@@ -90,6 +90,10 @@ export default withTheme((props) => {
           releases={props.settings.cliDownloads}
           whiteCaretStyle
           width='210px'
+          style={{
+            fontFamily: 'Nunito',
+            fontWeight: 'bold'
+          }}
           
         >
           {

@@ -24,8 +24,6 @@ const Content = styled.div`
 const windowGlobal = typeof window !== 'undefined' && window;
 
 export default getSiteProps(props => {
-	const minimal = windowGlobal.location.pathname !== '/success-banner'
-	console.log(windowGlobal.location.pathname === '/success-banner')
 	const getProp = key => get(props, key);
 	const mergedTheme = ThemeStyles(getProp('settings.theme'));
 	injectGlobal`${globalStyles(mergedTheme)}`;
@@ -38,11 +36,11 @@ export default getSiteProps(props => {
 				<Provider theme={mergedTheme}>
 					<Wrapper>
 						<Helmet {...props} />
-						{ minimal && <Nav {...props} />}
+						<Nav {...props} />
 						<Content>
 							<Routes />
 						</Content>
-						{ minimal && <Footer {...props} />}
+						<Footer {...props} />
 					</Wrapper>
 				</Provider>
 			</Tracker>

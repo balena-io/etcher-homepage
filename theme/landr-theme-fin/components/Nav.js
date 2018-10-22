@@ -28,6 +28,8 @@ const MenuLink = styled(Link)`
 		color: #fff;
 		position: relative;
 		transition: color .1s ease-in;
+		font-family: Nunito;
+		font-weight: bold;
 
 		&:before {
 			content: ${props => (props.underline ? ' ' : 'none')};

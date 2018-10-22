@@ -101,12 +101,11 @@ const globalStyles = theme => `
 @font-face {
   font-family: "Nunito";
 	src: url("/fonts/Nunito-Bold.ttf") format("truetype");
-	font-weight: 700;
+	font-weight: bold;
 }
 @font-face {
   font-family: "CircularStd";
 	src: url("/fonts/CircularStd-Book.otf") format("opentype");
-	font-weight: bold;
 }
 
 * { box-sizing: border-box; }
@@ -153,29 +152,17 @@ code {
 	background: ${theme.colors.primary.main}20;
 	border-radius: ${theme.radius}px;
 }
-table {
-	border: solid 1px ${theme.colors.gray.light};
-	border-collapse: collapse;
-	border-spacing: 0;
+h1, h2 {
+  font-family: CircularStd-Book;
 }
-table thead th {
-	border: solid 1px ${theme.colors.gray.light};
-	background: ${theme.colors.primary.light};
-	color: #fff;
-	padding: 16px;
-	text-align: left;
-	font-weight: strong;
-	font-size: ${fontSizes[2]}px;
-
+h2 {
+  font-family: Nunito;
 }
-table tbody td {
-	border: solid 1px ${theme.colors.gray.main};
-	color: ${theme.colors.text.main};
-	padding: 16px;
-	font-size: ${fontSizes[1]}px;
+h3 {
+  font-family: Nunito;
 }
-h1, h2, h3, h4, h5, h6 {
-  font-family: CircularStd;
+h5 {
+  font-family: CircularStd-Medium;
 }
 `;
 
